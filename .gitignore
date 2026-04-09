@@ -1,0 +1,14 @@
+.DS_Store
+.mplcache/
+__pycache__/
+*.pyc
+*.pyo
+*.swp
+
+# Local reference material and scratch files not needed for sharing
+Guide for Starting Industrial_190614_pages.pdf
+Power Stabilization for AI Training Datacenters - 2508.14318v2 (1).pdf
+DC_Subtransmission_Backbone_for_AI_Factories_White_Paper_scrubbed.docx
+Poster - Direct Current (DC) Subtransmission Backbone for AI Factories Mar25.pdf
+base_case_assumptions.json
+whitepaper/.DS_Store

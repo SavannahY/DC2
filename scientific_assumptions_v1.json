@@ -1,0 +1,371 @@
+{
+  "meta": {
+    "title": "Source-backed v1 assumptions for DC backbone comparison",
+    "status": "source_backed_v1",
+    "warning": "This file mixes public-source values with explicitly labeled engineering proxies where public data is not available. Dynamic frequencies are source-backed; dynamic amplitudes are sensitivity cases, not measured universal constants. The advanced architectures use an NVIDIA-style 800 VDC downstream structure, while the 69 kV subtransmission assumption is a user-specified scenario input rather than a direct NVIDIA-published value."
+  },
+  "sources": {
+    "iea_2025_energy_ai": {
+      "title": "IEA Energy and AI",
+      "date": "2025-04-10",
+      "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+      "type": "Tier A"
+    },
+    "eia_electricity_monthly_2026_01": {
+      "title": "EIA Electricity Monthly Update with Data for January 2026",
+      "date": "2026-03-24",
+      "url": "https://www.eia.gov/electricity/monthly/update/end-use.php",
+      "type": "Tier A"
+    },
+    "nvidia_dgx_superpod_gb200_2025": {
+      "title": "NVIDIA DGX SuperPOD GB200 Reference Architecture",
+      "date": "2025-11-19",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/dgx-superpod-architecture.html",
+      "type": "Tier A"
+    },
+    "nvidia_800vdc_blog_2025": {
+      "title": "NVIDIA 800 VDC Architecture Will Power the Next Generation of AI Factories",
+      "date": "2025-05-20",
+      "url": "https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/",
+      "type": "Tier C"
+    },
+    "opendss_epri_2026": {
+      "title": "OpenDSS Overview",
+      "date": "2026-04-08",
+      "url": "https://opendss.epri.com/OpenDSSOverview.html",
+      "type": "Tier A"
+    },
+    "opendss_quasi_static_local_2026": {
+      "title": "Local OpenDSS AC-boundary validation setup",
+      "date": "2026-04-08",
+      "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
+      "type": "Local"
+    },
+    "pnnl_38817_2026": {
+      "title": "Electromagnetic Transient Modeling of Data Centers",
+      "date": "2026-01-01",
+      "url": "https://www.energy.gov/sites/default/files/2026-01/Data_Center_EMT_Models.pdf",
+      "type": "Tier A"
+    },
+    "arxiv_2508_14318": {
+      "title": "Power Stabilization for AI Training Datacenters",
+      "date": "2025-08-20",
+      "url": "https://arxiv.org/abs/2508.14318",
+      "type": "Tier C"
+    },
+    "segan_2025_14_8hz": {
+      "title": "Understanding the inception of 14.7 Hz oscillations emerging from a data center",
+      "date": "2025-01-01",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S2352467725001171",
+      "type": "Tier B"
+    },
+    "schneider_galaxy_vx_2025": {
+      "title": "Galaxy VX Technical Specifications",
+      "date": "2025-07-01",
+      "url": "https://www.productinfo.schneider-electric.com/galaxyvx_iec/5ac76feb46e0fb00011d4e36/990-5850E%20400%20V%20Technical%20Specifications/English/990-5850N_EN.pdf",
+      "type": "Tier A"
+    },
+    "ocp_delta_orv3": {
+      "title": "Delta 18kW 1OU Open Rack v3 Power Shelf",
+      "date": "2026-01-01",
+      "url": "https://www.opencompute.org/products/431/delta-18kw-1ou-open-rack-v3-power-shelf",
+      "type": "Tier A"
+    },
+    "rothmund_2019_dc_transformer": {
+      "title": "99% Efficient 10 kV SiC-Based 7 kV/400 V DC Transformer for Future Data Centers",
+      "date": "2019-01-01",
+      "url": "https://doi.org/10.1109/JESTPE.2018.2886139",
+      "type": "Tier B"
+    },
+    "white_paper_local_2026": {
+      "title": "Direct Current Subtransmission Backbone for AI Factories white paper",
+      "date": "2026-04-07",
+      "url": "file:///Users/zhengjieyang/Documents/DC2/DC_Subtransmission_Backbone_for_AI_Factories_White_Paper_scrubbed.docx",
+      "type": "Local"
+    },
+    "user_specified_69kv_scenario_2026": {
+      "title": "User-specified 69 kV subtransmission scenario",
+      "date": "2026-04-08",
+      "url": "local-conversation",
+      "type": "Local"
+    }
+  },
+  "global": {
+    "base_it_load_mw": 100.0,
+    "base_it_load_mw_note": "Reference hyperscale campus anchor. IEA chart notes use 100 MW as the representative hyperscale data center size.",
+    "base_it_load_mw_source_ids": ["iea_2025_energy_ai"],
+    "electricity_price_per_mwh": 92.9,
+    "electricity_price_per_mwh_note": "U.S. industrial average revenue per kWh for January 2026 converted from 9.29 cents/kWh.",
+    "electricity_price_per_mwh_source_ids": ["eia_electricity_monthly_2026_01"],
+    "default_power_factor": 0.98,
+    "default_power_factor_note": "Engineering assumption for AC conductor current calculations; replace with site-specific measured PF.",
+    "default_power_factor_source_ids": [],
+    "scalable_unit_tdp_mw": 1.2,
+    "scalable_unit_tdp_mw_source_ids": ["nvidia_dgx_superpod_gb200_2025"],
+    "racks_per_scalable_unit": 8,
+    "racks_per_scalable_unit_source_ids": ["nvidia_dgx_superpod_gb200_2025"]
+  },
+  "load_profile": [
+    {
+      "name": "reference_continuous_operation",
+      "load_fraction": 1.0,
+      "hours_fraction": 1.0,
+      "note": "Reference full-load year to avoid inventing an unsupported annual load factor."
+    }
+  ],
+  "dynamic_model": {
+    "marginal_delta_fraction": 0.01,
+    "cases": [
+      {
+        "name": "electromechanical_band_reference",
+        "frequency_hz": 1.0,
+        "frequency_basis": "Representative test point inside the 0.1-5 Hz range that PNNL identifies as relevant to positive-sequence stability studies. This is a modeling reference point, not a directly measured universal AI-workload frequency.",
+        "source_ids": ["pnnl_38817_2026", "arxiv_2508_14318"],
+        "amplitude_sweep_fraction": [0.05, 0.10, 0.15]
+      },
+      {
+        "name": "measured_14_8hz_case",
+        "frequency_hz": 14.8,
+        "frequency_basis": "Measured oscillation frequency reported in a data-center-rich Dominion Energy region. PNNL cites 5-60 Hz as the main EMT-relevant band for forced oscillation studies.",
+        "source_ids": ["segan_2025_14_8hz", "pnnl_38817_2026"],
+        "amplitude_sweep_fraction": [0.02, 0.05, 0.10]
+      }
+    ]
+  },
+  "opendss_validation": {
+    "note": "OpenDSS is used as an AC-side quasi-static validation layer for the source-to-PCC feeder boundary. The downstream DC network remains represented by an equivalent load at that AC boundary; this is not an EMT model of the MVDC backbone or the 800 VDC plant.",
+    "source_ids": ["opendss_epri_2026", "opendss_quasi_static_local_2026"],
+    "line_x_to_r_ratio": 1.0,
+    "zero_sequence_multiplier": 3.0,
+    "centralized_front_end_ac_stub_length_m": 20.0,
+    "centralized_front_end_ac_stub_circuits": 1,
+    "samples_per_cycle": 64,
+    "simulated_cycles": 2
+  },
+  "curves": {
+    "mv_lv_transformer": {
+      "points": [[0.2, 0.985], [0.5, 0.989], [0.8, 0.991], [1.0, 0.992]],
+      "note": "Engineering proxy for large transformer efficiency.",
+      "source_ids": []
+    },
+    "double_conversion_ups": {
+      "points": [[0.25, 0.962], [0.5, 0.963], [0.75, 0.958], [1.0, 0.952]],
+      "note": "Approximate 415 V normal-operation efficiency points from the Schneider Galaxy VX technical specifications.",
+      "source_ids": ["schneider_galaxy_vx_2025"]
+    },
+    "pdu_transformer": {
+      "points": [[0.2, 0.972], [0.5, 0.978], [0.8, 0.982], [1.0, 0.985]],
+      "note": "Engineering proxy for downstream AC transformer / PDU losses.",
+      "source_ids": []
+    },
+    "server_psu_acdc": {
+      "points": [[0.2, 0.93], [0.5, 0.95], [0.8, 0.968], [1.0, 0.975]],
+      "note": "Modern AC-DC shelf benchmark anchored to OCP Delta's >97.5% figure at rated conditions.",
+      "source_ids": ["ocp_delta_orv3"]
+    },
+    "board_dcdc": {
+      "points": [[0.2, 0.94], [0.5, 0.955], [0.8, 0.965], [1.0, 0.970]],
+      "note": "Engineering proxy for board-level conversion.",
+      "source_ids": []
+    },
+    "grid_side_acdc": {
+      "points": [[0.2, 0.975], [0.5, 0.984], [0.8, 0.988], [1.0, 0.990]],
+      "note": "Engineering proxy for high-power grid-side rectifier efficiency.",
+      "source_ids": []
+    },
+    "hf_isolated_dc_link": {
+      "points": [[0.2, 0.976], [0.5, 0.985], [0.8, 0.989], [1.0, 0.990]],
+      "note": "Anchored to 99% DC-transformer-class literature and used as a proxy for an AC-fed SST isolated stage.",
+      "source_ids": ["rothmund_2019_dc_transformer"]
+    },
+    "perimeter_69kvac_to_800vdc": {
+      "points": [[0.2, 0.965], [0.5, 0.975], [0.8, 0.979], [1.0, 0.981]],
+      "note": "Engineering proxy for a direct 69 kV AC to 800 VDC perimeter-conversion stage in an NVIDIA-style 800 VDC facility architecture.",
+      "source_ids": ["nvidia_800vdc_blog_2025", "rothmund_2019_dc_transformer", "user_specified_69kv_scenario_2026"]
+    },
+    "rack_node_dcdc": {
+      "points": [[0.2, 0.945], [0.5, 0.958], [0.8, 0.968], [1.0, 0.972]],
+      "note": "Engineering proxy for high-power rack/node DC-DC conversion anchored to modern high-efficiency rack power-conversion practice.",
+      "source_ids": ["ocp_delta_orv3"]
+    },
+    "central_mv_acdc": {
+      "points": [[0.2, 0.982], [0.5, 0.989], [0.8, 0.992], [1.0, 0.993]],
+      "note": "Engineering proxy for centralized subtransmission AC/DC front end anchored to the 800 VDC perimeter-conversion concept and high-efficiency power-conversion literature. In this scenario, the subtransmission voltage is user-set to 69 kV.",
+      "source_ids": ["nvidia_800vdc_blog_2025", "rothmund_2019_dc_transformer", "user_specified_69kv_scenario_2026"]
+    },
+    "isolated_dc_pod": {
+      "points": [[0.2, 0.978], [0.5, 0.986], [0.8, 0.990], [1.0, 0.991]],
+      "note": "Anchored to 99% DC-transformer-class literature and used as a proxy for an isolated DC pod / DC transformer.",
+      "source_ids": ["rothmund_2019_dc_transformer"]
+    }
+  },
+  "architectures": [
+    {
+      "name": "traditional_ac",
+      "display_name": "Traditional AC-centric",
+      "notes": "AC remains the dominant campus distribution domain and power quality ownership is distributed across multiple downstream AC interfaces. This baseline is intentionally not modeled as an 800 VDC data-center architecture.",
+      "native_buffer_anchor": "LV AC distribution",
+      "innovation_metrics": {
+        "ac_harmonic_injection_points": 4,
+        "major_conversion_stages": 5,
+        "downstream_reactive_coordination_points": 4,
+        "dc_native_resource_path": "Indirect; extra interfaces required"
+      },
+      "elements": [
+        {
+          "type": "conductor",
+          "name": "MV AC campus feeder",
+          "kind": "ac",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "resistance_ohm_per_km": 0.08,
+          "circuits": 8,
+          "source_ids": ["user_specified_69kv_scenario_2026"]
+        },
+        {
+          "type": "stage",
+          "name": "MV/LV transformer",
+          "curve": "mv_lv_transformer",
+          "rated_output_mw_factor": 1.08
+        },
+        {
+          "type": "stage",
+          "name": "Facility UPS",
+          "curve": "double_conversion_ups",
+          "rated_output_mw_factor": 1.05
+        },
+        {
+          "type": "conductor",
+          "name": "LV AC distribution",
+          "kind": "ac",
+          "voltage_kv": 0.48,
+          "length_m": 120.0,
+          "resistance_ohm_per_km": 0.015,
+          "circuits": 200
+        },
+        {
+          "type": "stage",
+          "name": "PDU / transformer stage",
+          "curve": "pdu_transformer",
+          "rated_output_mw_factor": 1.03
+        },
+        {
+          "type": "stage",
+          "name": "Server PSU AC/DC",
+          "curve": "server_psu_acdc",
+          "rated_output_mw_factor": 1.02
+        },
+        {
+          "type": "stage",
+          "name": "Board DC/DC",
+          "curve": "board_dcdc",
+          "rated_output_mw_factor": 1.01
+        }
+      ]
+    },
+    {
+      "name": "ac_fed_sst_800vdc",
+      "display_name": "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
+      "notes": "This comparison case is modeled as a direct 69 kV AC to 800 VDC perimeter-conversion path feeding the 800 VDC facility side, which more literally matches the NVIDIA-style architecture direction than the earlier AC-fed pod proxy.",
+      "native_buffer_anchor": "800 VDC facility bus",
+      "innovation_metrics": {
+        "ac_harmonic_injection_points": 1,
+        "major_conversion_stages": 3,
+        "downstream_reactive_coordination_points": 1,
+        "dc_native_resource_path": "Direct 800 VDC facility-side path, but AC remains upstream of the facility boundary"
+      },
+      "elements": [
+        {
+          "type": "conductor",
+          "name": "MV AC campus feeder",
+          "kind": "ac",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "resistance_ohm_per_km": 0.08,
+          "circuits": 8,
+          "source_ids": ["user_specified_69kv_scenario_2026"]
+        },
+        {
+          "type": "stage",
+          "name": "Perimeter 69 kV AC -> 800 VDC converter",
+          "curve": "perimeter_69kvac_to_800vdc",
+          "rated_output_mw_factor": 1.05
+        },
+        {
+          "type": "conductor",
+          "name": "800 VDC facility bus",
+          "kind": "dc",
+          "voltage_kv": 0.8,
+          "length_m": 80.0,
+          "resistance_ohm_per_km": 0.008,
+          "circuits": 40,
+          "source_ids": ["nvidia_800vdc_blog_2025"]
+        },
+        {
+          "type": "stage",
+          "name": "Rack / node DC/DC",
+          "curve": "rack_node_dcdc",
+          "rated_output_mw_factor": 1.02
+        },
+        {
+          "type": "stage",
+          "name": "Board DC/DC",
+          "curve": "board_dcdc",
+          "rated_output_mw_factor": 1.01
+        }
+      ]
+    },
+    {
+      "name": "proposed_mvdc_backbone",
+      "display_name": "Proposed MVDC backbone",
+      "notes": "The AC/DC boundary moves to a common subtransmission front end. Downstream distribution is DC-native with an NVIDIA-style 800 VDC facility bus, while harmonics/PF are handled once at the grid interface. In this scenario, the subtransmission backbone voltage is set to 69 kV.",
+      "native_buffer_anchor": "MVDC backbone",
+      "innovation_metrics": {
+        "ac_harmonic_injection_points": 1,
+        "major_conversion_stages": 3,
+        "downstream_reactive_coordination_points": 1,
+        "dc_native_resource_path": "Native fit for BESS, PV, and pod/rack buffering"
+      },
+      "elements": [
+        {
+          "type": "stage",
+          "name": "Centralized MV AC/DC front end",
+          "curve": "central_mv_acdc",
+          "rated_output_mw_factor": 1.05
+        },
+        {
+          "type": "conductor",
+          "name": "MVDC backbone",
+          "kind": "dc",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "resistance_ohm_per_km": 0.08,
+          "circuits": 8,
+          "source_ids": ["white_paper_local_2026", "user_specified_69kv_scenario_2026"]
+        },
+        {
+          "type": "stage",
+          "name": "Isolated DC pod / DC transformer",
+          "curve": "isolated_dc_pod",
+          "rated_output_mw_factor": 1.03
+        },
+        {
+          "type": "conductor",
+          "name": "800 VDC facility bus",
+          "kind": "dc",
+          "voltage_kv": 0.8,
+          "length_m": 80.0,
+          "resistance_ohm_per_km": 0.008,
+          "circuits": 40,
+          "source_ids": ["nvidia_800vdc_blog_2025"]
+        },
+        {
+          "type": "stage",
+          "name": "Rack / node DC/DC",
+          "curve": "rack_node_dcdc",
+          "rated_output_mw_factor": 1.02
+        }
+      ]
+    }
+  ]
+}
