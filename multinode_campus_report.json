@@ -1,0 +1,1093 @@
+{
+  "topology_name": "multinode_default_campus",
+  "description": "Default multi-node campus topology shared by Scenario 1(M), Scenario 2(M), and Scenario 3(M).",
+  "campus_topology": {
+    "name": "multinode_default_campus",
+    "description": "Default multi-node campus topology shared by Scenario 1(M), Scenario 2(M), and Scenario 3(M).",
+    "source_node": "campus_source",
+    "blocks": [
+      {
+        "name": "Block_A",
+        "tap_node": "north_spine",
+        "it_load_mw": 25.0,
+        "branch_length_m": 55.0,
+        "branch_circuits": 4
+      },
+      {
+        "name": "Block_B",
+        "tap_node": "central_spine",
+        "it_load_mw": 25.0,
+        "branch_length_m": 65.0,
+        "branch_circuits": 4
+      },
+      {
+        "name": "Block_C",
+        "tap_node": "west_spine",
+        "it_load_mw": 25.0,
+        "branch_length_m": 75.0,
+        "branch_circuits": 4
+      },
+      {
+        "name": "Block_D",
+        "tap_node": "south_spine",
+        "it_load_mw": 25.0,
+        "branch_length_m": 85.0,
+        "branch_circuits": 4
+      }
+    ],
+    "shared_segments": [
+      {
+        "name": "source_to_north",
+        "from": "campus_source",
+        "to": "north_spine",
+        "length_m": 180.0
+      },
+      {
+        "name": "north_to_central",
+        "from": "north_spine",
+        "to": "central_spine",
+        "length_m": 220.0
+      },
+      {
+        "name": "central_to_west",
+        "from": "central_spine",
+        "to": "west_spine",
+        "length_m": 220.0
+      },
+      {
+        "name": "west_to_south",
+        "from": "west_spine",
+        "to": "south_spine",
+        "length_m": 180.0
+      }
+    ]
+  },
+  "architectures": [
+    {
+      "name": "traditional_ac",
+      "display_name": "Traditional AC-centric",
+      "scenario_label": "Scenario 1(M)",
+      "network_kind": "ac",
+      "source_voltage_kv": 69.0,
+      "full_load": {
+        "total_it_mw": 100.0,
+        "source_input_mw": 123.17059876706456,
+        "source_stage_loss_mw": 0.0,
+        "network_source_output_mw": 123.17059876706456,
+        "network_loss_mw": 0.013438074825785922,
+        "local_block_loss_mw": 23.157160692238776,
+        "total_loss_mw": 23.17059876706456,
+        "total_efficiency": 0.8118820643968461,
+        "segment_rows": [
+          {
+            "name": "source_to_north",
+            "from_node": "campus_source",
+            "to_node": "north_spine",
+            "kind": "ac",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 1051.659622182899,
+            "loss_mw": 0.0059723349890213415
+          },
+          {
+            "name": "north_to_central",
+            "from_node": "north_spine",
+            "to_node": "central_spine",
+            "kind": "ac",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 788.7598693364762,
+            "loss_mw": 0.004106138067739587
+          },
+          {
+            "name": "central_to_west",
+            "from_node": "central_spine",
+            "to_node": "west_spine",
+            "kind": "ac",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 525.8470741466311,
+            "loss_mw": 0.0018249999595645794
+          },
+          {
+            "name": "west_to_south",
+            "from_node": "west_spine",
+            "to_node": "south_spine",
+            "kind": "ac",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 262.9254553538472,
+            "loss_mw": 0.0003733008933943506
+          },
+          {
+            "name": "Block_A_tap",
+            "from_node": "north_spine",
+            "to_node": "block::Block_A",
+            "kind": "ac",
+            "length_m": 55.0,
+            "circuits": 4,
+            "current_a": 262.899752846423,
+            "loss_mw": 0.000228083724154144
+          },
+          {
+            "name": "Block_B_tap",
+            "from_node": "central_spine",
+            "to_node": "block::Block_B",
+            "kind": "ac",
+            "length_m": 65.0,
+            "circuits": 4,
+            "current_a": 262.91279518984504,
+            "loss_mw": 0.00026958023771069597
+          },
+          {
+            "name": "Block_C_tap",
+            "from_node": "west_spine",
+            "to_node": "block::Block_C",
+            "kind": "ac",
+            "length_m": 75.0,
+            "circuits": 4,
+            "current_a": 262.92161879278393,
+            "loss_mw": 0.0003110749993287809
+          },
+          {
+            "name": "Block_D_tap",
+            "from_node": "south_spine",
+            "to_node": "block::Block_D",
+            "kind": "ac",
+            "length_m": 85.0,
+            "circuits": 4,
+            "current_a": 262.9254553538472,
+            "loss_mw": 0.0003525619548724423
+          }
+        ],
+        "block_rows": [
+          {
+            "name": "Block_A",
+            "tap_node": "north_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 30.789290173059694,
+            "local_loss_mw": 5.789290173059694
+          },
+          {
+            "name": "Block_B",
+            "tap_node": "central_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 30.789290173059694,
+            "local_loss_mw": 5.789290173059694
+          },
+          {
+            "name": "Block_C",
+            "tap_node": "west_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 30.789290173059694,
+            "local_loss_mw": 5.789290173059694
+          },
+          {
+            "name": "Block_D",
+            "tap_node": "south_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 30.789290173059694,
+            "local_loss_mw": 5.789290173059694
+          }
+        ],
+        "block_node_voltage_kv": {
+          "Block_A": 68.99568311831067,
+          "Block_B": 68.9921462881563,
+          "Block_C": 68.98975369327177,
+          "Block_D": 68.98871342618301
+        },
+        "min_block_voltage_pu": 0.9998364264664205,
+        "block_tap_power_by_name_mw": {
+          "Block_A": 30.789290173059694,
+          "Block_B": 30.789290173059694,
+          "Block_C": 30.789290173059694,
+          "Block_D": 30.789290173059694
+        }
+      },
+      "annual_summary": {
+        "load_bins": [
+          {
+            "name": "reference_continuous_operation",
+            "scale": 1.0,
+            "hours": 8760.0,
+            "it_mw": 100.0,
+            "source_mw": 123.17059876706456,
+            "loss_mw": 23.17059876706456,
+            "efficiency": 0.8118820643968461
+          }
+        ],
+        "annual_it_mwh": 876000.0,
+        "annual_input_mwh": 1078974.4451994856,
+        "annual_loss_mwh": 202974.44519948564,
+        "annual_loss_cost_usd": 18856325.959032215,
+        "average_efficiency": 0.8118820643968461
+      },
+      "dynamic_summary": [
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.921275088567654,
+          "source_peak_fraction_of_base_input": 0.04807377042767925,
+          "max_segment_current_swing_a": 50.55767982211273,
+          "distributed_buffer_peak_mw": 5.920014082674328,
+          "distributed_buffer_energy_kwh": 0.26172208456423657
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 11.866611757418738,
+          "source_peak_fraction_of_base_input": 0.09634289251009011,
+          "max_segment_current_swing_a": 101.3207605140085,
+          "distributed_buffer_peak_mw": 11.86414711855383,
+          "distributed_buffer_energy_kwh": 0.5245104609686969
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 17.841508533960422,
+          "source_peak_fraction_of_base_input": 0.14485200780505733,
+          "max_segment_current_swing_a": 152.3361895603657,
+          "distributed_buffer_peak_mw": 17.837897368963965,
+          "distributed_buffer_energy_kwh": 0.7886082057323693
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 2.365631994543392,
+          "source_peak_fraction_of_base_input": 0.019206141873331178,
+          "max_segment_current_swing_a": 20.198503612426748,
+          "distributed_buffer_peak_mw": 2.3651207539443533,
+          "distributed_buffer_energy_kwh": 0.0070649523085486885
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.921275088567654,
+          "source_peak_fraction_of_base_input": 0.04807377042767925,
+          "max_segment_current_swing_a": 50.55767982211273,
+          "distributed_buffer_peak_mw": 5.920014082674328,
+          "distributed_buffer_energy_kwh": 0.017683924632718687
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 11.866611757418738,
+          "source_peak_fraction_of_base_input": 0.09634289251009011,
+          "max_segment_current_swing_a": 101.3207605140085,
+          "distributed_buffer_peak_mw": 11.86414711855383,
+          "distributed_buffer_energy_kwh": 0.03543989601139844
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.4801676098328898,
+          "source_peak_fraction_of_base_input": 0.012017215347244719,
+          "max_segment_current_swing_a": 12.638021995344616,
+          "distributed_buffer_peak_mw": 1.480003520668582,
+          "distributed_buffer_energy_kwh": 0.06543052114105914
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.9663628301174043,
+          "source_peak_fraction_of_base_input": 0.02408336778265789,
+          "max_segment_current_swing_a": 25.32750717242675,
+          "distributed_buffer_peak_mw": 2.9660367796384577,
+          "distributed_buffer_energy_kwh": 0.13112761524217423
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 4.459960338006255,
+          "source_peak_fraction_of_base_input": 0.036209618063485736,
+          "max_segment_current_swing_a": 38.08019282188002,
+          "distributed_buffer_peak_mw": 4.459474342240991,
+          "distributed_buffer_energy_kwh": 0.19715205143309233
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 0.5913460775785069,
+          "source_peak_fraction_of_base_input": 0.004801032742374156,
+          "max_segment_current_swing_a": 5.04905325316804,
+          "distributed_buffer_peak_mw": 0.5912801884860883,
+          "distributed_buffer_energy_kwh": 0.0017662380771371721
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.4801676098328898,
+          "source_peak_fraction_of_base_input": 0.012017215347244719,
+          "max_segment_current_swing_a": 12.638021995344616,
+          "distributed_buffer_peak_mw": 1.480003520668582,
+          "distributed_buffer_energy_kwh": 0.004420981158179672
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.9663628301174043,
+          "source_peak_fraction_of_base_input": 0.02408336778265789,
+          "max_segment_current_swing_a": 25.32750717242675,
+          "distributed_buffer_peak_mw": 2.9660367796384577,
+          "distributed_buffer_energy_kwh": 0.00885997400284961
+        }
+      ],
+      "expansion_cases": [
+        {
+          "active_blocks": [
+            "Block_A"
+          ],
+          "total_it_mw": 25.0,
+          "source_input_mw": 30.789891425451643,
+          "efficiency": 0.8119547956357656,
+          "network_loss_mw": 0.0006012523919500133,
+          "min_block_voltage_pu": 0.9999830780336693
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B"
+          ],
+          "total_it_mw": 50.0,
+          "source_input_mw": 61.5810269415987,
+          "efficiency": 0.8119383921190249,
+          "network_loss_mw": 0.002446595479314759,
+          "min_block_voltage_pu": 0.9999516643865267
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C"
+          ],
+          "total_it_mw": 75.0,
+          "source_input_mw": 92.37431926895333,
+          "efficiency": 0.8119139669287634,
+          "network_loss_mw": 0.006448749774252518,
+          "min_block_voltage_pu": 0.9999015257407453
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C",
+            "Block_D"
+          ],
+          "total_it_mw": 100.0,
+          "source_input_mw": 123.17059876706456,
+          "efficiency": 0.8118820643968461,
+          "network_loss_mw": 0.013438074825785922,
+          "min_block_voltage_pu": 0.9998364264664205
+        }
+      ]
+    },
+    {
+      "name": "ac_fed_sst_800vdc",
+      "display_name": "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
+      "scenario_label": "Scenario 2(M)",
+      "network_kind": "ac",
+      "source_voltage_kv": 69.0,
+      "full_load": {
+        "total_it_mw": 100.0,
+        "source_input_mw": 115.94974843354599,
+        "source_stage_loss_mw": 0.0,
+        "network_source_output_mw": 115.94974843354599,
+        "network_loss_mw": 0.011908621740209445,
+        "local_block_loss_mw": 15.937839811805787,
+        "total_loss_mw": 15.949748433545997,
+        "total_efficiency": 0.8624425783667203,
+        "segment_rows": [
+          {
+            "name": "source_to_north",
+            "from_node": "campus_source",
+            "to_node": "north_spine",
+            "kind": "ac",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 990.005772494404,
+            "loss_mw": 0.0052926017196901045
+          },
+          {
+            "name": "north_to_central",
+            "from_node": "north_spine",
+            "to_node": "central_spine",
+            "kind": "ac",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 742.5177574193146,
+            "loss_mw": 0.0036387952925478542
+          },
+          {
+            "name": "central_to_west",
+            "from_node": "central_spine",
+            "to_node": "west_spine",
+            "kind": "ac",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 495.01818442971745,
+            "loss_mw": 0.0016172838192462188
+          },
+          {
+            "name": "west_to_south",
+            "from_node": "west_spine",
+            "to_node": "south_spine",
+            "kind": "ac",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 247.51079214913523,
+            "loss_mw": 0.0003308125980435791
+          },
+          {
+            "name": "Block_A_tap",
+            "from_node": "north_spine",
+            "to_node": "block::Block_A",
+            "kind": "ac",
+            "length_m": 55.0,
+            "circuits": 4,
+            "current_a": 247.48801507508944,
+            "loss_mw": 0.00020212604809916542
+          },
+          {
+            "name": "Block_B_tap",
+            "from_node": "central_spine",
+            "to_node": "block::Block_B",
+            "kind": "ac",
+            "length_m": 65.0,
+            "circuits": 4,
+            "current_a": 247.4995729895972,
+            "loss_mw": 0.00023889855065712854
+          },
+          {
+            "name": "Block_C_tap",
+            "from_node": "west_spine",
+            "to_node": "block::Block_C",
+            "kind": "ac",
+            "length_m": 75.0,
+            "circuits": 4,
+            "current_a": 247.50739228058222,
+            "loss_mw": 0.0002756695915509031
+          },
+          {
+            "name": "Block_D_tap",
+            "from_node": "south_spine",
+            "to_node": "block::Block_D",
+            "kind": "ac",
+            "length_m": 85.0,
+            "circuits": 4,
+            "current_a": 247.51079214913523,
+            "loss_mw": 0.0003124341203744914
+          }
+        ],
+        "block_rows": [
+          {
+            "name": "Block_A",
+            "tap_node": "north_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 28.984459952951447,
+            "local_loss_mw": 3.984459952951447
+          },
+          {
+            "name": "Block_B",
+            "tap_node": "central_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 28.984459952951447,
+            "local_loss_mw": 3.984459952951447
+          },
+          {
+            "name": "Block_C",
+            "tap_node": "west_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 28.984459952951447,
+            "local_loss_mw": 3.984459952951447
+          },
+          {
+            "name": "Block_D",
+            "tap_node": "south_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 28.984459952951447,
+            "local_loss_mw": 3.984459952951447
+          }
+        ],
+        "block_node_voltage_kv": {
+          "Block_A": 68.99593619215293,
+          "Block_B": 68.99260671187437,
+          "Block_C": 68.99035438687363,
+          "Block_D": 68.98937510765192
+        },
+        "min_block_voltage_pu": 0.9998460160529264,
+        "block_tap_power_by_name_mw": {
+          "Block_A": 28.984459952951447,
+          "Block_B": 28.984459952951447,
+          "Block_C": 28.984459952951447,
+          "Block_D": 28.984459952951447
+        }
+      },
+      "annual_summary": {
+        "load_bins": [
+          {
+            "name": "reference_continuous_operation",
+            "scale": 1.0,
+            "hours": 8760.0,
+            "it_mw": 100.0,
+            "source_mw": 115.94974843354599,
+            "loss_mw": 15.949748433545997,
+            "efficiency": 0.8624425783667203
+          }
+        ],
+        "annual_it_mwh": 876000.0,
+        "annual_input_mwh": 1015719.7962778629,
+        "annual_loss_mwh": 139719.79627786286,
+        "annual_loss_cost_usd": 12979969.07421346,
+        "average_efficiency": 0.8624425783667203
+      },
+      "dynamic_summary": [
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.618790320075561,
+          "source_peak_fraction_of_base_input": 0.04845884010947937,
+          "max_segment_current_swing_a": 47.97492128182694,
+          "distributed_buffer_peak_mw": 5.617664107933535,
+          "distributed_buffer_energy_kwh": 0.24835528094654025
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 11.255841656445568,
+          "source_peak_fraction_of_base_input": 0.09707517099872452,
+          "max_segment_current_swing_a": 96.10572072201433,
+          "distributed_buffer_peak_mw": 11.253641778116773,
+          "distributed_buffer_energy_kwh": 0.4975201991035419
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 16.911243018708944,
+          "source_peak_fraction_of_base_input": 0.1458497603244154,
+          "max_segment_current_swing_a": 144.39315791960564,
+          "distributed_buffer_peak_mw": 16.908022551324322,
+          "distributed_buffer_energy_kwh": 0.7474987130423627
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 2.245330478759854,
+          "source_peak_fraction_of_base_input": 0.01936468607387031,
+          "max_segment_current_swing_a": 19.17131154390904,
+          "distributed_buffer_peak_mw": 2.244873722167,
+          "distributed_buffer_energy_kwh": 0.006705757310435063
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.618790320075561,
+          "source_peak_fraction_of_base_input": 0.04845884010947937,
+          "max_segment_current_swing_a": 47.97492128182694,
+          "distributed_buffer_peak_mw": 5.617664107933535,
+          "distributed_buffer_energy_kwh": 0.016780762226117584
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 11.255841656445568,
+          "source_peak_fraction_of_base_input": 0.09707517099872452,
+          "max_segment_current_swing_a": 96.10572072201433,
+          "distributed_buffer_peak_mw": 11.253641778116773,
+          "distributed_buffer_energy_kwh": 0.03361622966915823
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.4045625958812167,
+          "source_peak_fraction_of_base_input": 0.012113545866692504,
+          "max_segment_current_swing_a": 11.992481973277108,
+          "distributed_buffer_peak_mw": 1.4044160269833839,
+          "distributed_buffer_energy_kwh": 0.06208882023663506
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.813701545220894,
+          "source_peak_fraction_of_base_input": 0.024266560154147333,
+          "max_segment_current_swing_a": 24.02403613063109,
+          "distributed_buffer_peak_mw": 2.813410444529193,
+          "distributed_buffer_energy_kwh": 0.12438004977588547
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 4.227439210907605,
+          "source_peak_fraction_of_base_input": 0.03645923572943728,
+          "max_segment_current_swing_a": 36.094853394092524,
+          "distributed_buffer_peak_mw": 4.2270056378310805,
+          "distributed_buffer_energy_kwh": 0.18687467826059068
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 0.5612773011351777,
+          "source_peak_fraction_of_base_input": 0.004840694427697368,
+          "max_segment_current_swing_a": 4.792316294777493,
+          "distributed_buffer_peak_mw": 0.56121843054175,
+          "distributed_buffer_energy_kwh": 0.0016764393276087657
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.4045625958812167,
+          "source_peak_fraction_of_base_input": 0.012113545866692504,
+          "max_segment_current_swing_a": 11.992481973277108,
+          "distributed_buffer_peak_mw": 1.4044160269833839,
+          "distributed_buffer_energy_kwh": 0.004195190556529396
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.813701545220894,
+          "source_peak_fraction_of_base_input": 0.024266560154147333,
+          "max_segment_current_swing_a": 24.02403613063109,
+          "distributed_buffer_peak_mw": 2.813410444529193,
+          "distributed_buffer_energy_kwh": 0.008404057417289558
+        }
+      ],
+      "expansion_cases": [
+        {
+          "active_blocks": [
+            "Block_A"
+          ],
+          "total_it_mw": 25.0,
+          "source_input_mw": 28.984992781290504,
+          "efficiency": 0.8625153088234414,
+          "network_loss_mw": 0.0005328283390581255,
+          "min_block_voltage_pu": 0.9999840699854903
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B"
+          ],
+          "total_it_mw": 50.0,
+          "source_input_mw": 57.971088066341956,
+          "efficiency": 0.8624989053643454,
+          "network_loss_mw": 0.0021681604390627676,
+          "min_block_voltage_pu": 0.9999544978375636
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C"
+          ],
+          "total_it_mw": 75.0,
+          "source_input_mw": 86.95909468104142,
+          "efficiency": 0.862474480387516,
+          "network_loss_mw": 0.0057148221870895865,
+          "min_block_voltage_pu": 0.9999072985480091
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C",
+            "Block_D"
+          ],
+          "total_it_mw": 100.0,
+          "source_input_mw": 115.94974843354599,
+          "efficiency": 0.8624425783667203,
+          "network_loss_mw": 0.011908621740209445,
+          "min_block_voltage_pu": 0.9998460160529264
+        }
+      ]
+    },
+    {
+      "name": "proposed_mvdc_backbone",
+      "display_name": "Proposed MVDC backbone",
+      "scenario_label": "Scenario 3(M)",
+      "network_kind": "dc",
+      "source_voltage_kv": 69.0,
+      "full_load": {
+        "total_it_mw": 100.0,
+        "source_input_mw": 108.73396749518761,
+        "source_stage_loss_mw": 0.7611377724663129,
+        "network_source_output_mw": 107.9728297227213,
+        "network_loss_mw": 0.01983473680671863,
+        "local_block_loss_mw": 7.952994985914586,
+        "total_loss_mw": 8.733967495187617,
+        "total_efficiency": 0.9196758133968195,
+        "segment_rows": [
+          {
+            "name": "source_to_north",
+            "from_node": "campus_source",
+            "to_node": "north_spine",
+            "kind": "dc",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 1564.814628718523,
+            "loss_mw": 0.008815121360105361
+          },
+          {
+            "name": "north_to_central",
+            "from_node": "north_spine",
+            "to_node": "central_spine",
+            "kind": "dc",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 1173.6449254010436,
+            "loss_mw": 0.0060607466080463334
+          },
+          {
+            "name": "central_to_west",
+            "from_node": "central_spine",
+            "to_node": "west_spine",
+            "kind": "dc",
+            "length_m": 220.0,
+            "circuits": 8,
+            "current_a": 782.4459976380166,
+            "loss_mw": 0.0026937756525669053
+          },
+          {
+            "name": "west_to_south",
+            "from_node": "west_spine",
+            "to_node": "south_spine",
+            "kind": "dc",
+            "length_m": 180.0,
+            "circuits": 8,
+            "current_a": 391.227297519683,
+            "loss_mw": 0.0005510116739683965
+          },
+          {
+            "name": "Block_A_tap",
+            "from_node": "north_spine",
+            "to_node": "block::Block_A",
+            "kind": "dc",
+            "length_m": 55.0,
+            "circuits": 4,
+            "current_a": 391.1697033174794,
+            "loss_mw": 0.00033663022094566674
+          },
+          {
+            "name": "Block_B_tap",
+            "from_node": "central_spine",
+            "to_node": "block::Block_B",
+            "kind": "dc",
+            "length_m": 65.0,
+            "circuits": 4,
+            "current_a": 391.19892776302686,
+            "loss_mw": 0.000397895162815649
+          },
+          {
+            "name": "Block_C_tap",
+            "from_node": "west_spine",
+            "to_node": "block::Block_C",
+            "kind": "dc",
+            "length_m": 75.0,
+            "circuits": 4,
+            "current_a": 391.2187001183336,
+            "loss_mw": 0.0004591562139668359
+          },
+          {
+            "name": "Block_D_tap",
+            "from_node": "south_spine",
+            "to_node": "block::Block_D",
+            "kind": "dc",
+            "length_m": 85.0,
+            "circuits": 4,
+            "current_a": 391.227297519683,
+            "loss_mw": 0.0005203999143034856
+          }
+        ],
+        "block_rows": [
+          {
+            "name": "Block_A",
+            "tap_node": "north_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 26.988248746478646,
+            "local_loss_mw": 1.9882487464786465
+          },
+          {
+            "name": "Block_B",
+            "tap_node": "central_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 26.988248746478646,
+            "local_loss_mw": 1.9882487464786465
+          },
+          {
+            "name": "Block_C",
+            "tap_node": "west_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 26.988248746478646,
+            "local_loss_mw": 1.9882487464786465
+          },
+          {
+            "name": "Block_D",
+            "tap_node": "south_spine",
+            "it_load_mw": 25.0,
+            "tap_input_mw": 26.988248746478646,
+            "local_loss_mw": 1.9882487464786465
+          }
+        ],
+        "block_node_voltage_kv": {
+          "Block_A": 68.99360763158215,
+          "Block_B": 68.98837025949582,
+          "Block_C": 68.98482725377029,
+          "Block_D": 68.98328679684049
+        },
+        "min_block_voltage_pu": 0.9997577796643549,
+        "block_tap_power_by_name_mw": {
+          "Block_A": 26.988248746478646,
+          "Block_B": 26.988248746478646,
+          "Block_C": 26.988248746478646,
+          "Block_D": 26.988248746478646
+        }
+      },
+      "annual_summary": {
+        "load_bins": [
+          {
+            "name": "reference_continuous_operation",
+            "scale": 1.0,
+            "hours": 8760.0,
+            "it_mw": 100.0,
+            "source_mw": 108.73396749518761,
+            "loss_mw": 8.733967495187617,
+            "efficiency": 0.9196758133968195
+          }
+        ],
+        "annual_it_mwh": 876000.0,
+        "annual_input_mwh": 952509.5552578435,
+        "annual_loss_mwh": 76509.55525784346,
+        "annual_loss_cost_usd": 7107737.683453658,
+        "average_efficiency": 0.9196758133968195
+      },
+      "dynamic_summary": [
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.341731698816631,
+          "source_peak_fraction_of_base_input": 0.04912661445056759,
+          "max_segment_current_swing_a": 77.00173638386855,
+          "distributed_buffer_peak_mw": 5.311275316627359,
+          "distributed_buffer_energy_kwh": 0.2348099224342266
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 10.674583341667699,
+          "source_peak_fraction_of_base_input": 0.09817156117420381,
+          "max_segment_current_swing_a": 154.13925267382456,
+          "distributed_buffer_peak_mw": 10.631505551084416,
+          "distributed_buffer_energy_kwh": 0.4700157391566694
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 16.020927951058354,
+          "source_peak_fraction_of_base_input": 0.14734059944761432,
+          "max_segment_current_swing_a": 231.39747835602498,
+          "distributed_buffer_peak_mw": 15.96071323364825,
+          "distributed_buffer_energy_kwh": 0.7056184462242633
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 2.139184035442881,
+          "source_peak_fraction_of_base_input": 0.019673558178014222,
+          "max_segment_current_swing_a": 30.785298098711337,
+          "distributed_buffer_peak_mw": 2.123436975326044,
+          "distributed_buffer_energy_kwh": 0.006343008464099903
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 5.341731698816631,
+          "source_peak_fraction_of_base_input": 0.04912661445056759,
+          "max_segment_current_swing_a": 77.00173638386855,
+          "distributed_buffer_peak_mw": 5.311275316627359,
+          "distributed_buffer_energy_kwh": 0.015865535299609906
+        },
+        {
+          "mode": "coherent_campus",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 10.674583341667699,
+          "source_peak_fraction_of_base_input": 0.09817156117420381,
+          "max_segment_current_swing_a": 154.13925267382456,
+          "distributed_buffer_peak_mw": 10.631505551084416,
+          "distributed_buffer_energy_kwh": 0.03175782021328847
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.337428679608422,
+          "source_peak_fraction_of_base_input": 0.012300008087791098,
+          "max_segment_current_swing_a": 19.247230822041956,
+          "distributed_buffer_peak_mw": 1.3278188291568398,
+          "distributed_buffer_energy_kwh": 0.05870248060855665
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.677107951975927,
+          "source_peak_fraction_of_base_input": 0.02462071433284554,
+          "max_segment_current_swing_a": 38.526852373435986,
+          "distributed_buffer_peak_mw": 2.657876387771104,
+          "distributed_buffer_energy_kwh": 0.11750393478916735
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "it_amplitude_fraction": 0.15,
+          "source_peak_mw": 4.013930850599095,
+          "source_peak_fraction_of_base_input": 0.03691515119943311,
+          "max_segment_current_swing_a": 57.83894599456039,
+          "distributed_buffer_peak_mw": 3.9901783084120623,
+          "distributed_buffer_energy_kwh": 0.17640461155606582
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.02,
+          "source_peak_mw": 0.5347017616200418,
+          "source_peak_fraction_of_base_input": 0.004917522775426242,
+          "max_segment_current_swing_a": 7.695010635825383,
+          "distributed_buffer_peak_mw": 0.530859243831511,
+          "distributed_buffer_energy_kwh": 0.0015857521160249758
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.05,
+          "source_peak_mw": 1.337428679608422,
+          "source_peak_fraction_of_base_input": 0.012300008087791098,
+          "max_segment_current_swing_a": 19.247230822041956,
+          "distributed_buffer_peak_mw": 1.3278188291568398,
+          "distributed_buffer_energy_kwh": 0.003966383824902477
+        },
+        {
+          "mode": "largest_block_only",
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "it_amplitude_fraction": 0.1,
+          "source_peak_mw": 2.677107951975927,
+          "source_peak_fraction_of_base_input": 0.02462071433284554,
+          "max_segment_current_swing_a": 38.526852373435986,
+          "distributed_buffer_peak_mw": 2.657876387771104,
+          "distributed_buffer_energy_kwh": 0.007939455053322117
+        }
+      ],
+      "expansion_cases": [
+        {
+          "active_blocks": [
+            "Block_A"
+          ],
+          "total_it_mw": 25.0,
+          "source_input_mw": 27.4466464777019,
+          "efficiency": 0.9108580904523401,
+          "network_loss_mw": 0.0008873616170066481,
+          "min_block_voltage_pu": 0.999971231267446
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B"
+          ],
+          "total_it_mw": 50.0,
+          "source_input_mw": 54.57271555237591,
+          "efficiency": 0.9162087591557128,
+          "network_loss_mw": 0.003610905927154593,
+          "min_block_voltage_pu": 0.9999245325658845
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C"
+          ],
+          "total_it_mw": 75.0,
+          "source_input_mw": 81.65100121668735,
+          "efficiency": 0.9185435436482063,
+          "network_loss_mw": 0.0095179812514377,
+          "min_block_voltage_pu": 0.9998517137208613
+        },
+        {
+          "active_blocks": [
+            "Block_A",
+            "Block_B",
+            "Block_C",
+            "Block_D"
+          ],
+          "total_it_mw": 100.0,
+          "source_input_mw": 108.73396749518761,
+          "efficiency": 0.9196758133968195,
+          "network_loss_mw": 0.01983473680671863,
+          "min_block_voltage_pu": 0.9997577796643549
+        }
+      ]
+    }
+  ]
+}

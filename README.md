@@ -27,6 +27,10 @@ The repository now also includes a separate exploratory network model:
 
 `Scenario 3(M)` is kept separate from the headline three-scenario table on purpose. It is a more explicit campus network model for the proposed backbone only; `Scenario 1` and `Scenario 2` remain equivalent-path comparisons in the main model.
 
+The repository also now includes an apples-to-apples campus comparator:
+
+5. `Scenario 1(M)`, `Scenario 2(M)`, `Scenario 3(M)`: multi-node versions of all three scenarios on the same shared campus topology
+
 The modeling package compares these scenarios on:
 
 - end-to-end full-load efficiency,
@@ -45,6 +49,18 @@ At the current `100 MW` delivered IT reference campus:
 | Scenario 3: Proposed MVDC backbone | `95.09%` | `45.26 GWh/year` | `$4.20M/year` |
 
 Relative to `Scenario 1`, the current `Scenario 3` case improves full-load efficiency by `7.53` percentage points and reduces modeled annual electrical losses by `79.27 GWh/year`.
+
+## Multi-Node Campus Results
+
+Using the shared four-block campus topology in `multinode_campus_topology.json`, the apples-to-apples multi-node comparison currently gives:
+
+| Scenario | Network kind | Full-load efficiency | Annual loss | Annual loss cost |
+| --- | --- | ---: | ---: | ---: |
+| Scenario 1(M): Traditional AC-centric | `69 kV AC` | `81.19%` | `202.97 GWh/year` | `$18.86M/year` |
+| Scenario 2(M): `69 kV AC -> 800 VDC` perimeter conversion | `69 kV AC` | `86.24%` | `139.72 GWh/year` | `$12.98M/year` |
+| Scenario 3(M): Multi-node MVDC backbone | `69 kV DC` | `91.97%` | `76.51 GWh/year` | `$7.11M/year` |
+
+This multi-node comparison keeps the original `Scenario 1`, `Scenario 2`, and `Scenario 3` model untouched while adding a more explicit campus topology in which multiple data-center blocks are connected on the same backbone.
 
 ## Main Entry Points
 
@@ -71,10 +87,16 @@ If you are new to the repository, start here:
 - `dc_backbone_scenario3m_model.py`
   - Separate Scenario `3(M)` network model
   - Keeps the original Scenario `3` unchanged and replaces the single equivalent backbone with an explicit multi-block `69 kV DC` network
+- `dc_backbone_multinode_campus_model.py`
+  - Apples-to-apples multi-node campus comparison for `Scenario 1(M)`, `Scenario 2(M)`, and `Scenario 3(M)`
+- `multinode_campus_topology.json`
+  - Shared four-block campus topology used by the multi-node comparison
 - `scenario3m_topology.json`
   - Editable topology for the default multi-node Scenario `3(M)` campus
 - `scenario3m_default_report.json`
   - Latest generated machine-readable output for the default Scenario `3(M)` topology
+- `multinode_campus_report.json`
+  - Latest generated machine-readable output for the multi-node campus comparison
 - `scientific_assumptions_v1.json`
   - Source-tagged assumptions used by the model
 - `source_backed_model_report.json`
@@ -112,6 +134,12 @@ Run the separate multi-node Scenario `3(M)` model:
 
 ```bash
 python3 dc_backbone_scenario3m_model.py --details
+```
+
+Run the multi-node campus comparison for `Scenario 1(M)`, `2(M)`, and `3(M)`:
+
+```bash
+python3 dc_backbone_multinode_campus_model.py --details
 ```
 
 Write the results memo:

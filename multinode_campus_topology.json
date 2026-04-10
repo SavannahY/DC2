@@ -1,0 +1,61 @@
+{
+  "name": "multinode_default_campus",
+  "description": "Default multi-node campus topology shared by Scenario 1(M), Scenario 2(M), and Scenario 3(M).",
+  "source_node": "campus_source",
+  "blocks": [
+    {
+      "name": "Block_A",
+      "tap_node": "north_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 55.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_B",
+      "tap_node": "central_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 65.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_C",
+      "tap_node": "west_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 75.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_D",
+      "tap_node": "south_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 85.0,
+      "branch_circuits": 4
+    }
+  ],
+  "shared_segments": [
+    {
+      "name": "source_to_north",
+      "from": "campus_source",
+      "to": "north_spine",
+      "length_m": 180.0
+    },
+    {
+      "name": "north_to_central",
+      "from": "north_spine",
+      "to": "central_spine",
+      "length_m": 220.0
+    },
+    {
+      "name": "central_to_west",
+      "from": "central_spine",
+      "to": "west_spine",
+      "length_m": 220.0
+    },
+    {
+      "name": "west_to_south",
+      "from": "west_spine",
+      "to": "south_spine",
+      "length_m": 180.0
+    }
+  ]
+}
