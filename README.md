@@ -21,6 +21,12 @@ The work in this repository is organized around three scenarios:
 2. `Scenario 2`: `69 kV AC -> 800 VDC` perimeter conversion
 3. `Scenario 3`: Proposed MVDC backbone
 
+The repository now also includes a separate exploratory network model:
+
+4. `Scenario 3(M)`: A multi-node `69 kV DC` backbone connecting multiple DC-native data-center blocks
+
+`Scenario 3(M)` is kept separate from the headline three-scenario table on purpose. It is a more explicit campus network model for the proposed backbone only; `Scenario 1` and `Scenario 2` remain equivalent-path comparisons in the main model.
+
 The modeling package compares these scenarios on:
 
 - end-to-end full-load efficiency,
@@ -62,6 +68,13 @@ If you are new to the repository, start here:
 - `dc_backbone_model.py`
   - Main Python model for the three-scenario comparison
   - Includes steady-state calculations, dynamic-load cases, and optional OpenDSS validation
+- `dc_backbone_scenario3m_model.py`
+  - Separate Scenario `3(M)` network model
+  - Keeps the original Scenario `3` unchanged and replaces the single equivalent backbone with an explicit multi-block `69 kV DC` network
+- `scenario3m_topology.json`
+  - Editable topology for the default multi-node Scenario `3(M)` campus
+- `scenario3m_default_report.json`
+  - Latest generated machine-readable output for the default Scenario `3(M)` topology
 - `scientific_assumptions_v1.json`
   - Source-tagged assumptions used by the model
 - `source_backed_model_report.json`
@@ -93,6 +106,12 @@ Run with OpenDSS AC-boundary validation:
 
 ```bash
 python3 dc_backbone_model.py --run-opendss
+```
+
+Run the separate multi-node Scenario `3(M)` model:
+
+```bash
+python3 dc_backbone_scenario3m_model.py --details
 ```
 
 Write the results memo:

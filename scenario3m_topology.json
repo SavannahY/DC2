@@ -1,0 +1,62 @@
+{
+  "name": "scenario3m_default_campus",
+  "description": "Default Scenario 3(M) topology: a shared 69 kV DC backbone that connects four DC-native AI-factory blocks.",
+  "source_node": "front_end_dc_bus",
+  "source_voltage_kv": 69.0,
+  "trunk_segments": [
+    {
+      "name": "front_end_to_north",
+      "from": "front_end_dc_bus",
+      "to": "north_spine",
+      "length_m": 180.0
+    },
+    {
+      "name": "north_to_central",
+      "from": "north_spine",
+      "to": "central_spine",
+      "length_m": 220.0
+    },
+    {
+      "name": "central_to_west",
+      "from": "central_spine",
+      "to": "west_spine",
+      "length_m": 220.0
+    },
+    {
+      "name": "west_to_south",
+      "from": "west_spine",
+      "to": "south_spine",
+      "length_m": 180.0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Block_A",
+      "tap_node": "north_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 55.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_B",
+      "tap_node": "central_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 65.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_C",
+      "tap_node": "west_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 75.0,
+      "branch_circuits": 4
+    },
+    {
+      "name": "Block_D",
+      "tap_node": "south_spine",
+      "it_load_mw": 25.0,
+      "branch_length_m": 85.0,
+      "branch_circuits": 4
+    }
+  ]
+}
