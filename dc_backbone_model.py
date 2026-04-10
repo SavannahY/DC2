@@ -407,6 +407,25 @@ def get_opendss_validation_settings(assumptions: dict) -> dict:
     return settings
 
 
+def get_opendss_harmonics_settings(assumptions: dict) -> dict:
+    defaults = {
+        "note": (
+            "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. "
+            "A fixed three-phase harmonic current probe is injected at the PCC and the resulting "
+            "harmonic voltage distortion is compared across scenarios."
+        ),
+        "source_ids": [],
+        "harmonic_orders": [5, 7, 11, 13],
+        "probe_current_amps_per_phase": 10.0,
+        "probe_spectrum_percent": 100.0,
+        "scan_type": "pos",
+    }
+    settings = deep_copy_jsonable(defaults)
+    settings.update(assumptions.get("opendss_harmonics_validation", {}))
+    settings["harmonic_orders"] = [int(order) for order in settings.get("harmonic_orders", [])]
+    return settings
+
+
 def first_modeled_ac_conductor(assumptions: dict) -> dict:
     for architecture in assumptions["architectures"]:
         for element in architecture["elements"]:
@@ -550,6 +569,152 @@ def solve_opendss_snapshot(dss, load_mw: float, pf: float) -> dict:
         "pcc_voltage_max_pu": max(phase_vmags),
         "feeder_loss_mw": line_losses_w / 1e6,
         "peak_line_current_a": max(current_magnitudes) if current_magnitudes else 0.0,
+    }
+
+
+def average_phase_pu_voltage_magnitude(dss, bus_name: str) -> float:
+    dss.Circuit.SetActiveBus(bus_name)
+    vmag_angle = dss.Bus.puVmagAngle()
+    phase_vmags = [abs(value) for value in vmag_angle[0::2][:3]]
+    if not phase_vmags:
+        return 0.0
+    return sum(phase_vmags) / len(phase_vmags)
+
+
+def peak_phase_current_a(dss, element_name: str) -> float:
+    dss.Circuit.SetActiveElement(element_name)
+    currents_mag_angle = dss.CktElement.CurrentsMagAng()
+    current_magnitudes = [abs(value) for value in currents_mag_angle[0::2]]
+    return max(current_magnitudes) if current_magnitudes else 0.0
+
+
+def harmonic_spectrum_command(settings: dict) -> str:
+    harmonic_orders = [1] + [int(order) for order in settings["harmonic_orders"]]
+    harmonic_magnitudes = [0.0] + [float(settings["probe_spectrum_percent"])] * len(settings["harmonic_orders"])
+    angles = [0.0] * len(harmonic_orders)
+    harmonic_orders_str = ", ".join(str(order) for order in harmonic_orders)
+    harmonic_magnitudes_str = ", ".join(f"{magnitude:.6f}" for magnitude in harmonic_magnitudes)
+    angles_str = ", ".join(f"{angle:.6f}" for angle in angles)
+    return (
+        "new spectrum.hprobe_scan "
+        f"numharm={len(harmonic_orders)} "
+        f"harmonic=({harmonic_orders_str}) "
+        f"%mag=({harmonic_magnitudes_str}) "
+        f"angle=({angles_str})"
+    )
+
+
+def run_opendss_harmonic_validation_for_architecture(architecture: dict, assumptions: dict) -> dict:
+    try:
+        import opendssdirect as dss
+    except ImportError as exc:
+        raise RuntimeError(
+            "OpenDSS harmonic validation requires opendssdirect.py. Install it with "
+            "`python3 -m pip install --user opendssdirect.py`."
+        ) from exc
+
+    opendss_settings = get_opendss_validation_settings(assumptions)
+    harmonic_settings = get_opendss_harmonics_settings(assumptions)
+    boundary = opendss_ac_boundary(architecture, assumptions)
+    segment = boundary["segment"]
+    pf = opendss_power_factor_for_architecture(architecture, assumptions)
+    base_it_load_mw = float(assumptions["global"]["base_it_load_mw"])
+    base_equivalent_load_mw = evaluate_opendss_equivalent_load_mw(architecture, assumptions, base_it_load_mw)
+
+    build_opendss_circuit(dss, segment, pf, base_equivalent_load_mw, assumptions)
+    base_snapshot = solve_opendss_snapshot(dss, base_equivalent_load_mw, pf)
+    base_avg_pu_voltage = average_phase_pu_voltage_magnitude(dss, "pcc")
+    voltage_kv = float(segment["voltage_kv"])
+    phase_base_voltage_v = voltage_kv * 1000.0 / math.sqrt(3.0)
+
+    dss.Text.Command(harmonic_spectrum_command(harmonic_settings))
+    dss.Text.Command(
+        "new isource.hprobe "
+        f"bus1=pcc phases=3 amps={float(harmonic_settings['probe_current_amps_per_phase']):.6f} "
+        f"angle=0 spectrum=hprobe_scan scantype={harmonic_settings['scan_type']}"
+    )
+
+    harmonic_rows = []
+    voltage_distortion_rss = 0.0
+    worst_order = None
+    worst_single_pct = -1.0
+    max_transfer_impedance = 0.0
+
+    for order in harmonic_settings["harmonic_orders"]:
+        dss.Text.Command(f"set harmonics=({int(order)})")
+        dss.Text.Command("solve mode=harmonics")
+        if not dss.Solution.Converged():
+            raise RuntimeError(f"OpenDSS harmonic solution did not converge for harmonic order {order}")
+
+        dss.Circuit.SetActiveBus("pcc")
+        pu_vmag_angle = dss.Bus.puVmagAngle()
+        phase_vmags = [abs(value) for value in pu_vmag_angle[0::2][:3]]
+        avg_voltage_pu = sum(phase_vmags) / len(phase_vmags) if phase_vmags else 0.0
+        max_voltage_pu = max(phase_vmags) if phase_vmags else 0.0
+        avg_voltage_pct_of_fundamental = (
+            avg_voltage_pu / base_avg_pu_voltage * 100.0 if base_avg_pu_voltage else 0.0
+        )
+        max_voltage_pct_of_fundamental = (
+            max_voltage_pu / base_avg_pu_voltage * 100.0 if base_avg_pu_voltage else 0.0
+        )
+        avg_voltage_v = avg_voltage_pu * phase_base_voltage_v
+        transfer_impedance_ohm = (
+            avg_voltage_v / float(harmonic_settings["probe_current_amps_per_phase"])
+            if float(harmonic_settings["probe_current_amps_per_phase"])
+            else 0.0
+        )
+        peak_current_a = peak_phase_current_a(dss, "line.source_to_pcc")
+
+        harmonic_rows.append(
+            {
+                "order": int(order),
+                "frequency_hz": float(order) * 60.0,
+                "pcc_avg_voltage_pu": avg_voltage_pu,
+                "pcc_max_voltage_pu": max_voltage_pu,
+                "avg_voltage_pct_of_fundamental": avg_voltage_pct_of_fundamental,
+                "max_voltage_pct_of_fundamental": max_voltage_pct_of_fundamental,
+                "transfer_impedance_ohm_ln": transfer_impedance_ohm,
+                "peak_line_current_a": peak_current_a,
+            }
+        )
+
+        voltage_distortion_rss += (avg_voltage_pu / base_avg_pu_voltage) ** 2 if base_avg_pu_voltage else 0.0
+        if max_voltage_pct_of_fundamental > worst_single_pct:
+            worst_single_pct = max_voltage_pct_of_fundamental
+            worst_order = int(order)
+        max_transfer_impedance = max(max_transfer_impedance, transfer_impedance_ohm)
+
+    return {
+        "tool": "OpenDSS",
+        "method": "harmonic_sensitivity_scan",
+        "note": harmonic_settings["note"],
+        "source_ids": harmonic_settings.get("source_ids", []),
+        "ac_boundary": {
+            "name": segment["name"],
+            "voltage_kv": voltage_kv,
+            "length_m": float(segment["length_m"]),
+            "is_synthetic_stub": boundary["is_synthetic_stub"],
+            "boundary_note": boundary["boundary_note"],
+        },
+        "base_case": {
+            "equivalent_ac_load_mw": base_equivalent_load_mw,
+            "source_power_mw": base_snapshot["source_power_mw"],
+            "pcc_voltage_min_pu": base_snapshot["pcc_voltage_min_pu"],
+            "base_avg_voltage_pu": base_avg_pu_voltage,
+        },
+        "probe_current_amps_per_phase": float(harmonic_settings["probe_current_amps_per_phase"]),
+        "scan_type": harmonic_settings["scan_type"],
+        "harmonic_orders": harmonic_settings["harmonic_orders"],
+        "harmonics": harmonic_rows,
+        "probe_thdv_percent": math.sqrt(voltage_distortion_rss) * 100.0,
+        "worst_single_harmonic_percent": worst_single_pct,
+        "worst_single_harmonic_order": worst_order,
+        "max_transfer_impedance_ohm_ln": max_transfer_impedance,
+        "interpretation": (
+            "The scan injects the same harmonic current probe at the PCC for each scenario. "
+            "Lower resulting harmonic voltage indicates a less sensitive AC boundary. "
+            "This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
+        ),
     }
 
 
@@ -713,6 +878,10 @@ def run_model(assumptions: dict, include_opendss: bool = False) -> dict:
                 result=result,
                 assumptions=assumptions,
             )
+            result["opendss_harmonics_validation"] = run_opendss_harmonic_validation_for_architecture(
+                architecture=architecture_map[result["name"]],
+                assumptions=assumptions,
+            )
 
     return {
         "meta": assumptions.get("meta", {}),
@@ -775,6 +944,7 @@ def build_source_classification_rows(assumptions: dict) -> List[Sequence[str]]:
     global_assumptions = assumptions["global"]
     dynamic_cases = assumptions.get("dynamic_model", {}).get("cases", [])
     opendss_settings = get_opendss_validation_settings(assumptions)
+    harmonic_settings = get_opendss_harmonics_settings(assumptions)
     advanced_architecture = find_architecture(assumptions, "proposed_mvdc_backbone")
     ac_fed_architecture = find_architecture(assumptions, "ac_fed_sst_800vdc")
     advanced_backbone_voltage = next(
@@ -879,6 +1049,16 @@ def build_source_classification_rows(assumptions: dict) -> List[Sequence[str]]:
             ),
             ", ".join(opendss_settings.get("source_ids", [])),
         ),
+        (
+            "Local harmonic-scan assumption",
+            "OpenDSS harmonic probe",
+            (
+                f"Equal-magnitude PCC current scan at harmonic orders "
+                f"{', '.join(str(order) for order in harmonic_settings['harmonic_orders'])} "
+                f"using {float(harmonic_settings['probe_current_amps_per_phase']):.1f} A per phase."
+            ),
+            ", ".join(harmonic_settings.get("source_ids", [])),
+        ),
     ]
 
     missing_rows = [
@@ -931,6 +1111,7 @@ def build_source_usage_map() -> Dict[str, str]:
         "nvidia_800vdc_blog_2025": "800 VDC / 13.8 kV architecture direction and conductor-voltage context.",
         "opendss_epri_2026": "OpenDSS method basis for RMS/quasi-static feeder studies.",
         "opendss_quasi_static_local_2026": "Local AC-boundary surrogate choices used for the OpenDSS validation setup.",
+        "opendss_harmonic_scan_local_2026": "Local OpenDSS harmonic-sensitivity scan setup and standardized probe-current assumptions.",
         "pnnl_38817_2026": "Dynamic-load study framing and the 0.1-5 Hz versus 5-60 Hz modeling bands.",
         "arxiv_2508_14318": "AI-training load fluctuation motivation and need for dynamic-load modeling.",
         "segan_2025_14_8hz": "Measured 14.8 Hz data-center oscillation reference case.",
@@ -973,6 +1154,7 @@ def build_memo(report: dict, assumptions: dict, assumptions_path: Path) -> str:
     dynamic_rows = []
     dynamic_case_basis_rows = []
     opendss_summary_rows = []
+    harmonic_summary_rows = []
 
     for result in report["results"]:
         architecture = find_architecture(assumptions, result["name"])
@@ -1029,6 +1211,18 @@ def build_memo(report: dict, assumptions: dict, assumptions_path: Path) -> str:
                         f"{dynamic_case['peak_feeder_current_a']:.0f}",
                     )
                 )
+
+        harmonic_validation = result.get("opendss_harmonics_validation")
+        if harmonic_validation:
+            harmonic_summary_rows.append(
+                (
+                    result["display_name"],
+                    f"{harmonic_validation['probe_thdv_percent']:.2f}%",
+                    str(harmonic_validation["worst_single_harmonic_order"]),
+                    f"{harmonic_validation['worst_single_harmonic_percent']:.2f}%",
+                    f"{harmonic_validation['max_transfer_impedance_ohm_ln']:.2f}",
+                )
+            )
 
     seen_cases = set()
     for dynamic_case in report["results"][0]["dynamic_cases"]:
@@ -1177,6 +1371,28 @@ def build_memo(report: dict, assumptions: dict, assumptions_path: Path) -> str:
             ]
         )
 
+    if harmonic_summary_rows:
+        memo_lines.extend(
+            [
+                source_tag(["opendss_epri_2026", "opendss_harmonic_scan_local_2026", "white_paper_local_2026"]),
+                "OpenDSS harmonic-sensitivity scan:",
+                "",
+                "A standardized harmonic-current probe is injected at the PCC for each scenario using the same harmonic orders and current magnitude. The resulting PCC harmonic voltage is used as a structural sensitivity metric. Lower distortion in this scan means the AC boundary is less sensitive to harmonic current injection. This is useful for comparing scenarios, but it is not a substitute for a vendor-specific converter spectrum study or an IEEE 519 compliance assessment.",
+                "",
+                markdown_table(
+                    [
+                        "Architecture",
+                        "Probe THDv (%)",
+                        "Worst harmonic order",
+                        "Worst single harmonic (%)",
+                        "Max transfer impedance (ohm L-N)",
+                    ],
+                    harmonic_summary_rows,
+                ),
+                "",
+            ]
+        )
+
     memo_lines.extend(
         [
             "Limitations:",
@@ -1184,8 +1400,8 @@ def build_memo(report: dict, assumptions: dict, assumptions_path: Path) -> str:
             "- The `1.0 Hz` case is a modeling reference point inside the PNNL low-frequency study band. It is not claimed as a measured universal AI-workload frequency.",
             "- The `14.8 Hz` case is a measured data-center oscillation reference, but the model does not claim that all AI factories oscillate at this exact frequency.",
             "- Dynamic amplitudes remain sensitivity cases because publicly available literature does not yet provide a universal MW-swing percentage for all AI workloads.",
-            "- The dynamic module estimates raw PCC power ripple and native-buffer requirements. It does not yet model control-loop dynamics, impedance interactions, harmonics, or EMT-grade converter behavior.",
-            "- The OpenDSS layer is an RMS/quasi-static AC-boundary study. It validates feeder-side power flow, current, loss, and voltage behavior, but it is not a full EMT simulation of converter controls or MVDC protection.",
+            "- The dynamic module estimates raw PCC power ripple and native-buffer requirements. It does not yet model control-loop dynamics, impedance interactions, or EMT-grade converter behavior.",
+            "- The OpenDSS layer now includes both an AC-boundary RMS validation and a standardized harmonic-sensitivity scan. It still does not replace a full converter-spectrum study, an IEEE 519 compliance study, or an EMT simulation of MVDC protection.",
             "",
             source_tag(["white_paper_local_2026", "pnnl_38817_2026", "iea_2025_energy_ai"]),
             "## 7. What is proven vs not yet proven",
@@ -1200,7 +1416,7 @@ def build_memo(report: dict, assumptions: dict, assumptions_path: Path) -> str:
             "What the current model does not yet prove externally:",
             "",
             "- Exact MVDC protection, fault-clearing, and grounding behavior.",
-            "- Exact harmonic and power-factor performance at the PCC.",
+            "- Exact harmonic and power-factor performance at the PCC under vendor-specific converter spectra and utility interconnection conditions.",
             "- Exact dynamic attenuation benefits of one architecture over another under real converter-control designs.",
             "- Vendor-accurate partial-load efficiency for the actual MV rectifier and isolated DC pod hardware that would be deployed.",
             "",
@@ -1367,6 +1583,34 @@ def print_summary(report: dict) -> None:
         print()
         print(format_table(stress_rows))
 
+    if any(result.get("opendss_harmonics_validation") for result in report["results"]):
+        print()
+        print("OpenDSS harmonic sensitivity")
+        print("----------------------------")
+        harmonic_rows: List[Sequence[str]] = [
+            (
+                "Architecture",
+                "Probe THDv %",
+                "Worst Harmonic",
+                "Worst Single Harmonic %",
+                "Max Transfer Z (ohm L-N)",
+            )
+        ]
+        for result in report["results"]:
+            validation = result.get("opendss_harmonics_validation")
+            if not validation:
+                continue
+            harmonic_rows.append(
+                (
+                    result["display_name"],
+                    f"{validation['probe_thdv_percent']:.2f}%",
+                    str(validation["worst_single_harmonic_order"]),
+                    f"{validation['worst_single_harmonic_percent']:.2f}%",
+                    f"{validation['max_transfer_impedance_ohm_ln']:.2f}",
+                )
+            )
+        print(format_table(harmonic_rows))
+
 
 def print_details(report: dict) -> None:
     for result in report["results"]:
@@ -1411,6 +1655,25 @@ def print_details(report: dict) -> None:
                     f"native buffer={dynamic_case['native_buffer_peak_mw']:.2f} MW / "
                     f"{dynamic_case['native_buffer_energy_kwh']:.2f} kWh, "
                     f"native path eff={format_pct(dynamic_case['native_buffer_marginal_efficiency'])}"
+                )
+
+        harmonic_validation = result.get("opendss_harmonics_validation")
+        if harmonic_validation:
+            print("OpenDSS harmonic sensitivity:")
+            print(
+                "  - "
+                f"probe THDv={harmonic_validation['probe_thdv_percent']:.2f}%, "
+                f"worst harmonic={harmonic_validation['worst_single_harmonic_order']} "
+                f"({harmonic_validation['worst_single_harmonic_percent']:.2f}%), "
+                f"max transfer Z={harmonic_validation['max_transfer_impedance_ohm_ln']:.2f} ohm L-N"
+            )
+            for harmonic in harmonic_validation["harmonics"]:
+                print(
+                    "    - "
+                    f"h={harmonic['order']}: "
+                    f"avg PCC={harmonic['avg_voltage_pct_of_fundamental']:.2f}%, "
+                    f"max PCC={harmonic['max_voltage_pct_of_fundamental']:.2f}%, "
+                    f"transfer Z={harmonic['transfer_impedance_ohm_ln']:.2f} ohm L-N"
                 )
 
 

@@ -41,6 +41,12 @@
       "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
       "type": "Local"
     },
+    "opendss_harmonic_scan_local_2026": {
+      "title": "Local OpenDSS harmonic-sensitivity scan setup",
+      "date": "2026-04-10",
+      "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
+      "type": "Local"
+    },
     "pnnl_38817_2026": {
       "title": "Electromagnetic Transient Modeling of Data Centers",
       "date": "2026-01-01",
@@ -141,6 +147,14 @@
     "centralized_front_end_ac_stub_circuits": 1,
     "samples_per_cycle": 64,
     "simulated_cycles": 2
+  },
+  "opendss_harmonics_validation": {
+    "note": "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. A fixed three-phase harmonic current probe is injected at the PCC and the resulting harmonic voltage distortion is compared across scenarios. This is a structural sensitivity study, not a site-specific IEEE 519 compliance assessment or a vendor-specific converter-spectrum model.",
+    "source_ids": ["opendss_epri_2026", "opendss_harmonic_scan_local_2026"],
+    "harmonic_orders": [5, 7, 11, 13],
+    "probe_current_amps_per_phase": 10.0,
+    "probe_spectrum_percent": 100.0,
+    "scan_type": "pos"
   },
   "curves": {
     "mv_lv_transformer": {

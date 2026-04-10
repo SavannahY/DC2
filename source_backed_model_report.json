@@ -64,6 +64,12 @@
       "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
       "type": "Local"
     },
+    "opendss_harmonic_scan_local_2026": {
+      "title": "Local OpenDSS harmonic-sensitivity scan setup",
+      "date": "2026-04-10",
+      "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
+      "type": "Local"
+    },
     "pnnl_38817_2026": {
       "title": "Electromagnetic Transient Modeling of Data Centers",
       "date": "2026-01-01",
@@ -561,6 +567,83 @@
             "analytical_raw_pcc_peak_fraction_of_base_input": 0.10021816396961332
           }
         ]
+      },
+      "opendss_harmonics_validation": {
+        "tool": "OpenDSS",
+        "method": "harmonic_sensitivity_scan",
+        "note": "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. A fixed three-phase harmonic current probe is injected at the PCC and the resulting harmonic voltage distortion is compared across scenarios. This is a structural sensitivity study, not a site-specific IEEE 519 compliance assessment or a vendor-specific converter-spectrum model.",
+        "source_ids": [
+          "opendss_epri_2026",
+          "opendss_harmonic_scan_local_2026"
+        ],
+        "ac_boundary": {
+          "name": "MV AC campus feeder",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "is_synthetic_stub": false,
+          "boundary_note": "Uses the first modeled AC feeder segment: MV AC campus feeder."
+        },
+        "base_case": {
+          "equivalent_ac_load_mw": 114.19370692404173,
+          "source_power_mw": 114.38588175472788,
+          "pcc_voltage_min_pu": 0.9707099057351241,
+          "base_avg_voltage_pu": 0.9707099057356533
+        },
+        "probe_current_amps_per_phase": 10.0,
+        "scan_type": "pos",
+        "harmonic_orders": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "harmonics": [
+          {
+            "order": 5,
+            "frequency_hz": 300.0,
+            "pcc_avg_voltage_pu": 0.05394267699420113,
+            "pcc_max_voltage_pu": 0.05578379022125659,
+            "avg_voltage_pct_of_fundamental": 5.557033741539975,
+            "max_voltage_pct_of_fundamental": 5.746700419110362,
+            "transfer_impedance_ohm_ln": 214.8923516755363,
+            "peak_line_current_a": 186.9898903886854
+          },
+          {
+            "order": 7,
+            "frequency_hz": 420.0,
+            "pcc_avg_voltage_pu": 0.05060958122283842,
+            "pcc_max_voltage_pu": 0.05060958122542763,
+            "avg_voltage_pct_of_fundamental": 5.213666917768178,
+            "max_voltage_pct_of_fundamental": 5.213666918034911,
+            "transfer_impedance_ohm_ln": 201.61424186380196,
+            "peak_line_current_a": 121.26210959424374
+          },
+          {
+            "order": 11,
+            "frequency_hz": 660.0,
+            "pcc_avg_voltage_pu": 0.04981620795113012,
+            "pcc_max_voltage_pu": 0.05392416054392681,
+            "avg_voltage_pct_of_fundamental": 5.131935674786059,
+            "max_voltage_pct_of_fundamental": 5.555126225178504,
+            "transfer_impedance_ohm_ln": 198.45366738708032,
+            "peak_line_current_a": 82.25730465480046
+          },
+          {
+            "order": 13,
+            "frequency_hz": 780.0,
+            "pcc_avg_voltage_pu": 0.03857748672390962,
+            "pcc_max_voltage_pu": 0.038577486728107575,
+            "avg_voltage_pct_of_fundamental": 3.974151957857445,
+            "max_voltage_pct_of_fundamental": 3.9741519582899074,
+            "transfer_impedance_ohm_ln": 153.6817841784882,
+            "peak_line_current_a": 49.79803556344727
+          }
+        ],
+        "probe_thdv_percent": 10.00967503410216,
+        "worst_single_harmonic_percent": 5.746700419110362,
+        "worst_single_harmonic_order": 5,
+        "max_transfer_impedance_ohm_ln": 214.8923516755363,
+        "interpretation": "The scan injects the same harmonic current probe at the PCC for each scenario. Lower resulting harmonic voltage indicates a less sensitive AC boundary. This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
       }
     },
     {
@@ -968,6 +1051,83 @@
             "analytical_raw_pcc_peak_fraction_of_base_input": 0.10031892646650231
           }
         ]
+      },
+      "opendss_harmonics_validation": {
+        "tool": "OpenDSS",
+        "method": "harmonic_sensitivity_scan",
+        "note": "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. A fixed three-phase harmonic current probe is injected at the PCC and the resulting harmonic voltage distortion is compared across scenarios. This is a structural sensitivity study, not a site-specific IEEE 519 compliance assessment or a vendor-specific converter-spectrum model.",
+        "source_ids": [
+          "opendss_epri_2026",
+          "opendss_harmonic_scan_local_2026"
+        ],
+        "ac_boundary": {
+          "name": "MV AC campus feeder",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "is_synthetic_stub": false,
+          "boundary_note": "Uses the first modeled AC feeder segment: MV AC campus feeder."
+        },
+        "base_case": {
+          "equivalent_ac_load_mw": 108.71799863651634,
+          "source_power_mw": 108.87379222246126,
+          "pcc_voltage_min_pu": 0.9722358039713466,
+          "base_avg_voltage_pu": 0.9722358039718481
+        },
+        "probe_current_amps_per_phase": 10.0,
+        "scan_type": "pos",
+        "harmonic_orders": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "harmonics": [
+          {
+            "order": 5,
+            "frequency_hz": 300.0,
+            "pcc_avg_voltage_pu": 0.051561525448021124,
+            "pcc_max_voltage_pu": 0.053385463236482654,
+            "avg_voltage_pct_of_fundamental": 5.303397101544528,
+            "max_voltage_pct_of_fundamental": 5.490999510446796,
+            "transfer_impedance_ohm_ln": 205.4065181209749,
+            "peak_line_current_a": 178.9505854540482
+          },
+          {
+            "order": 7,
+            "frequency_hz": 420.0,
+            "pcc_avg_voltage_pu": 0.048495917291244604,
+            "pcc_max_voltage_pu": 0.0484959172937402,
+            "avg_voltage_pct_of_fundamental": 4.988081810310377,
+            "max_voltage_pct_of_fundamental": 4.988081810567063,
+            "transfer_impedance_ohm_ln": 193.1940032286155,
+            "peak_line_current_a": 116.1977059554819
+          },
+          {
+            "order": 11,
+            "frequency_hz": 660.0,
+            "pcc_avg_voltage_pu": 0.04782444608826177,
+            "pcc_max_voltage_pu": 0.05207429515786696,
+            "avg_voltage_pct_of_fundamental": 4.91901716567996,
+            "max_voltage_pct_of_fundamental": 5.356138392057696,
+            "transfer_impedance_ohm_ln": 190.5190520780285,
+            "peak_line_current_a": 79.43547230551366
+          },
+          {
+            "order": 13,
+            "frequency_hz": 780.0,
+            "pcc_avg_voltage_pu": 0.036708393653653075,
+            "pcc_max_voltage_pu": 0.03670839365772376,
+            "avg_voltage_pct_of_fundamental": 3.7756677447682225,
+            "max_voltage_pct_of_fundamental": 3.775667745186916,
+            "transfer_impedance_ohm_ln": 146.23584660644195,
+            "peak_line_current_a": 47.38530287649745
+          }
+        ],
+        "probe_thdv_percent": 9.563439640535062,
+        "worst_single_harmonic_percent": 5.490999510446796,
+        "worst_single_harmonic_order": 5,
+        "max_transfer_impedance_ohm_ln": 205.4065181209749,
+        "interpretation": "The scan injects the same harmonic current probe at the PCC for each scenario. Lower resulting harmonic voltage indicates a less sensitive AC boundary. This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
       }
     },
     {
@@ -1375,6 +1535,83 @@
             "analytical_raw_pcc_peak_fraction_of_base_input": 0.10012509668768307
           }
         ]
+      },
+      "opendss_harmonics_validation": {
+        "tool": "OpenDSS",
+        "method": "harmonic_sensitivity_scan",
+        "note": "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. A fixed three-phase harmonic current probe is injected at the PCC and the resulting harmonic voltage distortion is compared across scenarios. This is a structural sensitivity study, not a site-specific IEEE 519 compliance assessment or a vendor-specific converter-spectrum model.",
+        "source_ids": [
+          "opendss_epri_2026",
+          "opendss_harmonic_scan_local_2026"
+        ],
+        "ac_boundary": {
+          "name": "Centralized front-end AC stub",
+          "voltage_kv": 69.0,
+          "length_m": 20.0,
+          "is_synthetic_stub": true,
+          "boundary_note": "Uses a short synthetic AC stub to represent the centralized front-end connection at the substation boundary before the architecture becomes DC."
+        },
+        "base_case": {
+          "equivalent_ac_load_mw": 105.16701020677722,
+          "source_power_mw": 105.15740407583286,
+          "pcc_voltage_min_pu": 0.9750204560793935,
+          "base_avg_voltage_pu": 0.9750204560798214
+        },
+        "probe_current_amps_per_phase": 10.0,
+        "scan_type": "pos",
+        "harmonic_orders": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "harmonics": [
+          {
+            "order": 5,
+            "frequency_hz": 300.0,
+            "pcc_avg_voltage_pu": 0.04876021466617079,
+            "pcc_max_voltage_pu": 0.05052030584263404,
+            "avg_voltage_pct_of_fundamental": 5.000942735316208,
+            "max_voltage_pct_of_fundamental": 5.181461119878096,
+            "transfer_impedance_ohm_ln": 194.24688913647773,
+            "peak_line_current_a": 173.95442896879436
+          },
+          {
+            "order": 7,
+            "frequency_hz": 420.0,
+            "pcc_avg_voltage_pu": 0.04599869579247478,
+            "pcc_max_voltage_pu": 0.045998695795449566,
+            "avg_voltage_pct_of_fundamental": 4.717715972587659,
+            "max_voltage_pct_of_fundamental": 4.717715972892759,
+            "transfer_impedance_ohm_ln": 183.24577984728344,
+            "peak_line_current_a": 113.20184298803791
+          },
+          {
+            "order": 11,
+            "frequency_hz": 660.0,
+            "pcc_avg_voltage_pu": 0.04543777868450873,
+            "pcc_max_voltage_pu": 0.04972105771946145,
+            "avg_voltage_pct_of_fundamental": 4.660187219783716,
+            "max_voltage_pct_of_fundamental": 5.099488673229535,
+            "transfer_impedance_ohm_ln": 181.01124490867034,
+            "peak_line_current_a": 77.8966966067446
+          },
+          {
+            "order": 13,
+            "frequency_hz": 780.0,
+            "pcc_avg_voltage_pu": 0.03465292940994757,
+            "pcc_max_voltage_pu": 0.03465292941458366,
+            "avg_voltage_pct_of_fundamental": 3.554072039603512,
+            "max_voltage_pct_of_fundamental": 3.5540720400789985,
+            "transfer_impedance_ohm_ln": 138.04745904899207,
+            "peak_line_current_a": 45.94094711217088
+          }
+        ],
+        "probe_thdv_percent": 9.034104561385574,
+        "worst_single_harmonic_percent": 5.181461119878096,
+        "worst_single_harmonic_order": 5,
+        "max_transfer_impedance_ohm_ln": 194.24688913647773,
+        "interpretation": "The scan injects the same harmonic current probe at the PCC for each scenario. Lower resulting harmonic voltage indicates a less sensitive AC boundary. This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
       }
     }
   ]

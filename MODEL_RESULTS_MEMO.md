@@ -59,6 +59,7 @@ The current assumptions mix directly sourced values, source-anchored proxies, lo
 | Local scenario assumption | Subtransmission-side voltage | 69.0 kV for the MVDC backbone and 69.0 kV for the AC-fed advanced case. | user_specified_69kv_scenario_2026 |
 | Local white-paper assumption | Native buffer anchor locations | Architecture-specific support points selected to reflect the intended electrical domain. | white_paper_local_2026 |
 | Local scenario assumption | OpenDSS AC-side surrogate boundary | Uses the first modeled AC feeder when present; otherwise a 20.0 m centralized-front-end AC stub with X/R proxy 1.0. | opendss_epri_2026, opendss_quasi_static_local_2026 |
+| Local harmonic-scan assumption | OpenDSS harmonic probe | Equal-magnitude PCC current scan at harmonic orders 5, 7, 11, 13 using 10.0 A per phase. | opendss_epri_2026, opendss_harmonic_scan_local_2026 |
 | Project-specific gap | MV AC/DC rectifier efficiency-vs-load curves | Need measured or vendor-provided curves for the exact front-end design. |  |
 | Project-specific gap | Isolated DC pod / DC transformer efficiency curves | Need measured or vendor-provided partial-load data for the chosen topology. |  |
 | Project-specific gap | GPU-cluster waveform amplitudes | Dynamic amplitudes in the model are sensitivity cases, not universal measured constants. |  |
@@ -126,13 +127,24 @@ A complementary OpenDSS quasi-static study was run for the AC source, the 69 kV 
 | Proposed MVDC backbone | electromechanical_band_reference | 1.0 | 15.0% | 15.84 | 0.42% | 0.005 | 1064 |
 | Proposed MVDC backbone | measured_14_8hz_case | 14.8 | 10.0% | 10.54 | 0.28% | 0.005 | 1016 |
 
+<!-- source_ids: opendss_epri_2026, opendss_harmonic_scan_local_2026, white_paper_local_2026 -->
+OpenDSS harmonic-sensitivity scan:
+
+A standardized harmonic-current probe is injected at the PCC for each scenario using the same harmonic orders and current magnitude. The resulting PCC harmonic voltage is used as a structural sensitivity metric. Lower distortion in this scan means the AC boundary is less sensitive to harmonic current injection. This is useful for comparing scenarios, but it is not a substitute for a vendor-specific converter spectrum study or an IEEE 519 compliance assessment.
+
+| Architecture | Probe THDv (%) | Worst harmonic order | Worst single harmonic (%) | Max transfer impedance (ohm L-N) |
+| --- | --- | --- | --- | --- |
+| Traditional AC-centric | 10.01% | 5 | 5.75% | 214.89 |
+| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | 9.56% | 5 | 5.49% | 205.41 |
+| Proposed MVDC backbone | 9.03% | 5 | 5.18% | 194.25 |
+
 Limitations:
 
 - The `1.0 Hz` case is a modeling reference point inside the PNNL low-frequency study band. It is not claimed as a measured universal AI-workload frequency.
 - The `14.8 Hz` case is a measured data-center oscillation reference, but the model does not claim that all AI factories oscillate at this exact frequency.
 - Dynamic amplitudes remain sensitivity cases because publicly available literature does not yet provide a universal MW-swing percentage for all AI workloads.
-- The dynamic module estimates raw PCC power ripple and native-buffer requirements. It does not yet model control-loop dynamics, impedance interactions, harmonics, or EMT-grade converter behavior.
-- The OpenDSS layer is an RMS/quasi-static AC-boundary study. It validates feeder-side power flow, current, loss, and voltage behavior, but it is not a full EMT simulation of converter controls or MVDC protection.
+- The dynamic module estimates raw PCC power ripple and native-buffer requirements. It does not yet model control-loop dynamics, impedance interactions, or EMT-grade converter behavior.
+- The OpenDSS layer now includes both an AC-boundary RMS validation and a standardized harmonic-sensitivity scan. It still does not replace a full converter-spectrum study, an IEEE 519 compliance study, or an EMT simulation of MVDC protection.
 
 <!-- source_ids: white_paper_local_2026, pnnl_38817_2026, iea_2025_energy_ai -->
 ## 7. What is proven vs not yet proven
@@ -147,7 +159,7 @@ What the current model supports:
 What the current model does not yet prove externally:
 
 - Exact MVDC protection, fault-clearing, and grounding behavior.
-- Exact harmonic and power-factor performance at the PCC.
+- Exact harmonic and power-factor performance at the PCC under vendor-specific converter spectra and utility interconnection conditions.
 - Exact dynamic attenuation benefits of one architecture over another under real converter-control designs.
 - Vendor-accurate partial-load efficiency for the actual MV rectifier and isolated DC pod hardware that would be deployed.
 
@@ -161,7 +173,7 @@ What the current model does not yet prove externally:
 - Protection, grounding, insulation, and fault-isolation data for the targeted MVDC backbone implementation.
 - BESS and buffer control bandwidth, thermal limits, and siting assumptions for campus-specific dynamic mitigation studies.
 
-<!-- source_ids: iea_2025_energy_ai, eia_electricity_monthly_2026_01, nvidia_dgx_superpod_gb200_2025, nvidia_800vdc_blog_2025, opendss_epri_2026, opendss_quasi_static_local_2026, pnnl_38817_2026, arxiv_2508_14318, segan_2025_14_8hz, schneider_galaxy_vx_2025, ocp_delta_orv3, rothmund_2019_dc_transformer, white_paper_local_2026, user_specified_69kv_scenario_2026 -->
+<!-- source_ids: iea_2025_energy_ai, eia_electricity_monthly_2026_01, nvidia_dgx_superpod_gb200_2025, nvidia_800vdc_blog_2025, opendss_epri_2026, opendss_quasi_static_local_2026, opendss_harmonic_scan_local_2026, pnnl_38817_2026, arxiv_2508_14318, segan_2025_14_8hz, schneider_galaxy_vx_2025, ocp_delta_orv3, rothmund_2019_dc_transformer, white_paper_local_2026, user_specified_69kv_scenario_2026 -->
 ## 9. Reference appendix
 
 | Source ID | Title | Date | Tier | URL | How it is used in the model |
@@ -172,6 +184,7 @@ What the current model does not yet prove externally:
 | nvidia_800vdc_blog_2025 | NVIDIA 800 VDC Architecture Will Power the Next Generation of AI Factories | 2025-05-20 | Tier C | https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/ | 800 VDC / 13.8 kV architecture direction and conductor-voltage context. |
 | opendss_epri_2026 | OpenDSS Overview | 2026-04-08 | Tier A | https://opendss.epri.com/OpenDSSOverview.html | OpenDSS method basis for RMS/quasi-static feeder studies. |
 | opendss_quasi_static_local_2026 | Local OpenDSS AC-boundary validation setup | 2026-04-08 | Local | file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py | Local AC-boundary surrogate choices used for the OpenDSS validation setup. |
+| opendss_harmonic_scan_local_2026 | Local OpenDSS harmonic-sensitivity scan setup | 2026-04-10 | Local | file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py | Local OpenDSS harmonic-sensitivity scan setup and standardized probe-current assumptions. |
 | pnnl_38817_2026 | Electromagnetic Transient Modeling of Data Centers | 2026-01-01 | Tier A | https://www.energy.gov/sites/default/files/2026-01/Data_Center_EMT_Models.pdf | Dynamic-load study framing and the 0.1-5 Hz versus 5-60 Hz modeling bands. |
 | arxiv_2508_14318 | Power Stabilization for AI Training Datacenters | 2025-08-20 | Tier C | https://arxiv.org/abs/2508.14318 | AI-training load fluctuation motivation and need for dynamic-load modeling. |
 | segan_2025_14_8hz | Understanding the inception of 14.7 Hz oscillations emerging from a data center | 2025-01-01 | Tier B | https://www.sciencedirect.com/science/article/abs/pii/S2352467725001171 | Measured 14.8 Hz data-center oscillation reference case. |
