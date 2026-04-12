@@ -382,10 +382,80 @@ def build_voltage_benefit(public_report: dict, rts_network: dict, power_factor: 
     }
 
 
+def build_scaling_sweep(public_report: dict, rts_network: dict, power_factor: float) -> dict:
+    harmonic_models = {order: build_complex_network(rts_network, harmonic_order=order) for order in HARMONIC_ORDERS}
+    voltage_model = build_complex_network(rts_network, harmonic_order=1)
+    multi = scenario_lookup(public_report)["multi"]
+    scenario2m = multi["Scenario 2(M)"]
+    scenario3m = multi["Scenario 3(M)"]
+
+    rows = []
+    for case2, case3 in zip(scenario2m["expansion_cases"], scenario3m["expansion_cases"]):
+        count = len(case2["active_blocks"])
+        distributed_buses = RTS_MULTI_POI_BUSES[:count]
+        scenario2_loads = {bus_id: case2["source_input_mw"] / count for bus_id in distributed_buses}
+        scenario3_loads = {CENTRALIZED_PUBLIC_SUBSTATION_BUS: case3["source_input_mw"]}
+
+        scenario2_harm = math.sqrt(
+            sum(
+                harmonic_voltage_response(
+                    harmonic_models[order],
+                    rts_network,
+                    distributed_buses,
+                    HARMONIC_CURRENT_PU_PER_INTERFACE,
+                )["max_poi_voltage_pu"]
+                ** 2
+                for order in HARMONIC_ORDERS
+            )
+        )
+        scenario3_harm = math.sqrt(
+            sum(
+                harmonic_voltage_response(
+                    harmonic_models[order],
+                    rts_network,
+                    [CENTRALIZED_PUBLIC_SUBSTATION_BUS],
+                    HARMONIC_CURRENT_PU_PER_INTERFACE,
+                )["max_poi_voltage_pu"]
+                ** 2
+                for order in HARMONIC_ORDERS
+            )
+        )
+        scenario2_voltage = solve_voltage_sensitivity(voltage_model, rts_network, scenario2_loads, power_factor)
+        scenario3_voltage = solve_voltage_sensitivity(voltage_model, rts_network, scenario3_loads, power_factor)
+
+        rows.append(
+            {
+                "block_count": count,
+                "total_it_mw": case2["total_it_mw"],
+                "scenario2m_efficiency": case2["efficiency"],
+                "scenario3m_efficiency": case3["efficiency"],
+                "scenario3m_minus_scenario2m_efficiency_pct_points": (case3["efficiency"] - case2["efficiency"]) * 100.0,
+                "scenario2m_network_loss_mw": case2["network_loss_mw"],
+                "scenario3m_network_loss_mw": case3["network_loss_mw"],
+                "scenario2m_ac_interface_count": count,
+                "scenario3m_ac_interface_count": 1,
+                "scenario2m_harmonic_thdv_proxy_pu": scenario2_harm,
+                "scenario3m_harmonic_thdv_proxy_pu": scenario3_harm,
+                "scenario2m_base_max_poi_drop_pct_points": scenario2_voltage["max_poi_drop_pct_points"],
+                "scenario3m_base_max_poi_drop_pct_points": scenario3_voltage["max_poi_drop_pct_points"],
+            }
+        )
+
+    return {
+        "claim": "The MVDC-backbone advantage should become clearer as a campus expands from one block to multiple blocks.",
+        "rows": rows,
+        "interpretation": (
+            "This sweep reuses the multi-node expansion cases and applies the same public-network harmonic "
+            "and voltage screens at each active-block count."
+        ),
+    }
+
+
 def build_note(report: dict) -> str:
     eff = report["benefits"]["efficiency"]
     harm = report["benefits"]["power_quality"]
     volt = report["benefits"]["voltage_and_dynamic"]
+    sweep = report["benefits"]["scaling_sweep"]["rows"]
 
     single_eff = eff["single_path"]
     multi_eff = eff["multi_node"]
@@ -395,6 +465,10 @@ def build_note(report: dict) -> str:
     s3m_v = volt["multi_node"]["base_case"]["Scenario 3(M)"]["max_poi_drop_pct_points"]
     s2m_v_step = volt["multi_node"]["plus_10pct_step"]["Scenario 2(M)"]["max_poi_drop_pct_points"]
     s3m_v_step = volt["multi_node"]["plus_10pct_step"]["Scenario 3(M)"]["max_poi_drop_pct_points"]
+    first_crossover = next(
+        (row for row in sweep if row["scenario3m_minus_scenario2m_efficiency_pct_points"] > 0.0),
+        None,
+    )
 
     return "\n".join(
         [
@@ -420,6 +494,16 @@ def build_note(report: dict) -> str:
             f"- With a `+10%` load step: Scenario 2(M) rises to `{s2m_v_step:.3f}` percentage points and Scenario 3(M) rises to `{s3m_v_step:.3f}`.",
             "- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.",
             "- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study.",
+            "",
+            "## Scaling evidence",
+            "",
+            (
+                f"- In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `{first_crossover['block_count']}` active blocks / `{first_crossover['total_it_mw']:.0f} MW`."
+                if first_crossover
+                else "- In the current expansion sweep, Scenario 3(M) does not turn more efficient than Scenario 2(M)."
+            ),
+            f"- At four blocks / 100 MW, the harmonic proxy is `{s2m_h:.5f} pu` for Scenario 2(M) and `{s3m_h:.5f} pu` for Scenario 3(M).",
+            f"- At four blocks / 100 MW, the base voltage-drop proxy is `{s2m_v:.3f}` percentage points for Scenario 2(M) and `{s3m_v:.3f}` for Scenario 3(M).",
         ]
     )
 
@@ -456,6 +540,7 @@ def build_report(public_benchmark_report: dict) -> dict:
             "efficiency": build_efficiency_benefit(public_benchmark_report),
             "power_quality": build_harmonic_benefit(public_benchmark_report, rts_network),
             "voltage_and_dynamic": build_voltage_benefit(public_benchmark_report, rts_network, power_factor),
+            "scaling_sweep": build_scaling_sweep(public_benchmark_report, rts_network, power_factor),
         },
     }
     report["summary_note"] = build_note(report)
@@ -466,6 +551,7 @@ def print_summary(report: dict) -> None:
     eff = report["benefits"]["efficiency"]
     harm = report["benefits"]["power_quality"]
     volt = report["benefits"]["voltage_and_dynamic"]
+    sweep = report["benefits"]["scaling_sweep"]["rows"]
     print("Public benefit analysis")
     print("-----------------------")
     print("Benefit 1: Efficiency / loss reduction")
@@ -509,6 +595,38 @@ def print_summary(report: dict) -> None:
         ],
     ]
     print(format_table([["Case", "Base Max POI Drop (pct-pts)", "+10% Step Max POI Drop"], *volt_rows]))
+    print()
+
+    print("Scaling sweep: Scenario 2(M) vs Scenario 3(M)")
+    sweep_rows = []
+    for row in sweep:
+        sweep_rows.append(
+            [
+                str(row["block_count"]),
+                f"{row['total_it_mw']:.0f}",
+                f"{row['scenario3m_minus_scenario2m_efficiency_pct_points']:+.3f}",
+                f"{row['scenario2m_harmonic_thdv_proxy_pu']:.5f}",
+                f"{row['scenario3m_harmonic_thdv_proxy_pu']:.5f}",
+                f"{row['scenario2m_base_max_poi_drop_pct_points']:.3f}",
+                f"{row['scenario3m_base_max_poi_drop_pct_points']:.3f}",
+            ]
+        )
+    print(
+        format_table(
+            [
+                [
+                    "Blocks",
+                    "IT MW",
+                    "S3(M)-S2(M) Eff. pts",
+                    "S2(M) THDv",
+                    "S3(M) THDv",
+                    "S2(M) Vdrop",
+                    "S3(M) Vdrop",
+                ],
+                *sweep_rows,
+            ]
+        )
+    )
 
 
 def parse_args() -> argparse.Namespace:

@@ -114,6 +114,7 @@ Current benefit-specific public result:
 - Benefit 1 is supported more strongly for `Scenario 3(M)` than for single-path `Scenario 3`.
 - Benefit 2 is strongly supported at the architecture level in the multi-node case: the centralized-front-end `Scenario 3(M)` has a much lower public-network THDv proxy than the distributed-interface `Scenario 2(M)`.
 - Benefit 3 is also supported at the public-network sensitivity level in the multi-node case: `Scenario 3(M)` shows substantially lower POI voltage-drop sensitivity than `Scenario 2(M)` in both the base and `+10%` step screens.
+- In the current expansion sweep, `Scenario 3(M)` first becomes more efficient than `Scenario 2(M)` at `2` active blocks / `50 MW`, while the harmonic and voltage advantages widen as the number of blocks increases.
 
 That is a better scientific position than claiming a uniform advantage everywhere. The public-data-only layer strengthens the multi-node backbone argument and weakens the over-broad single-path claim.
 
