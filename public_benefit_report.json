@@ -764,7 +764,55 @@
         }
       ],
       "interpretation": "This sweep reuses the multi-node expansion cases and applies the same public-network harmonic and voltage screens at each active-block count."
+    },
+    "location_robustness": {
+      "claim": "The multi-node backbone advantages should not depend on one hand-picked RTS area.",
+      "rows": [
+        {
+          "label": "Area 1",
+          "distributed_buses": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "central_bus": 112,
+          "scenario2m_harmonic_thdv_proxy_pu": 0.0408758825246368,
+          "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
+          "scenario2m_base_max_poi_drop_pct_points": 2.8069064389251164,
+          "scenario3m_base_max_poi_drop_pct_points": 0.5106977550334291
+        },
+        {
+          "label": "Area 2",
+          "distributed_buses": [
+            203,
+            204,
+            206,
+            210
+          ],
+          "central_bus": 212,
+          "scenario2m_harmonic_thdv_proxy_pu": 0.075979093242009,
+          "scenario3m_harmonic_thdv_proxy_pu": 0.017002038320995044,
+          "scenario2m_base_max_poi_drop_pct_points": 5.928968024331915,
+          "scenario3m_base_max_poi_drop_pct_points": 2.1048446477671567
+        },
+        {
+          "label": "Area 3",
+          "distributed_buses": [
+            303,
+            304,
+            306,
+            310
+          ],
+          "central_bus": 312,
+          "scenario2m_harmonic_thdv_proxy_pu": 0.12515531711890673,
+          "scenario3m_harmonic_thdv_proxy_pu": 0.026861363729365994,
+          "scenario2m_base_max_poi_drop_pct_points": 8.66635652497736,
+          "scenario3m_base_max_poi_drop_pct_points": 2.3993985208598634
+        }
+      ],
+      "interpretation": "This sweep applies the same four-block Scenario 2(M) and Scenario 3(M) source demands across the three mirrored RTS areas to test whether the harmonic and voltage advantages persist."
     }
   },
-  "summary_note": "# Public Benefit Analysis\n\nThis note summarizes how far the available public datasets can support the three headline benefits.\n\n## Benefit 1: Efficiency / loss reduction\n\n- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `25.0%` of annualized hours, but its total annualized loss is slightly worse by `+236.72 MWh`.\n- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `31.2%` of annualized hours and improves annualized loss by `-559.50 MWh`.\n- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.\n\n## Benefit 2: Power quality / harmonics\n\n- Public-network harmonic-sensitivity proxy: Scenario 2(M) has a THDv proxy of `0.04088 pu` with four distributed AC interfaces, while Scenario 3(M) has `0.00533 pu` with one centralized AC interface.\n- Interpretation: under the same per-interface harmonic-source assumption, the centralized-front-end architecture reduces aggregate grid-facing harmonic exposure because it collapses multiple AC interfaces into one.\n- Limitation: this is still a structural harmonic-sensitivity screen, not an IEEE 519 compliance study.\n\n## Benefit 3: Voltage response / upstream AC boundary\n\n- Public-network voltage sensitivity at full load: Scenario 2(M) shows a maximum POI voltage-drop proxy of `2.807` percentage points, while Scenario 3(M) shows `0.511`.\n- With a `+10%` load step: Scenario 2(M) rises to `3.071` percentage points and Scenario 3(M) rises to `0.556`.\n- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.\n- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study.\n\n## Scaling evidence\n\n- In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `2` active blocks / `50 MW`.\n- At four blocks / 100 MW, the harmonic proxy is `0.04088 pu` for Scenario 2(M) and `0.00533 pu` for Scenario 3(M).\n- At four blocks / 100 MW, the base voltage-drop proxy is `2.807` percentage points for Scenario 2(M) and `0.511` for Scenario 3(M)."
+  "summary_note": "# Public Benefit Analysis\n\nThis note summarizes how far the available public datasets can support the three headline benefits.\n\n## Benefit 1: Efficiency / loss reduction\n\n- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `25.0%` of annualized hours, but its total annualized loss is slightly worse by `+236.72 MWh`.\n- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `31.2%` of annualized hours and improves annualized loss by `-559.50 MWh`.\n- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.\n\n## Benefit 2: Power quality / harmonics\n\n- Public-network harmonic-sensitivity proxy: Scenario 2(M) has a THDv proxy of `0.04088 pu` with four distributed AC interfaces, while Scenario 3(M) has `0.00533 pu` with one centralized AC interface.\n- Interpretation: under the same per-interface harmonic-source assumption, the centralized-front-end architecture reduces aggregate grid-facing harmonic exposure because it collapses multiple AC interfaces into one.\n- Limitation: this is still a structural harmonic-sensitivity screen, not an IEEE 519 compliance study.\n\n## Benefit 3: Voltage response / upstream AC boundary\n\n- Public-network voltage sensitivity at full load: Scenario 2(M) shows a maximum POI voltage-drop proxy of `2.807` percentage points, while Scenario 3(M) shows `0.511`.\n- With a `+10%` load step: Scenario 2(M) rises to `3.071` percentage points and Scenario 3(M) rises to `0.556`.\n- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.\n- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study.\n\n## Scaling evidence\n\n- In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `2` active blocks / `50 MW`.\n- At four blocks / 100 MW, the harmonic proxy is `0.04088 pu` for Scenario 2(M) and `0.00533 pu` for Scenario 3(M).\n- At four blocks / 100 MW, the base voltage-drop proxy is `2.807` percentage points for Scenario 2(M) and `0.511` for Scenario 3(M).\n\n## Location robustness\n\n- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `4.47x`.\n- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `2.82x`.\n- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location."
 }

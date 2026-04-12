@@ -26,3 +26,9 @@ This note summarizes how far the available public datasets can support the three
 - In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `2` active blocks / `50 MW`.
 - At four blocks / 100 MW, the harmonic proxy is `0.04088 pu` for Scenario 2(M) and `0.00533 pu` for Scenario 3(M).
 - At four blocks / 100 MW, the base voltage-drop proxy is `2.807` percentage points for Scenario 2(M) and `0.511` for Scenario 3(M).
+
+## Location robustness
+
+- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `4.47x`.
+- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `2.82x`.
+- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.

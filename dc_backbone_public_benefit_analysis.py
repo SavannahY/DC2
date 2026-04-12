@@ -49,6 +49,11 @@ CENTRALIZED_PUBLIC_SUBSTATION_BUS = 112
 HARMONIC_ORDERS = [5, 7, 11, 13]
 HARMONIC_CURRENT_PU_PER_INTERFACE = 0.01
 DYNAMIC_STEP_FRACTION = 0.10
+RTS_AREA_CASES = [
+    {"label": "Area 1", "distributed_buses": [103, 104, 106, 110], "central_bus": 112},
+    {"label": "Area 2", "distributed_buses": [203, 204, 206, 210], "central_bus": 212},
+    {"label": "Area 3", "distributed_buses": [303, 304, 306, 310], "central_bus": 312},
+]
 
 
 def write_json(path: Path, payload: dict) -> None:
@@ -451,11 +456,77 @@ def build_scaling_sweep(public_report: dict, rts_network: dict, power_factor: fl
     }
 
 
+def build_location_robustness(public_report: dict, rts_network: dict, power_factor: float) -> dict:
+    harmonic_models = {order: build_complex_network(rts_network, harmonic_order=order) for order in HARMONIC_ORDERS}
+    voltage_model = build_complex_network(rts_network, harmonic_order=1)
+    multi = scenario_lookup(public_report)["multi"]
+    scenario2m = multi["Scenario 2(M)"]
+    scenario3m = multi["Scenario 3(M)"]
+    total_mw_s2 = scenario2m["full_load"]["source_input_mw"]
+    total_mw_s3 = scenario3m["full_load"]["source_input_mw"]
+
+    rows = []
+    for area in RTS_AREA_CASES:
+        distributed_buses = area["distributed_buses"]
+        central_bus = area["central_bus"]
+        s2_loads = {bus_id: total_mw_s2 / len(distributed_buses) for bus_id in distributed_buses}
+        s3_loads = {central_bus: total_mw_s3}
+
+        s2_harm = math.sqrt(
+            sum(
+                harmonic_voltage_response(
+                    harmonic_models[order],
+                    rts_network,
+                    distributed_buses,
+                    HARMONIC_CURRENT_PU_PER_INTERFACE,
+                )["max_poi_voltage_pu"]
+                ** 2
+                for order in HARMONIC_ORDERS
+            )
+        )
+        s3_harm = math.sqrt(
+            sum(
+                harmonic_voltage_response(
+                    harmonic_models[order],
+                    rts_network,
+                    [central_bus],
+                    HARMONIC_CURRENT_PU_PER_INTERFACE,
+                )["max_poi_voltage_pu"]
+                ** 2
+                for order in HARMONIC_ORDERS
+            )
+        )
+        s2_v = solve_voltage_sensitivity(voltage_model, rts_network, s2_loads, power_factor)
+        s3_v = solve_voltage_sensitivity(voltage_model, rts_network, s3_loads, power_factor)
+
+        rows.append(
+            {
+                "label": area["label"],
+                "distributed_buses": distributed_buses,
+                "central_bus": central_bus,
+                "scenario2m_harmonic_thdv_proxy_pu": s2_harm,
+                "scenario3m_harmonic_thdv_proxy_pu": s3_harm,
+                "scenario2m_base_max_poi_drop_pct_points": s2_v["max_poi_drop_pct_points"],
+                "scenario3m_base_max_poi_drop_pct_points": s3_v["max_poi_drop_pct_points"],
+            }
+        )
+
+    return {
+        "claim": "The multi-node backbone advantages should not depend on one hand-picked RTS area.",
+        "rows": rows,
+        "interpretation": (
+            "This sweep applies the same four-block Scenario 2(M) and Scenario 3(M) source demands across the "
+            "three mirrored RTS areas to test whether the harmonic and voltage advantages persist."
+        ),
+    }
+
+
 def build_note(report: dict) -> str:
     eff = report["benefits"]["efficiency"]
     harm = report["benefits"]["power_quality"]
     volt = report["benefits"]["voltage_and_dynamic"]
     sweep = report["benefits"]["scaling_sweep"]["rows"]
+    location_rows = report["benefits"]["location_robustness"]["rows"]
 
     single_eff = eff["single_path"]
     multi_eff = eff["multi_node"]
@@ -468,6 +539,14 @@ def build_note(report: dict) -> str:
     first_crossover = next(
         (row for row in sweep if row["scenario3m_minus_scenario2m_efficiency_pct_points"] > 0.0),
         None,
+    )
+    location_rows = report["benefits"]["location_robustness"]["rows"]
+    min_harm_ratio = min(
+        row["scenario2m_harmonic_thdv_proxy_pu"] / row["scenario3m_harmonic_thdv_proxy_pu"] for row in location_rows
+    )
+    min_voltage_ratio = min(
+        row["scenario2m_base_max_poi_drop_pct_points"] / row["scenario3m_base_max_poi_drop_pct_points"]
+        for row in location_rows
     )
 
     return "\n".join(
@@ -504,6 +583,12 @@ def build_note(report: dict) -> str:
             ),
             f"- At four blocks / 100 MW, the harmonic proxy is `{s2m_h:.5f} pu` for Scenario 2(M) and `{s3m_h:.5f} pu` for Scenario 3(M).",
             f"- At four blocks / 100 MW, the base voltage-drop proxy is `{s2m_v:.3f}` percentage points for Scenario 2(M) and `{s3m_v:.3f}` for Scenario 3(M).",
+            "",
+            "## Location robustness",
+            "",
+            f"- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `{min_harm_ratio:.2f}x`.",
+            f"- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `{min_voltage_ratio:.2f}x`.",
+            "- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.",
         ]
     )
 
@@ -541,6 +626,7 @@ def build_report(public_benchmark_report: dict) -> dict:
             "power_quality": build_harmonic_benefit(public_benchmark_report, rts_network),
             "voltage_and_dynamic": build_voltage_benefit(public_benchmark_report, rts_network, power_factor),
             "scaling_sweep": build_scaling_sweep(public_benchmark_report, rts_network, power_factor),
+            "location_robustness": build_location_robustness(public_benchmark_report, rts_network, power_factor),
         },
     }
     report["summary_note"] = build_note(report)
@@ -552,6 +638,7 @@ def print_summary(report: dict) -> None:
     harm = report["benefits"]["power_quality"]
     volt = report["benefits"]["voltage_and_dynamic"]
     sweep = report["benefits"]["scaling_sweep"]["rows"]
+    location_rows = report["benefits"]["location_robustness"]["rows"]
     print("Public benefit analysis")
     print("-----------------------")
     print("Benefit 1: Efficiency / loss reduction")
@@ -624,6 +711,28 @@ def print_summary(report: dict) -> None:
                     "S3(M) Vdrop",
                 ],
                 *sweep_rows,
+            ]
+        )
+    )
+    print()
+
+    print("Location robustness: Scenario 2(M) vs Scenario 3(M)")
+    location_table = []
+    for row in location_rows:
+        location_table.append(
+            [
+                row["label"],
+                f"{row['scenario2m_harmonic_thdv_proxy_pu']:.5f}",
+                f"{row['scenario3m_harmonic_thdv_proxy_pu']:.5f}",
+                f"{row['scenario2m_base_max_poi_drop_pct_points']:.3f}",
+                f"{row['scenario3m_base_max_poi_drop_pct_points']:.3f}",
+            ]
+        )
+    print(
+        format_table(
+            [
+                ["Area", "S2(M) THDv", "S3(M) THDv", "S2(M) Vdrop", "S3(M) Vdrop"],
+                *location_table,
             ]
         )
     )
