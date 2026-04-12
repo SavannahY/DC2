@@ -174,6 +174,7 @@ def load_rts_data(bus_csv: Path, branch_csv: Path) -> dict:
             "type": row["Bus Type"],
             "mw_load": float(row["MW Load"]),
             "mvar_load": float(row["MVAR Load"]),
+            "v_mag_pu": float(row["V Mag"]),
             "angle_deg": float(row["V Angle"]),
             "area": int(float(row["Area"])),
             "zone": int(float(row["Zone"])),

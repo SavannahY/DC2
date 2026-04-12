@@ -1,0 +1,704 @@
+{
+  "meta": {
+    "title": "Public-data-only benefit analysis",
+    "status": "public_benefit_screen_v1",
+    "note": "This report tests the three headline benefits with the currently available public datasets. It strengthens some claims and weakens others. It is not a substitute for converter-aware EMT, site-specific PCC analysis, or vendor-grade efficiency data.",
+    "inputs": {
+      "title": "Public-data-only benchmark upgrade for the DC backbone study",
+      "status": "public_profile_and_public_network_sensitivity",
+      "assumptions_path": "/Users/zhengjieyang/Documents/DC2/scientific_assumptions_v1.json",
+      "topology_path": "/Users/zhengjieyang/Documents/DC2/multinode_campus_topology.json",
+      "rts_bus_path": "/Users/zhengjieyang/Documents/DC2/public_data/rts_gmlc/bus.csv",
+      "rts_branch_path": "/Users/zhengjieyang/Documents/DC2/public_data/rts_gmlc/branch.csv",
+      "esif_zip_path": "/Users/zhengjieyang/Documents/DC2/public_data/nlr_esif/esif_pue_combined.csv.zip",
+      "note": "This report adds two public-data-only sensitivity layers: an empirical ESIF IT-load-shape layer and a common-network RTS-GMLC stress screen. It does not replace vendor-grade converter data, site-specific utility data, or EMT studies."
+    }
+  },
+  "benefits": {
+    "efficiency": {
+      "claim": "Scenario 3 should reduce electrical losses.",
+      "single_path": {
+        "scenario3_minus_scenario2_annual_loss_mwh": 236.719340052412,
+        "scenario3_better_hours": 2190.0,
+        "scenario3_better_hours_fraction": 0.25,
+        "bin_rows": [
+          {
+            "name": "public_esif_quantile_bin_01",
+            "load_fraction": 0.166579,
+            "scenario2_loss_mw": 2.793688366338259,
+            "scenario3_loss_mw": 2.8875319341082246,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_02",
+            "load_fraction": 0.231228,
+            "scenario2_loss_mw": 3.7682844901436674,
+            "scenario3_loss_mw": 3.8790348563356645,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_03",
+            "load_fraction": 0.246206,
+            "scenario2_loss_mw": 3.9577750245655103,
+            "scenario3_loss_mw": 4.0683391683884444,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_04",
+            "load_fraction": 0.256264,
+            "scenario2_loss_mw": 4.0814140641351315,
+            "scenario3_loss_mw": 4.191384862006128,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_05",
+            "load_fraction": 0.27188,
+            "scenario2_loss_mw": 4.2676615780316745,
+            "scenario3_loss_mw": 4.375973737773645,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_06",
+            "load_fraction": 0.294066,
+            "scenario2_loss_mw": 4.5203873646052095,
+            "scenario3_loss_mw": 4.624820412093396,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_07",
+            "load_fraction": 0.308126,
+            "scenario2_loss_mw": 4.673376262350015,
+            "scenario3_loss_mw": 4.774438699880438,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_08",
+            "load_fraction": 0.319538,
+            "scenario2_loss_mw": 4.793485662545518,
+            "scenario3_loss_mw": 4.891298625545392,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_09",
+            "load_fraction": 0.33497,
+            "scenario2_loss_mw": 4.950139915240236,
+            "scenario3_loss_mw": 5.042834799376685,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_10",
+            "load_fraction": 0.357227,
+            "scenario2_loss_mw": 5.164474636439621,
+            "scenario3_loss_mw": 5.2483413811098885,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_11",
+            "load_fraction": 0.37762700000000005,
+            "scenario2_loss_mw": 5.348978265854747,
+            "scenario3_loss_mw": 5.423276335042935,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_12",
+            "load_fraction": 0.422443,
+            "scenario2_loss_mw": 5.7146138220484275,
+            "scenario3_loss_mw": 5.763046104950831,
+            "scenario3_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_13",
+            "load_fraction": 0.5622,
+            "scenario2_loss_mw": 6.698251691818378,
+            "scenario3_loss_mw": 6.651338279578411,
+            "scenario3_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_14",
+            "load_fraction": 0.689751,
+            "scenario2_loss_mw": 7.475712310654558,
+            "scenario3_loss_mw": 7.327394785711604,
+            "scenario3_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_15",
+            "load_fraction": 0.753346,
+            "scenario2_loss_mw": 7.766559097252554,
+            "scenario3_loss_mw": 7.556648216062982,
+            "scenario3_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_16",
+            "load_fraction": 0.937494,
+            "scenario2_loss_mw": 8.579310007820595,
+            "scenario3_loss_mw": 8.280774453299358,
+            "scenario3_better": true,
+            "hours": 547.5
+          }
+        ]
+      },
+      "multi_node": {
+        "scenario3m_minus_scenario2m_annual_loss_mwh": -559.4982819625875,
+        "scenario3m_better_hours": 2737.5,
+        "scenario3m_better_hours_fraction": 0.3125,
+        "bin_rows": [
+          {
+            "name": "public_esif_quantile_bin_01",
+            "load_fraction": 0.166579,
+            "scenario2m_loss_mw": 2.7796955813092588,
+            "scenario3m_loss_mw": 2.8731776664729143,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_02",
+            "load_fraction": 0.231228,
+            "scenario2m_loss_mw": 3.86112462653512,
+            "scenario3m_loss_mw": 3.9611144695505915,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_03",
+            "load_fraction": 0.246206,
+            "scenario2m_loss_mw": 4.111882297137183,
+            "scenario3m_loss_mw": 4.207460353533481,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_04",
+            "load_fraction": 0.256264,
+            "scenario2m_loss_mw": 4.280315022583815,
+            "scenario3m_loss_mw": 4.372191178933765,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_05",
+            "load_fraction": 0.27188,
+            "scenario2m_loss_mw": 4.541893480707598,
+            "scenario3m_loss_mw": 4.6268460551677135,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_06",
+            "load_fraction": 0.294066,
+            "scenario2m_loss_mw": 4.9136716488811825,
+            "scenario3m_loss_mw": 4.986330266681767,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_07",
+            "load_fraction": 0.308126,
+            "scenario2m_loss_mw": 5.1493695544368885,
+            "scenario3m_loss_mw": 5.21274552763573,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_08",
+            "load_fraction": 0.319538,
+            "scenario2m_loss_mw": 5.340728361305898,
+            "scenario3m_loss_mw": 5.395720056515609,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_09",
+            "load_fraction": 0.33497,
+            "scenario2m_loss_mw": 5.599568382056612,
+            "scenario3m_loss_mw": 5.642012272138226,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_10",
+            "load_fraction": 0.357227,
+            "scenario2m_loss_mw": 5.973031568655552,
+            "scenario3m_loss_mw": 5.9949305610719374,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_11",
+            "load_fraction": 0.377627,
+            "scenario2m_loss_mw": 6.315488464764757,
+            "scenario3m_loss_mw": 6.316020785352752,
+            "scenario3m_better": false,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_12",
+            "load_fraction": 0.422443,
+            "scenario2m_loss_mw": 7.0683343659174485,
+            "scenario3m_loss_mw": 7.013426281677233,
+            "scenario3m_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_13",
+            "load_fraction": 0.5622,
+            "scenario2m_loss_mw": 9.42060257506324,
+            "scenario3m_loss_mw": 9.205883001886619,
+            "scenario3m_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_14",
+            "load_fraction": 0.689751,
+            "scenario2m_loss_mw": 11.57344014680693,
+            "scenario3m_loss_mw": 11.200587435658594,
+            "scenario3m_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_15",
+            "load_fraction": 0.753346,
+            "scenario2m_loss_mw": 12.648955416063478,
+            "scenario3m_loss_mw": 12.183944653751329,
+            "scenario3m_better": true,
+            "hours": 547.5
+          },
+          {
+            "name": "public_esif_quantile_bin_16",
+            "load_fraction": 0.937494,
+            "scenario2m_loss_mw": 15.239781756004803,
+            "scenario3m_loss_mw": 14.60357801195027,
+            "scenario3m_better": true,
+            "hours": 547.5
+          }
+        ]
+      }
+    },
+    "power_quality": {
+      "claim": "Scenario 3 should centralize AC harmonic ownership and reduce grid-facing harmonic sensitivity.",
+      "assumption_note": "A standardized per-interface harmonic current probe is injected on the public RTS network. For Scenario 3(M), the AC interface is modeled as one centralized subtransmission/front-end connection at RTS bus 112. For Scenario 1(M)/2(M), the AC interfaces are distributed across four 138 kV load buses.",
+      "harmonic_orders": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "per_interface_current_probe_pu": 0.01,
+      "single_path": {
+        "Traditional AC-centric": {
+          "thdv_proxy_pu": 0.009814084161667479,
+          "interface_count": 1
+        },
+        "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+          "thdv_proxy_pu": 0.009814084161667479,
+          "interface_count": 1
+        },
+        "Proposed MVDC backbone": {
+          "thdv_proxy_pu": 0.009814084161667479,
+          "interface_count": 1
+        }
+      },
+      "multi_node": {
+        "Scenario 1(M)": {
+          "thdv_proxy_pu": 0.0408758825246368,
+          "interface_count": 4,
+          "poi_bus_ids": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "poi_bus_names": [
+            "Adler",
+            "Agricola",
+            "Alber",
+            "Allen"
+          ]
+        },
+        "Scenario 2(M)": {
+          "thdv_proxy_pu": 0.0408758825246368,
+          "interface_count": 4,
+          "poi_bus_ids": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "poi_bus_names": [
+            "Adler",
+            "Agricola",
+            "Alber",
+            "Allen"
+          ]
+        },
+        "Scenario 3(M)": {
+          "thdv_proxy_pu": 0.005327451613171864,
+          "interface_count": 1,
+          "poi_bus_ids": [
+            112
+          ],
+          "poi_bus_names": [
+            "Archer"
+          ]
+        }
+      }
+    },
+    "voltage_and_dynamic": {
+      "claim": "Scenario 3 should reduce AC-side voltage sensitivity by moving the main AC/DC boundary upstream.",
+      "assumption_note": "The voltage screen uses a linearized complex-voltage sensitivity around the published RTS base operating point. Scenario 3(M) is represented with one centralized subtransmission AC interface at RTS bus 112; Scenario 1(M)/2(M) use four distributed 138 kV AC interfaces.",
+      "power_factor": 0.98,
+      "dynamic_step_fraction": 0.1,
+      "single_path": {
+        "base_case": {
+          "Traditional AC-centric": {
+            "load_withdrawals_mw": {
+              "110": 114.3101587736578
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.024742124488646,
+                "drop_pct_points": 2.5257875511353944
+              }
+            ],
+            "max_poi_drop_pct_points": 2.5257875511353944,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9924338590016103,
+            "worst_bus_drop_pct_points": 1.780614099838973
+          },
+          "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+            "load_withdrawals_mw": {
+              "110": 108.81372482641497
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0258966950977122,
+                "drop_pct_points": 2.4103304902287848
+              }
+            ],
+            "max_poi_drop_pct_points": 2.4103304902287848,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9932686688541922,
+            "worst_bus_drop_pct_points": 1.6971331145807844
+          },
+          "Proposed MVDC backbone": {
+            "load_withdrawals_mw": {
+              "110": 108.49857730996632
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0259630820627494,
+                "drop_pct_points": 2.40369179372506
+              }
+            ],
+            "max_poi_drop_pct_points": 2.40369179372506,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9933166006634199,
+            "worst_bus_drop_pct_points": 1.6923399336580158
+          }
+        },
+        "plus_10pct_step": {
+          "Traditional AC-centric": {
+            "load_withdrawals_mw": {
+              "110": 125.7411746510236
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0223608439081462,
+                "drop_pct_points": 2.7639156091853856
+              }
+            ],
+            "max_poi_drop_pct_points": 2.7639156091853856,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9907047417044836,
+            "worst_bus_drop_pct_points": 1.953525829551639
+          },
+          "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+            "load_withdrawals_mw": {
+              "110": 119.69509730905648
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0236169922749572,
+                "drop_pct_points": 2.6383007725042873
+              }
+            ],
+            "max_poi_drop_pct_points": 2.6383007725042873,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9916181160005895,
+            "worst_bus_drop_pct_points": 1.862188399941056
+          },
+          "Proposed MVDC backbone": {
+            "load_withdrawals_mw": {
+              "110": 119.34843504096297
+            },
+            "poi_rows": [
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.023689244328866,
+                "drop_pct_points": 2.6310755671133945
+              }
+            ],
+            "max_poi_drop_pct_points": 2.6310755671133945,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9916705668214455,
+            "worst_bus_drop_pct_points": 1.8569433178554529
+          }
+        }
+      },
+      "multi_node": {
+        "base_case": {
+          "Scenario 1(M)": {
+            "load_withdrawals_mw": {
+              "103": 30.82327152732154,
+              "104": 30.82327152732154,
+              "106": 30.82327152732154,
+              "110": 30.82327152732154
+            },
+            "poi_rows": [
+              {
+                "bus_id": 103,
+                "bus_name": "Adler",
+                "base_voltage_pu": 1.01085,
+                "final_voltage_pu": 0.9920668658821576,
+                "drop_pct_points": 1.8783134117842382
+              },
+              {
+                "bus_id": 104,
+                "bus_name": "Agricola",
+                "base_voltage_pu": 1.01765,
+                "final_voltage_pu": 0.9922155692983687,
+                "drop_pct_points": 2.5434430701631205
+              },
+              {
+                "bus_id": 106,
+                "bus_name": "Alber",
+                "base_voltage_pu": 1.03242,
+                "final_voltage_pu": 1.002690193796689,
+                "drop_pct_points": 2.9729806203310893
+              },
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.028505175433916,
+                "drop_pct_points": 2.149482456608398
+              }
+            ],
+            "max_poi_drop_pct_points": 2.9729806203310893,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9916721846743776,
+            "worst_bus_drop_pct_points": 1.856781532562246
+          },
+          "Scenario 2(M)": {
+            "load_withdrawals_mw": {
+              "103": 29.00626208895947,
+              "104": 29.00626208895947,
+              "106": 29.00626208895947,
+              "110": 29.00626208895947
+            },
+            "poi_rows": [
+              {
+                "bus_id": 103,
+                "bus_name": "Adler",
+                "base_voltage_pu": 1.01085,
+                "final_voltage_pu": 0.9930999907985065,
+                "drop_pct_points": 1.77500092014935
+              },
+              {
+                "bus_id": 104,
+                "bus_name": "Agricola",
+                "base_voltage_pu": 1.01765,
+                "final_voltage_pu": 0.9936093971365204,
+                "drop_pct_points": 2.404060286347953
+              },
+              {
+                "bus_id": 106,
+                "bus_name": "Alber",
+                "base_voltage_pu": 1.03242,
+                "final_voltage_pu": 1.0043509356107487,
+                "drop_pct_points": 2.8069064389251164
+              },
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0297239152700062,
+                "drop_pct_points": 2.027608472999387
+              }
+            ],
+            "max_poi_drop_pct_points": 2.8069064389251164,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9927387380314363,
+            "worst_bus_drop_pct_points": 1.750126196856372
+          },
+          "Scenario 3(M)": {
+            "load_withdrawals_mw": {
+              "112": 115.36010188880108
+            },
+            "poi_rows": [
+              {
+                "bus_id": 112,
+                "bus_name": "Archer",
+                "base_voltage_pu": 1.02024,
+                "final_voltage_pu": 1.0151330224496657,
+                "drop_pct_points": 0.5106977550334291
+              }
+            ],
+            "max_poi_drop_pct_points": 0.5106977550334291,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 1.004092826925261,
+            "worst_bus_drop_pct_points": 0.614717307473911
+          }
+        },
+        "plus_10pct_step": {
+          "Scenario 1(M)": {
+            "load_withdrawals_mw": {
+              "103": 33.9055986800537,
+              "104": 33.9055986800537,
+              "106": 33.9055986800537,
+              "110": 33.9055986800537
+            },
+            "poi_rows": [
+              {
+                "bus_id": 103,
+                "bus_name": "Adler",
+                "base_voltage_pu": 1.01085,
+                "final_voltage_pu": 0.990335966096267,
+                "drop_pct_points": 2.0514033903733075
+              },
+              {
+                "bus_id": 104,
+                "bus_name": "Agricola",
+                "base_voltage_pu": 1.01765,
+                "final_voltage_pu": 0.9898821700682228,
+                "drop_pct_points": 2.7767829931777177
+              },
+              {
+                "bus_id": 106,
+                "bus_name": "Alber",
+                "base_voltage_pu": 1.03242,
+                "final_voltage_pu": 0.9999000961157204,
+                "drop_pct_points": 3.25199038842795
+              },
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.026451907382049,
+                "drop_pct_points": 2.354809261795099
+              }
+            ],
+            "max_poi_drop_pct_points": 3.25199038842795,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9898710992248688,
+            "worst_bus_drop_pct_points": 2.0368900775131205
+          },
+          "Scenario 2(M)": {
+            "load_withdrawals_mw": {
+              "103": 31.90688829785542,
+              "104": 31.90688829785542,
+              "106": 31.90688829785542,
+              "110": 31.90688829785542
+            },
+            "poi_rows": [
+              {
+                "bus_id": 103,
+                "bus_name": "Adler",
+                "base_voltage_pu": 1.01085,
+                "final_voltage_pu": 0.9914552417155936,
+                "drop_pct_points": 1.93947582844064
+              },
+              {
+                "bus_id": 104,
+                "bus_name": "Agricola",
+                "base_voltage_pu": 1.01765,
+                "final_voltage_pu": 0.9913907804868334,
+                "drop_pct_points": 2.6259219513166565
+              },
+              {
+                "bus_id": 106,
+                "bus_name": "Alber",
+                "base_voltage_pu": 1.03242,
+                "final_voltage_pu": 1.0017054098074891,
+                "drop_pct_points": 3.071459019251077
+              },
+              {
+                "bus_id": 110,
+                "bus_name": "Allen",
+                "base_voltage_pu": 1.05,
+                "final_voltage_pu": 1.0277812964971305,
+                "drop_pct_points": 2.2218703502869586
+              }
+            ],
+            "max_poi_drop_pct_points": 3.071459019251077,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 0.9910378223850477,
+            "worst_bus_drop_pct_points": 1.9202177614952354
+          },
+          "Scenario 3(M)": {
+            "load_withdrawals_mw": {
+              "112": 126.8961120776812
+            },
+            "poi_rows": [
+              {
+                "bus_id": 112,
+                "bus_name": "Archer",
+                "base_voltage_pu": 1.02024,
+                "final_voltage_pu": 1.0146779668185668,
+                "drop_pct_points": 0.5562033181433224
+              }
+            ],
+            "max_poi_drop_pct_points": 0.5562033181433224,
+            "worst_bus_id": 108,
+            "worst_bus_name": "Alger",
+            "worst_bus_final_voltage_pu": 1.0034942160934075,
+            "worst_bus_drop_pct_points": 0.6745783906592528
+          }
+        }
+      }
+    }
+  },
+  "summary_note": "# Public Benefit Analysis\n\nThis note summarizes how far the available public datasets can support the three headline benefits.\n\n## Benefit 1: Efficiency / loss reduction\n\n- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `25.0%` of annualized hours, but its total annualized loss is slightly worse by `+236.72 MWh`.\n- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `31.2%` of annualized hours and improves annualized loss by `-559.50 MWh`.\n- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.\n\n## Benefit 2: Power quality / harmonics\n\n- Public-network harmonic-sensitivity proxy: Scenario 2(M) has a THDv proxy of `0.04088 pu` with four distributed AC interfaces, while Scenario 3(M) has `0.00533 pu` with one centralized AC interface.\n- Interpretation: under the same per-interface harmonic-source assumption, the centralized-front-end architecture reduces aggregate grid-facing harmonic exposure because it collapses multiple AC interfaces into one.\n- Limitation: this is still a structural harmonic-sensitivity screen, not an IEEE 519 compliance study.\n\n## Benefit 3: Voltage response / upstream AC boundary\n\n- Public-network voltage sensitivity at full load: Scenario 2(M) shows a maximum POI voltage-drop proxy of `2.807` percentage points, while Scenario 3(M) shows `0.511`.\n- With a `+10%` load step: Scenario 2(M) rises to `3.071` percentage points and Scenario 3(M) rises to `0.556`.\n- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.\n- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study."
+}

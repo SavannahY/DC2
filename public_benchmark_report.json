@@ -5498,7 +5498,7 @@
             "110": 114.3101587736578
           },
           "total_withdrawal_mw": 114.3101587736578,
-          "max_incremental_branch_flow_mw": 45.183307509593064,
+          "max_incremental_branch_flow_mw": 45.18330750959308,
           "max_incremental_loading_pct": 11.06542686691618,
           "max_final_loading_pct": 58.084202121706454,
           "worst_branch_uid": "C23",
@@ -5512,9 +5512,9 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -45.183307509593064,
-              "incremental_loading_pct": 9.036661501918612,
-              "final_flow_mw": -187.59999281076534,
+              "incremental_flow_mw": -45.18330750959308,
+              "incremental_loading_pct": 9.036661501918616,
+              "final_flow_mw": -187.59999281076537,
               "final_loading_pct": 37.51999856215307
             },
             {
@@ -5536,8 +5536,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -43.22119308343368,
-              "incremental_loading_pct": 8.644238616686737,
+              "incremental_flow_mw": -43.221193083433675,
+              "incremental_loading_pct": 8.644238616686735,
               "final_flow_mw": -131.3690469554073,
               "final_loading_pct": 26.27380939108146
             },
@@ -5560,8 +5560,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -181.6781426670516,
               "base_loading_pct": 36.33562853341032,
-              "incremental_flow_mw": 14.691231485779253,
-              "incremental_loading_pct": 2.9382462971558505,
+              "incremental_flow_mw": 14.69123148577925,
+              "incremental_loading_pct": 2.9382462971558496,
               "final_flow_mw": -166.98691118127235,
               "final_loading_pct": 33.39738223625447
             }
@@ -5572,12 +5572,12 @@
             "110": 108.81372482641497
           },
           "total_withdrawal_mw": 108.81372482641497,
-          "max_incremental_branch_flow_mw": 43.01073537857028,
-          "max_incremental_loading_pct": 10.533362275942425,
+          "max_incremental_branch_flow_mw": 43.01073537857029,
+          "max_incremental_loading_pct": 10.533362275942428,
           "max_final_loading_pct": 58.08111268969718,
           "worst_branch_uid": "C23",
           "worst_branch_final_loading_pct": 58.08111268969718,
-          "max_angle_delta_deg": 3.20672055580175,
+          "max_angle_delta_deg": 3.2067205558017506,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -5586,8 +5586,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -43.01073537857028,
-              "incremental_loading_pct": 8.602147075714056,
+              "incremental_flow_mw": -43.01073537857029,
+              "incremental_loading_pct": 8.602147075714058,
               "final_flow_mw": -185.42742067974257,
               "final_loading_pct": 37.08548413594851
             },
@@ -5598,10 +5598,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -167.0412007150596,
               "base_loading_pct": 41.7603001787649,
-              "incremental_flow_mw": -42.1334491037697,
-              "incremental_loading_pct": 10.533362275942425,
-              "final_flow_mw": -209.1746498188293,
-              "final_loading_pct": 52.293662454707324
+              "incremental_flow_mw": -42.13344910376971,
+              "incremental_loading_pct": 10.533362275942428,
+              "final_flow_mw": -209.17464981882932,
+              "final_loading_pct": 52.29366245470734
             },
             {
               "uid": "A20",
@@ -5622,8 +5622,8 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -136.03043989837465,
               "base_loading_pct": 34.00760997459366,
-              "incremental_flow_mw": -41.066152490832344,
-              "incremental_loading_pct": 10.266538122708086,
+              "incremental_flow_mw": -41.06615249083235,
+              "incremental_loading_pct": 10.266538122708088,
               "final_flow_mw": -177.096592389207,
               "final_loading_pct": 44.27414809730175
             },
@@ -5634,8 +5634,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -181.6781426670516,
               "base_loading_pct": 36.33562853341032,
-              "incremental_flow_mw": 13.984825473124427,
-              "incremental_loading_pct": 2.7969650946248854,
+              "incremental_flow_mw": 13.984825473124424,
+              "incremental_loading_pct": 2.796965094624885,
               "final_flow_mw": -167.69331719392716,
               "final_loading_pct": 33.538663438785434
             }
@@ -5646,7 +5646,7 @@
             "110": 108.49857730996632
           },
           "total_withdrawal_mw": 108.49857730996632,
-          "max_incremental_branch_flow_mw": 42.886167209832294,
+          "max_incremental_branch_flow_mw": 42.8861672098323,
           "max_incremental_loading_pct": 10.502855435317198,
           "max_final_loading_pct": 58.08093555178663,
           "worst_branch_uid": "C23",
@@ -5660,10 +5660,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -42.886167209832294,
+              "incremental_flow_mw": -42.8861672098323,
               "incremental_loading_pct": 8.57723344196646,
-              "final_flow_mw": -185.30285251100457,
-              "final_loading_pct": 37.06057050220091
+              "final_flow_mw": -185.3028525110046,
+              "final_loading_pct": 37.06057050220092
             },
             {
               "uid": "A17",
@@ -5684,8 +5684,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -41.023807590691305,
-              "incremental_loading_pct": 8.20476151813826,
+              "incremental_flow_mw": -41.02380759069131,
+              "incremental_loading_pct": 8.204761518138262,
               "final_flow_mw": -129.17166146266493,
               "final_loading_pct": 25.834332292532984
             },
@@ -5708,8 +5708,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -181.6781426670516,
               "base_loading_pct": 36.33562853341032,
-              "incremental_flow_mw": 13.944322466515164,
-              "incremental_loading_pct": 2.788864493303033,
+              "incremental_flow_mw": 13.944322466515162,
+              "incremental_loading_pct": 2.7888644933030324,
               "final_flow_mw": -167.73382020053643,
               "final_loading_pct": 33.546764040107284
             }
@@ -5741,12 +5741,12 @@
             "110": 30.82327152732154
           },
           "total_withdrawal_mw": 123.29308610928616,
-          "max_incremental_branch_flow_mw": 47.81790109067169,
-          "max_incremental_loading_pct": 16.014852777333594,
-          "max_final_loading_pct": 59.48556817307169,
+          "max_incremental_branch_flow_mw": 47.8179010906717,
+          "max_incremental_loading_pct": 16.014852777333587,
+          "max_final_loading_pct": 59.48556817307168,
           "worst_branch_uid": "A10",
-          "worst_branch_final_loading_pct": 59.48556817307169,
-          "max_angle_delta_deg": 3.7832539462125045,
+          "worst_branch_final_loading_pct": 59.48556817307168,
+          "max_angle_delta_deg": 3.783253946212504,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -5755,10 +5755,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -47.81790109067169,
-              "incremental_loading_pct": 9.563580218134337,
-              "final_flow_mw": -190.23458639184398,
-              "final_loading_pct": 38.046917278368795
+              "incremental_flow_mw": -47.8179010906717,
+              "incremental_loading_pct": 9.563580218134339,
+              "final_flow_mw": -190.234586391844,
+              "final_loading_pct": 38.0469172783688
             },
             {
               "uid": "A20",
@@ -5767,10 +5767,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -44.56564615695216,
-              "incremental_loading_pct": 8.913129231390432,
-              "final_flow_mw": -132.71350002892578,
-              "final_loading_pct": 26.542700005785157
+              "incremental_flow_mw": -44.56564615695217,
+              "incremental_loading_pct": 8.913129231390434,
+              "final_flow_mw": -132.7135000289258,
+              "final_loading_pct": 26.542700005785164
             },
             {
               "uid": "A17",
@@ -5803,10 +5803,10 @@
               "cont_rating_mva": 175.0,
               "base_flow_mw": -76.07375194254166,
               "base_loading_pct": 43.47071539573809,
-              "incremental_flow_mw": -28.025992360333788,
-              "incremental_loading_pct": 16.014852777333594,
-              "final_flow_mw": -104.09974430287545,
-              "final_loading_pct": 59.48556817307169
+              "incremental_flow_mw": -28.025992360333777,
+              "incremental_loading_pct": 16.014852777333587,
+              "final_flow_mw": -104.09974430287544,
+              "final_loading_pct": 59.48556817307168
             }
           ]
         },
@@ -5823,7 +5823,7 @@
           "max_final_loading_pct": 58.54150424966236,
           "worst_branch_uid": "A10",
           "worst_branch_final_loading_pct": 58.54150424966236,
-          "max_angle_delta_deg": 3.5602338776939697,
+          "max_angle_delta_deg": 3.560233877693969,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -5844,8 +5844,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -41.938533729184414,
-              "incremental_loading_pct": 8.387706745836883,
+              "incremental_flow_mw": -41.93853372918441,
+              "incremental_loading_pct": 8.387706745836882,
               "final_flow_mw": -130.08638760115804,
               "final_loading_pct": 26.01727752023161
             },
@@ -5856,10 +5856,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -167.0412007150596,
               "base_loading_pct": 41.7603001787649,
-              "incremental_flow_mw": -28.760214465165298,
-              "incremental_loading_pct": 7.190053616291324,
-              "final_flow_mw": -195.8014151802249,
-              "final_loading_pct": 48.95035379505622
+              "incremental_flow_mw": -28.760214465165305,
+              "incremental_loading_pct": 7.190053616291327,
+              "final_flow_mw": -195.80141518022492,
+              "final_loading_pct": 48.95035379505623
             },
             {
               "uid": "A16",
@@ -5895,12 +5895,12 @@
             "110": 28.84002547220027
           },
           "total_withdrawal_mw": 115.36010188880108,
-          "max_incremental_branch_flow_mw": 44.74117824448734,
-          "max_incremental_loading_pct": 14.98441726480723,
-          "max_final_loading_pct": 58.45513266054532,
+          "max_incremental_branch_flow_mw": 44.74117824448733,
+          "max_incremental_loading_pct": 14.98441726480722,
+          "max_final_loading_pct": 58.4551326605453,
           "worst_branch_uid": "A10",
-          "worst_branch_final_loading_pct": 58.45513266054532,
-          "max_angle_delta_deg": 3.5398299651565934,
+          "worst_branch_final_loading_pct": 58.4551326605453,
+          "max_angle_delta_deg": 3.539829965156592,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -5909,10 +5909,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -44.74117824448734,
-              "incremental_loading_pct": 8.948235648897468,
-              "final_flow_mw": -187.15786354565964,
-              "final_loading_pct": 37.43157270913193
+              "incremental_flow_mw": -44.74117824448733,
+              "incremental_loading_pct": 8.948235648897466,
+              "final_flow_mw": -187.1578635456596,
+              "final_loading_pct": 37.43157270913192
             },
             {
               "uid": "A20",
@@ -5921,8 +5921,8 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -41.698181492912134,
-              "incremental_loading_pct": 8.339636298582427,
+              "incremental_flow_mw": -41.69818149291212,
+              "incremental_loading_pct": 8.339636298582425,
               "final_flow_mw": -129.84603536488575,
               "final_loading_pct": 25.969207072977152
             },
@@ -5957,10 +5957,10 @@
               "cont_rating_mva": 175.0,
               "base_flow_mw": -76.07375194254166,
               "base_loading_pct": 43.47071539573809,
-              "incremental_flow_mw": -26.22273021341265,
-              "incremental_loading_pct": 14.98441726480723,
-              "final_flow_mw": -102.29648215595431,
-              "final_loading_pct": 58.45513266054532
+              "incremental_flow_mw": -26.222730213412635,
+              "incremental_loading_pct": 14.98441726480722,
+              "final_flow_mw": -102.2964821559543,
+              "final_loading_pct": 58.4551326605453
             }
           ]
         }

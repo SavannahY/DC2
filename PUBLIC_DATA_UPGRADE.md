@@ -106,3 +106,21 @@ This upgrade sharpens the argument in two ways.
 
 That is a better scientific position than presenting the original architecture
 comparison as uniformly dominant.
+
+## Follow-on public benefit screen
+
+The repository now also includes:
+
+- [dc_backbone_public_benefit_analysis.py](/Users/zhengjieyang/Documents/DC2/dc_backbone_public_benefit_analysis.py)
+- [public_benefit_report.json](/Users/zhengjieyang/Documents/DC2/public_benefit_report.json)
+- [PUBLIC_BENEFIT_ANALYSIS.md](/Users/zhengjieyang/Documents/DC2/PUBLIC_BENEFIT_ANALYSIS.md)
+
+This follow-on layer uses the same public RTS-GMLC and ESIF inputs to test the
+three headline benefits separately:
+
+- efficiency robustness under the ESIF empirical load shape
+- harmonic-sensitivity proxy on the RTS public network
+- voltage-drop sensitivity proxy on the RTS public network
+
+That is the right next step if the goal is to make each benefit claim more
+explicitly evidence-backed without relying on any private dataset.

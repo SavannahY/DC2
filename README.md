@@ -84,8 +84,11 @@ This means the architecture direction remains credible, but the quantitative ran
 The repository now also includes a public-data-only workflow:
 
 - `dc_backbone_public_benchmark_model.py`
+- `dc_backbone_public_benefit_analysis.py`
 - `public_benchmark_report.json`
+- `public_benefit_report.json`
 - `PUBLIC_DATA_UPGRADE.md`
+- `PUBLIC_BENEFIT_ANALYSIS.md`
 
 This workflow adds two sensitivity layers using only public datasets:
 
@@ -99,6 +102,18 @@ Current public-data-only finding:
 - Under the public ESIF part-load sensitivity, `Scenario 3` is no longer ahead of `Scenario 2` in the single-path annual-loss comparison.
 - Under the same public ESIF part-load sensitivity, `Scenario 3(M)` still remains ahead of `Scenario 2(M)` in the multi-node campus comparison.
 - On the public RTS-GMLC benchmark network, both `Scenario 3` and `Scenario 3(M)` impose slightly lower incremental branch stress than their Scenario `2` counterparts because they draw slightly less source-side power.
+
+The repository also now includes a benefit-specific public-data-only screen:
+
+- Benefit 1: empirical ESIF part-load dominance counts
+- Benefit 2: public-network harmonic-sensitivity proxy
+- Benefit 3: public-network voltage-drop sensitivity proxy
+
+Current benefit-specific public result:
+
+- Benefit 1 is supported more strongly for `Scenario 3(M)` than for single-path `Scenario 3`.
+- Benefit 2 is strongly supported at the architecture level in the multi-node case: the centralized-front-end `Scenario 3(M)` has a much lower public-network THDv proxy than the distributed-interface `Scenario 2(M)`.
+- Benefit 3 is also supported at the public-network sensitivity level in the multi-node case: `Scenario 3(M)` shows substantially lower POI voltage-drop sensitivity than `Scenario 2(M)` in both the base and `+10%` step screens.
 
 That is a better scientific position than claiming a uniform advantage everywhere. The public-data-only layer strengthens the multi-node backbone argument and weakens the over-broad single-path claim.
 
@@ -133,6 +148,8 @@ If you are new to the repository, start here:
   - Stress test for the most important proxy efficiency assumptions
 - `dc_backbone_public_benchmark_model.py`
   - Public-data-only sensitivity workflow using the RTS-GMLC benchmark grid and NREL ESIF IT-power data
+- `dc_backbone_public_benefit_analysis.py`
+  - Benefit-specific public-data-only screen for efficiency robustness, harmonic sensitivity, and voltage sensitivity
 - `multinode_campus_topology.json`
   - Shared four-block campus topology used by the multi-node comparison
 - `scenario3m_topology.json`
@@ -151,6 +168,10 @@ If you are new to the repository, start here:
   - Latest output from the public-data-only benchmark workflow
 - `PUBLIC_DATA_UPGRADE.md`
   - Notes on what the public-data-only layer improves and what it still does not prove
+- `public_benefit_report.json`
+  - Latest output from the benefit-specific public-data-only screen
+- `PUBLIC_BENEFIT_ANALYSIS.md`
+  - Short note on how far the available public datasets support each of the three headline benefits
 - `public_data/`
   - Public RTS-GMLC tables and the derived ESIF profile bins
   - The raw ESIF zip is intentionally kept out of GitHub history and regenerated locally from the public URL when needed
@@ -206,6 +227,12 @@ Run the public-data-only sensitivity workflow:
 
 ```bash
 python3 dc_backbone_public_benchmark_model.py
+```
+
+Run the benefit-specific public-data-only screen:
+
+```bash
+python3 dc_backbone_public_benefit_analysis.py
 ```
 
 Write the results memo:
