@@ -23,7 +23,7 @@ import cmath
 import json
 import math
 from pathlib import Path
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Sequence
 
 import numpy as np
 
@@ -39,6 +39,7 @@ from dc_backbone_public_benchmark_model import (
     RTS_REF_BUS,
     RTS_SINGLE_POI_BUS,
     build_report as build_public_benchmark_report,
+    solve_incremental_dc_screen,
 )
 from dc_backbone_model import format_money_millions, format_pct, format_table
 
@@ -97,6 +98,38 @@ def build_complex_network(rts_network: dict, harmonic_order: int = 1) -> dict:
         "y_reduced": y_reduced,
         "z_reduced": z_reduced,
         "base_voltage": base_voltage,
+    }
+
+
+def filtered_rts_network(rts_network: dict, excluded_uids: Sequence[str] = ()) -> dict:
+    excluded = set(excluded_uids)
+    ordered_bus_ids = rts_network["ordered_bus_ids"]
+    bus_index = rts_network["bus_index"]
+    branches = []
+    b_matrix = np.zeros((len(ordered_bus_ids), len(ordered_bus_ids)), dtype=float)
+
+    for branch in rts_network["branches"]:
+        if branch["uid"] in excluded:
+            continue
+        copied = dict(branch)
+        branches.append(copied)
+        i = bus_index[copied["from_bus"]]
+        j = bus_index[copied["to_bus"]]
+        susceptance = 1.0 / copied["x_pu"]
+        tap = copied["tap"]
+        b_matrix[i, i] += susceptance / (tap * tap)
+        b_matrix[j, j] += susceptance
+        b_matrix[i, j] -= susceptance / tap
+        b_matrix[j, i] -= susceptance / tap
+
+    return {
+        "base_mva": rts_network["base_mva"],
+        "ref_bus": rts_network["ref_bus"],
+        "buses": rts_network["buses"],
+        "branches": branches,
+        "ordered_bus_ids": ordered_bus_ids,
+        "bus_index": bus_index,
+        "b_matrix": b_matrix,
     }
 
 
@@ -207,6 +240,17 @@ def harmonic_voltage_response(
         "max_bus_voltage_pu": worst_voltage,
         "max_poi_voltage_pu": max(row["voltage_pu"] for row in poi_voltage_rows),
     }
+
+
+def local_outage_candidates(rts_network: dict, campus_buses: Sequence[int]) -> List[str]:
+    campus_set = set(campus_buses)
+    return sorted(
+        {
+            branch["uid"]
+            for branch in rts_network["branches"]
+            if branch["from_bus"] in campus_set or branch["to_bus"] in campus_set
+        }
+    )
 
 
 def build_efficiency_benefit(public_report: dict) -> dict:
@@ -521,12 +565,189 @@ def build_location_robustness(public_report: dict, rts_network: dict, power_fact
     }
 
 
+def build_n_minus_one_robustness(public_report: dict, rts_network: dict, power_factor: float) -> dict:
+    multi = scenario_lookup(public_report)["multi"]
+    scenario2m = multi["Scenario 2(M)"]
+    scenario3m = multi["Scenario 3(M)"]
+    total_mw_s2 = scenario2m["full_load"]["source_input_mw"]
+    total_mw_s3 = scenario3m["full_load"]["source_input_mw"]
+    area_rows = []
+
+    for area in RTS_AREA_CASES:
+        campus_buses = list(area["distributed_buses"]) + [area["central_bus"]]
+        candidate_uids = local_outage_candidates(rts_network, campus_buses)
+        outage_rows = []
+        for outage_uid in candidate_uids:
+            filtered = filtered_rts_network(rts_network, [outage_uid])
+            try:
+                voltage_model = build_complex_network(filtered, harmonic_order=1)
+                harmonic_models = {
+                    order: build_complex_network(filtered, harmonic_order=order) for order in HARMONIC_ORDERS
+                }
+                s2_loads = {
+                    bus_id: total_mw_s2 / len(area["distributed_buses"]) for bus_id in area["distributed_buses"]
+                }
+                s3_loads = {area["central_bus"]: total_mw_s3}
+                s2_dc = solve_incremental_dc_screen(filtered, s2_loads)
+                s3_dc = solve_incremental_dc_screen(filtered, s3_loads)
+                s2_v = solve_voltage_sensitivity(voltage_model, filtered, s2_loads, power_factor)
+                s3_v = solve_voltage_sensitivity(voltage_model, filtered, s3_loads, power_factor)
+                s2_h = math.sqrt(
+                    sum(
+                        harmonic_voltage_response(
+                            harmonic_models[order],
+                            filtered,
+                            area["distributed_buses"],
+                            HARMONIC_CURRENT_PU_PER_INTERFACE,
+                        )["max_poi_voltage_pu"]
+                        ** 2
+                        for order in HARMONIC_ORDERS
+                    )
+                )
+                s3_h = math.sqrt(
+                    sum(
+                        harmonic_voltage_response(
+                            harmonic_models[order],
+                            filtered,
+                            [area["central_bus"]],
+                            HARMONIC_CURRENT_PU_PER_INTERFACE,
+                        )["max_poi_voltage_pu"]
+                        ** 2
+                        for order in HARMONIC_ORDERS
+                    )
+                )
+            except (np.linalg.LinAlgError, RuntimeError):
+                continue
+
+            outage_rows.append(
+                {
+                    "outaged_branch_uid": outage_uid,
+                    "scenario2m_max_incremental_loading_pct": s2_dc["max_incremental_loading_pct"],
+                    "scenario3m_max_incremental_loading_pct": s3_dc["max_incremental_loading_pct"],
+                    "scenario2m_voltage_drop_pct_points": s2_v["max_poi_drop_pct_points"],
+                    "scenario3m_voltage_drop_pct_points": s3_v["max_poi_drop_pct_points"],
+                    "scenario2m_harmonic_thdv_proxy_pu": s2_h,
+                    "scenario3m_harmonic_thdv_proxy_pu": s3_h,
+                }
+            )
+
+        if not outage_rows:
+            area_rows.append(
+                {
+                    "label": area["label"],
+                    "candidate_outage_uids": candidate_uids,
+                    "successful_outage_count": 0,
+                    "outage_rows": [],
+                }
+            )
+            continue
+
+        worst_loading = max(
+            outage_rows,
+            key=lambda row: max(row["scenario2m_max_incremental_loading_pct"], row["scenario3m_max_incremental_loading_pct"]),
+        )
+        worst_voltage = max(
+            outage_rows,
+            key=lambda row: max(row["scenario2m_voltage_drop_pct_points"], row["scenario3m_voltage_drop_pct_points"]),
+        )
+        worst_harmonic = max(
+            outage_rows,
+            key=lambda row: max(row["scenario2m_harmonic_thdv_proxy_pu"], row["scenario3m_harmonic_thdv_proxy_pu"]),
+        )
+        area_rows.append(
+            {
+                "label": area["label"],
+                "candidate_outage_uids": candidate_uids,
+                "successful_outage_count": len(outage_rows),
+                "outage_rows": outage_rows,
+                "worst_loading_outage": worst_loading,
+                "worst_voltage_outage": worst_voltage,
+                "worst_harmonic_outage": worst_harmonic,
+            }
+        )
+
+    return {
+        "claim": "The multi-node Scenario 3(M) advantage should persist when one local AC branch is out of service.",
+        "assumption_note": (
+            "Each RTS area is screened under one local branch outage at a time. The screen keeps the published RTS "
+            "operating point as the linearization reference, removes one branch incident to a campus-interfacing bus, "
+            "and re-evaluates incremental loading, voltage sensitivity, and harmonic sensitivity. This is an N-1 "
+            "robustness screen, not a full post-contingency dispatch study."
+        ),
+        "rows": area_rows,
+    }
+
+
+def build_dynamic_diversity(public_report: dict) -> dict:
+    multi = scenario_lookup(public_report)["multi"]
+    scenario2_rows = multi["Scenario 2(M)"]["dynamic_summary"]
+    scenario3_rows = multi["Scenario 3(M)"]["dynamic_summary"]
+    scenario2_index = {
+        (row["mode"], row["case_name"], row["frequency_hz"], row["it_amplitude_fraction"]): row for row in scenario2_rows
+    }
+    scenario3_index = {
+        (row["mode"], row["case_name"], row["frequency_hz"], row["it_amplitude_fraction"]): row for row in scenario3_rows
+    }
+
+    reference_rows = []
+    for key in sorted(scenario2_index):
+        mode, case_name, frequency_hz, amplitude_fraction = key
+        if case_name != "electromechanical_band_reference" or abs(amplitude_fraction - 0.10) > 1e-9:
+            continue
+        s2 = scenario2_index[key]
+        s3 = scenario3_index[key]
+        reference_rows.append(
+            {
+                "mode": mode,
+                "case_name": case_name,
+                "frequency_hz": frequency_hz,
+                "it_amplitude_fraction": amplitude_fraction,
+                "scenario2m_source_peak_mw": s2["source_peak_mw"],
+                "scenario3m_source_peak_mw": s3["source_peak_mw"],
+                "scenario2m_source_peak_fraction_of_base_input": s2["source_peak_fraction_of_base_input"],
+                "scenario3m_source_peak_fraction_of_base_input": s3["source_peak_fraction_of_base_input"],
+                "scenario2m_max_segment_current_swing_a": s2["max_segment_current_swing_a"],
+                "scenario3m_max_segment_current_swing_a": s3["max_segment_current_swing_a"],
+                "scenario2m_buffer_peak_mw": s2["distributed_buffer_peak_mw"],
+                "scenario3m_buffer_peak_mw": s3["distributed_buffer_peak_mw"],
+            }
+        )
+
+    worst_s2_source = max(scenario2_rows, key=lambda row: row["source_peak_mw"])
+    worst_s3_source = max(scenario3_rows, key=lambda row: row["source_peak_mw"])
+    worst_s2_segment = max(scenario2_rows, key=lambda row: row["max_segment_current_swing_a"])
+    worst_s3_segment = max(scenario3_rows, key=lambda row: row["max_segment_current_swing_a"])
+
+    return {
+        "claim": "The AC-boundary benefit of Scenario 3(M) should survive more realistic non-coherent block-level load patterns.",
+        "assumption_note": (
+            "This screen reuses the public multi-node model but expands the dynamic patterns beyond coherent-campus "
+            "ramps. It includes clustered ramps and partially cancelling block-level swings. The source-side metrics "
+            "are interpreted as grid-facing exposure, while segment-current swing is interpreted as internal backbone stress."
+        ),
+        "reference_case_name": "electromechanical_band_reference",
+        "reference_frequency_hz": 1.0,
+        "reference_amplitude_fraction": 0.10,
+        "rows": reference_rows,
+        "worst_source_peak_case": {
+            "Scenario 2(M)": worst_s2_source,
+            "Scenario 3(M)": worst_s3_source,
+        },
+        "worst_segment_swing_case": {
+            "Scenario 2(M)": worst_s2_segment,
+            "Scenario 3(M)": worst_s3_segment,
+        },
+    }
+
+
 def build_note(report: dict) -> str:
     eff = report["benefits"]["efficiency"]
     harm = report["benefits"]["power_quality"]
     volt = report["benefits"]["voltage_and_dynamic"]
     sweep = report["benefits"]["scaling_sweep"]["rows"]
     location_rows = report["benefits"]["location_robustness"]["rows"]
+    contingency = report["benefits"]["n_minus_one_robustness"]["rows"]
+    dynamic = report["benefits"]["dynamic_diversity"]["rows"]
 
     single_eff = eff["single_path"]
     multi_eff = eff["multi_node"]
@@ -548,6 +769,21 @@ def build_note(report: dict) -> str:
         row["scenario2m_base_max_poi_drop_pct_points"] / row["scenario3m_base_max_poi_drop_pct_points"]
         for row in location_rows
     )
+    min_contingency_voltage_ratio = min(
+        row["worst_voltage_outage"]["scenario2m_voltage_drop_pct_points"]
+        / row["worst_voltage_outage"]["scenario3m_voltage_drop_pct_points"]
+        for row in contingency
+        if row.get("successful_outage_count", 0) > 0
+    )
+    min_contingency_harm_ratio = min(
+        row["worst_harmonic_outage"]["scenario2m_harmonic_thdv_proxy_pu"]
+        / row["worst_harmonic_outage"]["scenario3m_harmonic_thdv_proxy_pu"]
+        for row in contingency
+        if row.get("successful_outage_count", 0) > 0
+    )
+    coherent_dynamic = next(row for row in dynamic if row["mode"] == "coherent_campus")
+    clustered_dynamic = next(row for row in dynamic if row["mode"] == "two_block_cluster")
+    opposition_dynamic = next(row for row in dynamic if row["mode"] == "split_campus_opposition")
 
     return "\n".join(
         [
@@ -589,6 +825,19 @@ def build_note(report: dict) -> str:
             f"- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `{min_harm_ratio:.2f}x`.",
             f"- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `{min_voltage_ratio:.2f}x`.",
             "- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.",
+            "",
+            "## N-1 contingency robustness",
+            "",
+            f"- Across the local single-branch-outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case harmonic proxy ratio remains at least `{min_contingency_harm_ratio:.2f}x`.",
+            f"- Across the same outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case voltage-drop proxy ratio remains at least `{min_contingency_voltage_ratio:.2f}x`.",
+            "- Interpretation: the centralized-front-end advantage remains visible after local branch outages in the public benchmark network.",
+            "",
+            "## Dynamic diversity",
+            "",
+            f"- Under a coherent 10% campus swing at 1 Hz, the source-peak screen is `{coherent_dynamic['scenario2m_source_peak_mw']:.2f} MW` for Scenario 2(M) and `{coherent_dynamic['scenario3m_source_peak_mw']:.2f} MW` for Scenario 3(M).",
+            f"- Under a two-block clustered 10% swing at 1 Hz, the source-peak screen is `{clustered_dynamic['scenario2m_source_peak_mw']:.2f} MW` for Scenario 2(M) and `{clustered_dynamic['scenario3m_source_peak_mw']:.2f} MW` for Scenario 3(M).",
+            f"- Under a split-campus opposing 10% swing at 1 Hz, both grid-facing source peaks collapse toward zero (`{opposition_dynamic['scenario2m_source_peak_mw']:.3f} MW` for Scenario 2(M), `{opposition_dynamic['scenario3m_source_peak_mw']:.3f} MW` for Scenario 3(M)), but Scenario 3(M) carries larger internal segment-current redistribution.",
+            "- Interpretation: the public model supports the AC-boundary benefit of Scenario 3(M) under diverse block-level patterns, while also showing that some dynamic stress shifts into the internal backbone rather than disappearing.",
         ]
     )
 
@@ -627,6 +876,8 @@ def build_report(public_benchmark_report: dict) -> dict:
             "voltage_and_dynamic": build_voltage_benefit(public_benchmark_report, rts_network, power_factor),
             "scaling_sweep": build_scaling_sweep(public_benchmark_report, rts_network, power_factor),
             "location_robustness": build_location_robustness(public_benchmark_report, rts_network, power_factor),
+            "n_minus_one_robustness": build_n_minus_one_robustness(public_benchmark_report, rts_network, power_factor),
+            "dynamic_diversity": build_dynamic_diversity(public_benchmark_report),
         },
     }
     report["summary_note"] = build_note(report)
@@ -639,6 +890,8 @@ def print_summary(report: dict) -> None:
     volt = report["benefits"]["voltage_and_dynamic"]
     sweep = report["benefits"]["scaling_sweep"]["rows"]
     location_rows = report["benefits"]["location_robustness"]["rows"]
+    contingency_rows = report["benefits"]["n_minus_one_robustness"]["rows"]
+    dynamic_rows = report["benefits"]["dynamic_diversity"]["rows"]
     print("Public benefit analysis")
     print("-----------------------")
     print("Benefit 1: Efficiency / loss reduction")
@@ -733,6 +986,54 @@ def print_summary(report: dict) -> None:
             [
                 ["Area", "S2(M) THDv", "S3(M) THDv", "S2(M) Vdrop", "S3(M) Vdrop"],
                 *location_table,
+            ]
+        )
+    )
+    print()
+
+    print("N-1 contingency robustness: Scenario 2(M) vs Scenario 3(M)")
+    contingency_table = []
+    for row in contingency_rows:
+        if row["successful_outage_count"] == 0:
+            contingency_table.append([row["label"], "0", "-", "-", "-", "-"])
+            continue
+        contingency_table.append(
+            [
+                row["label"],
+                str(row["successful_outage_count"]),
+                f"{row['worst_loading_outage']['scenario2m_max_incremental_loading_pct']:.2f}",
+                f"{row['worst_loading_outage']['scenario3m_max_incremental_loading_pct']:.2f}",
+                f"{row['worst_voltage_outage']['scenario2m_voltage_drop_pct_points']:.3f}",
+                f"{row['worst_voltage_outage']['scenario3m_voltage_drop_pct_points']:.3f}",
+            ]
+        )
+    print(
+        format_table(
+            [
+                ["Area", "Valid Outages", "Worst S2(M) Incr. Load %", "Worst S3(M) Incr. Load %", "Worst S2(M) Vdrop", "Worst S3(M) Vdrop"],
+                *contingency_table,
+            ]
+        )
+    )
+    print()
+
+    print("Dynamic diversity: Scenario 2(M) vs Scenario 3(M)")
+    dynamic_table = []
+    for row in dynamic_rows:
+        dynamic_table.append(
+            [
+                row["mode"],
+                f"{row['scenario2m_source_peak_mw']:.3f}",
+                f"{row['scenario3m_source_peak_mw']:.3f}",
+                f"{row['scenario2m_max_segment_current_swing_a']:.2f}",
+                f"{row['scenario3m_max_segment_current_swing_a']:.2f}",
+            ]
+        )
+    print(
+        format_table(
+            [
+                ["Mode", "S2(M) Source Peak MW", "S3(M) Source Peak MW", "S2(M) Max Seg A", "S3(M) Max Seg A"],
+                *dynamic_table,
             ]
         )
     )

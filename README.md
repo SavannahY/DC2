@@ -108,6 +108,8 @@ The repository also now includes a benefit-specific public-data-only screen:
 - Benefit 1: empirical ESIF part-load dominance counts
 - Benefit 2: public-network harmonic-sensitivity proxy
 - Benefit 3: public-network voltage-drop sensitivity proxy
+- N-1: local single-branch-outage robustness on the public RTS benchmark
+- Dynamic diversity: clustered and partially cancelling multi-block swing patterns
 
 Current benefit-specific public result:
 
@@ -116,6 +118,8 @@ Current benefit-specific public result:
 - Benefit 3 is also supported at the public-network sensitivity level in the multi-node case: `Scenario 3(M)` shows substantially lower POI voltage-drop sensitivity than `Scenario 2(M)` in both the base and `+10%` step screens.
 - In the current expansion sweep, `Scenario 3(M)` first becomes more efficient than `Scenario 2(M)` at `2` active blocks / `50 MW`, while the harmonic and voltage advantages widen as the number of blocks increases.
 - Across all three mirrored RTS areas, the `Scenario 3(M)` harmonic and voltage advantages persist; the `Scenario 2(M)`-to-`Scenario 3(M)` harmonic proxy ratio remains at least about `4.5x`, and the voltage-drop proxy ratio remains at least about `2.8x`.
+- Under local single-branch-outage screens in all three RTS areas, the `Scenario 3(M)` harmonic and voltage advantages persist; the worst-case harmonic proxy ratio remains at least about `6.3x`, and the worst-case voltage-drop proxy ratio remains at least about `3.8x`.
+- Under more realistic dynamic diversity patterns, `Scenario 3(M)` keeps a slightly lower grid-facing source swing than `Scenario 2(M)`, but the internal backbone sees larger segment-current redistribution. That sharpens the claim: the benefit is primarily at the upstream AC boundary, not a universal reduction of all internal dynamic stress.
 
 That is a better scientific position than claiming a uniform advantage everywhere. The public-data-only layer strengthens the multi-node backbone argument and weakens the over-broad single-path claim.
 
@@ -151,7 +155,7 @@ If you are new to the repository, start here:
 - `dc_backbone_public_benchmark_model.py`
   - Public-data-only sensitivity workflow using the RTS-GMLC benchmark grid and NREL ESIF IT-power data
 - `dc_backbone_public_benefit_analysis.py`
-  - Benefit-specific public-data-only screen for efficiency robustness, harmonic sensitivity, and voltage sensitivity
+  - Benefit-specific public-data-only screen for efficiency robustness, harmonic sensitivity, voltage sensitivity, N-1 robustness, and dynamic diversity
 - `multinode_campus_topology.json`
   - Shared four-block campus topology used by the multi-node comparison
 - `scenario3m_topology.json`

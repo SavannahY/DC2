@@ -32,3 +32,16 @@ This note summarizes how far the available public datasets can support the three
 - Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `4.47x`.
 - Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `2.82x`.
 - Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.
+
+## N-1 contingency robustness
+
+- Across the local single-branch-outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case harmonic proxy ratio remains at least `6.30x`.
+- Across the same outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case voltage-drop proxy ratio remains at least `3.83x`.
+- Interpretation: the centralized-front-end advantage remains visible after local branch outages in the public benchmark network.
+
+## Dynamic diversity
+
+- Under a coherent 10% campus swing at 1 Hz, the source-peak screen is `11.27 MW` for Scenario 2(M) and `11.20 MW` for Scenario 3(M).
+- Under a two-block clustered 10% swing at 1 Hz, the source-peak screen is `5.63 MW` for Scenario 2(M) and `5.61 MW` for Scenario 3(M).
+- Under a split-campus opposing 10% swing at 1 Hz, both grid-facing source peaks collapse toward zero (`0.035 MW` for Scenario 2(M), `0.032 MW` for Scenario 3(M)), but Scenario 3(M) carries larger internal segment-current redistribution.
+- Interpretation: the public model supports the AC-boundary benefit of Scenario 3(M) under diverse block-level patterns, while also showing that some dynamic stress shifts into the internal backbone rather than disappearing.

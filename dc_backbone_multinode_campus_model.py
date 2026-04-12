@@ -495,6 +495,7 @@ def build_expansion_cases(
 
 
 def dynamic_load_vectors(base_it_by_block: Dict[str, float], mode: str, amplitude_fraction: float) -> tuple[dict, dict]:
+    block_names = list(base_it_by_block)
     if mode == "coherent_campus":
         high = {name: value * (1.0 + amplitude_fraction) for name, value in base_it_by_block.items()}
         low = {name: max(0.0, value * (1.0 - amplitude_fraction)) for name, value in base_it_by_block.items()}
@@ -505,6 +506,37 @@ def dynamic_load_vectors(base_it_by_block: Dict[str, float], mode: str, amplitud
         low = dict(base_it_by_block)
         high[largest_name] = high[largest_name] * (1.0 + amplitude_fraction)
         low[largest_name] = max(0.0, low[largest_name] * (1.0 - amplitude_fraction))
+        return high, low
+    if mode == "two_block_cluster":
+        selected = block_names[: min(2, len(block_names))]
+        high = dict(base_it_by_block)
+        low = dict(base_it_by_block)
+        for name in selected:
+            high[name] = high[name] * (1.0 + amplitude_fraction)
+            low[name] = max(0.0, low[name] * (1.0 - amplitude_fraction))
+        return high, low
+    if mode == "split_campus_opposition":
+        midpoint = len(block_names) // 2
+        positive = block_names[:midpoint]
+        negative = block_names[midpoint:]
+        high = dict(base_it_by_block)
+        low = dict(base_it_by_block)
+        for name in positive:
+            high[name] = high[name] * (1.0 + amplitude_fraction)
+            low[name] = max(0.0, low[name] * (1.0 - amplitude_fraction))
+        for name in negative:
+            high[name] = max(0.0, high[name] * (1.0 - amplitude_fraction))
+            low[name] = low[name] * (1.0 + amplitude_fraction)
+        return high, low
+    if mode == "one_up_one_down":
+        first = block_names[0]
+        last = block_names[-1]
+        high = dict(base_it_by_block)
+        low = dict(base_it_by_block)
+        high[first] = high[first] * (1.0 + amplitude_fraction)
+        high[last] = max(0.0, high[last] * (1.0 - amplitude_fraction))
+        low[first] = max(0.0, low[first] * (1.0 - amplitude_fraction))
+        low[last] = low[last] * (1.0 + amplitude_fraction)
         return high, low
     raise ValueError(f"Unsupported dynamic mode: {mode}")
 
@@ -523,7 +555,13 @@ def build_dynamic_summary(
 
     base_it_by_block = {block.name: block.it_load_mw for block in ordered_blocks}
     rows = []
-    for mode in ("coherent_campus", "largest_block_only"):
+    for mode in (
+        "coherent_campus",
+        "largest_block_only",
+        "two_block_cluster",
+        "split_campus_opposition",
+        "one_up_one_down",
+    ):
         for dynamic_case in cases:
             frequency_hz = float(dynamic_case["frequency_hz"])
             for amplitude_fraction in dynamic_case["amplitude_sweep_fraction"]:
@@ -549,6 +587,11 @@ def build_dynamic_summary(
                 affected_blocks = list(base_it_by_block)
                 if mode == "largest_block_only":
                     affected_blocks = [max(base_it_by_block, key=base_it_by_block.get)]
+                elif mode == "two_block_cluster":
+                    affected_blocks = list(base_it_by_block)[: min(2, len(base_it_by_block))]
+                elif mode == "one_up_one_down":
+                    names = list(base_it_by_block)
+                    affected_blocks = [names[0], names[-1]]
                 distributed_buffer_peak_mw = 0.0
                 for block_name in affected_blocks:
                     base_tap = base_case["block_tap_power_by_name_mw"][block_name]
