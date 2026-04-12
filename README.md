@@ -31,6 +31,10 @@ The repository also now includes an apples-to-apples campus comparator:
 
 5. `Scenario 1(M)`, `Scenario 2(M)`, `Scenario 3(M)`: multi-node versions of all three scenarios on the same shared campus topology
 
+The repository also includes a separate public-data-only upgrade layer:
+
+6. `Public-data-only sensitivity`: public ESIF empirical IT-load-shape bins plus a common-network RTS-GMLC stress screen
+
 The modeling package compares these scenarios on:
 
 - end-to-end full-load efficiency,
@@ -75,6 +79,29 @@ Current result:
 
 This means the architecture direction remains credible, but the quantitative ranking is still materially dependent on the assumed front-end and isolated-pod efficiency curves.
 
+## Public-Data-Only Upgrade
+
+The repository now also includes a public-data-only workflow:
+
+- `dc_backbone_public_benchmark_model.py`
+- `public_benchmark_report.json`
+- `PUBLIC_DATA_UPGRADE.md`
+
+This workflow adds two sensitivity layers using only public datasets:
+
+- a public empirical IT-load-shape layer from the NREL ESIF facility dataset
+- a common-network screen using the RTS-GMLC benchmark grid
+
+This is important because it cleans two major review blockers without using any private site, utility, or vendor dataset.
+
+Current public-data-only finding:
+
+- Under the public ESIF part-load sensitivity, `Scenario 3` is no longer ahead of `Scenario 2` in the single-path annual-loss comparison.
+- Under the same public ESIF part-load sensitivity, `Scenario 3(M)` still remains ahead of `Scenario 2(M)` in the multi-node campus comparison.
+- On the public RTS-GMLC benchmark network, both `Scenario 3` and `Scenario 3(M)` impose slightly lower incremental branch stress than their Scenario `2` counterparts because they draw slightly less source-side power.
+
+That is a better scientific position than claiming a uniform advantage everywhere. The public-data-only layer strengthens the multi-node backbone argument and weakens the over-broad single-path claim.
+
 ## Main Entry Points
 
 If you are new to the repository, start here:
@@ -104,6 +131,8 @@ If you are new to the repository, start here:
   - Apples-to-apples multi-node campus comparison for `Scenario 1(M)`, `Scenario 2(M)`, and `Scenario 3(M)`
 - `dc_backbone_proxy_sensitivity.py`
   - Stress test for the most important proxy efficiency assumptions
+- `dc_backbone_public_benchmark_model.py`
+  - Public-data-only sensitivity workflow using the RTS-GMLC benchmark grid and NREL ESIF IT-power data
 - `multinode_campus_topology.json`
   - Shared four-block campus topology used by the multi-node comparison
 - `scenario3m_topology.json`
@@ -118,6 +147,13 @@ If you are new to the repository, start here:
   - Latest generated report from the model
 - `proxy_sensitivity_report.json`
   - Latest stress-test output for proxy efficiency uncertainty
+- `public_benchmark_report.json`
+  - Latest output from the public-data-only benchmark workflow
+- `PUBLIC_DATA_UPGRADE.md`
+  - Notes on what the public-data-only layer improves and what it still does not prove
+- `public_data/`
+  - Public RTS-GMLC tables and the derived ESIF profile bins
+  - The raw ESIF zip is intentionally kept out of GitHub history and regenerated locally from the public URL when needed
 - `SCIENTIFIC_DATA_SOURCES.md`
   - Public-source register and traceability notes
 - `MODEL_RESULTS_MEMO.md`
@@ -164,6 +200,12 @@ Run the proxy sensitivity study:
 
 ```bash
 python3 dc_backbone_proxy_sensitivity.py
+```
+
+Run the public-data-only sensitivity workflow:
+
+```bash
+python3 dc_backbone_public_benchmark_model.py
 ```
 
 Write the results memo:

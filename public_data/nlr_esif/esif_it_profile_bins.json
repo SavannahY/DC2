@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "dataset": "NREL ESIF public facility data",
+    "dataset_url": "https://data.nrel.gov/system/files/300/1757105566-esif.influx.buildingData.PUE.combined.csv.zip",
+    "series": "it_power_kw",
+    "note": "This is a public empirical facility IT-power series used as a load-shape sensitivity layer. It is not a public AI-factory-specific workload trace.",
+    "sample_count": 4433055,
+    "bin_count": 16,
+    "normalization_quantile": 0.995,
+    "normalization_reference_kw": 3688.3607413647287,
+    "raw_min_kw": 0.10000000149011612,
+    "raw_max_kw": 3921.3293040320277,
+    "raw_mean_kw": 1505.2946356745958,
+    "raw_p50_kw": 1200.5,
+    "raw_p95_kw": 3333.6925287805493,
+    "raw_p99_kw": 3617.965687454641,
+    "normalized_mean_fraction": 0.40805888064556983,
+    "normalized_p50_fraction": 0.32548334725952094,
+    "normalized_p95_fraction": 0.9038412353199083,
+    "normalized_p99_fraction": 0.9809142709061476
+  },
+  "load_profile": [
+    {
+      "name": "public_esif_quantile_bin_01",
+      "load_fraction": 0.166579,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_02",
+      "load_fraction": 0.231228,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_03",
+      "load_fraction": 0.246206,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_04",
+      "load_fraction": 0.256264,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_05",
+      "load_fraction": 0.27188,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_06",
+      "load_fraction": 0.294066,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_07",
+      "load_fraction": 0.308126,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_08",
+      "load_fraction": 0.319538,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_09",
+      "load_fraction": 0.33497,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_10",
+      "load_fraction": 0.357227,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_11",
+      "load_fraction": 0.377627,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_12",
+      "load_fraction": 0.422443,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_13",
+      "load_fraction": 0.5622,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_14",
+      "load_fraction": 0.689751,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_15",
+      "load_fraction": 0.753346,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    },
+    {
+      "name": "public_esif_quantile_bin_16",
+      "load_fraction": 0.937494,
+      "hours_fraction": 0.0625,
+      "note": "Empirical IT-load-shape bin built from the public NREL ESIF facility `it_power_kw` series. Values are normalized to the 0.995 quantile and clipped at 1.0."
+    }
+  ]
+}
