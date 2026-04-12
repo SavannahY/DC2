@@ -1,11 +1,11 @@
 # DC Subtransmission Backbone for AI Factories
 
-This repository contains the research package for a source-backed evaluation of medium-voltage direct current (MVDC) subtransmission for large AI-factory campuses. It combines:
+This repository contains the research package for a source-anchored evaluation of medium-voltage direct current (MVDC) subtransmission for large AI-factory campuses. It combines:
 
 - a Python architecture model,
 - source-tagged assumptions,
 - dynamic-load cases for AI factories,
-- OpenDSS AC-boundary validation,
+- OpenDSS AC-boundary cross-checks,
 - figure-generation code,
 - and a public-facing white paper in PDF, Word, and LaTeX formats.
 
@@ -44,11 +44,11 @@ At the current `100 MW` delivered IT reference campus:
 
 | Scenario | Full-load efficiency | Annual loss | Annual loss cost |
 | --- | ---: | ---: | ---: |
-| Scenario 1: Traditional AC-centric | `87.55%` | `124.54 GWh/year` | `$11.57M/year` |
-| Scenario 2: `69 kV AC -> 800 VDC` perimeter conversion | `91.96%` | `76.55 GWh/year` | `$7.11M/year` |
-| Scenario 3: Proposed MVDC backbone | `95.09%` | `45.26 GWh/year` | `$4.20M/year` |
+| Scenario 1: Traditional AC-centric | `87.48%` | `125.36 GWh/year` | `$11.65M/year` |
+| Scenario 2: `69 kV AC -> 800 VDC` perimeter conversion | `91.90%` | `77.21 GWh/year` | `$7.17M/year` |
+| Scenario 3: Proposed MVDC backbone | `92.17%` | `74.45 GWh/year` | `$6.92M/year` |
 
-Relative to `Scenario 1`, the current `Scenario 3` case improves full-load efficiency by `7.53` percentage points and reduces modeled annual electrical losses by `79.27 GWh/year`.
+Relative to `Scenario 2`, the corrected current `Scenario 3` case is directionally better, but only modestly so: about `0.27` percentage points in full-load efficiency and about `2.76 GWh/year` in annualized reference-profile losses.
 
 ## Multi-Node Campus Results
 
@@ -56,11 +56,24 @@ Using the shared four-block campus topology in `multinode_campus_topology.json`,
 
 | Scenario | Network kind | Full-load efficiency | Annual loss | Annual loss cost |
 | --- | --- | ---: | ---: | ---: |
-| Scenario 1(M): Traditional AC-centric | `69 kV AC` | `81.19%` | `202.97 GWh/year` | `$18.86M/year` |
-| Scenario 2(M): `69 kV AC -> 800 VDC` perimeter conversion | `69 kV AC` | `86.24%` | `139.72 GWh/year` | `$12.98M/year` |
-| Scenario 3(M): Multi-node MVDC backbone | `69 kV DC` | `91.97%` | `76.51 GWh/year` | `$7.11M/year` |
+| Scenario 1(M): Traditional AC-centric | `69 kV AC` | `81.11%` | `204.05 GWh/year` | `$18.96M/year` |
+| Scenario 2(M): `69 kV AC -> 800 VDC` perimeter conversion | `69 kV AC` | `86.19%` | `140.38 GWh/year` | `$13.04M/year` |
+| Scenario 3(M): Multi-node MVDC backbone | `69 kV DC` | `86.69%` | `134.55 GWh/year` | `$12.50M/year` |
 
-This multi-node comparison keeps the original `Scenario 1`, `Scenario 2`, and `Scenario 3` model untouched while adding a more explicit campus topology in which multiple data-center blocks are connected on the same backbone.
+This multi-node comparison keeps the original `Scenario 1`, `Scenario 2`, and `Scenario 3` model intact while adding a more explicit campus topology in which multiple data-center blocks are connected on the same backbone. The ranking is preserved, but the margin between `Scenario 2(M)` and `Scenario 3(M)` is modest.
+
+## Proxy Sensitivity
+
+The repository also includes a stress test for the most important proxy converter curves:
+
+- `dc_backbone_proxy_sensitivity.py`
+- `proxy_sensitivity_report.json`
+
+Current result:
+- Scenario `3` beats Scenario `2` in `69/125` single-path stress cases
+- Scenario `3(M)` beats Scenario `2(M)` in `88/125` multi-node stress cases
+
+This means the architecture direction remains credible, but the quantitative ranking is still materially dependent on the assumed front-end and isolated-pod efficiency curves.
 
 ## Main Entry Points
 
@@ -89,6 +102,8 @@ If you are new to the repository, start here:
   - Keeps the original Scenario `3` unchanged and replaces the single equivalent backbone with an explicit multi-block `69 kV DC` network
 - `dc_backbone_multinode_campus_model.py`
   - Apples-to-apples multi-node campus comparison for `Scenario 1(M)`, `Scenario 2(M)`, and `Scenario 3(M)`
+- `dc_backbone_proxy_sensitivity.py`
+  - Stress test for the most important proxy efficiency assumptions
 - `multinode_campus_topology.json`
   - Shared four-block campus topology used by the multi-node comparison
 - `scenario3m_topology.json`
@@ -101,6 +116,8 @@ If you are new to the repository, start here:
   - Source-tagged assumptions used by the model
 - `source_backed_model_report.json`
   - Latest generated report from the model
+- `proxy_sensitivity_report.json`
+  - Latest stress-test output for proxy efficiency uncertainty
 - `SCIENTIFIC_DATA_SOURCES.md`
   - Public-source register and traceability notes
 - `MODEL_RESULTS_MEMO.md`
@@ -109,6 +126,7 @@ If you are new to the repository, start here:
   - Figure-generation scripts, rendered figures, and editable poster outputs
 - `whitepaper/`
   - White paper source files, bibliography, renderer, embedded figures, and exported PDF/DOCX outputs
+  - Includes `MOCK_REVIEW_AND_REBUTTAL.md` with an internal harsh-review simulation
 
 ## Running the Model
 
@@ -124,7 +142,7 @@ Detailed run:
 python3 dc_backbone_model.py --details
 ```
 
-Run with OpenDSS AC-boundary validation:
+Run with OpenDSS AC-boundary cross-checks:
 
 ```bash
 python3 dc_backbone_model.py --run-opendss
@@ -140,6 +158,12 @@ Run the multi-node campus comparison for `Scenario 1(M)`, `2(M)`, and `3(M)`:
 
 ```bash
 python3 dc_backbone_multinode_campus_model.py --details
+```
+
+Run the proxy sensitivity study:
+
+```bash
+python3 dc_backbone_proxy_sensitivity.py
 ```
 
 Write the results memo:

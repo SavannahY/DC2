@@ -1,0 +1,3099 @@
+{
+  "description": "Additive efficiency-offset stress test for key proxy curves in Scenario 2 and Scenario 3.",
+  "offset_grid": [
+    -0.01,
+    -0.005,
+    0.0,
+    0.005,
+    0.01
+  ],
+  "curve_names": [
+    "perimeter_69kvac_to_800vdc",
+    "central_mv_acdc",
+    "isolated_dc_pod"
+  ],
+  "total_cases": 125,
+  "single_path_scenario3_better_fraction": 0.552,
+  "multinode_scenario3m_better_fraction": 0.704,
+  "non_dominant_cases": [
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    }
+  ],
+  "cases": [
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9291318753345476,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8757016540762462,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.930964193515129,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8756633325750828,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9338105304241474,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8801110279638406,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9319317515826928,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8765407507439956,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9096316781635639,
+        "scenario3_efficiency": 0.9347952869020375,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8529696386510325,
+        "scenario3m_efficiency": 0.8809929027413594,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9291318753345476,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8757016540762462,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.930964193515129,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8756633325750828,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9338105304241474,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8801110279638406,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9319317515826928,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8765407507439956,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": -0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9143166978168995,
+        "scenario3_efficiency": 0.9347952869020375,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8574262471342293,
+        "scenario3m_efficiency": 0.8809929027413594,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9291318753345476,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8757016540762462,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.930964193515129,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8756633325750828,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9338105304241474,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8801110279638406,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9319317515826928,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8765407507439956,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.0,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9190017174719911,
+        "scenario3_efficiency": 0.9347952869020375,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8618828556167408,
+        "scenario3m_efficiency": 0.8809929027413594,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9291318753345476,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8757016540762462,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.930964193515129,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8756633325750828,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9338105304241474,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8801110279638406,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9319317515826928,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8765407507439956,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.005,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9236867371288123,
+        "scenario3_efficiency": 0.9347952869020375,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.866339464098578,
+        "scenario3m_efficiency": 0.8809929027413594,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9031897960755384,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8493595212508814,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9077951699520521,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8537403675163305,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9123892754794528,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8581212137798233,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9169712242721457,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8625020600413891,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9197745651553481,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668829063010575,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9077838438683947,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8536797629662979,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9124126428409232,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8580828922748064,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9170301734643701,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8624860215813483,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216355473531401,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668891508859536,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": -0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9244532202449479,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712922801886519,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9123778916612509,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8580000046817143,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9170301157297942,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8624254170332821,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216710714492874,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8668508293828734,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9262998704341346,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712762417305182,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.0,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9291318753345476,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8757016540762462,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9169719394541072,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8623202463971308,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9216475886186652,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8667679417917579,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9263119694342048,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8712156371843984,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.930964193515129,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8756633325750828,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.005,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9338105304241474,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8801110279638406,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9178907490126785,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8631842947402141,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": -0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9225710831964395,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.867636446743453,
+        "scenario3m_beats_scenario2m": false
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.0
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9272514173864759,
+        "scenario3_beats_scenario2": false
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8720885987447035,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.005
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9319317515826928,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8765407507439956,
+        "scenario3m_beats_scenario2m": true
+      }
+    },
+    {
+      "offsets": {
+        "perimeter_69kvac_to_800vdc": 0.01,
+        "central_mv_acdc": 0.01,
+        "isolated_dc_pod": 0.01
+      },
+      "single_path": {
+        "scenario2_efficiency": 0.9283717567873367,
+        "scenario3_efficiency": 0.9347952869020375,
+        "scenario3_beats_scenario2": true
+      },
+      "multinode": {
+        "scenario2m_efficiency": 0.8707960725797508,
+        "scenario3m_efficiency": 0.8809929027413594,
+        "scenario3m_beats_scenario2m": true
+      }
+    }
+  ]
+}

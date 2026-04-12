@@ -6,41 +6,41 @@
   "block_count": 4,
   "full_load": {
     "total_it_mw": 100.0,
-    "front_end_ac_input_mw": 108.73396749518761,
-    "total_efficiency": 0.9196758133968195,
-    "front_end_loss_mw": 0.7611377724663129,
-    "backbone_loss_mw": 0.01983473680671863,
-    "local_block_loss_mw": 7.952994985914586,
-    "total_loss_mw": 8.733967495187617,
-    "min_block_voltage_pu": 0.9997577796643549,
+    "front_end_ac_input_mw": 115.36010188880108,
+    "total_efficiency": 0.8668508293828734,
+    "front_end_loss_mw": 0.8075207132216065,
+    "backbone_loss_mw": 0.022325843820943603,
+    "local_block_loss_mw": 14.53025533175854,
+    "total_loss_mw": 15.36010188880109,
+    "min_block_voltage_pu": 0.9997430188664974,
     "block_rows": [
       {
         "name": "Block_A",
         "tap_node": "north_spine",
         "it_load_mw": 25.0,
-        "tap_input_mw": 26.988248746478646,
-        "local_loss_mw": 1.9882487464786465
+        "tap_input_mw": 28.632563832939635,
+        "local_loss_mw": 3.632563832939635
       },
       {
         "name": "Block_B",
         "tap_node": "central_spine",
         "it_load_mw": 25.0,
-        "tap_input_mw": 26.988248746478646,
-        "local_loss_mw": 1.9882487464786465
+        "tap_input_mw": 28.632563832939635,
+        "local_loss_mw": 3.632563832939635
       },
       {
         "name": "Block_C",
         "tap_node": "west_spine",
         "it_load_mw": 25.0,
-        "tap_input_mw": 26.988248746478646,
-        "local_loss_mw": 1.9882487464786465
+        "tap_input_mw": 28.632563832939635,
+        "local_loss_mw": 3.632563832939635
       },
       {
         "name": "Block_D",
         "tap_node": "south_spine",
         "it_load_mw": 25.0,
-        "tap_input_mw": 26.988248746478646,
-        "local_loss_mw": 1.9882487464786465
+        "tap_input_mw": 28.632563832939635,
+        "local_loss_mw": 3.632563832939635
       }
     ],
     "segment_rows": [
@@ -50,8 +50,8 @@
         "to_node": "north_spine",
         "length_m": 180.0,
         "circuits": 8,
-        "current_a": 1564.814628718523,
-        "loss_mw": 0.008815121360105361
+        "current_a": 1660.1722157846789,
+        "loss_mw": 0.009922218429828277
       },
       {
         "name": "north_to_central",
@@ -59,8 +59,8 @@
         "to_node": "central_spine",
         "length_m": 220.0,
         "circuits": 8,
-        "current_a": 1173.6449254010436,
-        "loss_mw": 0.0060607466080463334
+        "current_a": 1245.1673803306057,
+        "loss_mw": 0.006821943942173288
       },
       {
         "name": "central_to_west",
@@ -68,8 +68,8 @@
         "to_node": "west_spine",
         "length_m": 220.0,
         "circuits": 8,
-        "current_a": 782.4459976380166,
-        "loss_mw": 0.0026937756525669053
+        "current_a": 830.1296499333671,
+        "loss_mw": 0.0030321070370733765
       },
       {
         "name": "west_to_south",
@@ -77,8 +77,8 @@
         "to_node": "south_spine",
         "length_m": 180.0,
         "circuits": 8,
-        "current_a": 391.227297519683,
-        "loss_mw": 0.0005510116739683965
+        "current_a": 415.0696636383195,
+        "loss_mw": 0.0006202181724221798
       },
       {
         "name": "Block_A_tap",
@@ -86,8 +86,8 @@
         "to_node": "block::Block_A",
         "length_m": 55.0,
         "circuits": 4,
-        "current_a": 391.1697033174794,
-        "loss_mw": 0.00033663022094566674
+        "current_a": 415.00483545407315,
+        "loss_mw": 0.00037890382959057716
       },
       {
         "name": "Block_B_tap",
@@ -95,8 +95,8 @@
         "to_node": "block::Block_B",
         "length_m": 65.0,
         "circuits": 4,
-        "current_a": 391.19892776302686,
-        "loss_mw": 0.000397895162815649
+        "current_a": 415.03773039723876,
+        "loss_mw": 0.00044786642589855676
       },
       {
         "name": "Block_C_tap",
@@ -104,8 +104,8 @@
         "to_node": "block::Block_C",
         "length_m": 75.0,
         "circuits": 4,
-        "current_a": 391.2187001183336,
-        "loss_mw": 0.0004591562139668359
+        "current_a": 415.0599862950476,
+        "loss_mw": 0.0005168243766697354
       },
       {
         "name": "Block_D_tap",
@@ -113,8 +113,8 @@
         "to_node": "block::Block_D",
         "length_m": 85.0,
         "circuits": 4,
-        "current_a": 391.227297519683,
-        "loss_mw": 0.0005203999143034856
+        "current_a": 415.0696636383195,
+        "loss_mw": 0.0005857616072876143
       }
     ]
   },
@@ -125,16 +125,16 @@
         "scale": 1.0,
         "hours": 8760.0,
         "it_mw": 100.0,
-        "source_mw": 108.73396749518761,
-        "loss_mw": 8.733967495187617,
-        "efficiency": 0.9196758133968195
+        "source_mw": 115.36010188880108,
+        "loss_mw": 15.36010188880109,
+        "efficiency": 0.8668508293828734
       }
     ],
     "annual_it_mwh": 876000.0,
-    "annual_input_mwh": 952509.5552578435,
-    "annual_loss_mwh": 76509.55525784346,
-    "annual_loss_cost_usd": 7107737.683453658,
-    "average_efficiency": 0.9196758133968195
+    "annual_input_mwh": 1010554.4925458975,
+    "annual_loss_mwh": 134554.4925458975,
+    "annual_loss_cost_usd": 12500112.357513878,
+    "average_efficiency": 0.8668508293828734
   },
   "expansion_cases": [
     {
@@ -142,10 +142,10 @@
         "Block_A"
       ],
       "total_it_mw": 25.0,
-      "front_end_ac_input_mw": 27.4466464777019,
-      "efficiency": 0.9108580904523401,
-      "backbone_loss_mw": 0.0008873616170066481,
-      "min_block_voltage_pu": 0.999971231267446
+      "front_end_ac_input_mw": 29.11336257211789,
+      "efficiency": 0.8587122129253015,
+      "backbone_loss_mw": 0.0009987872985529269,
+      "min_block_voltage_pu": 0.9999694784377489
     },
     {
       "active_blocks": [
@@ -153,10 +153,10 @@
         "Block_B"
       ],
       "total_it_mw": 50.0,
-      "front_end_ac_input_mw": 54.57271555237591,
-      "efficiency": 0.9162087591557128,
-      "backbone_loss_mw": 0.003610905927154593,
-      "min_block_voltage_pu": 0.9999245325658845
+      "front_end_ac_input_mw": 57.888441867567614,
+      "efficiency": 0.863730278220061,
+      "backbone_loss_mw": 0.004064344073064133,
+      "min_block_voltage_pu": 0.9999199342924665
     },
     {
       "active_blocks": [
@@ -165,10 +165,10 @@
         "Block_C"
       ],
       "total_it_mw": 75.0,
-      "front_end_ac_input_mw": 81.65100121668735,
-      "efficiency": 0.9185435436482063,
-      "backbone_loss_mw": 0.0095179812514377,
-      "min_block_voltage_pu": 0.9998517137208613
+      "front_end_ac_input_mw": 86.60518838121808,
+      "efficiency": 0.8659989245663383,
+      "backbone_loss_mw": 0.010713273749531042,
+      "min_block_voltage_pu": 0.9998426779905786
     },
     {
       "active_blocks": [
@@ -178,10 +178,10 @@
         "Block_D"
       ],
       "total_it_mw": 100.0,
-      "front_end_ac_input_mw": 108.73396749518761,
-      "efficiency": 0.9196758133968195,
-      "backbone_loss_mw": 0.01983473680671863,
-      "min_block_voltage_pu": 0.9997577796643549
+      "front_end_ac_input_mw": 115.36010188880108,
+      "efficiency": 0.8668508293828734,
+      "backbone_loss_mw": 0.022325843820943603,
+      "min_block_voltage_pu": 0.9997430188664974
     }
   ],
   "dynamic_summary": [
@@ -190,137 +190,137 @@
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.05,
-      "source_peak_mw": 5.341731698816631,
-      "source_peak_fraction_of_base_input": 0.04912661445056759,
-      "max_segment_current_swing_a": 77.00173638386855,
-      "distributed_buffer_peak_mw": 5.311275316627359,
-      "distributed_buffer_energy_kwh": 0.2348099224342266
+      "source_peak_mw": 5.604718261041498,
+      "source_peak_fraction_of_base_input": 0.048584546730411585,
+      "max_segment_current_swing_a": 80.65824640965366,
+      "distributed_buffer_peak_mw": 5.563368524918275,
+      "distributed_buffer_energy_kwh": 0.24595488916183603
     },
     {
       "mode": "coherent_campus",
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.1,
-      "source_peak_mw": 10.674583341667699,
-      "source_peak_fraction_of_base_input": 0.09817156117420381,
-      "max_segment_current_swing_a": 154.13925267382456,
-      "distributed_buffer_peak_mw": 10.631505551084416,
-      "distributed_buffer_energy_kwh": 0.4700157391566694
+      "source_peak_mw": 11.203850394381462,
+      "source_peak_fraction_of_base_input": 0.09712067006651204,
+      "max_segment_current_swing_a": 161.55726681888405,
+      "distributed_buffer_peak_mw": 11.143446895182109,
+      "distributed_buffer_energy_kwh": 0.4926485156806295
     },
     {
       "mode": "coherent_campus",
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.15,
-      "source_peak_mw": 16.020927951058354,
-      "source_peak_fraction_of_base_input": 0.14734059944761432,
-      "max_segment_current_swing_a": 231.39747835602498,
-      "distributed_buffer_peak_mw": 15.96071323364825,
-      "distributed_buffer_energy_kwh": 0.7056184462242633
+      "source_peak_mw": 16.817578521838612,
+      "source_peak_fraction_of_base_input": 0.145783318898674,
+      "max_segment_current_swing_a": 242.7055151378222,
+      "distributed_buffer_peak_mw": 16.740310349968837,
+      "distributed_buffer_energy_kwh": 0.7400842058583214
     },
     {
       "mode": "coherent_campus",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.02,
-      "source_peak_mw": 2.139184035442881,
-      "source_peak_fraction_of_base_input": 0.019673558178014222,
-      "max_segment_current_swing_a": 30.785298098711337,
-      "distributed_buffer_peak_mw": 2.123436975326044,
-      "distributed_buffer_energy_kwh": 0.006343008464099903
+      "source_peak_mw": 2.2398847903948536,
+      "source_peak_fraction_of_base_input": 0.019416459882758624,
+      "max_segment_current_swing_a": 32.23447437677328,
+      "distributed_buffer_peak_mw": 2.2233470251488967,
+      "distributed_buffer_energy_kwh": 0.0066414540026484125
     },
     {
       "mode": "coherent_campus",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.05,
-      "source_peak_mw": 5.341731698816631,
-      "source_peak_fraction_of_base_input": 0.04912661445056759,
-      "max_segment_current_swing_a": 77.00173638386855,
-      "distributed_buffer_peak_mw": 5.311275316627359,
-      "distributed_buffer_energy_kwh": 0.015865535299609906
+      "source_peak_mw": 5.604718261041498,
+      "source_peak_fraction_of_base_input": 0.048584546730411585,
+      "max_segment_current_swing_a": 80.65824640965366,
+      "distributed_buffer_peak_mw": 5.563368524918275,
+      "distributed_buffer_energy_kwh": 0.016618573592015948
     },
     {
       "mode": "coherent_campus",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.1,
-      "source_peak_mw": 10.674583341667699,
-      "source_peak_fraction_of_base_input": 0.09817156117420381,
-      "max_segment_current_swing_a": 154.13925267382456,
-      "distributed_buffer_peak_mw": 10.631505551084416,
-      "distributed_buffer_energy_kwh": 0.03175782021328847
+      "source_peak_mw": 11.203850394381462,
+      "source_peak_fraction_of_base_input": 0.09712067006651204,
+      "max_segment_current_swing_a": 161.55726681888405,
+      "distributed_buffer_peak_mw": 11.143446895182109,
+      "distributed_buffer_energy_kwh": 0.03328706187031281
     },
     {
       "mode": "largest_block_only",
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.05,
-      "source_peak_mw": 1.337428679608422,
-      "source_peak_fraction_of_base_input": 0.012300008087791098,
-      "max_segment_current_swing_a": 19.247230822041956,
-      "distributed_buffer_peak_mw": 1.3278188291568398,
-      "distributed_buffer_energy_kwh": 0.05870248060855665
+      "source_peak_mw": 1.400924068196403,
+      "source_peak_fraction_of_base_input": 0.01214392190418481,
+      "max_segment_current_swing_a": 20.160999757648824,
+      "distributed_buffer_peak_mw": 1.3908421312295687,
+      "distributed_buffer_energy_kwh": 0.06148872229045901
     },
     {
       "mode": "largest_block_only",
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.1,
-      "source_peak_mw": 2.677107951975927,
-      "source_peak_fraction_of_base_input": 0.02462071433284554,
-      "max_segment_current_swing_a": 38.526852373435986,
-      "distributed_buffer_peak_mw": 2.657876387771104,
-      "distributed_buffer_energy_kwh": 0.11750393478916735
+      "source_peak_mw": 2.806051108992662,
+      "source_peak_fraction_of_base_input": 0.02432427731121021,
+      "max_segment_current_swing_a": 40.38248754575943,
+      "distributed_buffer_peak_mw": 2.785861723795527,
+      "distributed_buffer_energy_kwh": 0.12316212892015738
     },
     {
       "mode": "largest_block_only",
       "case_name": "electromechanical_band_reference",
       "frequency_hz": 1.0,
       "it_amplitude_fraction": 0.15,
-      "source_peak_mw": 4.013930850599095,
-      "source_peak_fraction_of_base_input": 0.03691515119943311,
-      "max_segment_current_swing_a": 57.83894599456039,
-      "distributed_buffer_peak_mw": 3.9901783084120623,
-      "distributed_buffer_energy_kwh": 0.17640461155606582
+      "source_peak_mw": 4.215400025498639,
+      "source_peak_fraction_of_base_input": 0.036541230082840805,
+      "max_segment_current_swing_a": 60.66473542237941,
+      "distributed_buffer_peak_mw": 4.185077587492209,
+      "distributed_buffer_energy_kwh": 0.18502105146458034
     },
     {
       "mode": "largest_block_only",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.02,
-      "source_peak_mw": 0.5347017616200418,
-      "source_peak_fraction_of_base_input": 0.004917522775426242,
-      "max_segment_current_swing_a": 7.695010635825383,
-      "distributed_buffer_peak_mw": 0.530859243831511,
-      "distributed_buffer_energy_kwh": 0.0015857521160249758
+      "source_peak_mw": 0.5598664756767135,
+      "source_peak_fraction_of_base_input": 0.004853207187840255,
+      "max_segment_current_swing_a": 8.057158683632906,
+      "distributed_buffer_peak_mw": 0.5558367562872242,
+      "distributed_buffer_energy_kwh": 0.0016603635006621031
     },
     {
       "mode": "largest_block_only",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.05,
-      "source_peak_mw": 1.337428679608422,
-      "source_peak_fraction_of_base_input": 0.012300008087791098,
-      "max_segment_current_swing_a": 19.247230822041956,
-      "distributed_buffer_peak_mw": 1.3278188291568398,
-      "distributed_buffer_energy_kwh": 0.003966383824902477
+      "source_peak_mw": 1.400924068196403,
+      "source_peak_fraction_of_base_input": 0.01214392190418481,
+      "max_segment_current_swing_a": 20.160999757648824,
+      "distributed_buffer_peak_mw": 1.3908421312295687,
+      "distributed_buffer_energy_kwh": 0.004154643398003987
     },
     {
       "mode": "largest_block_only",
       "case_name": "measured_14_8hz_case",
       "frequency_hz": 14.8,
       "it_amplitude_fraction": 0.1,
-      "source_peak_mw": 2.677107951975927,
-      "source_peak_fraction_of_base_input": 0.02462071433284554,
-      "max_segment_current_swing_a": 38.526852373435986,
-      "distributed_buffer_peak_mw": 2.657876387771104,
-      "distributed_buffer_energy_kwh": 0.007939455053322117
+      "source_peak_mw": 2.806051108992662,
+      "source_peak_fraction_of_base_input": 0.02432427731121021,
+      "max_segment_current_swing_a": 40.38248754575943,
+      "distributed_buffer_peak_mw": 2.785861723795527,
+      "distributed_buffer_energy_kwh": 0.008321765467578202
     }
   ],
   "equivalent_scenario3_reference": {
-    "source_input_mw": 105.16701020677722,
-    "efficiency": 0.9508685261983016,
-    "delta_efficiency_points_vs_scenario3m": -3.119271280148217
+    "source_input_mw": 108.49857730996632,
+    "efficiency": 0.9216710714492874,
+    "delta_efficiency_points_vs_scenario3m": -5.4820242066414
   }
 }

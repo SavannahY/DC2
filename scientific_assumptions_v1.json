@@ -36,7 +36,7 @@
       "type": "Tier A"
     },
     "opendss_quasi_static_local_2026": {
-      "title": "Local OpenDSS AC-boundary validation setup",
+      "title": "Local OpenDSS AC-boundary cross-check setup",
       "date": "2026-04-08",
       "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
       "type": "Local"
@@ -116,7 +116,7 @@
       "name": "reference_continuous_operation",
       "load_fraction": 1.0,
       "hours_fraction": 1.0,
-      "note": "Reference full-load year to avoid inventing an unsupported annual load factor."
+      "note": "Reference continuous-operation year used for annualized-loss normalization. This is not a claim of a realistic hourly dispatch profile."
     }
   ],
   "dynamic_model": {
@@ -139,7 +139,7 @@
     ]
   },
   "opendss_validation": {
-    "note": "OpenDSS is used as an AC-side quasi-static validation layer for the source-to-PCC feeder boundary. The downstream DC network remains represented by an equivalent load at that AC boundary; this is not an EMT model of the MVDC backbone or the 800 VDC plant.",
+    "note": "OpenDSS is used as an AC-side quasi-static cross-check layer for the source-to-PCC feeder boundary. The downstream DC network remains represented by an equivalent load at that AC boundary; this is not an EMT model of the MVDC backbone or the 800 VDC plant.",
     "source_ids": ["opendss_epri_2026", "opendss_quasi_static_local_2026"],
     "line_x_to_r_ratio": 1.0,
     "zero_sequence_multiplier": 3.0,
@@ -240,13 +240,13 @@
           "type": "stage",
           "name": "MV/LV transformer",
           "curve": "mv_lv_transformer",
-          "rated_output_mw_factor": 1.08
+          "rated_output_mw_factor": 1.14
         },
         {
           "type": "stage",
           "name": "Facility UPS",
           "curve": "double_conversion_ups",
-          "rated_output_mw_factor": 1.05
+          "rated_output_mw_factor": 1.08
         },
         {
           "type": "conductor",
@@ -261,19 +261,19 @@
           "type": "stage",
           "name": "PDU / transformer stage",
           "curve": "pdu_transformer",
-          "rated_output_mw_factor": 1.03
+          "rated_output_mw_factor": 1.06
         },
         {
           "type": "stage",
           "name": "Server PSU AC/DC",
           "curve": "server_psu_acdc",
-          "rated_output_mw_factor": 1.02
+          "rated_output_mw_factor": 1.04
         },
         {
           "type": "stage",
           "name": "Board DC/DC",
           "curve": "board_dcdc",
-          "rated_output_mw_factor": 1.01
+          "rated_output_mw_factor": 1.03
         }
       ]
     },
@@ -303,7 +303,7 @@
           "type": "stage",
           "name": "Perimeter 69 kV AC -> 800 VDC converter",
           "curve": "perimeter_69kvac_to_800vdc",
-          "rated_output_mw_factor": 1.05
+          "rated_output_mw_factor": 1.07
         },
         {
           "type": "conductor",
@@ -319,20 +319,20 @@
           "type": "stage",
           "name": "Rack / node DC/DC",
           "curve": "rack_node_dcdc",
-          "rated_output_mw_factor": 1.02
+          "rated_output_mw_factor": 1.04
         },
         {
           "type": "stage",
           "name": "Board DC/DC",
           "curve": "board_dcdc",
-          "rated_output_mw_factor": 1.01
+          "rated_output_mw_factor": 1.03
         }
       ]
     },
     {
       "name": "proposed_mvdc_backbone",
       "display_name": "Proposed MVDC backbone",
-      "notes": "The AC/DC boundary moves to a common subtransmission front end. Downstream distribution is DC-native with an NVIDIA-style 800 VDC facility bus, while harmonics/PF are handled once at the grid interface. In this scenario, the subtransmission backbone voltage is set to 69 kV.",
+      "notes": "The AC/DC boundary moves to a common subtransmission front end. Downstream distribution is DC-native with an NVIDIA-style 800 VDC facility bus, while harmonics/PF are handled once at the grid interface. In this scenario, the subtransmission backbone voltage is set to 69 kV. The modeled electrical endpoint includes board-level DC/DC regulation so that the comparison terminates at the same end-use boundary as Scenario 2.",
       "native_buffer_anchor": "MVDC backbone",
       "innovation_metrics": {
         "ac_harmonic_injection_points": 1,
@@ -345,7 +345,7 @@
           "type": "stage",
           "name": "Centralized MV AC/DC front end",
           "curve": "central_mv_acdc",
-          "rated_output_mw_factor": 1.05
+          "rated_output_mw_factor": 1.08
         },
         {
           "type": "conductor",
@@ -361,7 +361,7 @@
           "type": "stage",
           "name": "Isolated DC pod / DC transformer",
           "curve": "isolated_dc_pod",
-          "rated_output_mw_factor": 1.03
+          "rated_output_mw_factor": 1.08
         },
         {
           "type": "conductor",
@@ -377,7 +377,13 @@
           "type": "stage",
           "name": "Rack / node DC/DC",
           "curve": "rack_node_dcdc",
-          "rated_output_mw_factor": 1.02
+          "rated_output_mw_factor": 1.04
+        },
+        {
+          "type": "stage",
+          "name": "Board DC/DC",
+          "curve": "board_dcdc",
+          "rated_output_mw_factor": 1.03
         }
       ]
     }
