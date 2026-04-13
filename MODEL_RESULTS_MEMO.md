@@ -32,7 +32,7 @@ Dynamic-amplitude values in this memo are sensitivity cases. They are not presen
 | Architecture | Description | Native buffer anchor |
 | --- | --- | --- |
 | Traditional AC-centric | AC remains the dominant campus distribution domain and power quality ownership is distributed across multiple downstream AC interfaces. This baseline is intentionally not modeled as an 800 VDC data-center architecture. | LV AC distribution |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | This comparison case is modeled as a direct 69 kV AC to 800 VDC perimeter-conversion path feeding the 800 VDC facility side, which more literally matches the NVIDIA-style architecture direction than the earlier AC-fed pod proxy. | 800 VDC facility bus |
+| AC-fed SST + 800 VDC baseline | This comparison case is modeled as an explicit AC-fed SST-style chain feeding the 800 VDC facility side: a 69 kV AC campus feeder, a grid-side rectifier stage, an isolated high-frequency SST stage, and then the 800 VDC facility bus. This is the intended baseline advanced architecture for comparison against the MVDC backbone. | 800 VDC facility bus |
 | Proposed MVDC backbone | The AC/DC boundary moves to a common subtransmission front end. Downstream distribution is DC-native with an NVIDIA-style 800 VDC facility bus, while harmonics/PF are handled once at the grid interface. In this scenario, the subtransmission backbone voltage is set to 69 kV. The modeled electrical endpoint includes board-level DC/DC regulation so that the comparison terminates at the same end-use boundary as Scenario 2. | MVDC backbone |
 
 <!-- source_ids: iea_2025_energy_ai, eia_electricity_monthly_2026_01, nvidia_dgx_superpod_gb200_2025, schneider_galaxy_vx_2025, ocp_delta_orv3, rothmund_2019_dc_transformer, pnnl_38817_2026, segan_2025_14_8hz, white_paper_local_2026 -->
@@ -51,7 +51,8 @@ The current assumptions mix directly sourced values, source-anchored proxies, lo
 | Directly source-backed | Dynamic frequency case: measured_14_8hz_case | 14.8 Hz | segan_2025_14_8hz, pnnl_38817_2026 |
 | Source-anchored proxy | double_conversion_ups | Approximate 415 V normal-operation efficiency points from the Schneider Galaxy VX technical specifications. | schneider_galaxy_vx_2025 |
 | Source-anchored proxy | server_psu_acdc | Modern AC-DC shelf benchmark anchored to OCP Delta's >97.5% figure at rated conditions. | ocp_delta_orv3 |
-| Source-anchored proxy | perimeter_69kvac_to_800vdc | Engineering proxy for a direct 69 kV AC to 800 VDC perimeter-conversion stage in an NVIDIA-style 800 VDC facility architecture. | nvidia_800vdc_blog_2025, rothmund_2019_dc_transformer, user_specified_69kv_scenario_2026 |
+| Source-anchored proxy | grid_side_acdc | Engineering proxy for high-power grid-side rectifier efficiency. |  |
+| Source-anchored proxy | hf_isolated_dc_link | Anchored to 99% DC-transformer-class literature and used as a proxy for an AC-fed SST isolated stage. | rothmund_2019_dc_transformer |
 | Source-anchored proxy | rack_node_dcdc | Engineering proxy for high-power rack/node DC-DC conversion anchored to modern high-efficiency rack power-conversion practice. | ocp_delta_orv3 |
 | Source-anchored proxy | central_mv_acdc | Engineering proxy for centralized subtransmission AC/DC front end anchored to the 800 VDC perimeter-conversion concept and high-efficiency power-conversion literature. In this scenario, the subtransmission voltage is user-set to 69 kV. | nvidia_800vdc_blog_2025, rothmund_2019_dc_transformer, user_specified_69kv_scenario_2026 |
 | Source-anchored proxy | isolated_dc_pod | Anchored to 99% DC-transformer-class literature and used as a proxy for an isolated DC pod / DC transformer. | rothmund_2019_dc_transformer |
@@ -73,7 +74,7 @@ The current assumptions mix directly sourced values, source-anchored proxies, lo
 | Architecture | Full-load efficiency | Annual loss (GWh) | Annual loss cost (USD) | AC harmonic-injection points | Major conversion stages |
 | --- | --- | --- | --- | --- | --- |
 | Traditional AC-centric | 87.48% | 125.36 | $11,645,664 | 4 | 5 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | 91.90% | 77.21 | $7,172,645 | 1 | 3 |
+| AC-fed SST + 800 VDC baseline | 91.82% | 78.06 | $7,251,638 | 1 | 4 |
 | Proposed MVDC backbone | 92.17% | 74.45 | $6,916,176 | 1 | 3 |
 
 Interpretation:
@@ -100,12 +101,12 @@ AI factories are modeled here as dynamic electrical loads because public sources
 | Traditional AC-centric | measured_14_8hz_case | 14.8 | 2.0% | 2.20 | 1.93% | 2.03 | 0.01 |
 | Traditional AC-centric | measured_14_8hz_case | 14.8 | 5.0% | 5.61 | 4.91% | 5.07 | 0.02 |
 | Traditional AC-centric | measured_14_8hz_case | 14.8 | 10.0% | 11.35 | 9.93% | 10.14 | 0.03 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | electromechanical_band_reference | 1.0 | 5.0% | 5.36 | 4.93% | 5.13 | 0.23 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | electromechanical_band_reference | 1.0 | 10.0% | 10.83 | 9.96% | 10.27 | 0.45 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | electromechanical_band_reference | 1.0 | 15.0% | 16.31 | 14.99% | 15.40 | 0.68 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | measured_14_8hz_case | 14.8 | 2.0% | 2.11 | 1.94% | 2.05 | 0.01 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | measured_14_8hz_case | 14.8 | 5.0% | 5.36 | 4.93% | 5.13 | 0.02 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | measured_14_8hz_case | 14.8 | 10.0% | 10.83 | 9.96% | 10.27 | 0.03 |
+| AC-fed SST + 800 VDC baseline | electromechanical_band_reference | 1.0 | 5.0% | 5.37 | 4.93% | 5.13 | 0.23 |
+| AC-fed SST + 800 VDC baseline | electromechanical_band_reference | 1.0 | 10.0% | 10.85 | 9.96% | 10.27 | 0.45 |
+| AC-fed SST + 800 VDC baseline | electromechanical_band_reference | 1.0 | 15.0% | 16.32 | 14.99% | 15.40 | 0.68 |
+| AC-fed SST + 800 VDC baseline | measured_14_8hz_case | 14.8 | 2.0% | 2.12 | 1.94% | 2.05 | 0.01 |
+| AC-fed SST + 800 VDC baseline | measured_14_8hz_case | 14.8 | 5.0% | 5.37 | 4.93% | 5.13 | 0.02 |
+| AC-fed SST + 800 VDC baseline | measured_14_8hz_case | 14.8 | 10.0% | 10.85 | 9.96% | 10.27 | 0.03 |
 | Proposed MVDC backbone | electromechanical_band_reference | 1.0 | 5.0% | 5.34 | 4.93% | 5.16 | 0.23 |
 | Proposed MVDC backbone | electromechanical_band_reference | 1.0 | 10.0% | 10.80 | 9.95% | 10.31 | 0.46 |
 | Proposed MVDC backbone | electromechanical_band_reference | 1.0 | 15.0% | 16.26 | 14.98% | 15.47 | 0.68 |
@@ -122,8 +123,8 @@ A complementary OpenDSS quasi-static study was run for the AC source, the 69 kV 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Traditional AC-centric | electromechanical_band_reference | 1.0 | 15.0% | 17.15 | 0.50% | 0.259 | 1161 |
 | Traditional AC-centric | measured_14_8hz_case | 14.8 | 10.0% | 11.39 | 0.33% | 0.236 | 1109 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | electromechanical_band_reference | 1.0 | 15.0% | 16.38 | 0.47% | 0.234 | 1104 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | measured_14_8hz_case | 14.8 | 10.0% | 10.89 | 0.31% | 0.213 | 1054 |
+| AC-fed SST + 800 VDC baseline | electromechanical_band_reference | 1.0 | 15.0% | 16.40 | 0.47% | 0.234 | 1105 |
+| AC-fed SST + 800 VDC baseline | measured_14_8hz_case | 14.8 | 10.0% | 10.90 | 0.31% | 0.214 | 1055 |
 | Proposed MVDC backbone | electromechanical_band_reference | 1.0 | 15.0% | 16.27 | 0.44% | 0.006 | 1098 |
 | Proposed MVDC backbone | measured_14_8hz_case | 14.8 | 10.0% | 10.82 | 0.29% | 0.005 | 1049 |
 
@@ -135,7 +136,7 @@ A standardized harmonic-current probe is injected at the PCC for each scenario u
 | Architecture | Probe THDv (%) | Worst harmonic order | Worst single harmonic (%) | Max transfer impedance (ohm L-N) |
 | --- | --- | --- | --- | --- |
 | Traditional AC-centric | 10.02% | 5 | 5.75% | 215.05 |
-| NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion | 9.57% | 5 | 5.49% | 205.54 |
+| AC-fed SST + 800 VDC baseline | 9.58% | 5 | 5.50% | 205.71 |
 | Proposed MVDC backbone | 9.30% | 5 | 5.33% | 199.91 |
 
 Limitations:

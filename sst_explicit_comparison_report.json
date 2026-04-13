@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Source-backed v1 assumptions for DC backbone comparison",
-    "status": "source_backed_v1",
-    "warning": "This file mixes public-source values with explicitly labeled engineering proxies where public data is not available. Dynamic frequencies are source-backed; dynamic amplitudes are sensitivity cases, not measured universal constants. The advanced architectures use an NVIDIA-style 800 VDC downstream structure, while the 69 kV subtransmission assumption is a user-specified scenario input rather than a direct NVIDIA-published value."
+    "status": "source_backed_v1_with_direct_perimeter_alt",
+    "warning": "This file mixes public-source values with explicitly labeled engineering proxies where public data is not available. Dynamic frequencies are source-backed; dynamic amplitudes are sensitivity cases, not measured universal constants. The advanced architectures use an NVIDIA-style 800 VDC downstream structure, while the 69 kV subtransmission assumption is a user-specified scenario input rather than a direct NVIDIA-published value. Direct-perimeter alternative added for SST + 800 VDC baseline vs direct 800 VDC vs MVDC backbone."
   },
   "global": {
     "base_it_load_mw": 100.0,
@@ -26,98 +26,6 @@
     "racks_per_scalable_unit_source_ids": [
       "nvidia_dgx_superpod_gb200_2025"
     ]
-  },
-  "sources": {
-    "iea_2025_energy_ai": {
-      "title": "IEA Energy and AI",
-      "date": "2025-04-10",
-      "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
-      "type": "Tier A"
-    },
-    "eia_electricity_monthly_2026_01": {
-      "title": "EIA Electricity Monthly Update with Data for January 2026",
-      "date": "2026-03-24",
-      "url": "https://www.eia.gov/electricity/monthly/update/end-use.php",
-      "type": "Tier A"
-    },
-    "nvidia_dgx_superpod_gb200_2025": {
-      "title": "NVIDIA DGX SuperPOD GB200 Reference Architecture",
-      "date": "2025-11-19",
-      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/dgx-superpod-architecture.html",
-      "type": "Tier A"
-    },
-    "nvidia_800vdc_blog_2025": {
-      "title": "NVIDIA 800 VDC Architecture Will Power the Next Generation of AI Factories",
-      "date": "2025-05-20",
-      "url": "https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/",
-      "type": "Tier C"
-    },
-    "opendss_epri_2026": {
-      "title": "OpenDSS Overview",
-      "date": "2026-04-08",
-      "url": "https://opendss.epri.com/OpenDSSOverview.html",
-      "type": "Tier A"
-    },
-    "opendss_quasi_static_local_2026": {
-      "title": "Local OpenDSS AC-boundary cross-check setup",
-      "date": "2026-04-08",
-      "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
-      "type": "Local"
-    },
-    "opendss_harmonic_scan_local_2026": {
-      "title": "Local OpenDSS harmonic-sensitivity scan setup",
-      "date": "2026-04-10",
-      "url": "file:///Users/zhengjieyang/Documents/DC2/dc_backbone_model.py",
-      "type": "Local"
-    },
-    "pnnl_38817_2026": {
-      "title": "Electromagnetic Transient Modeling of Data Centers",
-      "date": "2026-01-01",
-      "url": "https://www.energy.gov/sites/default/files/2026-01/Data_Center_EMT_Models.pdf",
-      "type": "Tier A"
-    },
-    "arxiv_2508_14318": {
-      "title": "Power Stabilization for AI Training Datacenters",
-      "date": "2025-08-20",
-      "url": "https://arxiv.org/abs/2508.14318",
-      "type": "Tier C"
-    },
-    "segan_2025_14_8hz": {
-      "title": "Understanding the inception of 14.7 Hz oscillations emerging from a data center",
-      "date": "2025-01-01",
-      "url": "https://www.sciencedirect.com/science/article/abs/pii/S2352467725001171",
-      "type": "Tier B"
-    },
-    "schneider_galaxy_vx_2025": {
-      "title": "Galaxy VX Technical Specifications",
-      "date": "2025-07-01",
-      "url": "https://www.productinfo.schneider-electric.com/galaxyvx_iec/5ac76feb46e0fb00011d4e36/990-5850E%20400%20V%20Technical%20Specifications/English/990-5850N_EN.pdf",
-      "type": "Tier A"
-    },
-    "ocp_delta_orv3": {
-      "title": "Delta 18kW 1OU Open Rack v3 Power Shelf",
-      "date": "2026-01-01",
-      "url": "https://www.opencompute.org/products/431/delta-18kw-1ou-open-rack-v3-power-shelf",
-      "type": "Tier A"
-    },
-    "rothmund_2019_dc_transformer": {
-      "title": "99% Efficient 10 kV SiC-Based 7 kV/400 V DC Transformer for Future Data Centers",
-      "date": "2019-01-01",
-      "url": "https://doi.org/10.1109/JESTPE.2018.2886139",
-      "type": "Tier B"
-    },
-    "white_paper_local_2026": {
-      "title": "Direct Current Subtransmission Backbone for AI Factories white paper",
-      "date": "2026-04-07",
-      "url": "file:///Users/zhengjieyang/Documents/DC2/DC_Subtransmission_Backbone_for_AI_Factories_White_Paper_scrubbed.docx",
-      "type": "Local"
-    },
-    "user_specified_69kv_scenario_2026": {
-      "title": "User-specified 69 kV subtransmission scenario",
-      "date": "2026-04-08",
-      "url": "local-conversation",
-      "type": "Local"
-    }
   },
   "reference_context": {
     "equivalent_scalable_units": 83.33333333333334,
@@ -1146,6 +1054,490 @@
         "worst_single_harmonic_percent": 5.499029090249988,
         "worst_single_harmonic_order": 5,
         "max_transfer_impedance_ohm_ln": 205.705119012309,
+        "interpretation": "The scan injects the same harmonic current probe at the PCC for each scenario. Lower resulting harmonic voltage indicates a less sensitive AC boundary. This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
+      }
+    },
+    {
+      "name": "ac_direct_perimeter_800vdc",
+      "display_name": "Direct 69 kV AC -> 800 VDC perimeter alternative",
+      "annual_delivered_mwh": 876000.0,
+      "annual_input_mwh": 953208.2294793951,
+      "annual_loss_mwh": 77208.22947939513,
+      "annual_loss_cost_usd": 7172644.518635808,
+      "average_total_efficiency": 0.9190017174719912,
+      "full_load_total_efficiency": 0.9190017174719911,
+      "full_load_input_mw": 108.81372482641497,
+      "full_load_loss_mw": 8.813724826414969,
+      "full_load_breakdown": [
+        {
+          "name": "MV AC campus feeder",
+          "element_type": "conductor",
+          "load_ratio": null,
+          "efficiency": null,
+          "downstream_mw": 108.79301665779849,
+          "upstream_mw": 108.81372482641497,
+          "loss_mw": 0.02070816861647565
+        },
+        {
+          "name": "Perimeter 69 kV AC -> 800 VDC converter",
+          "element_type": "stage",
+          "load_ratio": 0.9974124699939231,
+          "efficiency": 0.9809741246999392,
+          "downstream_mw": 106.72313428934977,
+          "upstream_mw": 108.79301665779849,
+          "loss_mw": 2.0698823684487166
+        },
+        {
+          "name": "800 VDC facility bus",
+          "element_type": "conductor",
+          "load_ratio": null,
+          "efficiency": null,
+          "downstream_mw": 106.159640822373,
+          "upstream_mw": 106.72313428934977,
+          "loss_mw": 0.5634934669767623
+        },
+        {
+          "name": "Rack / node DC/DC",
+          "element_type": "stage",
+          "load_ratio": 0.9920214507783999,
+          "efficiency": 0.971840429015568,
+          "downstream_mw": 103.17023088095358,
+          "upstream_mw": 106.159640822373,
+          "loss_mw": 2.9894099414194244
+        },
+        {
+          "name": "Board DC/DC",
+          "element_type": "stage",
+          "load_ratio": 0.970873786407767,
+          "efficiency": 0.9692718446601941,
+          "downstream_mw": 100.0,
+          "upstream_mw": 103.17023088095358,
+          "loss_mw": 3.170230880953582
+        }
+      ],
+      "load_bins": [
+        {
+          "name": "reference_continuous_operation",
+          "load_fraction": 1.0,
+          "delivered_it_mw": 100.0,
+          "upstream_input_mw": 108.81372482641497,
+          "total_loss_mw": 8.813724826414969,
+          "total_efficiency": 0.9190017174719911,
+          "hours": 8760.0,
+          "element_results": [
+            {
+              "name": "MV AC campus feeder",
+              "element_type": "conductor",
+              "load_ratio": null,
+              "efficiency": null,
+              "downstream_mw": 108.79301665779849,
+              "upstream_mw": 108.81372482641497,
+              "loss_mw": 0.02070816861647565
+            },
+            {
+              "name": "Perimeter 69 kV AC -> 800 VDC converter",
+              "element_type": "stage",
+              "load_ratio": 0.9974124699939231,
+              "efficiency": 0.9809741246999392,
+              "downstream_mw": 106.72313428934977,
+              "upstream_mw": 108.79301665779849,
+              "loss_mw": 2.0698823684487166
+            },
+            {
+              "name": "800 VDC facility bus",
+              "element_type": "conductor",
+              "load_ratio": null,
+              "efficiency": null,
+              "downstream_mw": 106.159640822373,
+              "upstream_mw": 106.72313428934977,
+              "loss_mw": 0.5634934669767623
+            },
+            {
+              "name": "Rack / node DC/DC",
+              "element_type": "stage",
+              "load_ratio": 0.9920214507783999,
+              "efficiency": 0.971840429015568,
+              "downstream_mw": 103.17023088095358,
+              "upstream_mw": 106.159640822373,
+              "loss_mw": 2.9894099414194244
+            },
+            {
+              "name": "Board DC/DC",
+              "element_type": "stage",
+              "load_ratio": 0.970873786407767,
+              "efficiency": 0.9692718446601941,
+              "downstream_mw": 100.0,
+              "upstream_mw": 103.17023088095358,
+              "loss_mw": 3.170230880953582
+            }
+          ]
+        }
+      ],
+      "element_annual_losses_mwh": {
+        "MV AC campus feeder": 181.4035570803267,
+        "Perimeter 69 kV AC -> 800 VDC converter": 18132.169547610756,
+        "800 VDC facility bus": 4936.202770716438,
+        "Rack / node DC/DC": 26187.23108683416,
+        "Board DC/DC": 27771.22251715338
+      },
+      "innovation_metrics": {
+        "ac_harmonic_injection_points": 1,
+        "major_conversion_stages": 3,
+        "downstream_reactive_coordination_points": 1,
+        "dc_native_resource_path": "Direct 800 VDC facility-side path, but AC remains upstream of the facility boundary"
+      },
+      "native_buffer_anchor": "800 VDC facility bus",
+      "dynamic_cases": [
+        {
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "frequency_basis": "Representative test point inside the 0.1-5 Hz range that PNNL identifies as relevant to positive-sequence stability studies. This is a modeling reference point, not a directly measured universal AI-workload frequency.",
+          "source_ids": [
+            "pnnl_38817_2026",
+            "arxiv_2508_14318"
+          ],
+          "it_amplitude_fraction": 0.05,
+          "it_peak_mw": 5.0,
+          "raw_pcc_peak_mw": 5.363791109927163,
+          "raw_pcc_peak_to_peak_mw": 10.548085195891929,
+          "raw_pcc_peak_fraction_of_base_input": 0.049293332421840606,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 5.132651605319509,
+          "native_buffer_energy_kwh": 0.2269130205986533,
+          "emt_relevant": false
+        },
+        {
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "frequency_basis": "Representative test point inside the 0.1-5 Hz range that PNNL identifies as relevant to positive-sequence stability studies. This is a modeling reference point, not a directly measured universal AI-workload frequency.",
+          "source_ids": [
+            "pnnl_38817_2026",
+            "arxiv_2508_14318"
+          ],
+          "it_amplitude_fraction": 0.1,
+          "it_peak_mw": 10.0,
+          "raw_pcc_peak_mw": 10.833500898076736,
+          "raw_pcc_peak_to_peak_mw": 21.227882381924573,
+          "raw_pcc_peak_fraction_of_base_input": 0.09956005931566879,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 10.265303210639019,
+          "native_buffer_energy_kwh": 0.4538260411973066,
+          "emt_relevant": false
+        },
+        {
+          "case_name": "electromechanical_band_reference",
+          "frequency_hz": 1.0,
+          "frequency_basis": "Representative test point inside the 0.1-5 Hz range that PNNL identifies as relevant to positive-sequence stability studies. This is a modeling reference point, not a directly measured universal AI-workload frequency.",
+          "source_ids": [
+            "pnnl_38817_2026",
+            "arxiv_2508_14318"
+          ],
+          "it_amplitude_fraction": 0.15,
+          "it_peak_mw": 15.0,
+          "raw_pcc_peak_mw": 16.306183328009425,
+          "raw_pcc_peak_to_peak_mw": 31.936636481320036,
+          "raw_pcc_peak_fraction_of_base_input": 0.1498541048385381,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 15.397954815958528,
+          "native_buffer_energy_kwh": 0.6807390617959598,
+          "emt_relevant": false
+        },
+        {
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "frequency_basis": "Measured oscillation frequency reported in a data-center-rich Dominion Energy region. PNNL cites 5-60 Hz as the main EMT-relevant band for forced oscillation studies.",
+          "source_ids": [
+            "segan_2025_14_8hz",
+            "pnnl_38817_2026"
+          ],
+          "it_amplitude_fraction": 0.02,
+          "it_peak_mw": 2.0,
+          "raw_pcc_peak_mw": 2.1113030173024896,
+          "raw_pcc_peak_to_peak_mw": 4.181937598595553,
+          "raw_pcc_peak_fraction_of_base_input": 0.01940291099004785,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 2.0530606421278037,
+          "native_buffer_energy_kwh": 0.006132784340504142,
+          "emt_relevant": true
+        },
+        {
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "frequency_basis": "Measured oscillation frequency reported in a data-center-rich Dominion Energy region. PNNL cites 5-60 Hz as the main EMT-relevant band for forced oscillation studies.",
+          "source_ids": [
+            "segan_2025_14_8hz",
+            "pnnl_38817_2026"
+          ],
+          "it_amplitude_fraction": 0.05,
+          "it_peak_mw": 5.0,
+          "raw_pcc_peak_mw": 5.363791109927163,
+          "raw_pcc_peak_to_peak_mw": 10.548085195891929,
+          "raw_pcc_peak_fraction_of_base_input": 0.049293332421840606,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 5.132651605319509,
+          "native_buffer_energy_kwh": 0.015331960851260356,
+          "emt_relevant": true
+        },
+        {
+          "case_name": "measured_14_8hz_case",
+          "frequency_hz": 14.8,
+          "frequency_basis": "Measured oscillation frequency reported in a data-center-rich Dominion Energy region. PNNL cites 5-60 Hz as the main EMT-relevant band for forced oscillation studies.",
+          "source_ids": [
+            "segan_2025_14_8hz",
+            "pnnl_38817_2026"
+          ],
+          "it_amplitude_fraction": 0.1,
+          "it_peak_mw": 10.0,
+          "raw_pcc_peak_mw": 10.833500898076736,
+          "raw_pcc_peak_to_peak_mw": 21.227882381924573,
+          "raw_pcc_peak_fraction_of_base_input": 0.09956005931566879,
+          "native_buffer_anchor": "800 VDC facility bus",
+          "native_buffer_marginal_efficiency": 0.9741553459069717,
+          "native_buffer_peak_mw": 10.265303210639019,
+          "native_buffer_energy_kwh": 0.030663921702520712,
+          "emt_relevant": true
+        }
+      ],
+      "notes": "This alternative restores the direct 69 kV AC -> 800 VDC perimeter-conversion shortcut so it can be compared against the explicit SST + 800 VDC baseline and the MVDC backbone.",
+      "efficiency_gap_vs_best_pct_points": 0.2669353977296174,
+      "opendss_validation": {
+        "tool": "OpenDSS",
+        "tool_version": "DSS C-API Library version 0.14.5 revision 87d85c2622c8281b92255335bc7c09b11191b21d based on OpenDSS SVN 3723 [FPC 3.2.2] (64-bit build) MVMULT INCREMENTAL_Y CONTEXT_API PM 20240329033829; License Status: Open \nDSS-Python version: 0.15.7\nOpenDSSDirect.py version: 0.9.4",
+        "method": "quasi_static_snapshot_series",
+        "note": "OpenDSS is used as an AC-side quasi-static cross-check layer for the source-to-PCC feeder boundary. The downstream DC network remains represented by an equivalent load at that AC boundary; this is not an EMT model of the MVDC backbone or the 800 VDC plant.",
+        "source_ids": [
+          "opendss_epri_2026",
+          "opendss_quasi_static_local_2026"
+        ],
+        "power_factor": 0.98,
+        "ac_boundary": {
+          "name": "MV AC campus feeder",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "resistance_ohm_per_km": 0.08,
+          "reactance_ohm_per_km": 0.08,
+          "circuits": 8,
+          "is_synthetic_stub": false,
+          "boundary_note": "Uses the first modeled AC feeder segment: MV AC campus feeder."
+        },
+        "base_snapshot": {
+          "equivalent_ac_load_mw": 108.79301665779849,
+          "source_power_mw": 108.94900310837656,
+          "source_reactive_mvar": 22.25714243665145,
+          "pcc_voltage_min_pu": 0.9722150749568325,
+          "pcc_voltage_max_pu": 0.972215074957625,
+          "feeder_loss_mw": 0.17520581748452038,
+          "peak_line_current_a": 955.2684692284262
+        },
+        "dynamic_cases": [
+          {
+            "case_name": "electromechanical_band_reference",
+            "frequency_hz": 1.0,
+            "it_amplitude_fraction": 0.05,
+            "time_step_s": 0.015625,
+            "simulated_duration_s": 2.0,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 5.399174089191163,
+            "source_power_peak_to_peak_mw": 10.578947415512573,
+            "source_power_peak_fraction_of_base": 0.04955689299717922,
+            "minimum_pcc_voltage_pu": 0.9707203480986968,
+            "maximum_pcc_voltage_pu": 0.973636946411228,
+            "max_pcc_voltage_swing_from_base_pct": 0.15374446422794288,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.19356413077873735,
+            "average_feeder_loss_mw": 0.17565836587656405,
+            "peak_feeder_current_a": 1004.0689404311589,
+            "analytical_raw_pcc_peak_mw": 5.363791109927163,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.049293332421840606
+          },
+          {
+            "case_name": "electromechanical_band_reference",
+            "frequency_hz": 1.0,
+            "it_amplitude_fraction": 0.1,
+            "time_step_s": 0.015625,
+            "simulated_duration_s": 2.0,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 10.886176478449741,
+            "source_power_peak_to_peak_mw": 21.290089774298323,
+            "source_power_peak_fraction_of_base": 0.09991992737758934,
+            "minimum_pcc_voltage_pu": 0.9691894266067009,
+            "maximum_pcc_voltage_pu": 0.9750605001724438,
+            "max_pcc_voltage_swing_from_base_pct": 0.31121183245033196,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.2132214233455807,
+            "average_feeder_loss_mw": 0.1766266840046803,
+            "peak_feeder_current_a": 1053.8199792861908,
+            "analytical_raw_pcc_peak_mw": 10.833500898076736,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.09956005931566879
+          },
+          {
+            "case_name": "electromechanical_band_reference",
+            "frequency_hz": 1.0,
+            "it_amplitude_fraction": 0.15,
+            "time_step_s": 0.015625,
+            "simulated_duration_s": 2.0,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 16.377052836339303,
+            "source_power_peak_to_peak_mw": 32.03037588022168,
+            "source_power_peak_fraction_of_base": 0.15031851939065746,
+            "minimum_pcc_voltage_pu": 0.9676447921087217,
+            "maximum_pcc_voltage_pu": 0.9764799737928178,
+            "max_pcc_voltage_swing_from_base_pct": 0.47008969165734354,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.23391313739269226,
+            "average_feeder_loss_mw": 0.17806362615364896,
+            "peak_feeder_current_a": 1103.7691209555583,
+            "analytical_raw_pcc_peak_mw": 16.306183328009425,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.1498541048385381
+          },
+          {
+            "case_name": "measured_14_8hz_case",
+            "frequency_hz": 14.8,
+            "it_amplitude_fraction": 0.02,
+            "time_step_s": 0.001055743243243243,
+            "simulated_duration_s": 0.13513513513513511,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 2.136823559857163,
+            "source_power_peak_to_peak_mw": 4.194164503086441,
+            "source_power_peak_fraction_of_base": 0.019613062064749383,
+            "minimum_pcc_voltage_pu": 0.9716246574494249,
+            "maximum_pcc_voltage_pu": 0.9727808461701579,
+            "max_pcc_voltage_swing_from_base_pct": 0.06072910435314222,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.18235569879642874,
+            "average_feeder_loss_mw": 0.17534162382091348,
+            "peak_feeder_current_a": 974.5650114681815,
+            "analytical_raw_pcc_peak_mw": 2.1113030173024896,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.01940291099004785
+          },
+          {
+            "case_name": "measured_14_8hz_case",
+            "frequency_hz": 14.8,
+            "it_amplitude_fraction": 0.05,
+            "time_step_s": 0.001055743243243243,
+            "simulated_duration_s": 0.13513513513513511,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 5.399174089191163,
+            "source_power_peak_to_peak_mw": 10.578947415512573,
+            "source_power_peak_fraction_of_base": 0.04955689299717922,
+            "minimum_pcc_voltage_pu": 0.9707203480986968,
+            "maximum_pcc_voltage_pu": 0.973636946411228,
+            "max_pcc_voltage_swing_from_base_pct": 0.15374446422794288,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.19356413077873735,
+            "average_feeder_loss_mw": 0.1756583676776037,
+            "peak_feeder_current_a": 1004.0689404311589,
+            "analytical_raw_pcc_peak_mw": 5.363791109927163,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.049293332421840606
+          },
+          {
+            "case_name": "measured_14_8hz_case",
+            "frequency_hz": 14.8,
+            "it_amplitude_fraction": 0.1,
+            "time_step_s": 0.001055743243243243,
+            "simulated_duration_s": 0.13513513513513511,
+            "steps": 129,
+            "source_power_base_mw": 108.94900310837656,
+            "source_power_peak_mw": 10.886176478449741,
+            "source_power_peak_to_peak_mw": 21.290089774298323,
+            "source_power_peak_fraction_of_base": 0.09991992737758934,
+            "minimum_pcc_voltage_pu": 0.9691894266067009,
+            "maximum_pcc_voltage_pu": 0.9750605001724438,
+            "max_pcc_voltage_swing_from_base_pct": 0.31121183245033196,
+            "base_feeder_loss_mw": 0.17520581748452038,
+            "peak_feeder_loss_mw": 0.2132214233455807,
+            "average_feeder_loss_mw": 0.17662668400468903,
+            "peak_feeder_current_a": 1053.8199792861908,
+            "analytical_raw_pcc_peak_mw": 10.833500898076736,
+            "analytical_raw_pcc_peak_fraction_of_base_input": 0.09956005931566879
+          }
+        ]
+      },
+      "opendss_harmonics_validation": {
+        "tool": "OpenDSS",
+        "method": "harmonic_sensitivity_scan",
+        "note": "OpenDSS harmonic mode is used as a standardized AC-boundary harmonic-sensitivity scan. A fixed three-phase harmonic current probe is injected at the PCC and the resulting harmonic voltage distortion is compared across scenarios. This is a structural sensitivity study, not a site-specific IEEE 519 compliance assessment or a vendor-specific converter-spectrum model.",
+        "source_ids": [
+          "opendss_epri_2026",
+          "opendss_harmonic_scan_local_2026"
+        ],
+        "ac_boundary": {
+          "name": "MV AC campus feeder",
+          "voltage_kv": 69.0,
+          "length_m": 800.0,
+          "is_synthetic_stub": false,
+          "boundary_note": "Uses the first modeled AC feeder segment: MV AC campus feeder."
+        },
+        "base_case": {
+          "equivalent_ac_load_mw": 108.79301665779849,
+          "source_power_mw": 108.94900310837656,
+          "pcc_voltage_min_pu": 0.9722150749568325,
+          "base_avg_voltage_pu": 0.9722150749573334
+        },
+        "probe_current_amps_per_phase": 10.0,
+        "scan_type": "pos",
+        "harmonic_orders": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "harmonics": [
+          {
+            "order": 5,
+            "frequency_hz": 300.0,
+            "pcc_avg_voltage_pu": 0.9723750318744843,
+            "pcc_max_voltage_pu": 0.9723750318747744,
+            "avg_voltage_pct_of_fundamental": 100.01645283243093,
+            "max_voltage_pct_of_fundamental": 100.01645283246077,
+            "transfer_impedance_ohm_ln": 3873.666806201431,
+            "peak_line_current_a": 945.6212168954149
+          },
+          {
+            "order": 7,
+            "frequency_hz": 420.0,
+            "pcc_avg_voltage_pu": 0.04853325662680632,
+            "pcc_max_voltage_pu": 0.04853325662930336,
+            "avg_voltage_pct_of_fundamental": 4.992028808948087,
+            "max_voltage_pct_of_fundamental": 4.992028809204927,
+            "transfer_impedance_ohm_ln": 193.34275256913713,
+            "peak_line_current_a": 116.28717214926237
+          },
+          {
+            "order": 11,
+            "frequency_hz": 660.0,
+            "pcc_avg_voltage_pu": 0.04784905980678495,
+            "pcc_max_voltage_pu": 0.05211258636862539,
+            "avg_voltage_pct_of_fundamental": 4.921653761528523,
+            "max_voltage_pct_of_fundamental": 5.360191146070472,
+            "transfer_impedance_ohm_ln": 190.61710616343277,
+            "peak_line_current_a": 79.49388270555242
+          },
+          {
+            "order": 13,
+            "frequency_hz": 780.0,
+            "pcc_avg_voltage_pu": 0.03672518991776675,
+            "pcc_max_voltage_pu": 0.03672518992183812,
+            "avg_voltage_pct_of_fundamental": 3.7774758758372955,
+            "max_voltage_pct_of_fundamental": 3.777475876256068,
+            "transfer_impedance_ohm_ln": 146.30275816693307,
+            "peak_line_current_a": 47.40698445884236
+          }
+        ],
+        "probe_thdv_percent": 100.33296162554034,
+        "worst_single_harmonic_percent": 100.01645283246077,
+        "worst_single_harmonic_order": 5,
+        "max_transfer_impedance_ohm_ln": 3873.666806201431,
         "interpretation": "The scan injects the same harmonic current probe at the PCC for each scenario. Lower resulting harmonic voltage indicates a less sensitive AC boundary. This is a structural sensitivity result, not a site-specific converter-spectrum or IEEE 519 compliance result."
       }
     },

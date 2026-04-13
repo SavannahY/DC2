@@ -1,0 +1,2087 @@
+{
+  "meta": {
+    "title": "Public common-network T&D study on a SMART-DS feeder",
+    "updated": "2026-04-11",
+    "note": "This is a public common-network T&D screen. Scenario 2(M) is represented as four distributed AC-fed SST block interfaces on the same feeder. Scenario 3(M) is represented as one centralized AC/DC front-end interface on the same feeder.",
+    "dataset": "SMART-DS SFO P12U feeder sample"
+  },
+  "dataset": {
+    "smartds_dir": "/Users/zhengjieyang/Documents/DC2/public_data/smart_ds_sfo_sample",
+    "operating_report": "/Users/zhengjieyang/Documents/DC2/public_ai_factory_operating_report.json",
+    "power_factor": 0.99,
+    "feeder_bank_count": 87,
+    "target_peak_feeder_loading": 0.8
+  },
+  "feeder_base_summary": {
+    "bus_count": 614,
+    "line_count": 506,
+    "load_count": 460,
+    "total_power_kw": 1593.0140368956006,
+    "total_power_kvar": 33.36232378921329,
+    "total_losses_kw": 61.041183224064056,
+    "total_losses_kvar": 31.333850105144325,
+    "max_line_loading_pct": 82.54910127980739,
+    "worst_line": {
+      "line_name": "l(r:p12udm11043-p12udt2691lv)",
+      "bus1": "p12udt2691lv",
+      "bus2": "p12udm11043",
+      "peak_current_a": 94.93146647177849,
+      "normal_amps": 115.0,
+      "loading_pct": 82.54910127980739,
+      "loss_kw": 0.08557415519663845
+    },
+    "min_system_vpu": 0.9468363646417275,
+    "worst_bus": {
+      "bus": "p12ulv16456",
+      "kvbase_ln": 0.12008885599144216,
+      "min_vpu": 0.9468363646417275,
+      "max_vpu": 0.947539135598784
+    }
+  },
+  "poi_definition": {
+    "source_bus": "p12udt1266-p12uhs0_1247x",
+    "central_bus": "p12udt1266",
+    "distributed_buses": [
+      "p12udt5877",
+      "p12udt5877-p12udt5945x",
+      "p12udt5863",
+      "p12udt5863-p12udt5940x"
+    ]
+  },
+  "annual_summary": {
+    "Scenario 2(M)": {
+      "weighted_total_losses_mwh": 706.3597429178267,
+      "weighted_incremental_losses_mwh": 41367.70090217133,
+      "weighted_incremental_losses_per_bank_mwh": 475.49081496748664,
+      "peak_bin": {
+        "scenario_label": "Scenario 2(M)",
+        "load_fraction": 0.937494,
+        "feeder_bank_count": 87,
+        "open_line_name": null,
+        "converged": true,
+        "campus_load_map_kw": {
+          "p12udt5877": 317.0945951338383,
+          "p12udt5877-p12udt5945x": 317.0945951338383,
+          "p12udt5863": 317.0945951338383,
+          "p12udt5863-p12udt5940x": 317.0945951338383
+        },
+        "raw_campus_load_map_kw": {
+          "p12udt5877": 27587.229776643933,
+          "p12udt5877-p12udt5945x": 27587.229776643933,
+          "p12udt5863": 27587.229776643933,
+          "p12udt5863-p12udt5940x": 27587.229776643933
+        },
+        "campus_total_kw": 1268.3783805353532,
+        "raw_campus_total_kw": 110348.91910657573,
+        "total_power_kw": 2917.012681496804,
+        "total_power_kvar": 303.2892707914289,
+        "total_losses_kw": 116.69144686281658,
+        "total_losses_kvar": 115.55617010546284,
+        "max_line_loading_pct": 84.28726724303525,
+        "worst_line": {
+          "line_name": "l(r:p12udm11043-p12udt2691lv)",
+          "bus1": "p12udt2691lv",
+          "bus2": "p12udm11043",
+          "peak_current_a": 96.93035732949052,
+          "normal_amps": 115.0,
+          "loading_pct": 84.28726724303525,
+          "loss_kw": 0.08921025012854807
+        },
+        "min_system_vpu": 0.9271376218304336,
+        "worst_bus": {
+          "bus": "p12ulv16456",
+          "kvbase_ln": 0.12008885599144216,
+          "min_vpu": 0.9271376218304336,
+          "max_vpu": 0.9278581069537531
+        },
+        "poi_voltage_rows": [
+          {
+            "bus": "p12udt5877",
+            "min_vpu": 0.9723861234373701,
+            "max_vpu": 1.0157232326458636
+          },
+          {
+            "bus": "p12udt5877-p12udt5945x",
+            "min_vpu": 0.9723887381494799,
+            "max_vpu": 1.0157261715297494
+          },
+          {
+            "bus": "p12udt5863",
+            "min_vpu": 0.9725433907766463,
+            "max_vpu": 1.0158598839439732
+          },
+          {
+            "bus": "p12udt5863-p12udt5940x",
+            "min_vpu": 0.9725517187314687,
+            "max_vpu": 1.015867404486326
+          }
+        ],
+        "min_poi_vpu": 0.9723861234373701,
+        "top_lines": [
+          {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.93035732949052,
+            "normal_amps": 115.0,
+            "loading_pct": 84.28726724303525,
+            "loss_kw": 0.08921025012854807
+          },
+          {
+            "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+            "bus1": "p12udt1246lv",
+            "bus2": "p12ulv4441",
+            "peak_current_a": 83.54478684402774,
+            "normal_amps": 115.0,
+            "loading_pct": 72.64764073393717,
+            "loss_kw": 0.14502974071110294
+          },
+          {
+            "line_name": "l(r:p12udm10990-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10990",
+            "peak_current_a": 71.12053320861449,
+            "normal_amps": 115.0,
+            "loading_pct": 61.843941920534334,
+            "loss_kw": 0.085922250265221
+          },
+          {
+            "line_name": "l(r:p12udm11043-p12ulv9396)",
+            "bus1": "p12udm11043",
+            "bus2": "p12ulv9396",
+            "peak_current_a": 69.90927740567928,
+            "normal_amps": 115.0,
+            "loading_pct": 60.790676004938504,
+            "loss_kw": 0.08979016287873856
+          },
+          {
+            "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+            "bus1": "p12udt3328lv",
+            "bus2": "p12ulv12586",
+            "peak_current_a": 62.856563139849236,
+            "normal_amps": 115.0,
+            "loading_pct": 54.65788099117324,
+            "loss_kw": 0.3510031584135058
+          },
+          {
+            "line_name": "l(r:p12udt5990-p12udt6016)_s1",
+            "bus1": "p12udt5990-p12udt6016x",
+            "bus2": "p12udt5990",
+            "peak_current_a": 168.27891920326456,
+            "normal_amps": 325.0,
+            "loading_pct": 51.778128985619865,
+            "loss_kw": 0.01479195878142491
+          },
+          {
+            "line_name": "l(r:p12udt5990-p12udt6016)_s0",
+            "bus1": "p12udt6016",
+            "bus2": "p12udt5990-p12udt6016x",
+            "peak_current_a": 168.2782212426957,
+            "normal_amps": 325.0,
+            "loading_pct": 51.77791422852175,
+            "loss_kw": 2.4448629477560755
+          },
+          {
+            "line_name": "l(r:p12udt320-p12udt6016)",
+            "bus1": "p12udt320",
+            "bus2": "p12udt6016",
+            "peak_current_a": 168.27712632651586,
+            "normal_amps": 325.0,
+            "loading_pct": 51.77757733123565,
+            "loss_kw": 3.7984121631514283
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12udt320)",
+            "bus1": "p12udt1266",
+            "bus2": "p12udt320",
+            "peak_current_a": 168.27273768848238,
+            "normal_amps": 325.0,
+            "loading_pct": 51.7762269810715,
+            "loss_kw": 14.77125498804939
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+            "bus1": "p12udt1266-p12uhs0_1247x",
+            "bus2": "p12udt1266",
+            "peak_current_a": 168.2721988333272,
+            "normal_amps": 325.0,
+            "loading_pct": 51.776061179485296,
+            "loss_kw": 1.7765824083511252
+          }
+        ],
+        "hours": 547.5,
+        "bin_name": "public_esif_quantile_bin_16"
+      },
+      "weighted_mean_max_line_loading_pct": 83.28788612444765,
+      "worst_peak_line_loading_pct": 84.28726724303525,
+      "worst_peak_poi_vpu": 0.9723861234373701,
+      "top_bins": [
+        {
+          "scenario_label": "Scenario 2(M)",
+          "load_fraction": 0.937494,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt5877": 317.0945951338383,
+            "p12udt5877-p12udt5945x": 317.0945951338383,
+            "p12udt5863": 317.0945951338383,
+            "p12udt5863-p12udt5940x": 317.0945951338383
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt5877": 27587.229776643933,
+            "p12udt5877-p12udt5945x": 27587.229776643933,
+            "p12udt5863": 27587.229776643933,
+            "p12udt5863-p12udt5940x": 27587.229776643933
+          },
+          "campus_total_kw": 1268.3783805353532,
+          "raw_campus_total_kw": 110348.91910657573,
+          "total_power_kw": 2917.012681496804,
+          "total_power_kvar": 303.2892707914289,
+          "total_losses_kw": 116.69144686281658,
+          "total_losses_kvar": 115.55617010546284,
+          "max_line_loading_pct": 84.28726724303525,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.93035732949052,
+            "normal_amps": 115.0,
+            "loading_pct": 84.28726724303525,
+            "loss_kw": 0.08921025012854807
+          },
+          "min_system_vpu": 0.9271376218304336,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9271376218304336,
+            "max_vpu": 0.9278581069537531
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt5877",
+              "min_vpu": 0.9723861234373701,
+              "max_vpu": 1.0157232326458636
+            },
+            {
+              "bus": "p12udt5877-p12udt5945x",
+              "min_vpu": 0.9723887381494799,
+              "max_vpu": 1.0157261715297494
+            },
+            {
+              "bus": "p12udt5863",
+              "min_vpu": 0.9725433907766463,
+              "max_vpu": 1.0158598839439732
+            },
+            {
+              "bus": "p12udt5863-p12udt5940x",
+              "min_vpu": 0.9725517187314687,
+              "max_vpu": 1.015867404486326
+            }
+          ],
+          "min_poi_vpu": 0.9723861234373701,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 96.93035732949052,
+              "normal_amps": 115.0,
+              "loading_pct": 84.28726724303525,
+              "loss_kw": 0.08921025012854807
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 83.54478684402774,
+              "normal_amps": 115.0,
+              "loading_pct": 72.64764073393717,
+              "loss_kw": 0.14502974071110294
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 71.12053320861449,
+              "normal_amps": 115.0,
+              "loading_pct": 61.843941920534334,
+              "loss_kw": 0.085922250265221
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 69.90927740567928,
+              "normal_amps": 115.0,
+              "loading_pct": 60.790676004938504,
+              "loss_kw": 0.08979016287873856
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.856563139849236,
+              "normal_amps": 115.0,
+              "loading_pct": 54.65788099117324,
+              "loss_kw": 0.3510031584135058
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s1",
+              "bus1": "p12udt5990-p12udt6016x",
+              "bus2": "p12udt5990",
+              "peak_current_a": 168.27891920326456,
+              "normal_amps": 325.0,
+              "loading_pct": 51.778128985619865,
+              "loss_kw": 0.01479195878142491
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s0",
+              "bus1": "p12udt6016",
+              "bus2": "p12udt5990-p12udt6016x",
+              "peak_current_a": 168.2782212426957,
+              "normal_amps": 325.0,
+              "loading_pct": 51.77791422852175,
+              "loss_kw": 2.4448629477560755
+            },
+            {
+              "line_name": "l(r:p12udt320-p12udt6016)",
+              "bus1": "p12udt320",
+              "bus2": "p12udt6016",
+              "peak_current_a": 168.27712632651586,
+              "normal_amps": 325.0,
+              "loading_pct": 51.77757733123565,
+              "loss_kw": 3.7984121631514283
+            },
+            {
+              "line_name": "l(r:p12udt1266-p12udt320)",
+              "bus1": "p12udt1266",
+              "bus2": "p12udt320",
+              "peak_current_a": 168.27273768848238,
+              "normal_amps": 325.0,
+              "loading_pct": 51.7762269810715,
+              "loss_kw": 14.77125498804939
+            },
+            {
+              "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+              "bus1": "p12udt1266-p12uhs0_1247x",
+              "bus2": "p12udt1266",
+              "peak_current_a": 168.2721988333272,
+              "normal_amps": 325.0,
+              "loading_pct": 51.776061179485296,
+              "loss_kw": 1.7765824083511252
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_16"
+        },
+        {
+          "scenario_label": "Scenario 2(M)",
+          "load_fraction": 0.753346,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt5877": 256.3391860788717,
+            "p12udt5877-p12udt5945x": 256.3391860788717,
+            "p12udt5863": 256.3391860788717,
+            "p12udt5863-p12udt5940x": 256.3391860788717
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt5877": 22301.50918886184,
+            "p12udt5877-p12udt5945x": 22301.50918886184,
+            "p12udt5863": 22301.50918886184,
+            "p12udt5863-p12udt5940x": 22301.50918886184
+          },
+          "campus_total_kw": 1025.3567443154868,
+          "raw_campus_total_kw": 89206.03675544736,
+          "total_power_kw": 2659.5176187170864,
+          "total_power_kvar": 245.9074036134185,
+          "total_losses_kw": 102.20852985236631,
+          "total_losses_kvar": 93.78407086709679,
+          "max_line_loading_pct": 83.93678230209665,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.52729964741114,
+            "normal_amps": 115.0,
+            "loading_pct": 83.93678230209665,
+            "loss_kw": 0.0884709994833338
+          },
+          "min_system_vpu": 0.9310474892921946,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9310474892921946,
+            "max_vpu": 0.9317643836551156
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt5877",
+              "min_vpu": 0.9770801787377573,
+              "max_vpu": 1.0197191638494172
+            },
+            {
+              "bus": "p12udt5877-p12udt5945x",
+              "min_vpu": 0.9770823240561075,
+              "max_vpu": 1.019721653352254
+            },
+            {
+              "bus": "p12udt5863",
+              "min_vpu": 0.9772107925690705,
+              "max_vpu": 1.0198329567326787
+            },
+            {
+              "bus": "p12udt5863-p12udt5940x",
+              "min_vpu": 0.9772177098707013,
+              "max_vpu": 1.0198391343118767
+            }
+          ],
+          "min_poi_vpu": 0.9770801787377573,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 96.52729964741114,
+              "normal_amps": 115.0,
+              "loading_pct": 83.93678230209665,
+              "loss_kw": 0.0884709994833338
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 83.39274093247977,
+              "normal_amps": 115.0,
+              "loading_pct": 72.5154268978085,
+              "loss_kw": 0.1445024708161254
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 70.82550000969594,
+              "normal_amps": 115.0,
+              "loading_pct": 61.58739131277908,
+              "loss_kw": 0.08521180557133538
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 69.617772114575,
+              "normal_amps": 115.0,
+              "loading_pct": 60.537193143108695,
+              "loss_kw": 0.08904405854427751
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.70605265987449,
+              "normal_amps": 115.0,
+              "loading_pct": 54.527002312934336,
+              "loss_kw": 0.34932500822904333
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 58.193122625757766,
+              "normal_amps": 115.0,
+              "loading_pct": 50.60271532674589,
+              "loss_kw": 0.0374637520205124
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 103.7139820046589,
+              "normal_amps": 205.0,
+              "loading_pct": 50.59218634373605,
+              "loss_kw": 0.10200513138518
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 55.42745667441407,
+              "normal_amps": 115.0,
+              "loading_pct": 48.197788412533974,
+              "loss_kw": 0.052187863249720065
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s1",
+              "bus1": "p12udt5990-p12udt6016x",
+              "bus2": "p12udt5990",
+              "peak_current_a": 156.0094810668773,
+              "normal_amps": 325.0,
+              "loading_pct": 48.002917251346865,
+              "loss_kw": 0.012372120953979902
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s0",
+              "bus1": "p12udt6016",
+              "bus2": "p12udt5990-p12udt6016x",
+              "peak_current_a": 156.00881755143195,
+              "normal_amps": 325.0,
+              "loading_pct": 48.002713092748294,
+              "loss_kw": 2.0449092342278457
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_15"
+        },
+        {
+          "scenario_label": "Scenario 2(M)",
+          "load_fraction": 0.689751,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt5877": 234.70390934841663,
+            "p12udt5877-p12udt5945x": 234.70390934841663,
+            "p12udt5863": 234.70390934841663,
+            "p12udt5863-p12udt5940x": 234.70390934841663
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt5877": 20419.240113312248,
+            "p12udt5877-p12udt5945x": 20419.240113312248,
+            "p12udt5863": 20419.240113312248,
+            "p12udt5863-p12udt5940x": 20419.240113312248
+          },
+          "campus_total_kw": 938.8156373936665,
+          "raw_campus_total_kw": 81676.96045324899,
+          "total_power_kw": 2568.2742844020754,
+          "total_power_kvar": 226.14422845792745,
+          "total_losses_kw": 97.50351966287039,
+          "total_losses_kvar": 86.69835992453847,
+          "max_line_loading_pct": 83.81407910447746,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.38619097014907,
+            "normal_amps": 115.0,
+            "loading_pct": 83.81407910447746,
+            "loss_kw": 0.0882129154143895
+          },
+          "min_system_vpu": 0.932423529298563,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.932423529298563,
+            "max_vpu": 0.9331391687413891
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt5877",
+              "min_vpu": 0.9787338960584423,
+              "max_vpu": 1.0211311013671718
+            },
+            {
+              "bus": "p12udt5877-p12udt5945x",
+              "min_vpu": 0.9787358753447755,
+              "max_vpu": 1.0211334317211622
+            },
+            {
+              "bus": "p12udt5863",
+              "min_vpu": 0.9788550905836048,
+              "max_vpu": 1.0212367821291493
+            },
+            {
+              "bus": "p12udt5863-p12udt5940x",
+              "min_vpu": 0.9788615089242423,
+              "max_vpu": 1.0212424840820287
+            }
+          ],
+          "min_poi_vpu": 0.9787338960584423,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 96.38619097014907,
+              "normal_amps": 115.0,
+              "loading_pct": 83.81407910447746,
+              "loss_kw": 0.0882129154143895
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 83.33939055156017,
+              "normal_amps": 115.0,
+              "loading_pct": 72.46903526222624,
+              "loss_kw": 0.1443176880369938
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 70.7222084371128,
+              "normal_amps": 115.0,
+              "loading_pct": 61.49757255401113,
+              "loss_kw": 0.08496377260399732
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 69.51571944647924,
+              "normal_amps": 115.0,
+              "loading_pct": 60.44845169259064,
+              "loss_kw": 0.08878358887815647
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.6531496721376,
+              "normal_amps": 115.0,
+              "loading_pct": 54.48099971490227,
+              "loss_kw": 0.3487361079401771
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 58.10857834221226,
+              "normal_amps": 115.0,
+              "loading_pct": 50.529198558445444,
+              "loss_kw": 0.03735505982030645
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 103.56462717240633,
+              "normal_amps": 205.0,
+              "loading_pct": 50.519330328003086,
+              "loss_kw": 0.10171175530656729
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 55.346580942232,
+              "normal_amps": 115.0,
+              "loading_pct": 48.12746168889739,
+              "loss_kw": 0.05203588003809091
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s1",
+              "bus1": "p12udt5990-p12udt6016x",
+              "bus2": "p12udt5990",
+              "peak_current_a": 151.6712154997019,
+              "normal_amps": 325.0,
+              "loading_pct": 46.66806630760058,
+              "loss_kw": 0.011570708919083699
+            },
+            {
+              "line_name": "l(r:p12udt5990-p12udt6016)_s0",
+              "bus1": "p12udt6016",
+              "bus2": "p12udt5990-p12udt6016x",
+              "peak_current_a": 151.67056481556725,
+              "normal_amps": 325.0,
+              "loading_pct": 46.667866097097615,
+              "loss_kw": 1.9124504412740935
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_14"
+        },
+        {
+          "scenario_label": "Scenario 2(M)",
+          "load_fraction": 0.5622,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt5877": 191.26739552096174,
+            "p12udt5877-p12udt5945x": 191.26739552096174,
+            "p12udt5863": 191.26739552096174,
+            "p12udt5863-p12udt5940x": 191.26739552096174
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt5877": 16640.26341032367,
+            "p12udt5877-p12udt5945x": 16640.26341032367,
+            "p12udt5863": 16640.26341032367,
+            "p12udt5863-p12udt5940x": 16640.26341032367
+          },
+          "campus_total_kw": 765.069582083847,
+          "raw_campus_total_kw": 66561.05364129468,
+          "total_power_kw": 2385.7909483418457,
+          "total_power_kvar": 187.50995805203178,
+          "total_losses_kw": 88.76139933924509,
+          "total_losses_kvar": 73.51096013974897,
+          "max_line_loading_pct": 83.57097546323692,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.10662178272246,
+            "normal_amps": 115.0,
+            "loading_pct": 83.57097546323692,
+            "loss_kw": 0.0877026999078098
+          },
+          "min_system_vpu": 0.9351610280772547,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9351610280772547,
+            "max_vpu": 0.9358741846411252
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt5877",
+              "min_vpu": 0.9820264534239569,
+              "max_vpu": 1.023948593370871
+            },
+            {
+              "bus": "p12udt5877-p12udt5945x",
+              "min_vpu": 0.982028101104743,
+              "max_vpu": 1.0239506055699608
+            },
+            {
+              "bus": "p12udt5863",
+              "min_vpu": 0.9821288479803193,
+              "max_vpu": 1.0240380317845703
+            },
+            {
+              "bus": "p12udt5863-p12udt5940x",
+              "min_vpu": 0.9821342697913332,
+              "max_vpu": 1.0240427828887508
+            }
+          ],
+          "min_poi_vpu": 0.9820264534239569,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 96.10662178272246,
+              "normal_amps": 115.0,
+              "loading_pct": 83.57097546323692,
+              "loss_kw": 0.0877026999078098
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 83.23350872052761,
+              "normal_amps": 115.0,
+              "loading_pct": 72.37696410480662,
+              "loss_kw": 0.14395130884918764
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 70.51756096677302,
+              "normal_amps": 115.0,
+              "loading_pct": 61.319618231976534,
+              "loss_kw": 0.08447341894229067
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 69.31353245530836,
+              "normal_amps": 115.0,
+              "loading_pct": 60.27263691765944,
+              "loss_kw": 0.0882686681984369
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.54801107029581,
+              "normal_amps": 115.0,
+              "loading_pct": 54.38957484373548,
+              "loss_kw": 0.34756720847218364
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 57.94107058298839,
+              "normal_amps": 115.0,
+              "loading_pct": 50.383539637381205,
+              "loss_kw": 0.03714017322499967
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 103.26869563862776,
+              "normal_amps": 205.0,
+              "loading_pct": 50.374973482257445,
+              "loss_kw": 0.10113170587993045
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 55.18634553422987,
+              "normal_amps": 115.0,
+              "loading_pct": 47.98812655150424,
+              "loss_kw": 0.05173541500142528
+            },
+            {
+              "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+              "bus1": "p12udt1247lv",
+              "bus2": "p12ulv4447",
+              "peak_current_a": 52.91541791956027,
+              "normal_amps": 115.0,
+              "loading_pct": 46.013406886574145,
+              "loss_kw": 0.05933156917589986
+            },
+            {
+              "line_name": "l(r:p12udt320lv-p12ulv897)",
+              "bus1": "p12udt320lv",
+              "bus2": "p12ulv897",
+              "peak_current_a": 52.683530243262005,
+              "normal_amps": 115.0,
+              "loading_pct": 45.81176542892348,
+              "loss_kw": 0.00757551103509104
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_13"
+        }
+      ]
+    },
+    "Scenario 3(M)": {
+      "weighted_total_losses_mwh": 538.436066378747,
+      "weighted_incremental_losses_mwh": 26758.341043271408,
+      "weighted_incremental_losses_per_bank_mwh": 307.56713842840696,
+      "peak_bin": {
+        "scenario_label": "Scenario 3(M)",
+        "load_fraction": 0.937494,
+        "feeder_bank_count": 87,
+        "open_line_name": null,
+        "converged": true,
+        "campus_load_map_kw": {
+          "p12udt1266": 1245.4365288729919
+        },
+        "raw_campus_load_map_kw": {
+          "p12udt1266": 108352.97801195028
+        },
+        "campus_total_kw": 1245.4365288729919,
+        "raw_campus_total_kw": 108352.97801195028,
+        "total_power_kw": 2839.55572770578,
+        "total_power_kvar": 212.7355997042524,
+        "total_losses_kw": 62.1465379687015,
+        "total_losses_kvar": 33.05231387893568,
+        "max_line_loading_pct": 82.57825451576876,
+        "worst_line": {
+          "line_name": "l(r:p12udm11043-p12udt2691lv)",
+          "bus1": "p12udt2691lv",
+          "bus2": "p12udm11043",
+          "peak_current_a": 94.96499269313408,
+          "normal_amps": 115.0,
+          "loading_pct": 82.57825451576876,
+          "loss_kw": 0.08563451947124849
+        },
+        "min_system_vpu": 0.9464996455306144,
+        "worst_bus": {
+          "bus": "p12ulv16456",
+          "kvbase_ln": 0.12008885599144216,
+          "min_vpu": 0.9464996455306144,
+          "max_vpu": 0.9472027118494667
+        },
+        "poi_voltage_rows": [
+          {
+            "bus": "p12udt1266",
+            "min_vpu": 1.0290166614245548,
+            "max_vpu": 1.0296580496014942
+          }
+        ],
+        "min_poi_vpu": 1.0290166614245548,
+        "top_lines": [
+          {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.96499269313408,
+            "normal_amps": 115.0,
+            "loading_pct": 82.57825451576876,
+            "loss_kw": 0.08563451947124849
+          },
+          {
+            "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+            "bus1": "p12udt1246lv",
+            "bus2": "p12ulv4441",
+            "peak_current_a": 82.81190501831718,
+            "normal_amps": 115.0,
+            "loading_pct": 72.01035218984102,
+            "loss_kw": 0.14249706394413442
+          },
+          {
+            "line_name": "l(r:p12udm10990-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10990",
+            "peak_current_a": 69.6818367571342,
+            "normal_amps": 115.0,
+            "loading_pct": 60.592901527942786,
+            "loss_kw": 0.0824856290741991
+          },
+          {
+            "line_name": "l(r:p12udm11043-p12ulv9396)",
+            "bus1": "p12udm11043",
+            "bus2": "p12ulv9396",
+            "peak_current_a": 68.4879404576876,
+            "normal_amps": 115.0,
+            "loading_pct": 59.554730832771824,
+            "loss_kw": 0.08618156870925486
+          },
+          {
+            "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+            "bus1": "p12udt3328lv",
+            "bus2": "p12ulv12586",
+            "peak_current_a": 62.12070513832062,
+            "normal_amps": 115.0,
+            "loading_pct": 54.01800446810489,
+            "loss_kw": 0.3428367068510779
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+            "bus1": "p12udt1266-p12uhs0_1247x",
+            "bus2": "p12udt1266",
+            "peak_current_a": 162.2057226674538,
+            "normal_amps": 325.0,
+            "loading_pct": 49.909453128447325,
+            "loss_kw": 1.6686889448515139
+          },
+          {
+            "line_name": "l(r:p12udm10946-p12udt2670lv)",
+            "bus1": "p12udt2670lv",
+            "bus2": "p12udm10946",
+            "peak_current_a": 57.2569649342266,
+            "normal_amps": 115.0,
+            "loading_pct": 49.78866516019704,
+            "loss_kw": 0.03626899357226193
+          },
+          {
+            "line_name": "l(r:p12udm365-p12udt100lv)",
+            "bus1": "p12udt100lv",
+            "bus2": "p12udm365",
+            "peak_current_a": 102.05989675625638,
+            "normal_amps": 205.0,
+            "loading_pct": 49.785315490856775,
+            "loss_kw": 0.09877955618087798
+          },
+          {
+            "line_name": "l(r:p12udm10994-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10994",
+            "peak_current_a": 54.531994487704836,
+            "normal_amps": 115.0,
+            "loading_pct": 47.41912564148247,
+            "loss_kw": 0.0505174097526251
+          },
+          {
+            "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+            "bus1": "p12udt1247lv",
+            "bus2": "p12ulv4447",
+            "peak_current_a": 52.67582682611306,
+            "normal_amps": 115.0,
+            "loading_pct": 45.805066805315704,
+            "loss_kw": 0.058795679577651756
+          }
+        ],
+        "hours": 547.5,
+        "bin_name": "public_esif_quantile_bin_16"
+      },
+      "weighted_mean_max_line_loading_pct": 82.56188812912113,
+      "worst_peak_line_loading_pct": 82.57825451576876,
+      "worst_peak_poi_vpu": 1.0290166614245548,
+      "top_bins": [
+        {
+          "scenario_label": "Scenario 3(M)",
+          "load_fraction": 0.937494,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt1266": 1245.4365288729919
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt1266": 108352.97801195028
+          },
+          "campus_total_kw": 1245.4365288729919,
+          "raw_campus_total_kw": 108352.97801195028,
+          "total_power_kw": 2839.55572770578,
+          "total_power_kvar": 212.7355997042524,
+          "total_losses_kw": 62.1465379687015,
+          "total_losses_kvar": 33.05231387893568,
+          "max_line_loading_pct": 82.57825451576876,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.96499269313408,
+            "normal_amps": 115.0,
+            "loading_pct": 82.57825451576876,
+            "loss_kw": 0.08563451947124849
+          },
+          "min_system_vpu": 0.9464996455306144,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9464996455306144,
+            "max_vpu": 0.9472027118494667
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt1266",
+              "min_vpu": 1.0290166614245548,
+              "max_vpu": 1.0296580496014942
+            }
+          ],
+          "min_poi_vpu": 1.0290166614245548,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 94.96499269313408,
+              "normal_amps": 115.0,
+              "loading_pct": 82.57825451576876,
+              "loss_kw": 0.08563451947124849
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 82.81190501831718,
+              "normal_amps": 115.0,
+              "loading_pct": 72.01035218984102,
+              "loss_kw": 0.14249706394413442
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 69.6818367571342,
+              "normal_amps": 115.0,
+              "loading_pct": 60.592901527942786,
+              "loss_kw": 0.0824856290741991
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 68.4879404576876,
+              "normal_amps": 115.0,
+              "loading_pct": 59.554730832771824,
+              "loss_kw": 0.08618156870925486
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.12070513832062,
+              "normal_amps": 115.0,
+              "loading_pct": 54.01800446810489,
+              "loss_kw": 0.3428367068510779
+            },
+            {
+              "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+              "bus1": "p12udt1266-p12uhs0_1247x",
+              "bus2": "p12udt1266",
+              "peak_current_a": 162.2057226674538,
+              "normal_amps": 325.0,
+              "loading_pct": 49.909453128447325,
+              "loss_kw": 1.6686889448515139
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 57.2569649342266,
+              "normal_amps": 115.0,
+              "loading_pct": 49.78866516019704,
+              "loss_kw": 0.03626899357226193
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 102.05989675625638,
+              "normal_amps": 205.0,
+              "loading_pct": 49.785315490856775,
+              "loss_kw": 0.09877955618087798
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 54.531994487704836,
+              "normal_amps": 115.0,
+              "loading_pct": 47.41912564148247,
+              "loss_kw": 0.0505174097526251
+            },
+            {
+              "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+              "bus1": "p12udt1247lv",
+              "bus2": "p12ulv4447",
+              "peak_current_a": 52.67582682611306,
+              "normal_amps": 115.0,
+              "loading_pct": 45.805066805315704,
+              "loss_kw": 0.058795679577651756
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_16"
+        },
+        {
+          "scenario_label": "Scenario 3(M)",
+          "load_fraction": 0.753346,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt1266": 1005.9602833764519
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt1266": 87518.54465375132
+          },
+          "campus_total_kw": 1005.9602833764519,
+          "raw_campus_total_kw": 87518.54465375132,
+          "total_power_kw": 2599.818865999399,
+          "total_power_kvar": 178.1715768015432,
+          "total_losses_kw": 61.885909885266315,
+          "total_losses_kvar": 32.64832628753333,
+          "max_line_loading_pct": 82.57264488082839,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.95854161295266,
+            "normal_amps": 115.0,
+            "loading_pct": 82.57264488082839,
+            "loss_kw": 0.08562290259507063
+          },
+          "min_system_vpu": 0.9465644183778475,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9465644183778475,
+            "max_vpu": 0.9472674278576977
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt1266",
+              "min_vpu": 1.0290755072852757,
+              "max_vpu": 1.0297167541383943
+            }
+          ],
+          "min_poi_vpu": 1.0290755072852757,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 94.95854161295266,
+              "normal_amps": 115.0,
+              "loading_pct": 82.57264488082839,
+              "loss_kw": 0.08562290259507063
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 82.80688713360264,
+              "normal_amps": 115.0,
+              "loading_pct": 72.00598881182839,
+              "loss_kw": 0.1424798001162144
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 69.67711414178292,
+              "normal_amps": 115.0,
+              "loading_pct": 60.58879490589819,
+              "loss_kw": 0.08247446330661296
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 68.48327539356983,
+              "normal_amps": 115.0,
+              "loading_pct": 59.55067425527811,
+              "loss_kw": 0.08616984616814989
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.11696569009242,
+              "normal_amps": 115.0,
+              "loading_pct": 54.01475277399341,
+              "loss_kw": 0.3427954518640363
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 57.25309892374025,
+              "normal_amps": 115.0,
+              "loading_pct": 49.785303411948036,
+              "loss_kw": 0.03626409971172507
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 102.05306487393788,
+              "normal_amps": 205.0,
+              "loading_pct": 49.78198286533556,
+              "loss_kw": 0.09876634086524791
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 54.52829682155079,
+              "normal_amps": 115.0,
+              "loading_pct": 47.415910279609385,
+              "loss_kw": 0.05051056806417182
+            },
+            {
+              "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+              "bus1": "p12udt1266-p12uhs0_1247x",
+              "bus2": "p12udt1266",
+              "peak_current_a": 151.31590483616543,
+              "normal_amps": 325.0,
+              "loading_pct": 46.55873994958936,
+              "loss_kw": 1.4116325262987521
+            },
+            {
+              "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+              "bus1": "p12udt1247lv",
+              "bus2": "p12ulv4447",
+              "peak_current_a": 52.67276631952005,
+              "normal_amps": 115.0,
+              "loading_pct": 45.80240549523483,
+              "loss_kw": 0.05878884988749087
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_15"
+        },
+        {
+          "scenario_label": "Scenario 3(M)",
+          "load_fraction": 0.689751,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt1266": 921.5596256972252
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt1266": 80175.68743565859
+          },
+          "campus_total_kw": 921.5596256972252,
+          "raw_campus_total_kw": 80175.68743565859,
+          "total_power_kw": 2515.3318192767956,
+          "total_power_kvar": 165.99823756041903,
+          "total_losses_kw": 61.79949893086674,
+          "total_losses_kvar": 32.51424377771075,
+          "max_line_loading_pct": 82.57066827944844,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.95626852136571,
+            "normal_amps": 115.0,
+            "loading_pct": 82.57066827944844,
+            "loss_kw": 0.08561880947951067
+          },
+          "min_system_vpu": 0.9465872437031095,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9465872437031095,
+            "max_vpu": 0.9472902331559245
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt1266",
+              "min_vpu": 1.029096244189656,
+              "max_vpu": 1.0297374412526528
+            }
+          ],
+          "min_poi_vpu": 1.029096244189656,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 94.95626852136571,
+              "normal_amps": 115.0,
+              "loading_pct": 82.57066827944844,
+              "loss_kw": 0.08561880947951067
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 82.80511901311637,
+              "normal_amps": 115.0,
+              "loading_pct": 72.00445131575336,
+              "loss_kw": 0.14247371721885066
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 69.67545008854425,
+              "normal_amps": 115.0,
+              "loading_pct": 60.587347903081955,
+              "loss_kw": 0.08247052913383414
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 68.48163162014748,
+              "normal_amps": 115.0,
+              "loading_pct": 59.54924488708477,
+              "loss_kw": 0.08616571582430516
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.11564804176362,
+              "normal_amps": 115.0,
+              "loading_pct": 54.01360699283793,
+              "loss_kw": 0.3427809156669955
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 57.251736701778874,
+              "normal_amps": 115.0,
+              "loading_pct": 49.784118871112064,
+              "loss_kw": 0.0362623753957223
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 102.05065759876813,
+              "normal_amps": 205.0,
+              "loading_pct": 49.780808584764934,
+              "loss_kw": 0.09876168454108483
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 54.52699391786923,
+              "normal_amps": 115.0,
+              "loading_pct": 47.41477731988629,
+              "loss_kw": 0.05050815744769352
+            },
+            {
+              "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+              "bus1": "p12udt1247lv",
+              "bus2": "p12ulv4447",
+              "peak_current_a": 52.671687901533616,
+              "normal_amps": 115.0,
+              "loading_pct": 45.80146774046401,
+              "loss_kw": 0.05878644343234282
+            },
+            {
+              "line_name": "l(r:p12udt320lv-p12ulv897)",
+              "bus1": "p12udt320lv",
+              "bus2": "p12ulv897",
+              "peak_current_a": 52.600230810157534,
+              "normal_amps": 115.0,
+              "loading_pct": 45.73933113926742,
+              "loss_kw": 0.007551579449748715
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_14"
+        },
+        {
+          "scenario_label": "Scenario 3(M)",
+          "load_fraction": 0.5622,
+          "feeder_bank_count": 87,
+          "open_line_name": null,
+          "converged": true,
+          "campus_load_map_kw": {
+            "p12udt1266": 752.0216436998462
+          },
+          "raw_campus_load_map_kw": {
+            "p12udt1266": 65425.88300188662
+          },
+          "campus_total_kw": 752.0216436998462,
+          "raw_campus_total_kw": 65425.88300188662,
+          "total_power_kw": 2345.628905623341,
+          "total_power_kvar": 141.558463030451,
+          "total_losses_kw": 61.63451647943434,
+          "total_losses_kvar": 32.25815401018234,
+          "max_line_loading_pct": 82.56669853300347,
+          "worst_line": {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.951703312954,
+            "normal_amps": 115.0,
+            "loading_pct": 82.56669853300347,
+            "loss_kw": 0.08561058928315106
+          },
+          "min_system_vpu": 0.9466330886650876,
+          "worst_bus": {
+            "bus": "p12ulv16456",
+            "kvbase_ln": 0.12008885599144216,
+            "min_vpu": 0.9466330886650876,
+            "max_vpu": 0.9473360378972462
+          },
+          "poi_voltage_rows": [
+            {
+              "bus": "p12udt1266",
+              "min_vpu": 1.0291378948313123,
+              "max_vpu": 1.029778991907556
+            }
+          ],
+          "min_poi_vpu": 1.0291378948313123,
+          "top_lines": [
+            {
+              "line_name": "l(r:p12udm11043-p12udt2691lv)",
+              "bus1": "p12udt2691lv",
+              "bus2": "p12udm11043",
+              "peak_current_a": 94.951703312954,
+              "normal_amps": 115.0,
+              "loading_pct": 82.56669853300347,
+              "loss_kw": 0.08561058928315106
+            },
+            {
+              "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+              "bus1": "p12udt1246lv",
+              "bus2": "p12ulv4441",
+              "peak_current_a": 82.80156793067468,
+              "normal_amps": 115.0,
+              "loading_pct": 72.00136341797798,
+              "loss_kw": 0.14246150075649347
+            },
+            {
+              "line_name": "l(r:p12udm10990-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10990",
+              "peak_current_a": 69.672108053448,
+              "normal_amps": 115.0,
+              "loading_pct": 60.584441785606955,
+              "loss_kw": 0.08246262814034708
+            },
+            {
+              "line_name": "l(r:p12udm11043-p12ulv9396)",
+              "bus1": "p12udm11043",
+              "bus2": "p12ulv9396",
+              "peak_current_a": 68.47833031625261,
+              "normal_amps": 115.0,
+              "loading_pct": 59.54637418804575,
+              "loss_kw": 0.08615742086604769
+            },
+            {
+              "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+              "bus1": "p12udt3328lv",
+              "bus2": "p12ulv12586",
+              "peak_current_a": 62.11300168203407,
+              "normal_amps": 115.0,
+              "loading_pct": 54.01130581046441,
+              "loss_kw": 0.34275172215539534
+            },
+            {
+              "line_name": "l(r:p12udm10946-p12udt2670lv)",
+              "bus1": "p12udt2670lv",
+              "bus2": "p12udm10946",
+              "peak_current_a": 57.24900085463042,
+              "normal_amps": 115.0,
+              "loading_pct": 49.78173987359166,
+              "loss_kw": 0.03625891245328694
+            },
+            {
+              "line_name": "l(r:p12udm365-p12udt100lv)",
+              "bus1": "p12udt100lv",
+              "bus2": "p12udm365",
+              "peak_current_a": 102.04582289253695,
+              "normal_amps": 205.0,
+              "loading_pct": 49.77845019148143,
+              "loss_kw": 0.09875233323469365
+            },
+            {
+              "line_name": "l(r:p12udm10994-p12udt2679lv)",
+              "bus1": "p12udt2679lv",
+              "bus2": "p12udm10994",
+              "peak_current_a": 54.52437720495534,
+              "normal_amps": 115.0,
+              "loading_pct": 47.41250191735247,
+              "loss_kw": 0.050503316210734735
+            },
+            {
+              "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+              "bus1": "p12udt1247lv",
+              "bus2": "p12ulv4447",
+              "peak_current_a": 52.66952200310922,
+              "normal_amps": 115.0,
+              "loading_pct": 45.799584350529756,
+              "loss_kw": 0.05878161044799617
+            },
+            {
+              "line_name": "l(r:p12udt320lv-p12ulv897)",
+              "bus1": "p12udt320lv",
+              "bus2": "p12ulv897",
+              "peak_current_a": 52.598083327651395,
+              "normal_amps": 115.0,
+              "loading_pct": 45.73746376317512,
+              "loss_kw": 0.0075509629871221475
+            }
+          ],
+          "hours": 547.5,
+          "bin_name": "public_esif_quantile_bin_13"
+        }
+      ]
+    }
+  },
+  "burst_summary": [
+    {
+      "scenario_label": "Scenario 2(M)",
+      "case_name": "mit_ai_burst_300s_p95",
+      "window_seconds": 300,
+      "positive_event_fraction": 0.03920305526158377,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.073311466942391,
+      "delta_total_power_kw": 234.45190181387852,
+      "delta_max_line_loading_pct_points": 0.32357519401874413,
+      "delta_min_poi_vpu": -0.004302769395191364,
+      "base_min_poi_vpu": 0.9732400495675174,
+      "burst_min_poi_vpu": 0.968937280172326,
+      "base_max_line_loading_pct": 84.22326697283506,
+      "burst_max_line_loading_pct": 84.5468421668538
+    },
+    {
+      "scenario_label": "Scenario 3(M)",
+      "case_name": "mit_ai_burst_300s_p95",
+      "window_seconds": 300,
+      "positive_event_fraction": 0.03920305526158377,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.073311466942391,
+      "delta_total_power_kw": 218.19707588967185,
+      "delta_max_line_loading_pct_points": 0.005106576187330347,
+      "delta_min_poi_vpu": -5.3562556262543026e-05,
+      "base_min_poi_vpu": 1.0290272998886028,
+      "burst_min_poi_vpu": 1.0289737373323402,
+      "base_max_line_loading_pct": 82.57724031494772,
+      "burst_max_line_loading_pct": 82.58234689113505
+    },
+    {
+      "scenario_label": "Scenario 2(M)",
+      "case_name": "mit_ai_burst_900s_p95",
+      "window_seconds": 900,
+      "positive_event_fraction": 0.04978833057242776,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.3557618529798625,
+      "delta_total_power_kw": 621.895427843268,
+      "delta_max_line_loading_pct_points": 0.8700932330383466,
+      "delta_min_poi_vpu": -0.011489784510643974,
+      "base_min_poi_vpu": 0.9732400495675174,
+      "burst_min_poi_vpu": 0.9617502650568734,
+      "base_max_line_loading_pct": 84.22326697283506,
+      "burst_max_line_loading_pct": 85.09336020587341
+    },
+    {
+      "scenario_label": "Scenario 3(M)",
+      "case_name": "mit_ai_burst_900s_p95",
+      "window_seconds": 900,
+      "positive_event_fraction": 0.04978833057242776,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.3557618529798625,
+      "delta_total_power_kw": 577.4453605989952,
+      "delta_max_line_loading_pct_points": 0.013516687358404056,
+      "delta_min_poi_vpu": -0.00014175994123322155,
+      "base_min_poi_vpu": 1.0290272998886028,
+      "burst_min_poi_vpu": 1.0288855399473695,
+      "base_max_line_loading_pct": 82.57724031494772,
+      "burst_max_line_loading_pct": 82.59075700230612
+    },
+    {
+      "scenario_label": "Scenario 2(M)",
+      "case_name": "mit_ai_burst_3600s_p95",
+      "window_seconds": 3600,
+      "positive_event_fraction": 0.07143021516511333,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.8218049899416902,
+      "delta_total_power_kw": 1252.451550364155,
+      "delta_max_line_loading_pct_points": 1.79275428211524,
+      "delta_min_poi_vpu": -0.02339460352702538,
+      "base_min_poi_vpu": 0.9732400495675174,
+      "burst_min_poi_vpu": 0.949845446040492,
+      "base_max_line_loading_pct": 84.22326697283506,
+      "burst_max_line_loading_pct": 86.0160212549503
+    },
+    {
+      "scenario_label": "Scenario 3(M)",
+      "case_name": "mit_ai_burst_3600s_p95",
+      "window_seconds": 3600,
+      "positive_event_fraction": 0.07143021516511333,
+      "base_load_fraction": 0.9038412353199083,
+      "burst_load_fraction": 1.8218049899416902,
+      "delta_total_power_kw": 1157.4255603885417,
+      "delta_max_line_loading_pct_points": 0.027100617824501683,
+      "delta_min_poi_vpu": -0.00028417414260872853,
+      "base_min_poi_vpu": 1.0290272998886028,
+      "burst_min_poi_vpu": 1.028743125745994,
+      "base_max_line_loading_pct": 82.57724031494772,
+      "burst_max_line_loading_pct": 82.60434093277222
+    }
+  ],
+  "n_minus_one": {
+    "Scenario 2(M)": {
+      "peak_load_fraction": 0.937494,
+      "base": {
+        "scenario_label": "Scenario 2(M)",
+        "load_fraction": 0.937494,
+        "feeder_bank_count": 87,
+        "open_line_name": null,
+        "converged": true,
+        "campus_load_map_kw": {
+          "p12udt5877": 317.0945951338383,
+          "p12udt5877-p12udt5945x": 317.0945951338383,
+          "p12udt5863": 317.0945951338383,
+          "p12udt5863-p12udt5940x": 317.0945951338383
+        },
+        "raw_campus_load_map_kw": {
+          "p12udt5877": 27587.229776643933,
+          "p12udt5877-p12udt5945x": 27587.229776643933,
+          "p12udt5863": 27587.229776643933,
+          "p12udt5863-p12udt5940x": 27587.229776643933
+        },
+        "campus_total_kw": 1268.3783805353532,
+        "raw_campus_total_kw": 110348.91910657573,
+        "total_power_kw": 2917.012681496804,
+        "total_power_kvar": 303.2892707914289,
+        "total_losses_kw": 116.69144686281658,
+        "total_losses_kvar": 115.55617010546284,
+        "max_line_loading_pct": 84.28726724303525,
+        "worst_line": {
+          "line_name": "l(r:p12udm11043-p12udt2691lv)",
+          "bus1": "p12udt2691lv",
+          "bus2": "p12udm11043",
+          "peak_current_a": 96.93035732949052,
+          "normal_amps": 115.0,
+          "loading_pct": 84.28726724303525,
+          "loss_kw": 0.08921025012854807
+        },
+        "min_system_vpu": 0.9271376218304336,
+        "worst_bus": {
+          "bus": "p12ulv16456",
+          "kvbase_ln": 0.12008885599144216,
+          "min_vpu": 0.9271376218304336,
+          "max_vpu": 0.9278581069537531
+        },
+        "poi_voltage_rows": [
+          {
+            "bus": "p12udt5877",
+            "min_vpu": 0.9723861234373701,
+            "max_vpu": 1.0157232326458636
+          },
+          {
+            "bus": "p12udt5877-p12udt5945x",
+            "min_vpu": 0.9723887381494799,
+            "max_vpu": 1.0157261715297494
+          },
+          {
+            "bus": "p12udt5863",
+            "min_vpu": 0.9725433907766463,
+            "max_vpu": 1.0158598839439732
+          },
+          {
+            "bus": "p12udt5863-p12udt5940x",
+            "min_vpu": 0.9725517187314687,
+            "max_vpu": 1.015867404486326
+          }
+        ],
+        "min_poi_vpu": 0.9723861234373701,
+        "top_lines": [
+          {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 96.93035732949052,
+            "normal_amps": 115.0,
+            "loading_pct": 84.28726724303525,
+            "loss_kw": 0.08921025012854807
+          },
+          {
+            "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+            "bus1": "p12udt1246lv",
+            "bus2": "p12ulv4441",
+            "peak_current_a": 83.54478684402774,
+            "normal_amps": 115.0,
+            "loading_pct": 72.64764073393717,
+            "loss_kw": 0.14502974071110294
+          },
+          {
+            "line_name": "l(r:p12udm10990-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10990",
+            "peak_current_a": 71.12053320861449,
+            "normal_amps": 115.0,
+            "loading_pct": 61.843941920534334,
+            "loss_kw": 0.085922250265221
+          },
+          {
+            "line_name": "l(r:p12udm11043-p12ulv9396)",
+            "bus1": "p12udm11043",
+            "bus2": "p12ulv9396",
+            "peak_current_a": 69.90927740567928,
+            "normal_amps": 115.0,
+            "loading_pct": 60.790676004938504,
+            "loss_kw": 0.08979016287873856
+          },
+          {
+            "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+            "bus1": "p12udt3328lv",
+            "bus2": "p12ulv12586",
+            "peak_current_a": 62.856563139849236,
+            "normal_amps": 115.0,
+            "loading_pct": 54.65788099117324,
+            "loss_kw": 0.3510031584135058
+          },
+          {
+            "line_name": "l(r:p12udt5990-p12udt6016)_s1",
+            "bus1": "p12udt5990-p12udt6016x",
+            "bus2": "p12udt5990",
+            "peak_current_a": 168.27891920326456,
+            "normal_amps": 325.0,
+            "loading_pct": 51.778128985619865,
+            "loss_kw": 0.01479195878142491
+          },
+          {
+            "line_name": "l(r:p12udt5990-p12udt6016)_s0",
+            "bus1": "p12udt6016",
+            "bus2": "p12udt5990-p12udt6016x",
+            "peak_current_a": 168.2782212426957,
+            "normal_amps": 325.0,
+            "loading_pct": 51.77791422852175,
+            "loss_kw": 2.4448629477560755
+          },
+          {
+            "line_name": "l(r:p12udt320-p12udt6016)",
+            "bus1": "p12udt320",
+            "bus2": "p12udt6016",
+            "peak_current_a": 168.27712632651586,
+            "normal_amps": 325.0,
+            "loading_pct": 51.77757733123565,
+            "loss_kw": 3.7984121631514283
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12udt320)",
+            "bus1": "p12udt1266",
+            "bus2": "p12udt320",
+            "peak_current_a": 168.27273768848238,
+            "normal_amps": 325.0,
+            "loading_pct": 51.7762269810715,
+            "loss_kw": 14.77125498804939
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+            "bus1": "p12udt1266-p12uhs0_1247x",
+            "bus2": "p12udt1266",
+            "peak_current_a": 168.2721988333272,
+            "normal_amps": 325.0,
+            "loading_pct": 51.776061179485296,
+            "loss_kw": 1.7765824083511252
+          }
+        ]
+      },
+      "candidate_outages": [
+        "l(r:p12udm11043-p12udt2691lv)",
+        "l(r:p12udt1246lv-p12ulv4441)",
+        "l(r:p12udm10990-p12udt2679lv)",
+        "l(r:p12udm11043-p12ulv9396)",
+        "l(r:p12udt3328lv-p12ulv12586)",
+        "l(r:p12udt5990-p12udt6016)_s1",
+        "l(r:p12udt5990-p12udt6016)_s0",
+        "l(r:p12udt320-p12udt6016)",
+        "l(r:p12udt1266-p12udt320)",
+        "l(r:p12udt1266-p12uhs0_1247)_s1"
+      ],
+      "surviving_contingencies": [
+        {
+          "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+          "connected": true,
+          "max_line_loading_pct": 84.27418521273528,
+          "min_poi_vpu": 0.972524846770987,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+          "connected": true,
+          "max_line_loading_pct": 84.23886890603534,
+          "min_poi_vpu": 0.9729015223953655,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udm10990-p12udt2679lv)",
+          "connected": true,
+          "max_line_loading_pct": 84.071323690643,
+          "min_poi_vpu": 0.9736079226390216,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udm11043-p12ulv9396)",
+          "connected": true,
+          "max_line_loading_pct": 72.60393789313717,
+          "min_poi_vpu": 0.9736331653474348,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udt1246lv-p12ulv4441)"
+        },
+        {
+          "line_name": "l(r:p12udm11043-p12udt2691lv)",
+          "connected": true,
+          "max_line_loading_pct": 72.58767062716889,
+          "min_poi_vpu": 0.9740967263348086,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udt1246lv-p12ulv4441)"
+        }
+      ],
+      "surviving_count": 5,
+      "failed_or_disconnected_count": 5,
+      "worst_surviving": {
+        "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+        "connected": true,
+        "max_line_loading_pct": 84.27418521273528,
+        "min_poi_vpu": 0.972524846770987,
+        "min_system_vpu": 0.0,
+        "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+      }
+    },
+    "Scenario 3(M)": {
+      "peak_load_fraction": 0.937494,
+      "base": {
+        "scenario_label": "Scenario 3(M)",
+        "load_fraction": 0.937494,
+        "feeder_bank_count": 87,
+        "open_line_name": null,
+        "converged": true,
+        "campus_load_map_kw": {
+          "p12udt1266": 1245.4365288729919
+        },
+        "raw_campus_load_map_kw": {
+          "p12udt1266": 108352.97801195028
+        },
+        "campus_total_kw": 1245.4365288729919,
+        "raw_campus_total_kw": 108352.97801195028,
+        "total_power_kw": 2839.55572770578,
+        "total_power_kvar": 212.7355997042524,
+        "total_losses_kw": 62.1465379687015,
+        "total_losses_kvar": 33.05231387893568,
+        "max_line_loading_pct": 82.57825451576876,
+        "worst_line": {
+          "line_name": "l(r:p12udm11043-p12udt2691lv)",
+          "bus1": "p12udt2691lv",
+          "bus2": "p12udm11043",
+          "peak_current_a": 94.96499269313408,
+          "normal_amps": 115.0,
+          "loading_pct": 82.57825451576876,
+          "loss_kw": 0.08563451947124849
+        },
+        "min_system_vpu": 0.9464996455306144,
+        "worst_bus": {
+          "bus": "p12ulv16456",
+          "kvbase_ln": 0.12008885599144216,
+          "min_vpu": 0.9464996455306144,
+          "max_vpu": 0.9472027118494667
+        },
+        "poi_voltage_rows": [
+          {
+            "bus": "p12udt1266",
+            "min_vpu": 1.0290166614245548,
+            "max_vpu": 1.0296580496014942
+          }
+        ],
+        "min_poi_vpu": 1.0290166614245548,
+        "top_lines": [
+          {
+            "line_name": "l(r:p12udm11043-p12udt2691lv)",
+            "bus1": "p12udt2691lv",
+            "bus2": "p12udm11043",
+            "peak_current_a": 94.96499269313408,
+            "normal_amps": 115.0,
+            "loading_pct": 82.57825451576876,
+            "loss_kw": 0.08563451947124849
+          },
+          {
+            "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+            "bus1": "p12udt1246lv",
+            "bus2": "p12ulv4441",
+            "peak_current_a": 82.81190501831718,
+            "normal_amps": 115.0,
+            "loading_pct": 72.01035218984102,
+            "loss_kw": 0.14249706394413442
+          },
+          {
+            "line_name": "l(r:p12udm10990-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10990",
+            "peak_current_a": 69.6818367571342,
+            "normal_amps": 115.0,
+            "loading_pct": 60.592901527942786,
+            "loss_kw": 0.0824856290741991
+          },
+          {
+            "line_name": "l(r:p12udm11043-p12ulv9396)",
+            "bus1": "p12udm11043",
+            "bus2": "p12ulv9396",
+            "peak_current_a": 68.4879404576876,
+            "normal_amps": 115.0,
+            "loading_pct": 59.554730832771824,
+            "loss_kw": 0.08618156870925486
+          },
+          {
+            "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+            "bus1": "p12udt3328lv",
+            "bus2": "p12ulv12586",
+            "peak_current_a": 62.12070513832062,
+            "normal_amps": 115.0,
+            "loading_pct": 54.01800446810489,
+            "loss_kw": 0.3428367068510779
+          },
+          {
+            "line_name": "l(r:p12udt1266-p12uhs0_1247)_s1",
+            "bus1": "p12udt1266-p12uhs0_1247x",
+            "bus2": "p12udt1266",
+            "peak_current_a": 162.2057226674538,
+            "normal_amps": 325.0,
+            "loading_pct": 49.909453128447325,
+            "loss_kw": 1.6686889448515139
+          },
+          {
+            "line_name": "l(r:p12udm10946-p12udt2670lv)",
+            "bus1": "p12udt2670lv",
+            "bus2": "p12udm10946",
+            "peak_current_a": 57.2569649342266,
+            "normal_amps": 115.0,
+            "loading_pct": 49.78866516019704,
+            "loss_kw": 0.03626899357226193
+          },
+          {
+            "line_name": "l(r:p12udm365-p12udt100lv)",
+            "bus1": "p12udt100lv",
+            "bus2": "p12udm365",
+            "peak_current_a": 102.05989675625638,
+            "normal_amps": 205.0,
+            "loading_pct": 49.785315490856775,
+            "loss_kw": 0.09877955618087798
+          },
+          {
+            "line_name": "l(r:p12udm10994-p12udt2679lv)",
+            "bus1": "p12udt2679lv",
+            "bus2": "p12udm10994",
+            "peak_current_a": 54.531994487704836,
+            "normal_amps": 115.0,
+            "loading_pct": 47.41912564148247,
+            "loss_kw": 0.0505174097526251
+          },
+          {
+            "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+            "bus1": "p12udt1247lv",
+            "bus2": "p12ulv4447",
+            "peak_current_a": 52.67582682611306,
+            "normal_amps": 115.0,
+            "loading_pct": 45.805066805315704,
+            "loss_kw": 0.058795679577651756
+          }
+        ]
+      },
+      "candidate_outages": [
+        "l(r:p12udm11043-p12udt2691lv)",
+        "l(r:p12udt1246lv-p12ulv4441)",
+        "l(r:p12udm10990-p12udt2679lv)",
+        "l(r:p12udm11043-p12ulv9396)",
+        "l(r:p12udt3328lv-p12ulv12586)",
+        "l(r:p12udt1266-p12uhs0_1247)_s1",
+        "l(r:p12udm10946-p12udt2670lv)",
+        "l(r:p12udm365-p12udt100lv)",
+        "l(r:p12udm10994-p12udt2679lv)",
+        "l(r:p12udt1247lv-p12ulv4447)"
+      ],
+      "surviving_contingencies": [
+        {
+          "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+          "connected": true,
+          "max_line_loading_pct": 82.5712517028804,
+          "min_poi_vpu": 1.0290194702197948,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udt3328lv-p12ulv12586)",
+          "connected": true,
+          "max_line_loading_pct": 82.56563265476713,
+          "min_poi_vpu": 1.0290198760599683,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udm10994-p12udt2679lv)",
+          "connected": true,
+          "max_line_loading_pct": 82.41059990482773,
+          "min_poi_vpu": 1.0290348514308694,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udm10946-p12udt2670lv)",
+          "connected": true,
+          "max_line_loading_pct": 82.4089346488853,
+          "min_poi_vpu": 1.0290348641208638,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udt1246lv-p12ulv4441)",
+          "connected": true,
+          "max_line_loading_pct": 82.52018160647405,
+          "min_poi_vpu": 1.0290370461787604,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        },
+        {
+          "line_name": "l(r:p12udm10990-p12udt2679lv)",
+          "connected": true,
+          "max_line_loading_pct": 82.3685875142921,
+          "min_poi_vpu": 1.029039814602869,
+          "min_system_vpu": 0.0,
+          "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+        }
+      ],
+      "surviving_count": 9,
+      "failed_or_disconnected_count": 1,
+      "worst_surviving": {
+        "line_name": "l(r:p12udt1247lv-p12ulv4447)",
+        "connected": true,
+        "max_line_loading_pct": 82.5712517028804,
+        "min_poi_vpu": 1.0290194702197948,
+        "min_system_vpu": 0.0,
+        "worst_line": "l(r:p12udm11043-p12udt2691lv)"
+      }
+    }
+  }
+}

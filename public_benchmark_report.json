@@ -1650,37 +1650,46 @@
           }
         ],
         "notes": "AC remains the dominant campus distribution domain and power quality ownership is distributed across multiple downstream AC interfaces. This baseline is intentionally not modeled as an 800 VDC data-center architecture.",
-        "efficiency_gap_vs_best_pct_points": 4.755263246919905
+        "efficiency_gap_vs_best_pct_points": 4.7033862830046065
       },
       {
         "name": "ac_fed_sst_800vdc",
-        "display_name": "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
+        "display_name": "AC-fed SST + 800 VDC baseline",
         "annual_delivered_mwh": 357459.73874999996,
-        "annual_input_mwh": 403753.1153765147,
-        "annual_loss_mwh": 46293.37662651464,
-        "annual_loss_cost_usd": 4300654.68860321,
-        "average_total_efficiency": 0.8853423667496796,
-        "full_load_total_efficiency": 0.9190017174719911,
-        "full_load_input_mw": 108.81372482641497,
-        "full_load_loss_mw": 8.813724826414969,
+        "annual_input_mwh": 406540.03423461993,
+        "annual_loss_mwh": 49080.29548461993,
+        "annual_loss_cost_usd": 4559559.450521192,
+        "average_total_efficiency": 0.8792731555281588,
+        "full_load_total_efficiency": 0.9181826591918224,
+        "full_load_input_mw": 108.91079133210734,
+        "full_load_loss_mw": 8.910791332107337,
         "full_load_breakdown": [
           {
             "name": "MV AC campus feeder",
             "element_type": "conductor",
             "load_ratio": null,
             "efficiency": null,
-            "downstream_mw": 108.79301665779849,
-            "upstream_mw": 108.81372482641497,
-            "loss_mw": 0.02070816861647565
+            "downstream_mw": 108.89004620890702,
+            "upstream_mw": 108.91079133210734,
+            "loss_mw": 0.020745123200308194
           },
           {
-            "name": "Perimeter 69 kV AC -> 800 VDC converter",
+            "name": "SST grid-side rectifier",
             "element_type": "stage",
-            "load_ratio": 0.9974124699939231,
-            "efficiency": 0.9809741246999392,
+            "load_ratio": 1.0074873434282052,
+            "efficiency": 0.99,
+            "downstream_mw": 107.80114574681795,
+            "upstream_mw": 108.89004620890702,
+            "loss_mw": 1.0889004620890717
+          },
+          {
+            "name": "SST isolated high-frequency link",
+            "element_type": "stage",
+            "load_ratio": 1.0068220215976393,
+            "efficiency": 0.99,
             "downstream_mw": 106.72313428934977,
-            "upstream_mw": 108.79301665779849,
-            "loss_mw": 2.0698823684487166
+            "upstream_mw": 107.80114574681795,
+            "loss_mw": 1.078011457468179
           },
           {
             "name": "800 VDC facility bus",
@@ -1715,9 +1724,9 @@
             "name": "public_esif_quantile_bin_01",
             "load_fraction": 0.166579,
             "delivered_it_mw": 16.6579,
-            "upstream_input_mw": 19.45158836633826,
-            "total_loss_mw": 2.793688366338259,
-            "total_efficiency": 0.8563773655023028,
+            "upstream_input_mw": 19.725506272014552,
+            "total_loss_mw": 3.067606272014551,
+            "total_efficiency": 0.8444852958543985,
             "hours": 547.5,
             "element_results": [
               {
@@ -1725,18 +1734,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 19.450926423883338,
-                "upstream_mw": 19.45158836633826,
-                "loss_mw": 0.0006619424549218108
+                "downstream_mw": 19.72482555595568,
+                "upstream_mw": 19.725506272014552,
+                "loss_mw": 0.0006807160588725541
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.17542190653315345,
-                "efficiency": 0.965,
+                "load_ratio": 0.17973555997249333,
+                "efficiency": 0.975,
+                "downstream_mw": 19.231704917056785,
+                "upstream_mw": 19.72482555595568,
+                "loss_mw": 0.493120638898894
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.17707683017969264,
+                "efficiency": 0.976,
                 "downstream_mw": 18.77014399904742,
-                "upstream_mw": 19.450926423883338,
-                "loss_mw": 0.6807824248359182
+                "upstream_mw": 19.231704917056785,
+                "loss_mw": 0.46156091800936494
               },
               {
                 "name": "800 VDC facility bus",
@@ -1771,9 +1789,9 @@
             "name": "public_esif_quantile_bin_02",
             "load_fraction": 0.231228,
             "delivered_it_mw": 23.122799999999998,
-            "upstream_input_mw": 26.891084490143665,
-            "total_loss_mw": 3.7682844901436674,
-            "total_efficiency": 0.8598686307528858,
+            "upstream_input_mw": 27.23165677241056,
+            "total_loss_mw": 4.108856772410562,
+            "total_efficiency": 0.8491146973997776,
             "hours": 547.5,
             "element_results": [
               {
@@ -1781,18 +1799,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 26.88981941761374,
-                "upstream_mw": 26.891084490143665,
-                "loss_mw": 0.0012650725299239106
+                "downstream_mw": 27.230359454533534,
+                "upstream_mw": 27.23165677241056,
+                "loss_mw": 0.0012973178770259715
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.24287010640484671,
-                "efficiency": 0.9664290035468281,
+                "load_ratio": 0.24849736908366937,
+                "efficiency": 0.9764549210725101,
+                "downstream_mw": 26.58921849195262,
+                "upstream_mw": 27.230359454533534,
+                "loss_mw": 0.6411409625809128
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.24516133382376037,
+                "efficiency": 0.9773548400147128,
                 "downstream_mw": 25.9871013853186,
-                "upstream_mw": 26.88981941761374,
-                "loss_mw": 0.9027180322951409
+                "upstream_mw": 26.58921849195262,
+                "loss_mw": 0.6021171066340223
               },
               {
                 "name": "800 VDC facility bus",
@@ -1827,9 +1854,9 @@
             "name": "public_esif_quantile_bin_03",
             "load_fraction": 0.246206,
             "delivered_it_mw": 24.6206,
-            "upstream_input_mw": 28.57837502456551,
-            "total_loss_mw": 3.9577750245655103,
-            "total_efficiency": 0.861511544265079,
+            "upstream_input_mw": 28.92800698326484,
+            "total_loss_mw": 4.3074069832648405,
+            "total_efficiency": 0.8510990755167916,
             "hours": 547.5,
             "element_results": [
               {
@@ -1837,18 +1864,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 28.576946225066404,
-                "upstream_mw": 28.57837502456551,
-                "loss_mw": 0.001428799499106586
+                "downstream_mw": 28.926543011424023,
+                "upstream_mw": 28.92800698326484,
+                "loss_mw": 0.001463971840816106
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.2582451909361129,
-                "efficiency": 0.966941506364537,
+                "load_ratio": 0.264102875454751,
+                "efficiency": 0.9769230862636425,
+                "downstream_mw": 28.259007673658356,
+                "upstream_mw": 28.926543011424023,
+                "loss_mw": 0.667535337765667
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.26068146632230266,
+                "efficiency": 0.977820443989669,
                 "downstream_mw": 27.63223543016408,
-                "upstream_mw": 28.576946225066404,
-                "loss_mw": 0.9447107949023241
+                "upstream_mw": 28.259007673658356,
+                "loss_mw": 0.6267722434942762
               },
               {
                 "name": "800 VDC facility bus",
@@ -1883,9 +1919,9 @@
             "name": "public_esif_quantile_bin_04",
             "load_fraction": 0.256264,
             "delivered_it_mw": 25.6264,
-            "upstream_input_mw": 29.707814064135132,
-            "total_loss_mw": 4.0814140641351315,
-            "total_efficiency": 0.8626147970589855,
+            "upstream_input_mw": 30.062704340676554,
+            "total_loss_mw": 4.436304340676553,
+            "total_efficiency": 0.8524316278933701,
             "hours": 547.5,
             "element_results": [
               {
@@ -1893,18 +1929,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 29.706270104630878,
-                "upstream_mw": 29.707814064135132,
-                "loss_mw": 0.0015439595042520812
+                "downstream_mw": 30.061123274444487,
+                "upstream_mw": 30.062704340676554,
+                "loss_mw": 0.0015810662320675007
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.26854603317921705,
-                "efficiency": 0.9672848677726406,
+                "load_ratio": 0.2745497822279674,
+                "efficiency": 0.977236493466839,
+                "downstream_mw": 29.376826698392513,
+                "upstream_mw": 30.061123274444487,
+                "loss_mw": 0.6842965760519739
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.2710794863224172,
+                "efficiency": 0.9781323845896724,
                 "downstream_mw": 28.734425550176223,
-                "upstream_mw": 29.706270104630878,
-                "loss_mw": 0.9718445544546555
+                "upstream_mw": 29.376826698392513,
+                "loss_mw": 0.6424011482162904
               },
               {
                 "name": "800 VDC facility bus",
@@ -1939,9 +1984,9 @@
             "name": "public_esif_quantile_bin_05",
             "load_fraction": 0.27188,
             "delivered_it_mw": 27.188000000000002,
-            "upstream_input_mw": 31.455661578031677,
-            "total_loss_mw": 4.2676615780316745,
-            "total_efficiency": 0.8643277119622825,
+            "upstream_input_mw": 31.817416544852016,
+            "total_loss_mw": 4.629416544852013,
+            "total_efficiency": 0.8545005519751715,
             "hours": 547.5,
             "element_results": [
               {
@@ -1949,18 +1994,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 31.453930608184073,
-                "upstream_mw": 31.455661578031677,
-                "loss_mw": 0.0017309698476024597
+                "downstream_mw": 31.81564553436451,
+                "upstream_mw": 31.817416544852016,
+                "loss_mw": 0.0017710104875057375
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.28450130507572646,
-                "efficiency": 0.9678167101691909,
+                "load_ratio": 0.29071815038779,
+                "efficiency": 0.9777215445116337,
+                "downstream_mw": 31.10684209149353,
+                "upstream_mw": 31.81564553436451,
+                "loss_mw": 0.7088034428709804
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.28718527965191254,
+                "efficiency": 0.9786155583895574,
                 "downstream_mw": 30.44163964310273,
-                "upstream_mw": 31.453930608184073,
-                "loss_mw": 1.0122909650813448
+                "upstream_mw": 31.10684209149353,
+                "loss_mw": 0.6652024483908008
               },
               {
                 "name": "800 VDC facility bus",
@@ -1995,9 +2049,9 @@
             "name": "public_esif_quantile_bin_06",
             "load_fraction": 0.294066,
             "delivered_it_mw": 29.4066,
-            "upstream_input_mw": 33.92698736460521,
-            "total_loss_mw": 4.5203873646052095,
-            "total_efficiency": 0.8667613096316013,
+            "upstream_input_mw": 34.295813208292074,
+            "total_loss_mw": 4.889213208292073,
+            "total_efficiency": 0.8574399394294008,
             "hours": 547.5,
             "element_results": [
               {
@@ -2005,18 +2059,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 33.92497373914197,
-                "upstream_mw": 33.92698736460521,
-                "loss_mw": 0.0020136254632429247
+                "downstream_mw": 34.29375556660395,
+                "upstream_mw": 34.295813208292074,
+                "loss_mw": 0.0020576416881224564
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.30709066597478557,
-                "efficiency": 0.9685696888658262,
+                "load_ratio": 0.31358192712907756,
+                "efficiency": 0.9784074578138723,
+                "downstream_mw": 33.5532662028113,
+                "upstream_mw": 34.29375556660395,
+                "loss_mw": 0.7404893637926477
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.3099877477292647,
+                "efficiency": 0.9792996324318779,
                 "downstream_mw": 32.85870125930206,
-                "upstream_mw": 33.92497373914197,
-                "loss_mw": 1.0662724798399097
+                "upstream_mw": 33.5532662028113,
+                "loss_mw": 0.694564943509242
               },
               {
                 "name": "800 VDC facility bus",
@@ -2051,9 +2114,9 @@
             "name": "public_esif_quantile_bin_07",
             "load_fraction": 0.308126,
             "delivered_it_mw": 30.8126,
-            "upstream_input_mw": 35.485976262350015,
-            "total_loss_mw": 4.673376262350015,
-            "total_efficiency": 0.8683035735638367,
+            "upstream_input_mw": 35.857676938792835,
+            "total_loss_mw": 5.045076938792835,
+            "total_efficiency": 0.8593027387857692,
             "hours": 547.5,
             "element_results": [
               {
@@ -2061,18 +2124,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 35.48377333970651,
-                "upstream_mw": 35.485976262350015,
-                "loss_mw": 0.0022029226435069317
+                "downstream_mw": 35.85542762800037,
+                "upstream_mw": 35.857676938792835,
+                "loss_mw": 0.002249310792467664
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.3213587238739069,
-                "efficiency": 0.9690452907957968,
+                "load_ratio": 0.32800686130696016,
+                "efficiency": 0.9788402058392088,
+                "downstream_mw": 35.096734159844736,
+                "upstream_mw": 35.85542762800037,
+                "loss_mw": 0.7586934681556343
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.324390409948189,
+                "efficiency": 0.9797317122984457,
                 "downstream_mw": 34.38538345450804,
-                "upstream_mw": 35.48377333970651,
-                "loss_mw": 1.098389885198472
+                "upstream_mw": 35.096734159844736,
+                "loss_mw": 0.7113507053366988
               },
               {
                 "name": "800 VDC facility bus",
@@ -2107,9 +2179,9 @@
             "name": "public_esif_quantile_bin_08",
             "load_fraction": 0.319538,
             "delivered_it_mw": 31.953799999999998,
-            "upstream_input_mw": 36.747285662545515,
-            "total_loss_mw": 4.793485662545518,
-            "total_efficiency": 0.8695553814079048,
+            "upstream_input_mw": 37.12041568681672,
+            "total_loss_mw": 5.166615686816723,
+            "total_efficiency": 0.8608147136495661,
             "hours": 547.5,
             "element_results": [
               {
@@ -2117,18 +2189,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 36.744923366374195,
-                "upstream_mw": 36.747285662545515,
-                "loss_mw": 0.002362296171317528
+                "downstream_mw": 37.118005176968566,
+                "upstream_mw": 37.12041568681672,
+                "loss_mw": 0.002410509848155346
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.3329125838518996,
-                "efficiency": 0.9694304194617299,
+                "load_ratio": 0.33967843546037596,
+                "efficiency": 0.9791903530638113,
+                "downstream_mw": 36.345592594260225,
+                "upstream_mw": 37.118005176968566,
+                "loss_mw": 0.7724125827083412
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.33605326860521945,
+                "efficiency": 0.9800815980581565,
                 "downstream_mw": 35.62164647215326,
-                "upstream_mw": 36.744923366374195,
-                "loss_mw": 1.1232768942209361
+                "upstream_mw": 36.345592594260225,
+                "loss_mw": 0.7239461221069661
               },
               {
                 "name": "800 VDC facility bus",
@@ -2163,9 +2244,9 @@
             "name": "public_esif_quantile_bin_09",
             "load_fraction": 0.33497,
             "delivered_it_mw": 33.497,
-            "upstream_input_mw": 38.447139915240236,
-            "total_loss_mw": 4.950139915240236,
-            "total_efficiency": 0.8712481623820859,
+            "upstream_input_mw": 38.820929074118,
+            "total_loss_mw": 5.3239290741179985,
+            "total_efficiency": 0.8628593080821584,
             "hours": 547.5,
             "element_results": [
               {
@@ -2173,18 +2254,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 38.44455402963415,
-                "upstream_mw": 38.447139915240236,
-                "loss_mw": 0.0025858856060857844
+                "downstream_mw": 38.81829266676522,
+                "upstream_mw": 38.820929074118,
+                "loss_mw": 0.0026364073527835688
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.3484980626008924,
-                "efficiency": 0.9699499354200297,
+                "load_ratio": 0.35540950749958494,
+                "efficiency": 0.9796622852249876,
+                "downstream_mw": 38.028817302455586,
+                "upstream_mw": 38.81829266676522,
+                "loss_mw": 0.7894753643096308
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.35178578017259887,
+                "efficiency": 0.9805535734051779,
                 "downstream_mw": 37.28929269829548,
-                "upstream_mw": 38.44455402963415,
-                "loss_mw": 1.1552613313386644
+                "upstream_mw": 38.028817302455586,
+                "loss_mw": 0.7395246041601027
               },
               {
                 "name": "800 VDC facility bus",
@@ -2219,9 +2309,9 @@
             "name": "public_esif_quantile_bin_10",
             "load_fraction": 0.357227,
             "delivered_it_mw": 35.7227,
-            "upstream_input_mw": 40.887174636439624,
-            "total_loss_mw": 5.164474636439621,
-            "total_efficiency": 0.8736896182638916,
+            "upstream_input_mw": 41.25937037199468,
+            "total_loss_mw": 5.536670371994674,
+            "total_efficiency": 0.8658081710390627,
             "hours": 547.5,
             "element_results": [
               {
@@ -2229,18 +2319,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 40.88425013575389,
-                "upstream_mw": 40.887174636439624,
-                "loss_mw": 0.0029245006857359316
+                "downstream_mw": 41.25639238942057,
+                "upstream_mw": 41.25937037199468,
+                "loss_mw": 0.002977982574105709
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.3708991037810075,
-                "efficiency": 0.9706966367927002,
+                "load_ratio": 0.3779933030493821,
+                "efficiency": 0.9803397990914815,
+                "downstream_mw": 40.445283426283886,
+                "upstream_mw": 41.25639238942057,
+                "loss_mw": 0.8111089631366823
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.3743981519298849,
+                "efficiency": 0.9812319445578965,
                 "downstream_mw": 39.6862041045678,
-                "upstream_mw": 40.88425013575389,
-                "loss_mw": 1.198046031186088
+                "upstream_mw": 40.445283426283886,
+                "loss_mw": 0.7590793217160865
               },
               {
                 "name": "800 VDC facility bus",
@@ -2275,9 +2374,9 @@
             "name": "public_esif_quantile_bin_11",
             "load_fraction": 0.377627,
             "delivered_it_mw": 37.7627,
-            "upstream_input_mw": 43.11167826585475,
-            "total_loss_mw": 5.348978265854747,
-            "total_efficiency": 0.8759273941304383,
+            "upstream_input_mw": 43.47981683834405,
+            "total_loss_mw": 5.717116838344047,
+            "total_efficiency": 0.8685110183513416,
             "hours": 547.5,
             "element_results": [
               {
@@ -2285,18 +2384,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 43.108426913746285,
-                "upstream_mw": 43.11167826585475,
-                "loss_mw": 0.0032513521084652827
+                "downstream_mw": 43.47650972562309,
+                "upstream_mw": 43.47981683834405,
+                "loss_mw": 0.003307112720960188
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.3913513441075585,
-                "efficiency": 0.9713783781369186,
+                "load_ratio": 0.3985851462973206,
+                "efficiency": 0.9809575543889196,
+                "downstream_mw": 42.64861065381331,
+                "upstream_mw": 43.47650972562309,
+                "loss_mw": 0.8278990718097816
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.395043337919894,
+                "efficiency": 0.9818513001375968,
                 "downstream_mw": 41.87459381950876,
-                "upstream_mw": 43.108426913746285,
-                "loss_mw": 1.233833094237525
+                "upstream_mw": 42.64861065381331,
+                "loss_mw": 0.7740168343045468
               },
               {
                 "name": "800 VDC facility bus",
@@ -2331,9 +2439,9 @@
             "name": "public_esif_quantile_bin_12",
             "load_fraction": 0.422443,
             "delivered_it_mw": 42.2443,
-            "upstream_input_mw": 47.95891382204843,
-            "total_loss_mw": 5.7146138220484275,
-            "total_efficiency": 0.8808435519775843,
+            "upstream_input_mw": 48.309628277040645,
+            "total_loss_mw": 6.065328277040642,
+            "total_efficiency": 0.874448872960523,
             "hours": 547.5,
             "element_results": [
               {
@@ -2341,18 +2449,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 47.95489030859339,
-                "upstream_mw": 47.95891382204843,
-                "loss_mw": 0.00402351345503615
+                "downstream_mw": 48.305545707044374,
+                "upstream_mw": 48.309628277040645,
+                "loss_mw": 0.0040825699962678385
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.4360162643304642,
-                "efficiency": 0.9728672088110154,
+                "load_ratio": 0.443464747561778,
+                "efficiency": 0.9823039424268534,
+                "downstream_mw": 47.45072798911025,
+                "upstream_mw": 48.305545707044374,
+                "loss_mw": 0.8548177179341252
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.44012962531471383,
+                "efficiency": 0.9832038887594414,
                 "downstream_mw": 46.65374028335967,
-                "upstream_mw": 47.95489030859339,
-                "loss_mw": 1.3011500252337243
+                "upstream_mw": 47.45072798911025,
+                "loss_mw": 0.7969877057505812
               },
               {
                 "name": "800 VDC facility bus",
@@ -2387,9 +2504,9 @@
             "name": "public_esif_quantile_bin_13",
             "load_fraction": 0.5622,
             "delivered_it_mw": 56.220000000000006,
-            "upstream_input_mw": 62.918251691818384,
-            "total_loss_mw": 6.698251691818378,
-            "total_efficiency": 0.8935404034328979,
+            "upstream_input_mw": 63.21801063279472,
+            "total_loss_mw": 6.998010632794717,
+            "total_efficiency": 0.8893035297576344,
             "hours": 547.5,
             "element_results": [
               {
@@ -2397,18 +2514,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 62.91132704948131,
-                "upstream_mw": 62.918251691818384,
-                "loss_mw": 0.006924642337076347
+                "downstream_mw": 63.21101985901135,
+                "upstream_mw": 63.21801063279472,
+                "loss_mw": 0.006990773783373935
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.5738362526017265,
-                "efficiency": 0.975984483368023,
+                "load_ratio": 0.5819505851288568,
+                "efficiency": 0.9850926744683848,
+                "downstream_mw": 62.26871260878767,
+                "upstream_mw": 63.21101985901135,
+                "loss_mw": 0.9423072502236778
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.5792498021545731,
+                "efficiency": 0.9860566640287276,
                 "downstream_mw": 61.400479028384744,
-                "upstream_mw": 62.91132704948131,
-                "loss_mw": 1.5108480210965638
+                "upstream_mw": 62.26871260878767,
+                "loss_mw": 0.8682335804029293
               },
               {
                 "name": "800 VDC facility bus",
@@ -2443,9 +2569,9 @@
             "name": "public_esif_quantile_bin_14",
             "load_fraction": 0.689751,
             "delivered_it_mw": 68.9751,
-            "upstream_input_mw": 76.45081231065456,
-            "total_loss_mw": 7.475712310654558,
-            "total_efficiency": 0.9022153972638338,
+            "upstream_input_mw": 76.68524978015871,
+            "total_loss_mw": 7.710149780158716,
+            "total_efficiency": 0.8994571993667339,
             "hours": 547.5,
             "element_results": [
               {
@@ -2453,18 +2579,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 76.44058909070247,
-                "upstream_mw": 76.45081231065456,
-                "loss_mw": 0.010223219952082948
+                "downstream_mw": 76.67496377321747,
+                "upstream_mw": 76.68524978015871,
+                "loss_mw": 0.01028600694124457
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.6984281673850115,
-                "efficiency": 0.9776457088984668,
+                "load_ratio": 0.7071017879818475,
+                "efficiency": 0.9867613571730913,
+                "downstream_mw": 75.65989131405769,
+                "upstream_mw": 76.67496377321747,
+                "loss_mw": 1.0150724591597822
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.7050171123603417,
+                "efficiency": 0.9877335614981378,
                 "downstream_mw": 74.73181391019622,
-                "upstream_mw": 76.44058909070247,
-                "loss_mw": 1.708775180506251
+                "upstream_mw": 75.65989131405769,
+                "loss_mw": 0.9280774038614652
               },
               {
                 "name": "800 VDC facility bus",
@@ -2499,9 +2634,9 @@
             "name": "public_esif_quantile_bin_15",
             "load_fraction": 0.753346,
             "delivered_it_mw": 75.3346,
-            "upstream_input_mw": 83.10115909725255,
-            "total_loss_mw": 7.766559097252554,
-            "total_efficiency": 0.9065409053059847,
+            "upstream_input_mw": 83.28683084130148,
+            "total_loss_mw": 7.9522308413014855,
+            "total_efficiency": 0.9045199491807531,
             "hours": 547.5,
             "element_results": [
               {
@@ -2509,18 +2644,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 83.08908019249871,
-                "upstream_mw": 83.10115909725255,
-                "loss_mw": 0.012078904753831188
+                "downstream_mw": 83.27469790867673,
+                "upstream_mw": 83.28683084130148,
+                "loss_mw": 0.012132932624746288
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.7598101401427556,
-                "efficiency": 0.9784641352019033,
+                "load_ratio": 0.768603184385968,
+                "efficiency": 0.9875813757918129,
+                "downstream_mw": 82.24054072929857,
+                "upstream_mw": 83.27469790867673,
+                "loss_mw": 1.0341571793781554
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.7669781603327815,
+                "efficiency": 0.9885597088044371,
                 "downstream_mw": 81.29968499527484,
-                "upstream_mw": 83.08908019249871,
-                "loss_mw": 1.7893951972238682
+                "upstream_mw": 82.24054072929857,
+                "loss_mw": 0.940855734023728
               },
               {
                 "name": "800 VDC facility bus",
@@ -2555,9 +2699,9 @@
             "name": "public_esif_quantile_bin_16",
             "load_fraction": 0.937494,
             "delivered_it_mw": 93.74940000000001,
-            "upstream_input_mw": 102.3287100078206,
-            "total_loss_mw": 8.579310007820595,
-            "total_efficiency": 0.916159306541,
+            "upstream_input_mw": 102.4398427515019,
+            "total_loss_mw": 8.690442751501891,
+            "total_efficiency": 0.9151654032446815,
             "hours": 547.5,
             "element_results": [
               {
@@ -2565,18 +2709,27 @@
                 "element_type": "conductor",
                 "load_ratio": null,
                 "efficiency": null,
-                "downstream_mw": 102.31039617746515,
-                "upstream_mw": 102.3287100078206,
-                "loss_mw": 0.018313830355446627
+                "downstream_mw": 102.42148912769215,
+                "upstream_mw": 102.4398427515019,
+                "loss_mw": 0.018353623809749444
               },
               {
-                "name": "Perimeter 69 kV AC -> 800 VDC converter",
+                "name": "SST grid-side rectifier",
                 "element_type": "stage",
-                "load_ratio": 0.9374061555122919,
-                "efficiency": 0.9803740615551229,
+                "load_ratio": 0.9471320192831145,
+                "efficiency": 0.9894713201928311,
+                "downstream_mw": 101.34312606329325,
+                "upstream_mw": 102.42148912769215,
+                "loss_mw": 1.0783630643989
+              },
+              {
+                "name": "SST isolated high-frequency link",
+                "element_type": "stage",
+                "load_ratio": 0.9462496098095776,
+                "efficiency": 0.9897312480490479,
                 "downstream_mw": 100.30245863981523,
-                "upstream_mw": 102.31039617746515,
-                "loss_mw": 2.007937537649923
+                "upstream_mw": 101.34312606329325,
+                "loss_mw": 1.0406674234780269
               },
               {
                 "name": "800 VDC facility bus",
@@ -2609,17 +2762,18 @@
           }
         ],
         "element_annual_losses_mwh": {
-          "MV AC campus feeder": 40.26065195877988,
-          "Perimeter 69 kV AC -> 800 VDC converter": 10788.779015992466,
+          "MV AC campus feeder": 40.667727658975025,
+          "SST grid-side rectifier": 7018.782160138743,
+          "SST isolated high-frequency link": 6556.508638258833,
           "800 VDC facility bus": 1087.5374080066533,
           "Rack / node DC/DC": 16766.355576192316,
           "Board DC/DC": 17610.44397436442
         },
         "innovation_metrics": {
           "ac_harmonic_injection_points": 1,
-          "major_conversion_stages": 3,
+          "major_conversion_stages": 4,
           "downstream_reactive_coordination_points": 1,
-          "dc_native_resource_path": "Direct 800 VDC facility-side path, but AC remains upstream of the facility boundary"
+          "dc_native_resource_path": "800 VDC facility-side path delivered through an AC-fed SST baseline"
         },
         "native_buffer_anchor": "800 VDC facility bus",
         "dynamic_cases": [
@@ -2633,9 +2787,9 @@
             ],
             "it_amplitude_fraction": 0.05,
             "it_peak_mw": 5.0,
-            "raw_pcc_peak_mw": 5.363791109927163,
-            "raw_pcc_peak_to_peak_mw": 10.548085195891929,
-            "raw_pcc_peak_fraction_of_base_input": 0.049293332421840606,
+            "raw_pcc_peak_mw": 5.371591763537111,
+            "raw_pcc_peak_to_peak_mw": 10.546723856458144,
+            "raw_pcc_peak_fraction_of_base_input": 0.04932102409537396,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 5.132651605319509,
@@ -2652,9 +2806,9 @@
             ],
             "it_amplitude_fraction": 0.1,
             "it_peak_mw": 10.0,
-            "raw_pcc_peak_mw": 10.833500898076736,
-            "raw_pcc_peak_to_peak_mw": 21.227882381924573,
-            "raw_pcc_peak_fraction_of_base_input": 0.09956005931566879,
+            "raw_pcc_peak_mw": 10.84632629744496,
+            "raw_pcc_peak_to_peak_mw": 21.212851769213486,
+            "raw_pcc_peak_fraction_of_base_input": 0.09958908722250208,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 10.265303210639019,
@@ -2671,9 +2825,9 @@
             ],
             "it_amplitude_fraction": 0.15,
             "it_peak_mw": 15.0,
-            "raw_pcc_peak_mw": 16.306183328009425,
-            "raw_pcc_peak_to_peak_mw": 31.936636481320036,
-            "raw_pcc_peak_fraction_of_base_input": 0.1498541048385381,
+            "raw_pcc_peak_mw": 16.324036300130047,
+            "raw_pcc_peak_to_peak_mw": 31.910398757568473,
+            "raw_pcc_peak_fraction_of_base_input": 0.14988447058797244,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 15.397954815958528,
@@ -2690,9 +2844,9 @@
             ],
             "it_amplitude_fraction": 0.02,
             "it_peak_mw": 2.0,
-            "raw_pcc_peak_mw": 2.1113030173024896,
-            "raw_pcc_peak_to_peak_mw": 4.181937598595553,
-            "raw_pcc_peak_fraction_of_base_input": 0.01940291099004785,
+            "raw_pcc_peak_mw": 2.116115820157134,
+            "raw_pcc_peak_to_peak_mw": 4.1899690835766705,
+            "raw_pcc_peak_fraction_of_base_input": 0.019429808509097615,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 2.0530606421278037,
@@ -2709,9 +2863,9 @@
             ],
             "it_amplitude_fraction": 0.05,
             "it_peak_mw": 5.0,
-            "raw_pcc_peak_mw": 5.363791109927163,
-            "raw_pcc_peak_to_peak_mw": 10.548085195891929,
-            "raw_pcc_peak_fraction_of_base_input": 0.049293332421840606,
+            "raw_pcc_peak_mw": 5.371591763537111,
+            "raw_pcc_peak_to_peak_mw": 10.546723856458144,
+            "raw_pcc_peak_fraction_of_base_input": 0.04932102409537396,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 5.132651605319509,
@@ -2728,9 +2882,9 @@
             ],
             "it_amplitude_fraction": 0.1,
             "it_peak_mw": 10.0,
-            "raw_pcc_peak_mw": 10.833500898076736,
-            "raw_pcc_peak_to_peak_mw": 21.227882381924573,
-            "raw_pcc_peak_fraction_of_base_input": 0.09956005931566879,
+            "raw_pcc_peak_mw": 10.84632629744496,
+            "raw_pcc_peak_to_peak_mw": 21.212851769213486,
+            "raw_pcc_peak_fraction_of_base_input": 0.09958908722250208,
             "native_buffer_anchor": "800 VDC facility bus",
             "native_buffer_marginal_efficiency": 0.9741553459069717,
             "native_buffer_peak_mw": 10.265303210639019,
@@ -2738,8 +2892,8 @@
             "emt_relevant": true
           }
         ],
-        "notes": "This comparison case is modeled as a direct 69 kV AC to 800 VDC perimeter-conversion path feeding the 800 VDC facility side, which more literally matches the NVIDIA-style architecture direction than the earlier AC-fed pod proxy.",
-        "efficiency_gap_vs_best_pct_points": 0.0
+        "notes": "This comparison case is modeled as an explicit AC-fed SST-style chain feeding the 800 VDC facility side: a 69 kV AC campus feeder, a grid-side rectifier stage, an isolated high-frequency SST stage, and then the 800 VDC facility bus. This is the intended baseline advanced architecture for comparison against the MVDC backbone.",
+        "efficiency_gap_vs_best_pct_points": 0.5550441582367838
       },
       {
         "name": "proposed_mvdc_backbone",
@@ -3982,7 +4136,7 @@
           }
         ],
         "notes": "The AC/DC boundary moves to a common subtransmission front end. Downstream distribution is DC-native with an NVIDIA-style 800 VDC facility bus, while harmonics/PF are handled once at the grid interface. In this scenario, the subtransmission backbone voltage is set to 69 kV. The modeled electrical endpoint includes board-level DC/DC regulation so that the comparison terminates at the same end-use boundary as Scenario 2.",
-        "efficiency_gap_vs_best_pct_points": 0.05187696391529828
+        "efficiency_gap_vs_best_pct_points": 0.0
       }
     ]
   },
@@ -4728,19 +4882,19 @@
       },
       {
         "name": "ac_fed_sst_800vdc",
-        "display_name": "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
+        "display_name": "AC-fed SST + 800 VDC baseline",
         "scenario_label": "Scenario 2(M)",
         "network_kind": "ac",
         "source_voltage_kv": 69.0,
         "full_load": {
           "total_it_mw": 100.0,
-          "source_input_mw": 116.02504835583788,
+          "source_input_mw": 117.4319674901032,
           "source_stage_loss_mw": 0.0,
-          "network_source_output_mw": 116.02504835583788,
-          "network_loss_mw": 0.011924094429782274,
-          "local_block_loss_mw": 16.013124261408095,
-          "total_loss_mw": 16.02504835583788,
-          "total_efficiency": 0.8618828556167408,
+          "network_source_output_mw": 117.4319674901032,
+          "network_loss_mw": 0.012215036625797098,
+          "local_block_loss_mw": 17.4197524534774,
+          "total_loss_mw": 17.431967490103197,
+          "total_efficiency": 0.8515568812932278,
           "segment_rows": [
             {
               "name": "source_to_north",
@@ -4749,8 +4903,8 @@
               "kind": "ac",
               "length_m": 180.0,
               "circuits": 8,
-              "current_a": 990.6487061426144,
-              "loss_mw": 0.005299478238502995
+              "current_a": 1002.6614111084953,
+              "loss_mw": 0.005428781488760827
             },
             {
               "name": "north_to_central",
@@ -4759,8 +4913,8 @@
               "kind": "ac",
               "length_m": 220.0,
               "circuits": 8,
-              "current_a": 742.99997510283,
-              "loss_mw": 0.00364352315581852
+              "current_a": 752.0098319004762,
+              "loss_mw": 0.003732423996014885
             },
             {
               "name": "central_to_west",
@@ -4769,8 +4923,8 @@
               "kind": "ac",
               "length_m": 220.0,
               "circuits": 8,
-              "current_a": 495.3396711313502,
-              "loss_mw": 0.0016193851726569938
+              "current_a": 501.3463973835792,
+              "loss_mw": 0.0016588981871186585
             },
             {
               "name": "west_to_south",
@@ -4779,8 +4933,8 @@
               "kind": "ac",
               "length_m": 180.0,
               "circuits": 8,
-              "current_a": 247.67153770883138,
-              "loss_mw": 0.00033124242919170825
+              "current_a": 250.67494236989276,
+              "loss_mw": 0.0003393248043536049
             },
             {
               "name": "Block_A_tap",
@@ -4789,8 +4943,8 @@
               "kind": "ac",
               "length_m": 55.0,
               "circuits": 4,
-              "current_a": 247.6487310397844,
-              "loss_mw": 0.00020238865015253106
+              "current_a": 250.65157920801903,
+              "loss_mw": 0.00020732650672626365
             },
             {
               "name": "Block_B_tap",
@@ -4799,8 +4953,8 @@
               "kind": "ac",
               "length_m": 65.0,
               "circuits": 4,
-              "current_a": 247.66030397147986,
-              "loss_mw": 0.00023920894203665865
+              "current_a": 250.66343451689698,
+              "loss_mw": 0.0002450454138748462
             },
             {
               "name": "Block_C_tap",
@@ -4809,8 +4963,8 @@
               "kind": "ac",
               "length_m": 75.0,
               "circuits": 4,
-              "current_a": 247.66813342251885,
-              "loss_mw": 0.0002760277694084757
+              "current_a": 250.67145501368643,
+              "loss_mw": 0.00028276280261405377
             },
             {
               "name": "Block_D_tap",
@@ -4819,8 +4973,8 @@
               "kind": "ac",
               "length_m": 85.0,
               "circuits": 4,
-              "current_a": 247.67153770883138,
-              "loss_mw": 0.00031284007201439113
+              "current_a": 250.67494236989276,
+              "loss_mw": 0.0003204734263339602
             }
           ],
           "block_rows": [
@@ -4828,43 +4982,43 @@
               "name": "Block_A",
               "tap_node": "north_spine",
               "it_load_mw": 25.0,
-              "tap_input_mw": 29.003281065352024,
-              "local_loss_mw": 4.003281065352024
+              "tap_input_mw": 29.35493811336935,
+              "local_loss_mw": 4.35493811336935
             },
             {
               "name": "Block_B",
               "tap_node": "central_spine",
               "it_load_mw": 25.0,
-              "tap_input_mw": 29.003281065352024,
-              "local_loss_mw": 4.003281065352024
+              "tap_input_mw": 29.35493811336935,
+              "local_loss_mw": 4.35493811336935
             },
             {
               "name": "Block_C",
               "tap_node": "west_spine",
               "it_load_mw": 25.0,
-              "tap_input_mw": 29.003281065352024,
-              "local_loss_mw": 4.003281065352024
+              "tap_input_mw": 29.35493811336935,
+              "local_loss_mw": 4.35493811336935
             },
             {
               "name": "Block_D",
               "tap_node": "south_spine",
               "it_load_mw": 25.0,
-              "tap_input_mw": 29.003281065352024,
-              "local_loss_mw": 4.003281065352024
+              "tap_input_mw": 29.35493811336935,
+              "local_loss_mw": 4.35493811336935
             }
           ],
           "block_node_voltage_kv": {
-            "Block_A": 68.99593355306595,
-            "Block_B": 68.99260191051974,
-            "Block_C": 68.99034812277017,
-            "Block_D": 68.989368207561
+            "Block_A": 68.995884243832,
+            "Block_B": 68.99251220102506,
+            "Block_C": 68.99023108296616,
+            "Block_D": 68.98923928483099
           },
-          "min_block_voltage_pu": 0.9998459160516087,
+          "min_block_voltage_pu": 0.9998440476062462,
           "block_tap_power_by_name_mw": {
-            "Block_A": 29.003281065352024,
-            "Block_B": 29.003281065352024,
-            "Block_C": 29.003281065352024,
-            "Block_D": 29.003281065352024
+            "Block_A": 29.35493811336935,
+            "Block_B": 29.35493811336935,
+            "Block_C": 29.35493811336935,
+            "Block_D": 29.35493811336935
           }
         },
         "annual_summary": {
@@ -4874,151 +5028,151 @@
               "scale": 0.166579,
               "hours": 547.5,
               "it_mw": 16.6579,
-              "source_mw": 19.43759558130926,
-              "loss_mw": 2.7796955813092588,
-              "efficiency": 0.8569938565867606
+              "source_mw": 19.71131177327915,
+              "loss_mw": 3.053411773279147,
+              "efficiency": 0.8450934261301482
             },
             {
               "name": "public_esif_quantile_bin_02",
               "scale": 0.231228,
               "hours": 547.5,
               "it_mw": 23.122799999999998,
-              "source_mw": 26.983924626535117,
-              "loss_mw": 3.86112462653512,
-              "efficiency": 0.8569101907904748
+              "source_mw": 27.36390923580852,
+              "loss_mw": 4.241109235808521,
+              "efficiency": 0.8450108425934044
             },
             {
               "name": "public_esif_quantile_bin_03",
               "scale": 0.246206,
               "hours": 547.5,
               "it_mw": 24.6206,
-              "source_mw": 28.73248229713718,
-              "loss_mw": 4.111882297137183,
-              "efficiency": 0.8568908089940117
+              "source_mw": 29.137090535513217,
+              "loss_mw": 4.516490535513216,
+              "efficiency": 0.8449917115091373
             },
             {
               "name": "public_esif_quantile_bin_04",
               "scale": 0.256264,
               "hours": 547.5,
               "it_mw": 25.6264,
-              "source_mw": 29.906715022583814,
-              "loss_mw": 4.280315022583815,
-              "efficiency": 0.8568777941893128
+              "source_mw": 30.327859145083917,
+              "loss_mw": 4.701459145083915,
+              "efficiency": 0.8449788650562889
             },
             {
               "name": "public_esif_quantile_bin_05",
               "scale": 0.27188,
               "hours": 547.5,
               "it_mw": 27.188000000000002,
-              "source_mw": 31.7298934807076,
-              "loss_mw": 4.541893480707598,
-              "efficiency": 0.856857588145729
+              "source_mw": 32.17671219755564,
+              "loss_mw": 4.988712197555634,
+              "efficiency": 0.8449589203854516
             },
             {
               "name": "public_esif_quantile_bin_06",
               "scale": 0.294066,
               "hours": 547.5,
               "it_mw": 29.4066,
-              "source_mw": 34.32027164888118,
-              "loss_mw": 4.9136716488811825,
-              "efficiency": 0.8568288823832383
+              "source_mw": 34.80356906152512,
+              "loss_mw": 5.396969061525115,
+              "efficiency": 0.8449305859412162
             },
             {
               "name": "public_esif_quantile_bin_07",
               "scale": 0.308126,
               "hours": 547.5,
               "it_mw": 30.8126,
-              "source_mw": 35.96196955443689,
-              "loss_mw": 5.1493695544368885,
-              "efficiency": 0.8568106914544236
+              "source_mw": 36.46838607258195,
+              "loss_mw": 5.655786072581948,
+              "efficiency": 0.8449126303169708
             },
             {
               "name": "public_esif_quantile_bin_08",
               "scale": 0.319538,
               "hours": 547.5,
               "it_mw": 31.953799999999998,
-              "source_mw": 37.29452836130589,
-              "loss_mw": 5.340728361305898,
-              "efficiency": 0.8567959270173517
+              "source_mw": 37.81971060355283,
+              "loss_mw": 5.86591060355283,
+              "efficiency": 0.8448980568613399
             },
             {
               "name": "public_esif_quantile_bin_09",
               "scale": 0.33497,
               "hours": 547.5,
               "it_mw": 33.497,
-              "source_mw": 39.09656838205661,
-              "loss_mw": 5.599568382056612,
-              "efficiency": 0.8567759623469529
+              "source_mw": 39.64712787662315,
+              "loss_mw": 6.150127876623155,
+              "efficiency": 0.8448783504378533
             },
             {
               "name": "public_esif_quantile_bin_10",
               "scale": 0.357227,
               "hours": 547.5,
               "it_mw": 35.7227,
-              "source_mw": 41.69573156865555,
-              "loss_mw": 5.973031568655552,
-              "efficiency": 0.8567471694597696
+              "source_mw": 42.282893957736476,
+              "loss_mw": 6.560193957736476,
+              "efficiency": 0.8448499299907508
             },
             {
               "name": "public_esif_quantile_bin_11",
               "scale": 0.377627,
               "hours": 547.5,
               "it_mw": 37.7627,
-              "source_mw": 44.07818846476476,
-              "loss_mw": 6.315488464764757,
-              "efficiency": 0.8567207799428229
+              "source_mw": 44.69890211786525,
+              "loss_mw": 6.936202117865252,
+              "efficiency": 0.8448238818131287
             },
             {
               "name": "public_esif_quantile_bin_12",
               "scale": 0.422443,
               "hours": 547.5,
               "it_mw": 42.2443,
-              "source_mw": 49.312634365917454,
-              "loss_mw": 7.0683343659174485,
-              "efficiency": 0.8566628115328848
+              "source_mw": 50.00706329831062,
+              "loss_mw": 7.762763298310618,
+              "efficiency": 0.8447666632210961
             },
             {
               "name": "public_esif_quantile_bin_13",
               "scale": 0.5622,
               "hours": 547.5,
               "it_mw": 56.220000000000006,
-              "source_mw": 65.64060257506324,
-              "loss_mw": 9.42060257506324,
-              "efficiency": 0.8564820826516588
+              "source_mw": 66.5649783016252,
+              "loss_mw": 10.344978301625202,
+              "efficiency": 0.8445882720077049
             },
             {
               "name": "public_esif_quantile_bin_14",
               "scale": 0.689751,
               "hours": 547.5,
               "it_mw": 68.9751,
-              "source_mw": 80.54854014680693,
-              "loss_mw": 11.57344014680693,
-              "efficiency": 0.8563171954983504
+              "source_mw": 81.68287026683741,
+              "loss_mw": 12.707770266837413,
+              "efficiency": 0.8444255175494652
             },
             {
               "name": "public_esif_quantile_bin_15",
               "scale": 0.753346,
               "hours": 547.5,
               "it_mw": 75.3346,
-              "source_mw": 87.98355541606347,
-              "loss_mw": 12.648955416063478,
-              "efficiency": 0.8562350048682608
+              "source_mw": 89.21308652703357,
+              "loss_mw": 13.878486527033576,
+              "efficiency": 0.8444344090389914
             },
             {
               "name": "public_esif_quantile_bin_16",
               "scale": 0.937494,
               "hours": 547.5,
               "it_mw": 93.74940000000001,
-              "source_mw": 108.98918175600481,
-              "loss_mw": 15.239781756004803,
-              "efficiency": 0.8601716105170671
+              "source_mw": 110.35970713617341,
+              "loss_mw": 16.610307136173404,
+              "efficiency": 0.8494893873207016
             }
           ],
           "annual_it_mwh": 357459.73874999996,
-          "annual_input_mwh": 417037.5298284058,
-          "annual_loss_mwh": 59577.79107840586,
-          "annual_loss_cost_usd": 5534776.791183905,
-          "average_efficiency": 0.8571404566324768
+          "annual_input_mwh": 422815.1850136402,
+          "annual_loss_mwh": 65355.446263640246,
+          "annual_loss_cost_usd": 6071520.9578921795,
+          "average_efficiency": 0.8454278640405692
         },
         "dynamic_summary": [
           {
@@ -5026,330 +5180,330 @@
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 5.625913526425066,
-            "source_peak_fraction_of_base_input": 0.04848878415608085,
-            "max_segment_current_swing_a": 48.03574186698688,
-            "distributed_buffer_peak_mw": 5.6247851714923485,
-            "distributed_buffer_energy_kwh": 0.24867010107583376
+            "source_peak_mw": 5.654511602164149,
+            "source_peak_fraction_of_base_input": 0.048151382651752755,
+            "max_segment_current_swing_a": 48.27993074039489,
+            "distributed_buffer_peak_mw": 5.653363560241573,
+            "distributed_buffer_energy_kwh": 0.249933543252234
           },
           {
             "mode": "coherent_campus",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 11.269755420307845,
-            "source_peak_fraction_of_base_input": 0.0971320898375717,
-            "max_segment_current_swing_a": 96.22452154075927,
-            "distributed_buffer_peak_mw": 11.267551458067757,
-            "distributed_buffer_energy_kwh": 0.4981351419704934
+            "source_peak_mw": 11.331073457265973,
+            "source_peak_fraction_of_base_input": 0.09649053574973884,
+            "max_segment_current_swing_a": 96.74809277399686,
+            "distributed_buffer_peak_mw": 11.328829875008182,
+            "distributed_buffer_energy_kwh": 0.5008442427929697
           },
           {
             "mode": "coherent_campus",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.15,
-            "source_peak_mw": 16.93161136024409,
-            "source_peak_fraction_of_base_input": 0.14593065549360026,
-            "max_segment_current_swing_a": 144.5670701859267,
-            "distributed_buffer_peak_mw": 16.928385060753214,
-            "distributed_buffer_energy_kwh": 0.7483989336060748
+            "source_peak_mw": 17.029814638536465,
+            "source_peak_fraction_of_base_input": 0.1450185584259387,
+            "max_segment_current_swing_a": 145.40558769080462,
+            "distributed_buffer_peak_mw": 17.02652865951916,
+            "distributed_buffer_energy_kwh": 0.7527378332939714
           },
           {
             "mode": "coherent_campus",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.02,
-            "source_peak_mw": 2.2482194673215474,
-            "source_peak_fraction_of_base_input": 0.019377018145482434,
-            "max_segment_current_swing_a": 19.195978811842224,
-            "distributed_buffer_peak_mw": 2.2477618288601064,
-            "distributed_buffer_energy_kwh": 0.006714384496178019
+            "source_peak_mw": 2.2591668295377474,
+            "source_peak_fraction_of_base_input": 0.019238090596822733,
+            "max_segment_current_swing_a": 19.289454687240436,
+            "distributed_buffer_peak_mw": 2.258701353350631,
+            "distributed_buffer_energy_kwh": 0.006747062412802302
           },
           {
             "mode": "coherent_campus",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 5.625913526425066,
-            "source_peak_fraction_of_base_input": 0.04848878415608085,
-            "max_segment_current_swing_a": 48.03574186698688,
-            "distributed_buffer_peak_mw": 5.6247851714923485,
-            "distributed_buffer_energy_kwh": 0.016802033856475253
+            "source_peak_mw": 5.654511602164149,
+            "source_peak_fraction_of_base_input": 0.048151382651752755,
+            "max_segment_current_swing_a": 48.27993074039489,
+            "distributed_buffer_peak_mw": 5.653363560241573,
+            "distributed_buffer_energy_kwh": 0.016887401571096892
           },
           {
             "mode": "coherent_campus",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 11.269755420307845,
-            "source_peak_fraction_of_base_input": 0.0971320898375717,
-            "max_segment_current_swing_a": 96.22452154075927,
-            "distributed_buffer_peak_mw": 11.267551458067757,
-            "distributed_buffer_energy_kwh": 0.033657779862871176
+            "source_peak_mw": 11.331073457265973,
+            "source_peak_fraction_of_base_input": 0.09649053574973884,
+            "max_segment_current_swing_a": 96.74809277399686,
+            "distributed_buffer_peak_mw": 11.328829875008182,
+            "distributed_buffer_energy_kwh": 0.0338408272157412
           },
           {
             "mode": "largest_block_only",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 1.406343142110643,
-            "source_peak_fraction_of_base_input": 0.01212103043299341,
-            "max_segment_current_swing_a": 12.007684758029882,
-            "distributed_buffer_peak_mw": 1.4061962928730871,
-            "distributed_buffer_energy_kwh": 0.06216752526895844
+            "source_peak_mw": 1.4134902843248227,
+            "source_peak_fraction_of_base_input": 0.012036673782579239,
+            "max_segment_current_swing_a": 12.068709997015503,
+            "distributed_buffer_peak_mw": 1.4133408900603932,
+            "distributed_buffer_energy_kwh": 0.0624833858130585
           },
           {
             "mode": "largest_block_only",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 2.8171795113745475,
-            "source_peak_fraction_of_base_input": 0.024280787220484698,
-            "max_segment_current_swing_a": 24.053731944272045,
-            "distributed_buffer_peak_mw": 2.8168878645169393,
-            "distributed_buffer_energy_kwh": 0.12453378549262335
+            "source_peak_mw": 2.832504291892903,
+            "source_peak_fraction_of_base_input": 0.02412038521054003,
+            "max_segment_current_swing_a": 24.184581022306475,
+            "distributed_buffer_peak_mw": 2.8322074687520455,
+            "distributed_buffer_energy_kwh": 0.12521106069824242
           },
           {
             "mode": "largest_block_only",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.15,
-            "source_peak_mw": 4.23253063607811,
-            "source_peak_fraction_of_base_input": 0.03647945591108342,
-            "max_segment_current_swing_a": 36.13832535502911,
-            "distributed_buffer_peak_mw": 4.232096265188304,
-            "distributed_buffer_energy_kwh": 0.1870997334015187
+            "source_peak_mw": 4.257074424961502,
+            "source_peak_fraction_of_base_input": 0.03625141020753377,
+            "max_segment_current_swing_a": 36.34788971261105,
+            "distributed_buffer_peak_mw": 4.25663216487979,
+            "distributed_buffer_energy_kwh": 0.18818445832349284
           },
           {
             "mode": "largest_block_only",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.02,
-            "source_peak_mw": 0.5619994417070586,
-            "source_peak_fraction_of_base_input": 0.004843776836734938,
-            "max_segment_current_swing_a": 4.798482126221529,
-            "distributed_buffer_peak_mw": 0.5619404572150266,
-            "distributed_buffer_energy_kwh": 0.0016785961240445048
+            "source_peak_mw": 0.5647353302043712,
+            "source_peak_fraction_of_base_input": 0.004809042565449355,
+            "max_segment_current_swing_a": 4.821842290686959,
+            "distributed_buffer_peak_mw": 0.5646753383376577,
+            "distributed_buffer_energy_kwh": 0.0016867656032005754
           },
           {
             "mode": "largest_block_only",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 1.406343142110643,
-            "source_peak_fraction_of_base_input": 0.01212103043299341,
-            "max_segment_current_swing_a": 12.007684758029882,
-            "distributed_buffer_peak_mw": 1.4061962928730871,
-            "distributed_buffer_energy_kwh": 0.004200508464118813
+            "source_peak_mw": 1.4134902843248227,
+            "source_peak_fraction_of_base_input": 0.012036673782579239,
+            "max_segment_current_swing_a": 12.068709997015503,
+            "distributed_buffer_peak_mw": 1.4133408900603932,
+            "distributed_buffer_energy_kwh": 0.004221850392774223
           },
           {
             "mode": "largest_block_only",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 2.8171795113745475,
-            "source_peak_fraction_of_base_input": 0.024280787220484698,
-            "max_segment_current_swing_a": 24.053731944272045,
-            "distributed_buffer_peak_mw": 2.8168878645169393,
-            "distributed_buffer_energy_kwh": 0.008414444965717794
+            "source_peak_mw": 2.832504291892903,
+            "source_peak_fraction_of_base_input": 0.02412038521054003,
+            "max_segment_current_swing_a": 24.184581022306475,
+            "distributed_buffer_peak_mw": 2.8322074687520455,
+            "distributed_buffer_energy_kwh": 0.0084602068039353
           },
           {
             "mode": "two_block_cluster",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 2.8128050461148746,
-            "source_peak_fraction_of_base_input": 0.024243084454386665,
-            "max_segment_current_swing_a": 24.016467842187126,
-            "distributed_buffer_peak_mw": 2.8123925857461742,
-            "distributed_buffer_energy_kwh": 0.12433505053791688
+            "source_peak_mw": 2.827101400230049,
+            "source_peak_fraction_of_base_input": 0.02407437651479618,
+            "max_segment_current_swing_a": 24.13853746026666,
+            "distributed_buffer_peak_mw": 2.8266817801207864,
+            "distributed_buffer_energy_kwh": 0.124966771626117
           },
           {
             "mode": "two_block_cluster",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 5.634591708327861,
-            "source_peak_fraction_of_base_input": 0.04856357991808027,
-            "max_segment_current_swing_a": 48.109615797651486,
-            "distributed_buffer_peak_mw": 5.633775729033879,
-            "distributed_buffer_energy_kwh": 0.2490675709852467
+            "source_peak_mw": 5.665245442672472,
+            "source_peak_fraction_of_base_input": 0.04824278740922842,
+            "max_segment_current_swing_a": 48.3713525478214,
+            "distributed_buffer_peak_mw": 5.664414937504091,
+            "distributed_buffer_energy_kwh": 0.25042212139648484
           },
           {
             "mode": "two_block_cluster",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.15,
-            "source_peak_mw": 8.465402994968812,
-            "source_peak_fraction_of_base_input": 0.0729618570725023,
-            "max_segment_current_swing_a": 72.27981101275418,
-            "distributed_buffer_peak_mw": 8.464192530376607,
-            "distributed_buffer_energy_kwh": 0.3741994668030374
+            "source_peak_mw": 8.514496872641999,
+            "source_peak_fraction_of_base_input": 0.07250578402647961,
+            "max_segment_current_swing_a": 72.6989979885675,
+            "distributed_buffer_peak_mw": 8.51326432975958,
+            "distributed_buffer_energy_kwh": 0.3763689166469857
           },
           {
             "mode": "two_block_cluster",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.02,
-            "source_peak_mw": 1.124046965688379,
-            "source_peak_fraction_of_base_input": 0.009687968086348328,
-            "max_segment_current_swing_a": 9.597408923691205,
-            "distributed_buffer_peak_mw": 1.1238809144300532,
-            "distributed_buffer_energy_kwh": 0.0033571922480890096
+            "source_peak_mw": 1.129519565794169,
+            "source_peak_fraction_of_base_input": 0.009618501588073633,
+            "max_segment_current_swing_a": 9.644136864604548,
+            "distributed_buffer_peak_mw": 1.1293506766753154,
+            "distributed_buffer_energy_kwh": 0.003373531206401151
           },
           {
             "mode": "two_block_cluster",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 2.8128050461148746,
-            "source_peak_fraction_of_base_input": 0.024243084454386665,
-            "max_segment_current_swing_a": 24.016467842187126,
-            "distributed_buffer_peak_mw": 2.8123925857461742,
-            "distributed_buffer_energy_kwh": 0.008401016928237626
+            "source_peak_mw": 2.827101400230049,
+            "source_peak_fraction_of_base_input": 0.02407437651479618,
+            "max_segment_current_swing_a": 24.13853746026666,
+            "distributed_buffer_peak_mw": 2.8266817801207864,
+            "distributed_buffer_energy_kwh": 0.008443700785548446
           },
           {
             "mode": "two_block_cluster",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 5.634591708327861,
-            "source_peak_fraction_of_base_input": 0.04856357991808027,
-            "max_segment_current_swing_a": 48.109615797651486,
-            "distributed_buffer_peak_mw": 5.633775729033879,
-            "distributed_buffer_energy_kwh": 0.016828889931435588
+            "source_peak_mw": 5.665245442672472,
+            "source_peak_fraction_of_base_input": 0.04824278740922842,
+            "max_segment_current_swing_a": 48.3713525478214,
+            "distributed_buffer_peak_mw": 5.664414937504091,
+            "distributed_buffer_energy_kwh": 0.0169204136078706
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 0.008620901740528097,
-            "source_peak_fraction_of_base_input": 7.430207410117689e-05,
-            "max_segment_current_swing_a": 24.017501535117958,
-            "distributed_buffer_peak_mw": 0.008947730370202578,
-            "distributed_buffer_energy_kwh": 0.0003955765327420042
+            "source_peak_mw": 0.010655146052840792,
+            "source_peak_fraction_of_base_input": 9.07346294248095e-05,
+            "max_segment_current_swing_a": 24.1395898443929,
+            "distributed_buffer_peak_mw": 0.010987022815413638,
+            "distributed_buffer_energy_kwh": 0.0004857330530379204
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 0.03512548180118813,
-            "source_peak_fraction_of_base_input": 0.0003027405055972189,
-            "max_segment_current_swing_a": 48.111640191555864,
-            "distributed_buffer_peak_mw": 0.035791192662117055,
-            "distributed_buffer_energy_kwh": 0.0015823181198139729
+            "source_peak_mw": 0.043273556687111636,
+            "source_peak_fraction_of_base_input": 0.00036849894974942487,
+            "max_segment_current_swing_a": 48.373415819338334,
+            "distributed_buffer_peak_mw": 0.043948589556819684,
+            "distributed_buffer_energy_kwh": 0.0019429542416346396
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.15,
-            "source_peak_mw": 0.07951469328958183,
-            "source_peak_fraction_of_base_input": 0.0006853235091591409,
-            "max_segment_current_swing_a": 72.28278174544846,
-            "distributed_buffer_peak_mw": 0.08053120044011308,
-            "distributed_buffer_energy_kwh": 0.003560260728657837
+            "source_peak_mw": 0.09785689668802888,
+            "source_peak_fraction_of_base_input": 0.0008333071375669147,
+            "max_segment_current_swing_a": 72.70202896033385,
+            "distributed_buffer_peak_mw": 0.09888619516630115,
+            "distributed_buffer_energy_kwh": 0.004371729656740754
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.02,
-            "source_peak_mw": 0.0013023578383268841,
-            "source_peak_fraction_of_base_input": 1.1224798927320206e-05,
-            "max_segment_current_swing_a": 9.597827472625113,
-            "distributed_buffer_peak_mw": 0.0014316338220297098,
-            "distributed_buffer_energy_kwh": 4.276493984113572e-06
+            "source_peak_mw": 0.0016265319127910516,
+            "source_peak_fraction_of_base_input": 1.3850844429802563e-05,
+            "max_segment_current_swing_a": 9.644562690311773,
+            "distributed_buffer_peak_mw": 0.0017579180696358776,
+            "distributed_buffer_energy_kwh": 5.251151470216078e-06
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 0.008620901740528097,
-            "source_peak_fraction_of_base_input": 7.430207410117689e-05,
-            "max_segment_current_swing_a": 24.017501535117958,
-            "distributed_buffer_peak_mw": 0.008947730370202578,
-            "distributed_buffer_energy_kwh": 2.672814410418947e-05
+            "source_peak_mw": 0.010655146052840792,
+            "source_peak_fraction_of_base_input": 9.07346294248095e-05,
+            "max_segment_current_swing_a": 24.1395898443929,
+            "distributed_buffer_peak_mw": 0.010987022815413638,
+            "distributed_buffer_energy_kwh": 3.2819800880940564e-05
           },
           {
             "mode": "split_campus_opposition",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 0.03512548180118813,
-            "source_peak_fraction_of_base_input": 0.0003027405055972189,
-            "max_segment_current_swing_a": 48.111640191555864,
-            "distributed_buffer_peak_mw": 0.035791192662117055,
-            "distributed_buffer_energy_kwh": 0.00010691338647391708
+            "source_peak_mw": 0.043273556687111636,
+            "source_peak_fraction_of_base_input": 0.00036849894974942487,
+            "max_segment_current_swing_a": 48.373415819338334,
+            "distributed_buffer_peak_mw": 0.043948589556819684,
+            "distributed_buffer_energy_kwh": 0.00013128069200234052
           },
           {
             "mode": "one_up_one_down",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 0.004232061880102833,
-            "source_peak_fraction_of_base_input": 3.647541578369783e-05,
-            "max_segment_current_swing_a": 12.009283740754881,
-            "distributed_buffer_peak_mw": 0.004473865185101289,
-            "distributed_buffer_energy_kwh": 0.0001977882663710021
+            "source_peak_mw": 0.005247841516677454,
+            "source_peak_fraction_of_base_input": 4.468835555462975e-05,
+            "max_segment_current_swing_a": 12.070337055022378,
+            "distributed_buffer_peak_mw": 0.005493511407706819,
+            "distributed_buffer_energy_kwh": 0.0002428665265189602
           },
           {
             "mode": "one_up_one_down",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 0.01740598015443595,
-            "source_peak_fraction_of_base_input": 0.00015001915880313578,
-            "max_segment_current_swing_a": 24.056897490175402,
-            "distributed_buffer_peak_mw": 0.017895596331058528,
-            "distributed_buffer_energy_kwh": 0.0007911590599069864
+            "source_peak_mw": 0.021477296374030175,
+            "source_peak_fraction_of_base_input": 0.00018289139518879485,
+            "max_segment_current_swing_a": 24.187804168749494,
+            "distributed_buffer_peak_mw": 0.021974294778409842,
+            "distributed_buffer_energy_kwh": 0.0009714771208173198
           },
           {
             "mode": "one_up_one_down",
             "case_name": "electromechanical_band_reference",
             "frequency_hz": 1.0,
             "it_amplitude_fraction": 0.15,
-            "source_peak_mw": 0.03952221271420342,
-            "source_peak_fraction_of_base_input": 0.00034063517554409905,
-            "max_segment_current_swing_a": 36.14302454474034,
-            "distributed_buffer_peak_mw": 0.04026560022005654,
-            "distributed_buffer_energy_kwh": 0.0017801303643289186
+            "source_peak_mw": 0.04868917376501258,
+            "source_peak_fraction_of_base_input": 0.00041461600964078164,
+            "max_segment_current_swing_a": 36.352677366435955,
+            "distributed_buffer_peak_mw": 0.049443097583150575,
+            "distributed_buffer_energy_kwh": 0.002185864828370377
           },
           {
             "mode": "one_up_one_down",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.02,
-            "source_peak_mw": 0.0006198200428002565,
-            "source_peak_fraction_of_base_input": 5.342122684571756e-06,
-            "max_segment_current_swing_a": 4.7991255778481445,
-            "distributed_buffer_peak_mw": 0.0007158169110148549,
-            "distributed_buffer_energy_kwh": 2.138246992056786e-06
+            "source_peak_mw": 0.0007813741149647058,
+            "source_peak_fraction_of_base_input": 6.653845044626009e-06,
+            "max_segment_current_swing_a": 4.822496791372032,
+            "distributed_buffer_peak_mw": 0.0008789590348179388,
+            "distributed_buffer_energy_kwh": 2.625575735108039e-06
           },
           {
             "mode": "one_up_one_down",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.05,
-            "source_peak_mw": 0.004232061880102833,
-            "source_peak_fraction_of_base_input": 3.647541578369783e-05,
-            "max_segment_current_swing_a": 12.009283740754881,
-            "distributed_buffer_peak_mw": 0.004473865185101289,
-            "distributed_buffer_energy_kwh": 1.3364072052094735e-05
+            "source_peak_mw": 0.005247841516677454,
+            "source_peak_fraction_of_base_input": 4.468835555462975e-05,
+            "max_segment_current_swing_a": 12.070337055022378,
+            "distributed_buffer_peak_mw": 0.005493511407706819,
+            "distributed_buffer_energy_kwh": 1.6409900440470282e-05
           },
           {
             "mode": "one_up_one_down",
             "case_name": "measured_14_8hz_case",
             "frequency_hz": 14.8,
             "it_amplitude_fraction": 0.1,
-            "source_peak_mw": 0.01740598015443595,
-            "source_peak_fraction_of_base_input": 0.00015001915880313578,
-            "max_segment_current_swing_a": 24.056897490175402,
-            "distributed_buffer_peak_mw": 0.017895596331058528,
-            "distributed_buffer_energy_kwh": 5.345669323695854e-05
+            "source_peak_mw": 0.021477296374030175,
+            "source_peak_fraction_of_base_input": 0.00018289139518879485,
+            "max_segment_current_swing_a": 24.187804168749494,
+            "distributed_buffer_peak_mw": 0.021974294778409842,
+            "distributed_buffer_energy_kwh": 6.564034600117026e-05
           }
         ],
         "expansion_cases": [
@@ -5358,10 +5512,10 @@
               "Block_A"
             ],
             "total_it_mw": 25.0,
-            "source_input_mw": 29.003814585909236,
-            "efficiency": 0.8619555860816188,
-            "network_loss_mw": 0.0005335205572125257,
-            "min_block_voltage_pu": 0.9999840596412328
+            "source_input_mw": 29.355484650088755,
+            "efficiency": 0.8516296119105093,
+            "network_loss_mw": 0.0005465367194042329,
+            "min_block_voltage_pu": 0.9999838663672478
           },
           {
             "active_blocks": [
@@ -5369,10 +5523,10 @@
               "Block_B"
             ],
             "total_it_mw": 50.0,
-            "source_input_mw": 58.008733107950434,
-            "efficiency": 0.8619391826219216,
-            "network_loss_mw": 0.0021709772463878443,
-            "min_block_voltage_pu": 0.9999544682898475
+            "source_input_mw": 58.712100170000305,
+            "efficiency": 0.8516132084395805,
+            "network_loss_mw": 0.0022239432616027225,
+            "min_block_voltage_pu": 0.9999539162148136
           },
           {
             "active_blocks": [
@@ -5381,10 +5535,10 @@
               "Block_C"
             ],
             "total_it_mw": 75.0,
-            "source_input_mw": 87.01556544304603,
-            "efficiency": 0.8619147576428664,
-            "network_loss_mw": 0.005722246989957388,
-            "min_block_voltage_pu": 0.9999072383483146
+            "source_input_mw": 88.0706761999514,
+            "efficiency": 0.85158878341894,
+            "network_loss_mw": 0.0058618598433360656,
+            "min_block_voltage_pu": 0.9999061135654822
           },
           {
             "active_blocks": [
@@ -5394,10 +5548,10 @@
               "Block_D"
             ],
             "total_it_mw": 100.0,
-            "source_input_mw": 116.02504835583788,
-            "efficiency": 0.8618828556167408,
-            "network_loss_mw": 0.011924094429782274,
-            "min_block_voltage_pu": 0.9998459160516087
+            "source_input_mw": 117.4319674901032,
+            "efficiency": 0.8515568812932278,
+            "network_loss_mw": 0.012215036625797098,
+            "min_block_voltage_pu": 0.9998440476062462
           }
         ]
       },
@@ -6161,17 +6315,17 @@
             }
           ]
         },
-        "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+        "AC-fed SST + 800 VDC baseline": {
           "load_withdrawals_mw": {
-            "110": 108.81372482641497
+            "110": 108.91079133210734
           },
-          "total_withdrawal_mw": 108.81372482641497,
-          "max_incremental_branch_flow_mw": 43.01073537857028,
-          "max_incremental_loading_pct": 10.533362275942425,
-          "max_final_loading_pct": 58.08111268969718,
+          "total_withdrawal_mw": 108.91079133210734,
+          "max_incremental_branch_flow_mw": 43.04910279772735,
+          "max_incremental_loading_pct": 10.542758486493518,
+          "max_final_loading_pct": 58.081167248775415,
           "worst_branch_uid": "C23",
-          "worst_branch_final_loading_pct": 58.08111268969718,
-          "max_angle_delta_deg": 3.20672055580175,
+          "worst_branch_final_loading_pct": 58.081167248775415,
+          "max_angle_delta_deg": 3.209581087959621,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -6180,10 +6334,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -43.01073537857028,
-              "incremental_loading_pct": 8.602147075714056,
-              "final_flow_mw": -185.42742067974257,
-              "final_loading_pct": 37.08548413594851
+              "incremental_flow_mw": -43.04910279772735,
+              "incremental_loading_pct": 8.60982055954547,
+              "final_flow_mw": -185.46578809889965,
+              "final_loading_pct": 37.09315761977993
             },
             {
               "uid": "A17",
@@ -6192,10 +6346,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -167.0412007150596,
               "base_loading_pct": 41.7603001787649,
-              "incremental_flow_mw": -42.1334491037697,
-              "incremental_loading_pct": 10.533362275942425,
-              "final_flow_mw": -209.1746498188293,
-              "final_loading_pct": 52.293662454707324
+              "incremental_flow_mw": -42.171033945974074,
+              "incremental_loading_pct": 10.542758486493518,
+              "final_flow_mw": -209.21223466103368,
+              "final_loading_pct": 52.30305866525842
             },
             {
               "uid": "A20",
@@ -6204,10 +6358,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -41.14296630592991,
-              "incremental_loading_pct": 8.228593261185981,
-              "final_flow_mw": -129.29082017790353,
-              "final_loading_pct": 25.858164035580707
+              "incremental_flow_mw": -41.17966759503206,
+              "incremental_loading_pct": 8.23593351900641,
+              "final_flow_mw": -129.32752146700568,
+              "final_loading_pct": 25.865504293401138
             },
             {
               "uid": "A16",
@@ -6216,10 +6370,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -136.03043989837465,
               "base_loading_pct": 34.00760997459366,
-              "incremental_flow_mw": -41.066152490832344,
-              "incremental_loading_pct": 10.266538122708086,
-              "final_flow_mw": -177.096592389207,
-              "final_loading_pct": 44.27414809730175
+              "incremental_flow_mw": -41.10278525871963,
+              "incremental_loading_pct": 10.275696314679907,
+              "final_flow_mw": -177.13322515709427,
+              "final_loading_pct": 44.28330628927357
             },
             {
               "uid": "A22",
@@ -6228,10 +6382,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -181.6781426670516,
               "base_loading_pct": 36.33562853341032,
-              "incremental_flow_mw": 13.984825473124427,
-              "incremental_loading_pct": 2.7969650946248854,
-              "final_flow_mw": -167.69331719392716,
-              "final_loading_pct": 33.538663438785434
+              "incremental_flow_mw": 13.9973005367578,
+              "incremental_loading_pct": 2.79946010735156,
+              "final_flow_mw": -167.6808421302938,
+              "final_loading_pct": 33.53616842605876
             }
           ]
         },
@@ -6406,18 +6560,18 @@
         },
         "Scenario 2(M)": {
           "load_withdrawals_mw": {
-            "103": 29.00626208895947,
-            "104": 29.00626208895947,
-            "106": 29.00626208895947,
-            "110": 29.00626208895947
+            "103": 29.3579918725258,
+            "104": 29.3579918725258,
+            "106": 29.3579918725258,
+            "110": 29.3579918725258
           },
-          "total_withdrawal_mw": 116.02504835583788,
-          "max_incremental_branch_flow_mw": 44.999070599969244,
-          "max_incremental_loading_pct": 15.070788853924263,
-          "max_final_loading_pct": 58.54150424966236,
+          "total_withdrawal_mw": 117.4319674901032,
+          "max_incremental_branch_flow_mw": 45.544729096547385,
+          "max_incremental_loading_pct": 15.253537161358965,
+          "max_final_loading_pct": 58.72425255709706,
           "worst_branch_uid": "A10",
-          "worst_branch_final_loading_pct": 58.54150424966236,
-          "max_angle_delta_deg": 3.5602338776939697,
+          "worst_branch_final_loading_pct": 58.72425255709706,
+          "max_angle_delta_deg": 3.6034052552194953,
           "top_incremental_branches": [
             {
               "uid": "A18",
@@ -6426,10 +6580,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -142.4166853011723,
               "base_loading_pct": 28.483337060234458,
-              "incremental_flow_mw": -44.999070599969244,
-              "incremental_loading_pct": 8.999814119993848,
-              "final_flow_mw": -187.41575590114155,
-              "final_loading_pct": 37.483151180228305
+              "incremental_flow_mw": -45.544729096547385,
+              "incremental_loading_pct": 9.108945819309477,
+              "final_flow_mw": -187.9614143977197,
+              "final_loading_pct": 37.59228287954394
             },
             {
               "uid": "A20",
@@ -6438,10 +6592,10 @@
               "cont_rating_mva": 500.0,
               "base_flow_mw": -88.14785387197362,
               "base_loading_pct": 17.629570774394725,
-              "incremental_flow_mw": -41.938533729184414,
-              "incremental_loading_pct": 8.387706745836883,
-              "final_flow_mw": -130.08638760115804,
-              "final_loading_pct": 26.01727752023161
+              "incremental_flow_mw": -42.447080171549686,
+              "incremental_loading_pct": 8.489416034309938,
+              "final_flow_mw": -130.59493404352332,
+              "final_loading_pct": 26.118986808704665
             },
             {
               "uid": "A17",
@@ -6450,10 +6604,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -167.0412007150596,
               "base_loading_pct": 41.7603001787649,
-              "incremental_flow_mw": -28.760214465165298,
-              "incremental_loading_pct": 7.190053616291324,
-              "final_flow_mw": -195.8014151802249,
-              "final_loading_pct": 48.95035379505622
+              "incremental_flow_mw": -29.108960676522344,
+              "incremental_loading_pct": 7.277240169130586,
+              "final_flow_mw": -196.15016139158195,
+              "final_loading_pct": 49.03754034789549
             },
             {
               "uid": "A16",
@@ -6462,10 +6616,10 @@
               "cont_rating_mva": 400.0,
               "base_flow_mw": -136.03043989837465,
               "base_loading_pct": 34.00760997459366,
-              "incremental_flow_mw": -27.01133625328825,
-              "incremental_loading_pct": 6.752834063322062,
-              "final_flow_mw": -163.0417761516629,
-              "final_loading_pct": 40.760444037915725
+              "incremental_flow_mw": -27.33887557652365,
+              "incremental_loading_pct": 6.834718894130913,
+              "final_flow_mw": -163.36931547489831,
+              "final_loading_pct": 40.84232886872458
             },
             {
               "uid": "A10",
@@ -6474,10 +6628,10 @@
               "cont_rating_mva": 175.0,
               "base_flow_mw": -76.07375194254166,
               "base_loading_pct": 43.47071539573809,
-              "incremental_flow_mw": -26.37388049436746,
-              "incremental_loading_pct": 15.070788853924263,
-              "final_flow_mw": -102.44763243690912,
-              "final_loading_pct": 58.54150424966236
+              "incremental_flow_mw": -26.69369003237819,
+              "incremental_loading_pct": 15.253537161358965,
+              "final_flow_mw": -102.76744197491985,
+              "final_loading_pct": 58.72425255709706
             }
           ]
         },

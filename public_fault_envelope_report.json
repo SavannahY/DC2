@@ -1,0 +1,982 @@
+{
+  "meta": {
+    "title": "Reduced-order public MVDC fault-duty screen",
+    "updated": "2026-04-11",
+    "note": "This is a reduced-order MVDC fault envelope for Scenario 3(M). It does not model converter current limiting or breaker controls. It is an upper-bound RL interruption screen using public benchmark ranges for line inductance and breaker clearing time.",
+    "public_parameter_basis": {
+      "line_inductance_mh_per_km": 0.86,
+      "reactor_sweep_mh": [
+        50.0,
+        100.0,
+        200.0
+      ],
+      "fault_resistance_sweep_ohm": [
+        0.01,
+        0.05,
+        0.1
+      ],
+      "breaker_categories_ms": {
+        "semiconductor_fast": 2.0,
+        "hybrid_reference": 5.0,
+        "slower_interruption": 10.0,
+        "backup_delayed": 20.0
+      },
+      "sources": {
+        "line_inductance_example": "https://www.mdpi.com/1996-1073/17/15/3800",
+        "breaker_review": "https://doi.org/10.1186/s41601-023-00304-y"
+      }
+    }
+  },
+  "scenario3m_base_case": {
+    "source_voltage_kv": 69.0,
+    "total_it_mw": 100.0,
+    "source_input_mw": 115.36010188880108,
+    "efficiency": 0.8668508293828734,
+    "segment_rows": [
+      {
+        "name": "source_to_north",
+        "from_node": "campus_source",
+        "to_node": "north_spine",
+        "kind": "dc",
+        "length_m": 180.0,
+        "circuits": 8,
+        "current_a": 1660.1722157846789,
+        "loss_mw": 0.009922218429828277
+      },
+      {
+        "name": "north_to_central",
+        "from_node": "north_spine",
+        "to_node": "central_spine",
+        "kind": "dc",
+        "length_m": 220.0,
+        "circuits": 8,
+        "current_a": 1245.1673803306057,
+        "loss_mw": 0.006821943942173288
+      },
+      {
+        "name": "central_to_west",
+        "from_node": "central_spine",
+        "to_node": "west_spine",
+        "kind": "dc",
+        "length_m": 220.0,
+        "circuits": 8,
+        "current_a": 830.1296499333671,
+        "loss_mw": 0.0030321070370733765
+      },
+      {
+        "name": "west_to_south",
+        "from_node": "west_spine",
+        "to_node": "south_spine",
+        "kind": "dc",
+        "length_m": 180.0,
+        "circuits": 8,
+        "current_a": 415.0696636383195,
+        "loss_mw": 0.0006202181724221798
+      },
+      {
+        "name": "Block_A_tap",
+        "from_node": "north_spine",
+        "to_node": "block::Block_A",
+        "kind": "dc",
+        "length_m": 55.0,
+        "circuits": 4,
+        "current_a": 415.00483545407315,
+        "loss_mw": 0.00037890382959057716
+      },
+      {
+        "name": "Block_B_tap",
+        "from_node": "central_spine",
+        "to_node": "block::Block_B",
+        "kind": "dc",
+        "length_m": 65.0,
+        "circuits": 4,
+        "current_a": 415.03773039723876,
+        "loss_mw": 0.00044786642589855676
+      },
+      {
+        "name": "Block_C_tap",
+        "from_node": "west_spine",
+        "to_node": "block::Block_C",
+        "kind": "dc",
+        "length_m": 75.0,
+        "circuits": 4,
+        "current_a": 415.0599862950476,
+        "loss_mw": 0.0005168243766697354
+      },
+      {
+        "name": "Block_D_tap",
+        "from_node": "south_spine",
+        "to_node": "block::Block_D",
+        "kind": "dc",
+        "length_m": 85.0,
+        "circuits": 4,
+        "current_a": 415.0696636383195,
+        "loss_mw": 0.0005857616072876143
+      }
+    ]
+  },
+  "fault_rows": [
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.0501548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0002470917464753517,
+        "5.0kA": 0.002429041280098956,
+        "10.0kA": 0.006068114806559679
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 4410.225386436097,
+          "i2t_a2s": 19686.637836527756
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 8532.879618083127,
+          "i2t_a2s": 149588.0937835226
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 15397.5070095025,
+          "i2t_a2s": 885132.4636416731
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 29102.559746119194,
+          "i2t_a2s": 5993491.5465371655
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.051800000000000006,
+      "total_l_h": 0.0501548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0002473542528522084,
+        "5.0kA": 0.002433743474611404,
+        "10.0kA": 0.0060887327663259995
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 4405.388127693906,
+          "i2t_a2s": 19657.278742668554
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 8512.594376355642,
+          "i2t_a2s": 149071.36455827858
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 15329.721754941856,
+          "i2t_a2s": 879354.9815412757
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 28858.818401363445,
+          "i2t_a2s": 5918599.218565122
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1018,
+      "total_l_h": 0.0501548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.00024768317349261465,
+        "5.0kA": 0.0024396490522776114,
+        "10.0kA": 0.00611473735260364
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 4399.350757029257,
+          "i2t_a2s": 19620.65672206371
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 8487.325805889675,
+          "i2t_a2s": 148428.56682686755
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 15245.543872136506,
+          "i2t_a2s": 872198.9011039216
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 28557.950643545366,
+          "i2t_a2s": 5826614.675315955
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.1001548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0004934208580213569,
+        "5.0kA": 0.004850585459418738,
+        "10.0kA": 0.012117500714348842
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3037.485804320313,
+          "i2t_a2s": 11350.414911770991
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 5102.8477634312585,
+          "i2t_a2s": 62117.10234434994
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 8543.49586913921,
+          "i2t_a2s": 299839.5113395551
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 15418.714529994875,
+          "i2t_a2s": 1774860.5397685824
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.051800000000000006,
+      "total_l_h": 0.1001548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0004939450605637419,
+        "5.0kA": 0.004859975335381863,
+        "10.0kA": 0.012158672997695678
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3035.610499045113,
+          "i2t_a2s": 11341.606163501952
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 5096.102103330893,
+          "i2t_a2s": 62003.07336714799
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 8523.158165706322,
+          "i2t_a2s": 298802.3015026674
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 15350.740427908488,
+          "i2t_a2s": 1763258.9875688052
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1018,
+      "total_l_h": 0.1001548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0004946018866492962,
+        "5.0kA": 0.004871768263477349,
+        "10.0kA": 0.012210601908542094
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3033.2682670946233,
+          "i2t_a2s": 11330.607387777096
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 5087.685737771331,
+          "i2t_a2s": 61860.903564291635
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 8497.824368814123,
+          "i2t_a2s": 297512.04820995784
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 15266.32882159797,
+          "i2t_a2s": 1748889.311179256
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.20015480000000002,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0009860790811133675,
+        "5.0kA": 0.009693673818058303,
+        "10.0kA": 0.024216272529927172
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 2349.4021860985085,
+          "i2t_a2s": 8117.5707215752145
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3383.094779353589,
+          "i2t_a2s": 33031.103628130586
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 5105.509548702277,
+          "i2t_a2s": 124339.53179843906
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 8548.816303340718,
+          "i2t_a2s": 600344.4504381998
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.051800000000000006,
+      "total_l_h": 0.20015480000000002,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0009871266759868091,
+        "5.0kA": 0.009712439056922782,
+        "10.0kA": 0.02429855346043504
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 2348.6010841743555,
+          "i2t_a2s": 8114.358792664253
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3380.576497834176,
+          "i2t_a2s": 32999.356243299786
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 5098.7560191464145,
+          "i2t_a2s": 124111.11796083546
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 8528.45228373981,
+          "i2t_a2s": 598266.2639939273
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1018,
+      "total_l_h": 0.20015480000000002,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0009884393129626593,
+        "5.0kA": 0.009736006685876824,
+        "10.0kA": 0.024402331020419006
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 2347.600131132989,
+          "i2t_a2s": 8110.346180695038
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3377.431779620587,
+          "i2t_a2s": 32959.726013974076
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 5090.3298460234655,
+          "i2t_a2s": 123826.33516177192
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 8503.08576773631,
+          "i2t_a2s": 595681.080508809
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.029400000000000003,
+      "total_l_h": 0.051522200000000004,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0011840744540642083,
+        "5.0kA": 0.003427516066397691,
+        "10.0kA": 0.007172979439377326
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3091.525465914514,
+          "i2t_a2s": 7343.79227788339
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 7100.486299090553,
+          "i2t_a2s": 89287.04493808695
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 13766.855696503073,
+          "i2t_a2s": 652276.7164665508
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 27042.66969046509,
+          "i2t_a2s": 4965269.16853812
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.0694,
+      "total_l_h": 0.051522200000000004,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.001184904544471435,
+        "5.0kA": 0.0034329155586519658,
+        "10.0kA": 0.007194793948783606
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3088.8054077511188,
+          "i2t_a2s": 7334.254078127926
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 7085.927620115457,
+          "i2t_a2s": 89013.48100754542
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 13712.008564375457,
+          "i2t_a2s": 648386.6433364048
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 26831.039631456602,
+          "i2t_a2s": 4907129.529399604
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1194,
+      "total_l_h": 0.051522200000000004,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0011859440316386303,
+        "5.0kA": 0.0034396946658551085,
+        "10.0kA": 0.007222303004877019
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3085.4097589715384,
+          "i2t_a2s": 7322.352959237527
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 7067.785052685067,
+          "i2t_a2s": 88672.99076836364
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 13643.858734728652,
+          "i2t_a2s": 643564.5804184811
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 26569.60256765096,
+          "i2t_a2s": 4835642.648888043
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.029400000000000003,
+      "total_l_h": 0.1015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0023331659661349354,
+        "5.0kA": 0.006753767727232914,
+        "10.0kA": 0.014134036458853711
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1773.7443674127571,
+          "i2t_a2s": 2703.406590765454
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3810.281513518654,
+          "i2t_a2s": 27128.75513142434
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 7200.580792740453,
+          "i2t_a2s": 183489.35070306962
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 13966.470061144326,
+          "i2t_a2s": 1342092.737750728
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.0694,
+      "total_l_h": 0.1015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0023348016223052963,
+        "5.0kA": 0.006764407186195012,
+        "10.0kA": 0.014177020977893006
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1772.8823849508772,
+          "i2t_a2s": 2701.51989000345
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3806.1239133988274,
+          "i2t_a2s": 27084.83604425688
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 7185.6074214165565,
+          "i2t_a2s": 182919.14277481468
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 13910.020001333905,
+          "i2t_a2s": 1333972.469682923
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1194,
+      "total_l_h": 0.1015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0023368498854634185,
+        "5.0kA": 0.006777765114957736,
+        "10.0kA": 0.014231226347510891
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1771.8056640290888,
+          "i2t_a2s": 2699.1638136084525
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3800.9353359625675,
+          "i2t_a2s": 27030.061367145176
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 7166.948895714828,
+          "i2t_a2s": 182209.47934763384
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 13839.884585125023,
+          "i2t_a2s": 1323907.9623220635
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.029400000000000003,
+      "total_l_h": 0.2015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.004631348990276389,
+        "5.0kA": 0.01340627104890336,
+        "10.0kA": 0.028056150497806482
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1099.636756754946,
+          "i2t_a2s": 1225.3235269474044
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 2126.112952111289,
+          "i2t_a2s": 9293.19477555087
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 3835.9085782966577,
+          "i2t_a2s": 54946.500665785956
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 7251.760482233018,
+          "i2t_a2s": 372056.91321711906
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.05,
+      "total_r_ohm": 0.0694,
+      "total_l_h": 0.2015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0046345957779730185,
+        "5.0kA": 0.013427390441281101,
+        "10.0kA": 0.028141475036111804
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1099.3361850578804,
+          "i2t_a2s": 1224.8682540297298
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 2124.852696663467,
+          "i2t_a2s": 9285.188481843994
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 3831.694196646684,
+          "i2t_a2s": 54856.92279944218
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 7236.572831387515,
+          "i2t_a2s": 370892.40231100866
+        }
+      }
+    },
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 200.0,
+      "fault_resistance_ohm": 0.1,
+      "total_r_ohm": 0.1194,
+      "total_l_h": 0.2015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.004638661593112996,
+        "5.0kA": 0.013453906013162993,
+        "10.0kA": 0.028249073032778637
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1098.96061291371,
+          "i2t_a2s": 1224.2994598866908
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 2123.278740564245,
+          "i2t_a2s": 9275.192656153005
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 3826.434817108093,
+          "i2t_a2s": 54745.20552902483
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 7217.647713330924,
+          "i2t_a2s": 369443.1329742743
+        }
+      }
+    }
+  ],
+  "baseline_rows": [
+    {
+      "location_name": "remote_branch_end",
+      "location_description": "Remote-end fault at the longest branch feeding Block_D.",
+      "target_segment": "Block_D_tap",
+      "prefault_current_a": 415.0696636383195,
+      "path_loop_r_ohm": 0.0194,
+      "path_loop_l_h": 0.0015222,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.029400000000000003,
+      "total_l_h": 0.1015222,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0023331659661349354,
+        "5.0kA": 0.006753767727232914,
+        "10.0kA": 0.014134036458853711
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 1773.7443674127571,
+          "i2t_a2s": 2703.406590765454
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 3810.281513518654,
+          "i2t_a2s": 27128.75513142434
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 7200.580792740453,
+          "i2t_a2s": 183489.35070306962
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 13966.470061144326,
+          "i2t_a2s": 1342092.737750728
+        }
+      }
+    },
+    {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 100.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.1001548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0004934208580213569,
+        "5.0kA": 0.004850585459418738,
+        "10.0kA": 0.012117500714348842
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 3037.485804320313,
+          "i2t_a2s": 11350.414911770991
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 5102.8477634312585,
+          "i2t_a2s": 62117.10234434994
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 8543.49586913921,
+          "i2t_a2s": 299839.5113395551
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 15418.714529994875,
+          "i2t_a2s": 1774860.5397685824
+        }
+      }
+    }
+  ],
+  "headline": {
+    "worst_hybrid_reference_case": {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.0501548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0002470917464753517,
+        "5.0kA": 0.002429041280098956,
+        "10.0kA": 0.006068114806559679
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 4410.225386436097,
+          "i2t_a2s": 19686.637836527756
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 8532.879618083127,
+          "i2t_a2s": 149588.0937835226
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 15397.5070095025,
+          "i2t_a2s": 885132.4636416731
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 29102.559746119194,
+          "i2t_a2s": 5993491.5465371655
+        }
+      }
+    },
+    "fastest_time_to_5ka": {
+      "location_name": "source_backbone_midpoint",
+      "location_description": "Midpoint of the first shared 69 kV DC backbone segment near the front end.",
+      "target_segment": "source_to_north",
+      "prefault_current_a": 1660.1722157846789,
+      "path_loop_r_ohm": 0.0018,
+      "path_loop_l_h": 0.0001548,
+      "reactor_mh": 50.0,
+      "fault_resistance_ohm": 0.01,
+      "total_r_ohm": 0.0118,
+      "total_l_h": 0.0501548,
+      "time_to_thresholds_s": {
+        "2.0kA": 0.0002470917464753517,
+        "5.0kA": 0.002429041280098956,
+        "10.0kA": 0.006068114806559679
+      },
+      "breaker_rows": {
+        "semiconductor_fast": {
+          "clearing_time_ms": 2.0,
+          "current_a": 4410.225386436097,
+          "i2t_a2s": 19686.637836527756
+        },
+        "hybrid_reference": {
+          "clearing_time_ms": 5.0,
+          "current_a": 8532.879618083127,
+          "i2t_a2s": 149588.0937835226
+        },
+        "slower_interruption": {
+          "clearing_time_ms": 10.0,
+          "current_a": 15397.5070095025,
+          "i2t_a2s": 885132.4636416731
+        },
+        "backup_delayed": {
+          "clearing_time_ms": 20.0,
+          "current_a": 29102.559746119194,
+          "i2t_a2s": 5993491.5465371655
+        }
+      }
+    }
+  }
+}

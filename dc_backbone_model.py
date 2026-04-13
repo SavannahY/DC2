@@ -1002,7 +1002,8 @@ def build_source_classification_rows(assumptions: dict) -> List[Sequence[str]]:
     proxy_curve_names = [
         "double_conversion_ups",
         "server_psu_acdc",
-        "perimeter_69kvac_to_800vdc",
+        "grid_side_acdc",
+        "hf_isolated_dc_link",
         "rack_node_dcdc",
         "central_mv_acdc",
         "isolated_dc_pod",

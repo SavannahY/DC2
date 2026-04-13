@@ -144,7 +144,7 @@ def extend_rts_network_with_voltage(rts_network: dict) -> dict:
 
 
 def scenario_lookup(public_report: dict) -> dict:
-    single = {entry["display_name"]: entry for entry in public_report["single_path_public_profile_results"]["results"]}
+    single = {entry["name"]: entry for entry in public_report["single_path_public_profile_results"]["results"]}
     multi = {entry["scenario_label"]: entry for entry in public_report["multinode_public_profile_results"]["architectures"]}
     return {"single": single, "multi": multi}
 
@@ -257,8 +257,8 @@ def build_efficiency_benefit(public_report: dict) -> dict:
     single = scenario_lookup(public_report)["single"]
     multi = scenario_lookup(public_report)["multi"]
 
-    scenario2 = single["NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion"]
-    scenario3 = single["Proposed MVDC backbone"]
+    scenario2 = single["ac_fed_sst_800vdc"]
+    scenario3 = single["proposed_mvdc_backbone"]
     single_bin_rows = []
     single_hours_better = 0.0
     for bin2, bin3 in zip(scenario2["load_bins"], scenario3["load_bins"]):
@@ -316,6 +316,11 @@ def build_efficiency_benefit(public_report: dict) -> dict:
 
 def build_harmonic_benefit(public_report: dict, rts_network: dict) -> dict:
     harmonics = {}
+    single_patterns = {
+        "traditional_ac": "Traditional AC-centric",
+        "ac_fed_sst_800vdc": "AC-fed SST + 800 VDC baseline",
+        "proposed_mvdc_backbone": "Proposed MVDC backbone",
+    }
     multi_patterns = {
         "Scenario 1(M)": RTS_MULTI_POI_BUSES,
         "Scenario 2(M)": RTS_MULTI_POI_BUSES,
@@ -324,12 +329,8 @@ def build_harmonic_benefit(public_report: dict, rts_network: dict) -> dict:
     for order in HARMONIC_ORDERS:
         harmonic_model = build_complex_network(rts_network, harmonic_order=order)
         order_results = {"single_path": {}, "multi_node": {}}
-        for display_name in [
-            "Traditional AC-centric",
-            "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
-            "Proposed MVDC backbone",
-        ]:
-            order_results["single_path"][display_name] = harmonic_voltage_response(
+        for name, display_name in single_patterns.items():
+            order_results["single_path"][name] = harmonic_voltage_response(
                 harmonic_model,
                 rts_network,
                 [RTS_SINGLE_POI_BUS],
@@ -348,12 +349,9 @@ def build_harmonic_benefit(public_report: dict, rts_network: dict) -> dict:
         return math.sqrt(sum(section[order][key]["max_poi_voltage_pu"] ** 2 for order in HARMONIC_ORDERS))
 
     single_summary = {}
-    for name in [
-        "Traditional AC-centric",
-        "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
-        "Proposed MVDC backbone",
-    ]:
+    for name, display_name in single_patterns.items():
         single_summary[name] = {
+            "display_name": display_name,
             "thdv_proxy_pu": thdv_proxy({order: harmonics[order]["single_path"] for order in HARMONIC_ORDERS}, name),
             "interface_count": 1,
         }
@@ -391,8 +389,8 @@ def build_voltage_benefit(public_report: dict, rts_network: dict, power_factor: 
     for entry in public_report["single_path_public_profile_results"]["results"]:
         base_loads = {RTS_SINGLE_POI_BUS: entry["full_load_input_mw"]}
         step_loads = {RTS_SINGLE_POI_BUS: entry["full_load_input_mw"] * (1.0 + DYNAMIC_STEP_FRACTION)}
-        single_base[entry["display_name"]] = solve_voltage_sensitivity(network_model, rts_network, base_loads, power_factor)
-        single_step[entry["display_name"]] = solve_voltage_sensitivity(network_model, rts_network, step_loads, power_factor)
+        single_base[entry["name"]] = solve_voltage_sensitivity(network_model, rts_network, base_loads, power_factor)
+        single_step[entry["name"]] = solve_voltage_sensitivity(network_model, rts_network, step_loads, power_factor)
 
     multi_base = {}
     multi_step = {}
@@ -784,6 +782,18 @@ def build_note(report: dict) -> str:
     coherent_dynamic = next(row for row in dynamic if row["mode"] == "coherent_campus")
     clustered_dynamic = next(row for row in dynamic if row["mode"] == "two_block_cluster")
     opposition_dynamic = next(row for row in dynamic if row["mode"] == "split_campus_opposition")
+    single_loss_delta = single_eff["scenario3_minus_scenario2_annual_loss_mwh"]
+    multi_loss_delta = multi_eff["scenario3m_minus_scenario2m_annual_loss_mwh"]
+    single_loss_line = (
+        f"- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `{single_eff['scenario3_better_hours_fraction']:.1%}` of annualized hours and improves total annualized loss by `{abs(single_loss_delta):.2f} MWh`."
+        if single_loss_delta < 0.0
+        else f"- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `{single_eff['scenario3_better_hours_fraction']:.1%}` of annualized hours, but its total annualized loss is worse by `{single_loss_delta:.2f} MWh`."
+    )
+    multi_loss_line = (
+        f"- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `{multi_eff['scenario3m_better_hours_fraction']:.1%}` of annualized hours and improves annualized loss by `{abs(multi_loss_delta):.2f} MWh`."
+        if multi_loss_delta < 0.0
+        else f"- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `{multi_eff['scenario3m_better_hours_fraction']:.1%}` of annualized hours, but its total annualized loss is worse by `{multi_loss_delta:.2f} MWh`."
+    )
 
     return "\n".join(
         [
@@ -793,8 +803,8 @@ def build_note(report: dict) -> str:
             "",
             "## Benefit 1: Efficiency / loss reduction",
             "",
-            f"- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `{single_eff['scenario3_better_hours_fraction']:.1%}` of annualized hours, but its total annualized loss is slightly worse by `{single_eff['scenario3_minus_scenario2_annual_loss_mwh']:+.2f} MWh`.",
-            f"- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `{multi_eff['scenario3m_better_hours_fraction']:.1%}` of annualized hours and improves annualized loss by `{multi_eff['scenario3m_minus_scenario2m_annual_loss_mwh']:+.2f} MWh`.",
+            single_loss_line,
+            multi_loss_line,
             "- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.",
             "",
             "## Benefit 2: Power quality / harmonics",
@@ -895,13 +905,25 @@ def print_summary(report: dict) -> None:
     print("Public benefit analysis")
     print("-----------------------")
     print("Benefit 1: Efficiency / loss reduction")
+    single_delta = eff['single_path']['scenario3_minus_scenario2_annual_loss_mwh']
+    multi_delta = eff['multi_node']['scenario3m_minus_scenario2m_annual_loss_mwh']
+    single_phrase = (
+        f"improves annualized loss by {abs(single_delta):.2f} MWh"
+        if single_delta < 0.0
+        else f"annualized loss difference {single_delta:+.2f} MWh"
+    )
+    multi_phrase = (
+        f"improves annualized loss by {abs(multi_delta):.2f} MWh"
+        if multi_delta < 0.0
+        else f"annualized loss difference {multi_delta:+.2f} MWh"
+    )
     print(
         f"Single-path Scenario 3 better than Scenario 2 for {eff['single_path']['scenario3_better_hours_fraction']:.1%} "
-        f"of annualized hours; annualized loss difference {eff['single_path']['scenario3_minus_scenario2_annual_loss_mwh']:+.2f} MWh."
+        f"of annualized hours; {single_phrase}."
     )
     print(
         f"Multi-node Scenario 3(M) better than Scenario 2(M) for {eff['multi_node']['scenario3m_better_hours_fraction']:.1%} "
-        f"of annualized hours; annualized loss difference {eff['multi_node']['scenario3m_minus_scenario2m_annual_loss_mwh']:+.2f} MWh."
+        f"of annualized hours; {multi_phrase}."
     )
     print()
 

@@ -18,110 +18,110 @@
     "efficiency": {
       "claim": "Scenario 3 should reduce electrical losses.",
       "single_path": {
-        "scenario3_minus_scenario2_annual_loss_mwh": 236.719340052412,
-        "scenario3_better_hours": 2190.0,
-        "scenario3_better_hours_fraction": 0.25,
+        "scenario3_minus_scenario2_annual_loss_mwh": -2550.1995180528756,
+        "scenario3_better_hours": 8760.0,
+        "scenario3_better_hours_fraction": 1.0,
         "bin_rows": [
           {
             "name": "public_esif_quantile_bin_01",
             "load_fraction": 0.166579,
-            "scenario2_loss_mw": 2.793688366338259,
+            "scenario2_loss_mw": 3.067606272014551,
             "scenario3_loss_mw": 2.8875319341082246,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_02",
             "load_fraction": 0.231228,
-            "scenario2_loss_mw": 3.7682844901436674,
+            "scenario2_loss_mw": 4.108856772410562,
             "scenario3_loss_mw": 3.8790348563356645,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_03",
             "load_fraction": 0.246206,
-            "scenario2_loss_mw": 3.9577750245655103,
+            "scenario2_loss_mw": 4.3074069832648405,
             "scenario3_loss_mw": 4.0683391683884444,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_04",
             "load_fraction": 0.256264,
-            "scenario2_loss_mw": 4.0814140641351315,
+            "scenario2_loss_mw": 4.436304340676553,
             "scenario3_loss_mw": 4.191384862006128,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_05",
             "load_fraction": 0.27188,
-            "scenario2_loss_mw": 4.2676615780316745,
+            "scenario2_loss_mw": 4.629416544852013,
             "scenario3_loss_mw": 4.375973737773645,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_06",
             "load_fraction": 0.294066,
-            "scenario2_loss_mw": 4.5203873646052095,
+            "scenario2_loss_mw": 4.889213208292073,
             "scenario3_loss_mw": 4.624820412093396,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_07",
             "load_fraction": 0.308126,
-            "scenario2_loss_mw": 4.673376262350015,
+            "scenario2_loss_mw": 5.045076938792835,
             "scenario3_loss_mw": 4.774438699880438,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_08",
             "load_fraction": 0.319538,
-            "scenario2_loss_mw": 4.793485662545518,
+            "scenario2_loss_mw": 5.166615686816723,
             "scenario3_loss_mw": 4.891298625545392,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_09",
             "load_fraction": 0.33497,
-            "scenario2_loss_mw": 4.950139915240236,
+            "scenario2_loss_mw": 5.3239290741179985,
             "scenario3_loss_mw": 5.042834799376685,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_10",
             "load_fraction": 0.357227,
-            "scenario2_loss_mw": 5.164474636439621,
+            "scenario2_loss_mw": 5.536670371994674,
             "scenario3_loss_mw": 5.2483413811098885,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_11",
             "load_fraction": 0.37762700000000005,
-            "scenario2_loss_mw": 5.348978265854747,
+            "scenario2_loss_mw": 5.717116838344047,
             "scenario3_loss_mw": 5.423276335042935,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_12",
             "load_fraction": 0.422443,
-            "scenario2_loss_mw": 5.7146138220484275,
+            "scenario2_loss_mw": 6.065328277040642,
             "scenario3_loss_mw": 5.763046104950831,
-            "scenario3_better": false,
+            "scenario3_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_13",
             "load_fraction": 0.5622,
-            "scenario2_loss_mw": 6.698251691818378,
+            "scenario2_loss_mw": 6.998010632794717,
             "scenario3_loss_mw": 6.651338279578411,
             "scenario3_better": true,
             "hours": 547.5
@@ -129,7 +129,7 @@
           {
             "name": "public_esif_quantile_bin_14",
             "load_fraction": 0.689751,
-            "scenario2_loss_mw": 7.475712310654558,
+            "scenario2_loss_mw": 7.710149780158716,
             "scenario3_loss_mw": 7.327394785711604,
             "scenario3_better": true,
             "hours": 547.5
@@ -137,7 +137,7 @@
           {
             "name": "public_esif_quantile_bin_15",
             "load_fraction": 0.753346,
-            "scenario2_loss_mw": 7.766559097252554,
+            "scenario2_loss_mw": 7.9522308413014855,
             "scenario3_loss_mw": 7.556648216062982,
             "scenario3_better": true,
             "hours": 547.5
@@ -145,7 +145,7 @@
           {
             "name": "public_esif_quantile_bin_16",
             "load_fraction": 0.937494,
-            "scenario2_loss_mw": 8.579310007820595,
+            "scenario2_loss_mw": 8.690442751501891,
             "scenario3_loss_mw": 8.280774453299358,
             "scenario3_better": true,
             "hours": 547.5
@@ -153,102 +153,102 @@
         ]
       },
       "multi_node": {
-        "scenario3m_minus_scenario2m_annual_loss_mwh": -559.4982819625875,
-        "scenario3m_better_hours": 2737.5,
-        "scenario3m_better_hours_fraction": 0.3125,
+        "scenario3m_minus_scenario2m_annual_loss_mwh": -6337.153467196971,
+        "scenario3m_better_hours": 8760.0,
+        "scenario3m_better_hours_fraction": 1.0,
         "bin_rows": [
           {
             "name": "public_esif_quantile_bin_01",
             "load_fraction": 0.166579,
-            "scenario2m_loss_mw": 2.7796955813092588,
+            "scenario2m_loss_mw": 3.053411773279147,
             "scenario3m_loss_mw": 2.8731776664729143,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_02",
             "load_fraction": 0.231228,
-            "scenario2m_loss_mw": 3.86112462653512,
+            "scenario2m_loss_mw": 4.241109235808521,
             "scenario3m_loss_mw": 3.9611144695505915,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_03",
             "load_fraction": 0.246206,
-            "scenario2m_loss_mw": 4.111882297137183,
+            "scenario2m_loss_mw": 4.516490535513216,
             "scenario3m_loss_mw": 4.207460353533481,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_04",
             "load_fraction": 0.256264,
-            "scenario2m_loss_mw": 4.280315022583815,
+            "scenario2m_loss_mw": 4.701459145083915,
             "scenario3m_loss_mw": 4.372191178933765,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_05",
             "load_fraction": 0.27188,
-            "scenario2m_loss_mw": 4.541893480707598,
+            "scenario2m_loss_mw": 4.988712197555634,
             "scenario3m_loss_mw": 4.6268460551677135,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_06",
             "load_fraction": 0.294066,
-            "scenario2m_loss_mw": 4.9136716488811825,
+            "scenario2m_loss_mw": 5.396969061525115,
             "scenario3m_loss_mw": 4.986330266681767,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_07",
             "load_fraction": 0.308126,
-            "scenario2m_loss_mw": 5.1493695544368885,
+            "scenario2m_loss_mw": 5.655786072581948,
             "scenario3m_loss_mw": 5.21274552763573,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_08",
             "load_fraction": 0.319538,
-            "scenario2m_loss_mw": 5.340728361305898,
+            "scenario2m_loss_mw": 5.86591060355283,
             "scenario3m_loss_mw": 5.395720056515609,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_09",
             "load_fraction": 0.33497,
-            "scenario2m_loss_mw": 5.599568382056612,
+            "scenario2m_loss_mw": 6.150127876623155,
             "scenario3m_loss_mw": 5.642012272138226,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_10",
             "load_fraction": 0.357227,
-            "scenario2m_loss_mw": 5.973031568655552,
+            "scenario2m_loss_mw": 6.560193957736476,
             "scenario3m_loss_mw": 5.9949305610719374,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_11",
             "load_fraction": 0.377627,
-            "scenario2m_loss_mw": 6.315488464764757,
+            "scenario2m_loss_mw": 6.936202117865252,
             "scenario3m_loss_mw": 6.316020785352752,
-            "scenario3m_better": false,
+            "scenario3m_better": true,
             "hours": 547.5
           },
           {
             "name": "public_esif_quantile_bin_12",
             "load_fraction": 0.422443,
-            "scenario2m_loss_mw": 7.0683343659174485,
+            "scenario2m_loss_mw": 7.762763298310618,
             "scenario3m_loss_mw": 7.013426281677233,
             "scenario3m_better": true,
             "hours": 547.5
@@ -256,7 +256,7 @@
           {
             "name": "public_esif_quantile_bin_13",
             "load_fraction": 0.5622,
-            "scenario2m_loss_mw": 9.42060257506324,
+            "scenario2m_loss_mw": 10.344978301625202,
             "scenario3m_loss_mw": 9.205883001886619,
             "scenario3m_better": true,
             "hours": 547.5
@@ -264,7 +264,7 @@
           {
             "name": "public_esif_quantile_bin_14",
             "load_fraction": 0.689751,
-            "scenario2m_loss_mw": 11.57344014680693,
+            "scenario2m_loss_mw": 12.707770266837413,
             "scenario3m_loss_mw": 11.200587435658594,
             "scenario3m_better": true,
             "hours": 547.5
@@ -272,7 +272,7 @@
           {
             "name": "public_esif_quantile_bin_15",
             "load_fraction": 0.753346,
-            "scenario2m_loss_mw": 12.648955416063478,
+            "scenario2m_loss_mw": 13.878486527033576,
             "scenario3m_loss_mw": 12.183944653751329,
             "scenario3m_better": true,
             "hours": 547.5
@@ -280,7 +280,7 @@
           {
             "name": "public_esif_quantile_bin_16",
             "load_fraction": 0.937494,
-            "scenario2m_loss_mw": 15.239781756004803,
+            "scenario2m_loss_mw": 16.610307136173404,
             "scenario3m_loss_mw": 14.60357801195027,
             "scenario3m_better": true,
             "hours": 547.5
@@ -299,15 +299,18 @@
       ],
       "per_interface_current_probe_pu": 0.01,
       "single_path": {
-        "Traditional AC-centric": {
+        "traditional_ac": {
+          "display_name": "Traditional AC-centric",
           "thdv_proxy_pu": 0.009814084161667479,
           "interface_count": 1
         },
-        "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+        "ac_fed_sst_800vdc": {
+          "display_name": "AC-fed SST + 800 VDC baseline",
           "thdv_proxy_pu": 0.009814084161667479,
           "interface_count": 1
         },
-        "Proposed MVDC backbone": {
+        "proposed_mvdc_backbone": {
+          "display_name": "Proposed MVDC backbone",
           "thdv_proxy_pu": 0.009814084161667479,
           "interface_count": 1
         }
@@ -364,7 +367,7 @@
       "dynamic_step_fraction": 0.1,
       "single_path": {
         "base_case": {
-          "Traditional AC-centric": {
+          "traditional_ac": {
             "load_withdrawals_mw": {
               "110": 114.3101587736578
             },
@@ -383,26 +386,26 @@
             "worst_bus_final_voltage_pu": 0.9924338590016103,
             "worst_bus_drop_pct_points": 1.780614099838973
           },
-          "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+          "ac_fed_sst_800vdc": {
             "load_withdrawals_mw": {
-              "110": 108.81372482641497
+              "110": 108.91079133210734
             },
             "poi_rows": [
               {
                 "bus_id": 110,
                 "bus_name": "Allen",
                 "base_voltage_pu": 1.05,
-                "final_voltage_pu": 1.0258966950977122,
-                "drop_pct_points": 2.4103304902287848
+                "final_voltage_pu": 1.0258762517823328,
+                "drop_pct_points": 2.4123748217667274
               }
             ],
-            "max_poi_drop_pct_points": 2.4103304902287848,
+            "max_poi_drop_pct_points": 2.4123748217667274,
             "worst_bus_id": 108,
             "worst_bus_name": "Alger",
-            "worst_bus_final_voltage_pu": 0.9932686688541922,
-            "worst_bus_drop_pct_points": 1.6971331145807844
+            "worst_bus_final_voltage_pu": 0.9932539071467416,
+            "worst_bus_drop_pct_points": 1.6986092853258472
           },
-          "Proposed MVDC backbone": {
+          "proposed_mvdc_backbone": {
             "load_withdrawals_mw": {
               "110": 108.49857730996632
             },
@@ -423,7 +426,7 @@
           }
         },
         "plus_10pct_step": {
-          "Traditional AC-centric": {
+          "traditional_ac": {
             "load_withdrawals_mw": {
               "110": 125.7411746510236
             },
@@ -442,26 +445,26 @@
             "worst_bus_final_voltage_pu": 0.9907047417044836,
             "worst_bus_drop_pct_points": 1.953525829551639
           },
-          "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion": {
+          "ac_fed_sst_800vdc": {
             "load_withdrawals_mw": {
-              "110": 119.69509730905648
+              "110": 119.80187046531807
             },
             "poi_rows": [
               {
                 "bus_id": 110,
                 "bus_name": "Allen",
                 "base_voltage_pu": 1.05,
-                "final_voltage_pu": 1.0236169922749572,
-                "drop_pct_points": 2.6383007725042873
+                "final_voltage_pu": 1.0235947433854728,
+                "drop_pct_points": 2.6405256614527195
               }
             ],
-            "max_poi_drop_pct_points": 2.6383007725042873,
+            "max_poi_drop_pct_points": 2.6405256614527195,
             "worst_bus_id": 108,
             "worst_bus_name": "Alger",
-            "worst_bus_final_voltage_pu": 0.9916181160005895,
-            "worst_bus_drop_pct_points": 1.862188399941056
+            "worst_bus_final_voltage_pu": 0.991601962736043,
+            "worst_bus_drop_pct_points": 1.8638037263957075
           },
-          "Proposed MVDC backbone": {
+          "proposed_mvdc_backbone": {
             "load_withdrawals_mw": {
               "110": 119.34843504096297
             },
@@ -529,46 +532,46 @@
           },
           "Scenario 2(M)": {
             "load_withdrawals_mw": {
-              "103": 29.00626208895947,
-              "104": 29.00626208895947,
-              "106": 29.00626208895947,
-              "110": 29.00626208895947
+              "103": 29.3579918725258,
+              "104": 29.3579918725258,
+              "106": 29.3579918725258,
+              "110": 29.3579918725258
             },
             "poi_rows": [
               {
                 "bus_id": 103,
                 "bus_name": "Adler",
                 "base_voltage_pu": 1.01085,
-                "final_voltage_pu": 0.9930999907985065,
-                "drop_pct_points": 1.77500092014935
+                "final_voltage_pu": 0.9928992648900125,
+                "drop_pct_points": 1.795073510998757
               },
               {
                 "bus_id": 104,
                 "bus_name": "Agricola",
                 "base_voltage_pu": 1.01765,
-                "final_voltage_pu": 0.9936093971365204,
-                "drop_pct_points": 2.404060286347953
+                "final_voltage_pu": 0.9933385291346214,
+                "drop_pct_points": 2.431147086537855
               },
               {
                 "bus_id": 106,
                 "bus_name": "Alber",
                 "base_voltage_pu": 1.03242,
-                "final_voltage_pu": 1.0043509356107487,
-                "drop_pct_points": 2.8069064389251164
+                "final_voltage_pu": 1.004028533061914,
+                "drop_pct_points": 2.8391466938085808
               },
               {
                 "bus_id": 110,
                 "bus_name": "Allen",
                 "base_voltage_pu": 1.05,
-                "final_voltage_pu": 1.0297239152700062,
-                "drop_pct_points": 2.027608472999387
+                "final_voltage_pu": 1.0294875140673454,
+                "drop_pct_points": 2.0512485932654645
               }
             ],
-            "max_poi_drop_pct_points": 2.8069064389251164,
+            "max_poi_drop_pct_points": 2.8391466938085808,
             "worst_bus_id": 108,
             "worst_bus_name": "Alger",
-            "worst_bus_final_voltage_pu": 0.9927387380314363,
-            "worst_bus_drop_pct_points": 1.750126196856372
+            "worst_bus_final_voltage_pu": 0.9925320000038249,
+            "worst_bus_drop_pct_points": 1.7707999996175117
           },
           "Scenario 3(M)": {
             "load_withdrawals_mw": {
@@ -636,46 +639,46 @@
           },
           "Scenario 2(M)": {
             "load_withdrawals_mw": {
-              "103": 31.90688829785542,
-              "104": 31.90688829785542,
-              "106": 31.90688829785542,
-              "110": 31.90688829785542
+              "103": 32.293791059778385,
+              "104": 32.293791059778385,
+              "106": 32.293791059778385,
+              "110": 32.293791059778385
             },
             "poi_rows": [
               {
                 "bus_id": 103,
                 "bus_name": "Adler",
                 "base_voltage_pu": 1.01085,
-                "final_voltage_pu": 0.9914552417155936,
-                "drop_pct_points": 1.93947582844064
+                "final_voltage_pu": 0.9912376796596386,
+                "drop_pct_points": 1.9612320340361422
               },
               {
                 "bus_id": 104,
                 "bus_name": "Agricola",
                 "base_voltage_pu": 1.01765,
-                "final_voltage_pu": 0.9913907804868334,
-                "drop_pct_points": 2.6259219513166565
+                "final_voltage_pu": 0.9910974627446658,
+                "drop_pct_points": 2.655253725533413
               },
               {
                 "bus_id": 106,
                 "bus_name": "Alber",
                 "base_voltage_pu": 1.03242,
-                "final_voltage_pu": 1.0017054098074891,
-                "drop_pct_points": 3.071459019251077
+                "final_voltage_pu": 1.0013548187998753,
+                "drop_pct_points": 3.106518120012458
               },
               {
                 "bus_id": 110,
                 "bus_name": "Allen",
                 "base_voltage_pu": 1.05,
-                "final_voltage_pu": 1.0277812964971305,
-                "drop_pct_points": 2.2218703502869586
+                "final_voltage_pu": 1.0275233715787706,
+                "drop_pct_points": 2.247662842122944
               }
             ],
-            "max_poi_drop_pct_points": 3.071459019251077,
+            "max_poi_drop_pct_points": 3.106518120012458,
             "worst_bus_id": 108,
             "worst_bus_name": "Alger",
-            "worst_bus_final_voltage_pu": 0.9910378223850477,
-            "worst_bus_drop_pct_points": 1.9202177614952354
+            "worst_bus_final_voltage_pu": 0.9908116335635571,
+            "worst_bus_drop_pct_points": 1.9428366436442968
           },
           "Scenario 3(M)": {
             "load_withdrawals_mw": {
@@ -705,61 +708,61 @@
         {
           "block_count": 1,
           "total_it_mw": 25.0,
-          "scenario2m_efficiency": 0.8619555860816188,
+          "scenario2m_efficiency": 0.8516296119105093,
           "scenario3m_efficiency": 0.8587122129253015,
-          "scenario3m_minus_scenario2m_efficiency_pct_points": -0.32433731563172863,
-          "scenario2m_network_loss_mw": 0.0005335205572125257,
+          "scenario3m_minus_scenario2m_efficiency_pct_points": 0.7082601014792189,
+          "scenario2m_network_loss_mw": 0.0005465367194042329,
           "scenario3m_network_loss_mw": 0.0009987872985529269,
           "scenario2m_ac_interface_count": 1,
           "scenario3m_ac_interface_count": 1,
           "scenario2m_harmonic_thdv_proxy_pu": 0.016310636531753814,
           "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
-          "scenario2m_base_max_poi_drop_pct_points": 0.7193948342907763,
+          "scenario2m_base_max_poi_drop_pct_points": 0.7277541422118006,
           "scenario3m_base_max_poi_drop_pct_points": 0.1383887523698446
         },
         {
           "block_count": 2,
           "total_it_mw": 50.0,
-          "scenario2m_efficiency": 0.8619391826219216,
+          "scenario2m_efficiency": 0.8516132084395805,
           "scenario3m_efficiency": 0.863730278220061,
-          "scenario3m_minus_scenario2m_efficiency_pct_points": 0.17910955981393917,
-          "scenario2m_network_loss_mw": 0.0021709772463878443,
+          "scenario3m_minus_scenario2m_efficiency_pct_points": 1.2117069780480438,
+          "scenario2m_network_loss_mw": 0.0022239432616027225,
           "scenario3m_network_loss_mw": 0.004064344073064133,
           "scenario2m_ac_interface_count": 2,
           "scenario3m_ac_interface_count": 1,
           "scenario2m_harmonic_thdv_proxy_pu": 0.027827345354274193,
           "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
-          "scenario2m_base_max_poi_drop_pct_points": 1.550815280380502,
+          "scenario2m_base_max_poi_drop_pct_points": 1.568625929627765,
           "scenario3m_base_max_poi_drop_pct_points": 0.2688803593042577
         },
         {
           "block_count": 3,
           "total_it_mw": 75.0,
-          "scenario2m_efficiency": 0.8619147576428664,
+          "scenario2m_efficiency": 0.85158878341894,
           "scenario3m_efficiency": 0.8659989245663383,
-          "scenario3m_minus_scenario2m_efficiency_pct_points": 0.408416692347191,
-          "scenario2m_network_loss_mw": 0.005722246989957388,
+          "scenario3m_minus_scenario2m_efficiency_pct_points": 1.4410141147398359,
+          "scenario2m_network_loss_mw": 0.0058618598433360656,
           "scenario3m_network_loss_mw": 0.010713273749531042,
           "scenario2m_ac_interface_count": 3,
           "scenario3m_ac_interface_count": 1,
           "scenario2m_harmonic_thdv_proxy_pu": 0.0350524832321847,
           "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
-          "scenario2m_base_max_poi_drop_pct_points": 2.176200452052046,
+          "scenario2m_base_max_poi_drop_pct_points": 2.201515699297407,
           "scenario3m_base_max_poi_drop_pct_points": 0.392849958190844
         },
         {
           "block_count": 4,
           "total_it_mw": 100.0,
-          "scenario2m_efficiency": 0.8618828556167408,
+          "scenario2m_efficiency": 0.8515568812932278,
           "scenario3m_efficiency": 0.8668508293828734,
-          "scenario3m_minus_scenario2m_efficiency_pct_points": 0.49679737661325607,
-          "scenario2m_network_loss_mw": 0.011924094429782274,
+          "scenario3m_minus_scenario2m_efficiency_pct_points": 1.529394808964557,
+          "scenario2m_network_loss_mw": 0.012215036625797098,
           "scenario3m_network_loss_mw": 0.022325843820943603,
           "scenario2m_ac_interface_count": 4,
           "scenario3m_ac_interface_count": 1,
           "scenario2m_harmonic_thdv_proxy_pu": 0.0408758825246368,
           "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
-          "scenario2m_base_max_poi_drop_pct_points": 2.8069064389251164,
+          "scenario2m_base_max_poi_drop_pct_points": 2.8391466938085808,
           "scenario3m_base_max_poi_drop_pct_points": 0.5106977550334291
         }
       ],
@@ -779,7 +782,7 @@
           "central_bus": 112,
           "scenario2m_harmonic_thdv_proxy_pu": 0.0408758825246368,
           "scenario3m_harmonic_thdv_proxy_pu": 0.005327451613171864,
-          "scenario2m_base_max_poi_drop_pct_points": 2.8069064389251164,
+          "scenario2m_base_max_poi_drop_pct_points": 2.8391466938085808,
           "scenario3m_base_max_poi_drop_pct_points": 0.5106977550334291
         },
         {
@@ -793,7 +796,7 @@
           "central_bus": 212,
           "scenario2m_harmonic_thdv_proxy_pu": 0.075979093242009,
           "scenario3m_harmonic_thdv_proxy_pu": 0.017002038320995044,
-          "scenario2m_base_max_poi_drop_pct_points": 5.928968024331915,
+          "scenario2m_base_max_poi_drop_pct_points": 5.99464006714644,
           "scenario3m_base_max_poi_drop_pct_points": 2.1048446477671567
         },
         {
@@ -807,7 +810,7 @@
           "central_bus": 312,
           "scenario2m_harmonic_thdv_proxy_pu": 0.12515531711890673,
           "scenario3m_harmonic_thdv_proxy_pu": 0.026861363729365994,
-          "scenario2m_base_max_poi_drop_pct_points": 8.66635652497736,
+          "scenario2m_base_max_poi_drop_pct_points": 8.752855735916532,
           "scenario3m_base_max_poi_drop_pct_points": 2.3993985208598634
         }
       ],
@@ -839,126 +842,126 @@
           "outage_rows": [
             {
               "outaged_branch_uid": "A10",
-              "scenario2m_max_incremental_loading_pct": 18.12076647012681,
+              "scenario2m_max_incremental_loading_pct": 18.340498790308093,
               "scenario3m_max_incremental_loading_pct": 13.422036099281318,
-              "scenario2m_voltage_drop_pct_points": 4.986464131682322,
+              "scenario2m_voltage_drop_pct_points": 5.037244716271038,
               "scenario3m_voltage_drop_pct_points": 0.5107166772221117,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08708356758710835,
               "scenario3m_harmonic_thdv_proxy_pu": 0.00532793236090761
             },
             {
               "outaged_branch_uid": "A13-2",
-              "scenario2m_max_incremental_loading_pct": 14.75039493703637,
+              "scenario2m_max_incremental_loading_pct": 14.929258149497532,
               "scenario3m_max_incremental_loading_pct": 13.456559083240464,
-              "scenario2m_voltage_drop_pct_points": 2.9283304169118507,
+              "scenario2m_voltage_drop_pct_points": 2.9619334660418772,
               "scenario3m_voltage_drop_pct_points": 0.5123648189773844,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04151530386017357,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005341634813082669
             },
             {
               "outaged_branch_uid": "A15",
-              "scenario2m_max_incremental_loading_pct": 15.83029541975396,
+              "scenario2m_max_incremental_loading_pct": 16.022253499864526,
               "scenario3m_max_incremental_loading_pct": 14.64672397349773,
-              "scenario2m_voltage_drop_pct_points": 2.9561926173268693,
+              "scenario2m_voltage_drop_pct_points": 2.990089967389231,
               "scenario3m_voltage_drop_pct_points": 0.5387138757766197,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04639339078134663,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005814102263078341
             },
             {
               "outaged_branch_uid": "A16",
-              "scenario2m_max_incremental_loading_pct": 15.703492879293107,
+              "scenario2m_max_incremental_loading_pct": 15.893913352456082,
               "scenario3m_max_incremental_loading_pct": 14.17840797280549,
-              "scenario2m_voltage_drop_pct_points": 3.460966875828264,
+              "scenario2m_voltage_drop_pct_points": 3.5000673051843623,
               "scenario3m_voltage_drop_pct_points": 0.5194349802028375,
               "scenario2m_harmonic_thdv_proxy_pu": 0.0502948598973188,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005628212089243467
             },
             {
               "outaged_branch_uid": "A17",
-              "scenario2m_max_incremental_loading_pct": 15.86093726425419,
+              "scenario2m_max_incremental_loading_pct": 16.053266907212176,
               "scenario3m_max_incremental_loading_pct": 14.576890304265008,
-              "scenario2m_voltage_drop_pct_points": 3.5208930232562996,
+              "scenario2m_voltage_drop_pct_points": 3.5605867960214588,
               "scenario3m_voltage_drop_pct_points": 0.5376029552682127,
               "scenario2m_harmonic_thdv_proxy_pu": 0.051370130316677844,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005786377480951877
             },
             {
               "outaged_branch_uid": "A2",
-              "scenario2m_max_incremental_loading_pct": 15.296237501247816,
+              "scenario2m_max_incremental_loading_pct": 15.48171959781003,
               "scenario3m_max_incremental_loading_pct": 13.434497574750607,
-              "scenario2m_voltage_drop_pct_points": 2.8493123961163214,
+              "scenario2m_voltage_drop_pct_points": 2.882034439618786,
               "scenario3m_voltage_drop_pct_points": 0.5108067063984478,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04126888223464035,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005332880052049713
             },
             {
               "outaged_branch_uid": "A20",
-              "scenario2m_max_incremental_loading_pct": 14.916987235123822,
+              "scenario2m_max_incremental_loading_pct": 15.097870544927083,
               "scenario3m_max_incremental_loading_pct": 11.176126353301221,
-              "scenario2m_voltage_drop_pct_points": 3.561074039040646,
+              "scenario2m_voltage_drop_pct_points": 3.6011819653320787,
               "scenario3m_voltage_drop_pct_points": 1.1917772834715734,
               "scenario2m_harmonic_thdv_proxy_pu": 0.05253946030068103,
               "scenario3m_harmonic_thdv_proxy_pu": 0.012735561088971802
             },
             {
               "outaged_branch_uid": "A21",
-              "scenario2m_max_incremental_loading_pct": 15.029331505582325,
+              "scenario2m_max_incremental_loading_pct": 15.21157710142617,
               "scenario3m_max_incremental_loading_pct": 15.745277135144962,
-              "scenario2m_voltage_drop_pct_points": 2.8305165133991395,
+              "scenario2m_voltage_drop_pct_points": 2.863004514172607,
               "scenario3m_voltage_drop_pct_points": 0.6049373043605089,
               "scenario2m_harmonic_thdv_proxy_pu": 0.041214171722962094,
               "scenario3m_harmonic_thdv_proxy_pu": 0.006250139006565433
             },
             {
               "outaged_branch_uid": "A4",
-              "scenario2m_max_incremental_loading_pct": 16.575006907976842,
+              "scenario2m_max_incremental_loading_pct": 16.775995355729037,
               "scenario3m_max_incremental_loading_pct": 13.42130957969426,
-              "scenario2m_voltage_drop_pct_points": 2.743735519543189,
+              "scenario2m_voltage_drop_pct_points": 2.7753356038873633,
               "scenario3m_voltage_drop_pct_points": 0.5106778909594878,
               "scenario2m_harmonic_thdv_proxy_pu": 0.044996516502830285,
               "scenario3m_harmonic_thdv_proxy_pu": 0.00532764390013072
             },
             {
               "outaged_branch_uid": "A5",
-              "scenario2m_max_incremental_loading_pct": 16.575006907976842,
+              "scenario2m_max_incremental_loading_pct": 16.775995355729034,
               "scenario3m_max_incremental_loading_pct": 13.422036099281318,
-              "scenario2m_voltage_drop_pct_points": 2.9269896992291544,
+              "scenario2m_voltage_drop_pct_points": 2.96057497487916,
               "scenario3m_voltage_drop_pct_points": 0.5107166772221117,
               "scenario2m_harmonic_thdv_proxy_pu": 0.041523657201660846,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005327932360907608
             },
             {
               "outaged_branch_uid": "A6",
-              "scenario2m_max_incremental_loading_pct": 15.552456757682972,
+              "scenario2m_max_incremental_loading_pct": 15.741045767619093,
               "scenario3m_max_incremental_loading_pct": 13.467324593615352,
-              "scenario2m_voltage_drop_pct_points": 2.8417075094358424,
+              "scenario2m_voltage_drop_pct_points": 2.8743298932358385,
               "scenario3m_voltage_drop_pct_points": 0.5111489830807558,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04264027406066538,
               "scenario3m_harmonic_thdv_proxy_pu": 0.0053459136694301536
             },
             {
               "outaged_branch_uid": "A7",
-              "scenario2m_max_incremental_loading_pct": 16.206498169826492,
+              "scenario2m_max_incremental_loading_pct": 16.40301808253221,
               "scenario3m_max_incremental_loading_pct": 13.535499733324386,
-              "scenario2m_voltage_drop_pct_points": 2.9978592655334424,
+              "scenario2m_voltage_drop_pct_points": 3.032115724334883,
               "scenario3m_voltage_drop_pct_points": 0.5138910397363805,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04793803477173374,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005372976070033302
             },
             {
               "outaged_branch_uid": "A8",
-              "scenario2m_max_incremental_loading_pct": 19.03339811286008,
+              "scenario2m_max_incremental_loading_pct": 19.264196999605176,
               "scenario3m_max_incremental_loading_pct": 13.42130957969426,
-              "scenario2m_voltage_drop_pct_points": 3.8201639003390797,
+              "scenario2m_voltage_drop_pct_points": 3.8587645465492537,
               "scenario3m_voltage_drop_pct_points": 0.5106778909594878,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07603983467418318,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005327643900130721
             },
             {
               "outaged_branch_uid": "A9",
-              "scenario2m_max_incremental_loading_pct": 16.424183708180802,
+              "scenario2m_max_incremental_loading_pct": 16.623343274594944,
               "scenario3m_max_incremental_loading_pct": 13.42335013297768,
-              "scenario2m_voltage_drop_pct_points": 2.802501660359158,
+              "scenario2m_voltage_drop_pct_points": 2.8346714123040684,
               "scenario3m_voltage_drop_pct_points": 0.5107460614224291,
               "scenario2m_harmonic_thdv_proxy_pu": 0.04257448530840796,
               "scenario3m_harmonic_thdv_proxy_pu": 0.005328454046858327
@@ -966,27 +969,27 @@
           ],
           "worst_loading_outage": {
             "outaged_branch_uid": "A8",
-            "scenario2m_max_incremental_loading_pct": 19.03339811286008,
+            "scenario2m_max_incremental_loading_pct": 19.264196999605176,
             "scenario3m_max_incremental_loading_pct": 13.42130957969426,
-            "scenario2m_voltage_drop_pct_points": 3.8201639003390797,
+            "scenario2m_voltage_drop_pct_points": 3.8587645465492537,
             "scenario3m_voltage_drop_pct_points": 0.5106778909594878,
             "scenario2m_harmonic_thdv_proxy_pu": 0.07603983467418318,
             "scenario3m_harmonic_thdv_proxy_pu": 0.005327643900130721
           },
           "worst_voltage_outage": {
             "outaged_branch_uid": "A10",
-            "scenario2m_max_incremental_loading_pct": 18.12076647012681,
+            "scenario2m_max_incremental_loading_pct": 18.340498790308093,
             "scenario3m_max_incremental_loading_pct": 13.422036099281318,
-            "scenario2m_voltage_drop_pct_points": 4.986464131682322,
+            "scenario2m_voltage_drop_pct_points": 5.037244716271038,
             "scenario3m_voltage_drop_pct_points": 0.5107166772221117,
             "scenario2m_harmonic_thdv_proxy_pu": 0.08708356758710835,
             "scenario3m_harmonic_thdv_proxy_pu": 0.00532793236090761
           },
           "worst_harmonic_outage": {
             "outaged_branch_uid": "A10",
-            "scenario2m_max_incremental_loading_pct": 18.12076647012681,
+            "scenario2m_max_incremental_loading_pct": 18.340498790308093,
             "scenario3m_max_incremental_loading_pct": 13.422036099281318,
-            "scenario2m_voltage_drop_pct_points": 4.986464131682322,
+            "scenario2m_voltage_drop_pct_points": 5.037244716271038,
             "scenario3m_voltage_drop_pct_points": 0.5107166772221117,
             "scenario2m_harmonic_thdv_proxy_pu": 0.08708356758710835,
             "scenario3m_harmonic_thdv_proxy_pu": 0.00532793236090761
@@ -1015,135 +1018,135 @@
           "outage_rows": [
             {
               "outaged_branch_uid": "AB1",
-              "scenario2m_max_incremental_loading_pct": 13.943644064649789,
+              "scenario2m_max_incremental_loading_pct": 14.112724620218922,
               "scenario3m_max_incremental_loading_pct": 12.34702589241497,
-              "scenario2m_voltage_drop_pct_points": 6.77725832496826,
+              "scenario2m_voltage_drop_pct_points": 6.851626006990097,
               "scenario3m_voltage_drop_pct_points": 2.363649384254185,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08565469255578892,
               "scenario3m_harmonic_thdv_proxy_pu": 0.01851608748914284
             },
             {
               "outaged_branch_uid": "B10",
-              "scenario2m_max_incremental_loading_pct": 16.743901495053866,
+              "scenario2m_max_incremental_loading_pct": 16.946937957692494,
               "scenario3m_max_incremental_loading_pct": 11.500689374303166,
-              "scenario2m_voltage_drop_pct_points": 8.073671393024329,
+              "scenario2m_voltage_drop_pct_points": 8.155280260763897,
               "scenario3m_voltage_drop_pct_points": 2.1102627759342685,
               "scenario2m_harmonic_thdv_proxy_pu": 0.11608429833110984,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017045700908845517
             },
             {
               "outaged_branch_uid": "B13-2",
-              "scenario2m_max_incremental_loading_pct": 13.27810314533045,
+              "scenario2m_max_incremental_loading_pct": 13.439113355165642,
               "scenario3m_max_incremental_loading_pct": 11.255078529345033,
-              "scenario2m_voltage_drop_pct_points": 6.002157545199715,
+              "scenario2m_voltage_drop_pct_points": 6.068614967782848,
               "scenario3m_voltage_drop_pct_points": 2.107086796995228,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07671032578428909,
               "scenario3m_harmonic_thdv_proxy_pu": 0.01700975526370466
             },
             {
               "outaged_branch_uid": "B15",
-              "scenario2m_max_incremental_loading_pct": 13.645337135948502,
+              "scenario2m_max_incremental_loading_pct": 13.810800423248196,
               "scenario3m_max_incremental_loading_pct": 10.865944385958104,
-              "scenario2m_voltage_drop_pct_points": 5.9399095344714326,
+              "scenario2m_voltage_drop_pct_points": 6.005720885662158,
               "scenario3m_voltage_drop_pct_points": 2.246763137521879,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07599959106625459,
               "scenario3m_harmonic_thdv_proxy_pu": 0.0184721562604371
             },
             {
               "outaged_branch_uid": "B16",
-              "scenario2m_max_incremental_loading_pct": 14.81637864449661,
+              "scenario2m_max_incremental_loading_pct": 14.996041975052018,
               "scenario3m_max_incremental_loading_pct": 11.291630988152987,
-              "scenario2m_voltage_drop_pct_points": 6.620125516117714,
+              "scenario2m_voltage_drop_pct_points": 6.692250526175725,
               "scenario3m_voltage_drop_pct_points": 2.0972404298666314,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08609128662086582,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017256932109975566
             },
             {
               "outaged_branch_uid": "B17",
-              "scenario2m_max_incremental_loading_pct": 14.662448932161237,
+              "scenario2m_max_incremental_loading_pct": 14.840245711823668,
               "scenario3m_max_incremental_loading_pct": 11.715489571267558,
-              "scenario2m_voltage_drop_pct_points": 6.525929209114533,
+              "scenario2m_voltage_drop_pct_points": 6.597267427863196,
               "scenario3m_voltage_drop_pct_points": 2.195383050930022,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08441733232571011,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017906022820651235
             },
             {
               "outaged_branch_uid": "B2",
-              "scenario2m_max_incremental_loading_pct": 15.316524853993831,
+              "scenario2m_max_incremental_loading_pct": 15.50225295489016,
               "scenario3m_max_incremental_loading_pct": 14.316143230624675,
-              "scenario2m_voltage_drop_pct_points": 6.323517252887001,
+              "scenario2m_voltage_drop_pct_points": 6.393148190546871,
               "scenario3m_voltage_drop_pct_points": 2.1513617322315715,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08085916127093369,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017455110970855614
             },
             {
               "outaged_branch_uid": "B20",
-              "scenario2m_max_incremental_loading_pct": 13.285918486752513,
+              "scenario2m_max_incremental_loading_pct": 13.447023465377248,
               "scenario3m_max_incremental_loading_pct": 12.383426980082229,
-              "scenario2m_voltage_drop_pct_points": 5.998469002879981,
+              "scenario2m_voltage_drop_pct_points": 6.064813443872952,
               "scenario3m_voltage_drop_pct_points": 2.4069203131084627,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07694916705112728,
               "scenario3m_harmonic_thdv_proxy_pu": 0.01924199282712758
             },
             {
               "outaged_branch_uid": "B21",
-              "scenario2m_max_incremental_loading_pct": 13.100095834634015,
+              "scenario2m_max_incremental_loading_pct": 13.258947528743473,
               "scenario3m_max_incremental_loading_pct": 13.972686829225065,
-              "scenario2m_voltage_drop_pct_points": 6.266942098670403,
+              "scenario2m_voltage_drop_pct_points": 6.335817903166319,
               "scenario3m_voltage_drop_pct_points": 2.415474158574138,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08087573919249982,
               "scenario3m_harmonic_thdv_proxy_pu": 0.020095254713077625
             },
             {
               "outaged_branch_uid": "B4",
-              "scenario2m_max_incremental_loading_pct": 16.575006907976846,
+              "scenario2m_max_incremental_loading_pct": 16.77599535572903,
               "scenario3m_max_incremental_loading_pct": 11.625826738957748,
-              "scenario2m_voltage_drop_pct_points": 5.83887258422473,
+              "scenario2m_voltage_drop_pct_points": 5.903723193515898,
               "scenario3m_voltage_drop_pct_points": 2.1043383335536348,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07972417073378986,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017014314462218138
             },
             {
               "outaged_branch_uid": "B5",
-              "scenario2m_max_incremental_loading_pct": 16.575006907976846,
+              "scenario2m_max_incremental_loading_pct": 16.775995355729034,
               "scenario3m_max_incremental_loading_pct": 11.500689374303164,
-              "scenario2m_voltage_drop_pct_points": 6.204215250335943,
+              "scenario2m_voltage_drop_pct_points": 6.272692374101252,
               "scenario3m_voltage_drop_pct_points": 2.1102627759342685,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07924994635021722,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017045700908845496
             },
             {
               "outaged_branch_uid": "B6",
-              "scenario2m_max_incremental_loading_pct": 13.062843914151518,
+              "scenario2m_max_incremental_loading_pct": 13.221243891666507,
               "scenario3m_max_incremental_loading_pct": 11.008433289479976,
-              "scenario2m_voltage_drop_pct_points": 6.096157767203381,
+              "scenario2m_voltage_drop_pct_points": 6.163553768517682,
               "scenario3m_voltage_drop_pct_points": 2.248210608608925,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07790191839777637,
               "scenario3m_harmonic_thdv_proxy_pu": 0.018428252331660958
             },
             {
               "outaged_branch_uid": "B7",
-              "scenario2m_max_incremental_loading_pct": 16.85962642986938,
+              "scenario2m_max_incremental_loading_pct": 17.064066172467033,
               "scenario3m_max_incremental_loading_pct": 11.215216749705242,
-              "scenario2m_voltage_drop_pct_points": 6.458002093005167,
+              "scenario2m_voltage_drop_pct_points": 6.528596433661282,
               "scenario3m_voltage_drop_pct_points": 2.1581039643237876,
               "scenario2m_harmonic_thdv_proxy_pu": 0.08391189156716057,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017718750842845632
             },
             {
               "outaged_branch_uid": "B8",
-              "scenario2m_max_incremental_loading_pct": 17.040165414290648,
+              "scenario2m_max_incremental_loading_pct": 17.246794371676526,
               "scenario3m_max_incremental_loading_pct": 11.62582673895775,
-              "scenario2m_voltage_drop_pct_points": 6.742311283032665,
+              "scenario2m_voltage_drop_pct_points": 6.809749970861012,
               "scenario3m_voltage_drop_pct_points": 2.1043383335536348,
               "scenario2m_harmonic_thdv_proxy_pu": 0.10640626325991687,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017014314462218152
             },
             {
               "outaged_branch_uid": "B9",
-              "scenario2m_max_incremental_loading_pct": 13.556229942133974,
+              "scenario2m_max_incremental_loading_pct": 13.720612716063908,
               "scenario3m_max_incremental_loading_pct": 11.691407901274912,
-              "scenario2m_voltage_drop_pct_points": 5.926411632359352,
+              "scenario2m_voltage_drop_pct_points": 5.992067184462135,
               "scenario3m_voltage_drop_pct_points": 2.116683599810665,
               "scenario2m_harmonic_thdv_proxy_pu": 0.07592991734104318,
               "scenario3m_harmonic_thdv_proxy_pu": 0.017091964323968305
@@ -1151,27 +1154,27 @@
           ],
           "worst_loading_outage": {
             "outaged_branch_uid": "B8",
-            "scenario2m_max_incremental_loading_pct": 17.040165414290648,
+            "scenario2m_max_incremental_loading_pct": 17.246794371676526,
             "scenario3m_max_incremental_loading_pct": 11.62582673895775,
-            "scenario2m_voltage_drop_pct_points": 6.742311283032665,
+            "scenario2m_voltage_drop_pct_points": 6.809749970861012,
             "scenario3m_voltage_drop_pct_points": 2.1043383335536348,
             "scenario2m_harmonic_thdv_proxy_pu": 0.10640626325991687,
             "scenario3m_harmonic_thdv_proxy_pu": 0.017014314462218152
           },
           "worst_voltage_outage": {
             "outaged_branch_uid": "B10",
-            "scenario2m_max_incremental_loading_pct": 16.743901495053866,
+            "scenario2m_max_incremental_loading_pct": 16.946937957692494,
             "scenario3m_max_incremental_loading_pct": 11.500689374303166,
-            "scenario2m_voltage_drop_pct_points": 8.073671393024329,
+            "scenario2m_voltage_drop_pct_points": 8.155280260763897,
             "scenario3m_voltage_drop_pct_points": 2.1102627759342685,
             "scenario2m_harmonic_thdv_proxy_pu": 0.11608429833110984,
             "scenario3m_harmonic_thdv_proxy_pu": 0.017045700908845517
           },
           "worst_harmonic_outage": {
             "outaged_branch_uid": "B10",
-            "scenario2m_max_incremental_loading_pct": 16.743901495053866,
+            "scenario2m_max_incremental_loading_pct": 16.946937957692494,
             "scenario3m_max_incremental_loading_pct": 11.500689374303166,
-            "scenario2m_voltage_drop_pct_points": 8.073671393024329,
+            "scenario2m_voltage_drop_pct_points": 8.155280260763897,
             "scenario3m_voltage_drop_pct_points": 2.1102627759342685,
             "scenario2m_harmonic_thdv_proxy_pu": 0.11608429833110984,
             "scenario3m_harmonic_thdv_proxy_pu": 0.017045700908845517
@@ -1199,126 +1202,126 @@
           "outage_rows": [
             {
               "outaged_branch_uid": "C10",
-              "scenario2m_max_incremental_loading_pct": 17.390583106325625,
+              "scenario2m_max_incremental_loading_pct": 17.601461226826643,
               "scenario3m_max_incremental_loading_pct": 12.839769147544523,
-              "scenario2m_voltage_drop_pct_points": 10.293270264611177,
+              "scenario2m_voltage_drop_pct_points": 10.380863878857005,
               "scenario3m_voltage_drop_pct_points": 2.3996049092689375,
               "scenario2m_harmonic_thdv_proxy_pu": 0.16925951816480606,
               "scenario3m_harmonic_thdv_proxy_pu": 0.02687223384277937
             },
             {
               "outaged_branch_uid": "C13-2",
-              "scenario2m_max_incremental_loading_pct": 14.201780668877472,
+              "scenario2m_max_incremental_loading_pct": 14.373991387569877,
               "scenario3m_max_incremental_loading_pct": 12.83745575769714,
-              "scenario2m_voltage_drop_pct_points": 8.708285527068115,
+              "scenario2m_voltage_drop_pct_points": 8.795161503403259,
               "scenario3m_voltage_drop_pct_points": 2.3996279689968314,
               "scenario2m_harmonic_thdv_proxy_pu": 0.12564016108509637,
               "scenario3m_harmonic_thdv_proxy_pu": 0.026862112699113528
             },
             {
               "outaged_branch_uid": "C15",
-              "scenario2m_max_incremental_loading_pct": 14.977062647904912,
+              "scenario2m_max_incremental_loading_pct": 15.158674431851765,
               "scenario3m_max_incremental_loading_pct": 12.976790100799827,
-              "scenario2m_voltage_drop_pct_points": 8.754183326165165,
+              "scenario2m_voltage_drop_pct_points": 8.841482494977637,
               "scenario3m_voltage_drop_pct_points": 2.4159381747505315,
               "scenario2m_harmonic_thdv_proxy_pu": 0.12910474776215788,
               "scenario3m_harmonic_thdv_proxy_pu": 0.027711566019069683
             },
             {
               "outaged_branch_uid": "C16",
-              "scenario2m_max_incremental_loading_pct": 15.240636527567899,
+              "scenario2m_max_incremental_loading_pct": 15.425444407011787,
               "scenario3m_max_incremental_loading_pct": 12.865056673764036,
-              "scenario2m_voltage_drop_pct_points": 9.275630910415567,
+              "scenario2m_voltage_drop_pct_points": 9.365864042264327,
               "scenario3m_voltage_drop_pct_points": 2.3906947389152777,
               "scenario2m_harmonic_thdv_proxy_pu": 0.13590515597994732,
               "scenario3m_harmonic_thdv_proxy_pu": 0.027145888414102867
             },
             {
               "outaged_branch_uid": "C17",
-              "scenario2m_max_incremental_loading_pct": 15.342797818979909,
+              "scenario2m_max_incremental_loading_pct": 15.528844505713332,
               "scenario3m_max_incremental_loading_pct": 12.906448794404504,
-              "scenario2m_voltage_drop_pct_points": 9.312407929839372,
+              "scenario2m_voltage_drop_pct_points": 9.402888635230944,
               "scenario3m_voltage_drop_pct_points": 2.411005382188569,
               "scenario2m_harmonic_thdv_proxy_pu": 0.13647563144405755,
               "scenario3m_harmonic_thdv_proxy_pu": 0.027419918700393876
             },
             {
               "outaged_branch_uid": "C2",
-              "scenario2m_max_incremental_loading_pct": 15.137944606386021,
+              "scenario2m_max_incremental_loading_pct": 15.321507244126579,
               "scenario3m_max_incremental_loading_pct": 12.869069437960738,
-              "scenario2m_voltage_drop_pct_points": 8.800344308579856,
+              "scenario2m_voltage_drop_pct_points": 8.887834553380358,
               "scenario3m_voltage_drop_pct_points": 2.399271267887504,
               "scenario2m_harmonic_thdv_proxy_pu": 0.1271906509508652,
               "scenario3m_harmonic_thdv_proxy_pu": 0.026993674748132118
             },
             {
               "outaged_branch_uid": "C20",
-              "scenario2m_max_incremental_loading_pct": 14.314069238788809,
+              "scenario2m_max_incremental_loading_pct": 14.487641568097272,
               "scenario3m_max_incremental_loading_pct": 12.829126616674525,
-              "scenario2m_voltage_drop_pct_points": 8.740715058041214,
+              "scenario2m_voltage_drop_pct_points": 8.827702265002834,
               "scenario3m_voltage_drop_pct_points": 2.5850144942642483,
               "scenario2m_harmonic_thdv_proxy_pu": 0.12643596135007112,
               "scenario3m_harmonic_thdv_proxy_pu": 0.029285964285022253
             },
             {
               "outaged_branch_uid": "C21",
-              "scenario2m_max_incremental_loading_pct": 14.070812604773566,
+              "scenario2m_max_incremental_loading_pct": 14.241435205400293,
               "scenario3m_max_incremental_loading_pct": 12.513463067912467,
-              "scenario2m_voltage_drop_pct_points": 9.233109004051288,
+              "scenario2m_voltage_drop_pct_points": 9.323063646888263,
               "scenario3m_voltage_drop_pct_points": 2.6109348014774714,
               "scenario2m_harmonic_thdv_proxy_pu": 0.13525913886064217,
               "scenario3m_harmonic_thdv_proxy_pu": 0.03172640596722024
             },
             {
               "outaged_branch_uid": "C4",
-              "scenario2m_max_incremental_loading_pct": 16.575006907976842,
+              "scenario2m_max_incremental_loading_pct": 16.77599535572903,
               "scenario3m_max_incremental_loading_pct": 12.83946282481208,
-              "scenario2m_voltage_drop_pct_points": 8.60643877565266,
+              "scenario2m_voltage_drop_pct_points": 8.692693462858447,
               "scenario3m_voltage_drop_pct_points": 2.3987513318670883,
               "scenario2m_harmonic_thdv_proxy_pu": 0.13010791804386013,
               "scenario3m_harmonic_thdv_proxy_pu": 0.026867354779872312
             },
             {
               "outaged_branch_uid": "C5",
-              "scenario2m_max_incremental_loading_pct": 16.57500690797683,
+              "scenario2m_max_incremental_loading_pct": 16.775995355729034,
               "scenario3m_max_incremental_loading_pct": 12.83976914754452,
-              "scenario2m_voltage_drop_pct_points": 8.819341535923432,
+              "scenario2m_voltage_drop_pct_points": 8.907062868240201,
               "scenario3m_voltage_drop_pct_points": 2.3996049092689375,
               "scenario2m_harmonic_thdv_proxy_pu": 0.1272670182618902,
               "scenario3m_harmonic_thdv_proxy_pu": 0.02687223384277931
             },
             {
               "outaged_branch_uid": "C6",
-              "scenario2m_max_incremental_loading_pct": 14.470073968601444,
+              "scenario2m_max_incremental_loading_pct": 14.645538010454079,
               "scenario3m_max_incremental_loading_pct": 12.959501377834837,
-              "scenario2m_voltage_drop_pct_points": 8.659212573962783,
+              "scenario2m_voltage_drop_pct_points": 8.745730295175747,
               "scenario3m_voltage_drop_pct_points": 2.4011467832525724,
               "scenario2m_harmonic_thdv_proxy_pu": 0.12487458855410219,
               "scenario3m_harmonic_thdv_proxy_pu": 0.027336816822931695
             },
             {
               "outaged_branch_uid": "C7",
-              "scenario2m_max_incremental_loading_pct": 16.336949814291792,
+              "scenario2m_max_incremental_loading_pct": 16.535051582961334,
               "scenario3m_max_incremental_loading_pct": 13.132535121180494,
-              "scenario2m_voltage_drop_pct_points": 9.419312385174894,
+              "scenario2m_voltage_drop_pct_points": 9.510330113296039,
               "scenario3m_voltage_drop_pct_points": 2.4574274056677337,
               "scenario2m_harmonic_thdv_proxy_pu": 0.14392015169311623,
               "scenario3m_harmonic_thdv_proxy_pu": 0.028036008545684922
             },
             {
               "outaged_branch_uid": "C8",
-              "scenario2m_max_incremental_loading_pct": 18.175811029421794,
+              "scenario2m_max_incremental_loading_pct": 18.396210819643418,
               "scenario3m_max_incremental_loading_pct": 12.839462824812081,
-              "scenario2m_voltage_drop_pct_points": 8.976093458310253,
+              "scenario2m_voltage_drop_pct_points": 9.064483170035487,
               "scenario3m_voltage_drop_pct_points": 2.3987513318670772,
               "scenario2m_harmonic_thdv_proxy_pu": 0.15846874003641348,
               "scenario3m_harmonic_thdv_proxy_pu": 0.026867354779872312
             },
             {
               "outaged_branch_uid": "C9",
-              "scenario2m_max_incremental_loading_pct": 15.250269217128022,
+              "scenario2m_max_incremental_loading_pct": 15.435193902515532,
               "scenario3m_max_incremental_loading_pct": 12.842403420846555,
-              "scenario2m_voltage_drop_pct_points": 8.656865940507918,
+              "scenario2m_voltage_drop_pct_points": 8.74325713004902,
               "scenario3m_voltage_drop_pct_points": 2.4000369542886424,
               "scenario2m_harmonic_thdv_proxy_pu": 0.1260776152702744,
               "scenario3m_harmonic_thdv_proxy_pu": 0.026884288462555327
@@ -1326,27 +1329,27 @@
           ],
           "worst_loading_outage": {
             "outaged_branch_uid": "C8",
-            "scenario2m_max_incremental_loading_pct": 18.175811029421794,
+            "scenario2m_max_incremental_loading_pct": 18.396210819643418,
             "scenario3m_max_incremental_loading_pct": 12.839462824812081,
-            "scenario2m_voltage_drop_pct_points": 8.976093458310253,
+            "scenario2m_voltage_drop_pct_points": 9.064483170035487,
             "scenario3m_voltage_drop_pct_points": 2.3987513318670772,
             "scenario2m_harmonic_thdv_proxy_pu": 0.15846874003641348,
             "scenario3m_harmonic_thdv_proxy_pu": 0.026867354779872312
           },
           "worst_voltage_outage": {
             "outaged_branch_uid": "C10",
-            "scenario2m_max_incremental_loading_pct": 17.390583106325625,
+            "scenario2m_max_incremental_loading_pct": 17.601461226826643,
             "scenario3m_max_incremental_loading_pct": 12.839769147544523,
-            "scenario2m_voltage_drop_pct_points": 10.293270264611177,
+            "scenario2m_voltage_drop_pct_points": 10.380863878857005,
             "scenario3m_voltage_drop_pct_points": 2.3996049092689375,
             "scenario2m_harmonic_thdv_proxy_pu": 0.16925951816480606,
             "scenario3m_harmonic_thdv_proxy_pu": 0.02687223384277937
           },
           "worst_harmonic_outage": {
             "outaged_branch_uid": "C10",
-            "scenario2m_max_incremental_loading_pct": 17.390583106325625,
+            "scenario2m_max_incremental_loading_pct": 17.601461226826643,
             "scenario3m_max_incremental_loading_pct": 12.839769147544523,
-            "scenario2m_voltage_drop_pct_points": 10.293270264611177,
+            "scenario2m_voltage_drop_pct_points": 10.380863878857005,
             "scenario3m_voltage_drop_pct_points": 2.3996049092689375,
             "scenario2m_harmonic_thdv_proxy_pu": 0.16925951816480606,
             "scenario3m_harmonic_thdv_proxy_pu": 0.02687223384277937
@@ -1366,13 +1369,13 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.1,
-          "scenario2m_source_peak_mw": 11.269755420307845,
+          "scenario2m_source_peak_mw": 11.331073457265973,
           "scenario3m_source_peak_mw": 11.203850394381462,
-          "scenario2m_source_peak_fraction_of_base_input": 0.0971320898375717,
+          "scenario2m_source_peak_fraction_of_base_input": 0.09649053574973884,
           "scenario3m_source_peak_fraction_of_base_input": 0.09712067006651204,
-          "scenario2m_max_segment_current_swing_a": 96.22452154075927,
+          "scenario2m_max_segment_current_swing_a": 96.74809277399686,
           "scenario3m_max_segment_current_swing_a": 161.55726681888405,
-          "scenario2m_buffer_peak_mw": 11.267551458067757,
+          "scenario2m_buffer_peak_mw": 11.328829875008182,
           "scenario3m_buffer_peak_mw": 11.143446895182109
         },
         {
@@ -1380,13 +1383,13 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.1,
-          "scenario2m_source_peak_mw": 2.8171795113745475,
+          "scenario2m_source_peak_mw": 2.832504291892903,
           "scenario3m_source_peak_mw": 2.806051108992662,
-          "scenario2m_source_peak_fraction_of_base_input": 0.024280787220484698,
+          "scenario2m_source_peak_fraction_of_base_input": 0.02412038521054003,
           "scenario3m_source_peak_fraction_of_base_input": 0.02432427731121021,
-          "scenario2m_max_segment_current_swing_a": 24.053731944272045,
+          "scenario2m_max_segment_current_swing_a": 24.184581022306475,
           "scenario3m_max_segment_current_swing_a": 40.38248754575943,
-          "scenario2m_buffer_peak_mw": 2.8168878645169393,
+          "scenario2m_buffer_peak_mw": 2.8322074687520455,
           "scenario3m_buffer_peak_mw": 2.785861723795527
         },
         {
@@ -1394,13 +1397,13 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.1,
-          "scenario2m_source_peak_mw": 0.01740598015443595,
+          "scenario2m_source_peak_mw": 0.021477296374030175,
           "scenario3m_source_peak_mw": 0.015826796988278602,
-          "scenario2m_source_peak_fraction_of_base_input": 0.00015001915880313578,
+          "scenario2m_source_peak_fraction_of_base_input": 0.00018289139518879485,
           "scenario3m_source_peak_fraction_of_base_input": 0.0001371947209576367,
-          "scenario2m_max_segment_current_swing_a": 24.056897490175402,
+          "scenario2m_max_segment_current_swing_a": 24.187804168749494,
           "scenario3m_max_segment_current_swing_a": 40.39150133529529,
-          "scenario2m_buffer_peak_mw": 0.017895596331058528,
+          "scenario2m_buffer_peak_mw": 0.021974294778409842,
           "scenario3m_buffer_peak_mw": 0.016635165595221935
         },
         {
@@ -1408,13 +1411,13 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.1,
-          "scenario2m_source_peak_mw": 0.03512548180118813,
+          "scenario2m_source_peak_mw": 0.043273556687111636,
           "scenario3m_source_peak_mw": 0.03224594294860594,
-          "scenario2m_source_peak_fraction_of_base_input": 0.0003027405055972189,
+          "scenario2m_source_peak_fraction_of_base_input": 0.00036849894974942487,
           "scenario3m_source_peak_fraction_of_base_input": 0.0002795242238923188,
-          "scenario2m_max_segment_current_swing_a": 48.111640191555864,
+          "scenario2m_max_segment_current_swing_a": 48.373415819338334,
           "scenario3m_max_segment_current_swing_a": 80.7768655296129,
-          "scenario2m_buffer_peak_mw": 0.035791192662117055,
+          "scenario2m_buffer_peak_mw": 0.043948589556819684,
           "scenario3m_buffer_peak_mw": 0.03327033119044387
         },
         {
@@ -1422,13 +1425,13 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.1,
-          "scenario2m_source_peak_mw": 5.634591708327861,
+          "scenario2m_source_peak_mw": 5.665245442672472,
           "scenario3m_source_peak_mw": 5.6125417579515045,
-          "scenario2m_source_peak_fraction_of_base_input": 0.04856357991808027,
+          "scenario2m_source_peak_fraction_of_base_input": 0.04824278740922842,
           "scenario3m_source_peak_fraction_of_base_input": 0.04865236477826272,
-          "scenario2m_max_segment_current_swing_a": 48.109615797651486,
+          "scenario2m_max_segment_current_swing_a": 48.3713525478214,
           "scenario3m_max_segment_current_swing_a": 80.77110267658418,
-          "scenario2m_buffer_peak_mw": 5.633775729033879,
+          "scenario2m_buffer_peak_mw": 5.664414937504091,
           "scenario3m_buffer_peak_mw": 5.571723447591054
         }
       ],
@@ -1438,11 +1441,11 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.15,
-          "source_peak_mw": 16.93161136024409,
-          "source_peak_fraction_of_base_input": 0.14593065549360026,
-          "max_segment_current_swing_a": 144.5670701859267,
-          "distributed_buffer_peak_mw": 16.928385060753214,
-          "distributed_buffer_energy_kwh": 0.7483989336060748
+          "source_peak_mw": 17.029814638536465,
+          "source_peak_fraction_of_base_input": 0.1450185584259387,
+          "max_segment_current_swing_a": 145.40558769080462,
+          "distributed_buffer_peak_mw": 17.02652865951916,
+          "distributed_buffer_energy_kwh": 0.7527378332939714
         },
         "Scenario 3(M)": {
           "mode": "coherent_campus",
@@ -1462,11 +1465,11 @@
           "case_name": "electromechanical_band_reference",
           "frequency_hz": 1.0,
           "it_amplitude_fraction": 0.15,
-          "source_peak_mw": 16.93161136024409,
-          "source_peak_fraction_of_base_input": 0.14593065549360026,
-          "max_segment_current_swing_a": 144.5670701859267,
-          "distributed_buffer_peak_mw": 16.928385060753214,
-          "distributed_buffer_energy_kwh": 0.7483989336060748
+          "source_peak_mw": 17.029814638536465,
+          "source_peak_fraction_of_base_input": 0.1450185584259387,
+          "max_segment_current_swing_a": 145.40558769080462,
+          "distributed_buffer_peak_mw": 17.02652865951916,
+          "distributed_buffer_energy_kwh": 0.7527378332939714
         },
         "Scenario 3(M)": {
           "mode": "coherent_campus",
@@ -1482,5 +1485,5 @@
       }
     }
   },
-  "summary_note": "# Public Benefit Analysis\n\nThis note summarizes how far the available public datasets can support the three headline benefits.\n\n## Benefit 1: Efficiency / loss reduction\n\n- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `25.0%` of annualized hours, but its total annualized loss is slightly worse by `+236.72 MWh`.\n- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `31.2%` of annualized hours and improves annualized loss by `-559.50 MWh`.\n- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.\n\n## Benefit 2: Power quality / harmonics\n\n- Public-network harmonic-sensitivity proxy: Scenario 2(M) has a THDv proxy of `0.04088 pu` with four distributed AC interfaces, while Scenario 3(M) has `0.00533 pu` with one centralized AC interface.\n- Interpretation: under the same per-interface harmonic-source assumption, the centralized-front-end architecture reduces aggregate grid-facing harmonic exposure because it collapses multiple AC interfaces into one.\n- Limitation: this is still a structural harmonic-sensitivity screen, not an IEEE 519 compliance study.\n\n## Benefit 3: Voltage response / upstream AC boundary\n\n- Public-network voltage sensitivity at full load: Scenario 2(M) shows a maximum POI voltage-drop proxy of `2.807` percentage points, while Scenario 3(M) shows `0.511`.\n- With a `+10%` load step: Scenario 2(M) rises to `3.071` percentage points and Scenario 3(M) rises to `0.556`.\n- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.\n- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study.\n\n## Scaling evidence\n\n- In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `2` active blocks / `50 MW`.\n- At four blocks / 100 MW, the harmonic proxy is `0.04088 pu` for Scenario 2(M) and `0.00533 pu` for Scenario 3(M).\n- At four blocks / 100 MW, the base voltage-drop proxy is `2.807` percentage points for Scenario 2(M) and `0.511` for Scenario 3(M).\n\n## Location robustness\n\n- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `4.47x`.\n- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `2.82x`.\n- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.\n\n## N-1 contingency robustness\n\n- Across the local single-branch-outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case harmonic proxy ratio remains at least `6.30x`.\n- Across the same outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case voltage-drop proxy ratio remains at least `3.83x`.\n- Interpretation: the centralized-front-end advantage remains visible after local branch outages in the public benchmark network.\n\n## Dynamic diversity\n\n- Under a coherent 10% campus swing at 1 Hz, the source-peak screen is `11.27 MW` for Scenario 2(M) and `11.20 MW` for Scenario 3(M).\n- Under a two-block clustered 10% swing at 1 Hz, the source-peak screen is `5.63 MW` for Scenario 2(M) and `5.61 MW` for Scenario 3(M).\n- Under a split-campus opposing 10% swing at 1 Hz, both grid-facing source peaks collapse toward zero (`0.035 MW` for Scenario 2(M), `0.032 MW` for Scenario 3(M)), but Scenario 3(M) carries larger internal segment-current redistribution.\n- Interpretation: the public model supports the AC-boundary benefit of Scenario 3(M) under diverse block-level patterns, while also showing that some dynamic stress shifts into the internal backbone rather than disappearing."
+  "summary_note": "# Public Benefit Analysis\n\nThis note summarizes how far the available public datasets can support the three headline benefits.\n\n## Benefit 1: Efficiency / loss reduction\n\n- Single-path result under the public ESIF load shape: Scenario 3 is better than Scenario 2 for `100.0%` of annualized hours and improves total annualized loss by `2550.20 MWh`.\n- Multi-node result under the same public ESIF load shape: Scenario 3(M) is better than Scenario 2(M) for `100.0%` of annualized hours and improves annualized loss by `6337.15 MWh`.\n- Interpretation: the public data supports the campus-backbone efficiency claim more strongly than the simple single-path claim.\n\n## Benefit 2: Power quality / harmonics\n\n- Public-network harmonic-sensitivity proxy: Scenario 2(M) has a THDv proxy of `0.04088 pu` with four distributed AC interfaces, while Scenario 3(M) has `0.00533 pu` with one centralized AC interface.\n- Interpretation: under the same per-interface harmonic-source assumption, the centralized-front-end architecture reduces aggregate grid-facing harmonic exposure because it collapses multiple AC interfaces into one.\n- Limitation: this is still a structural harmonic-sensitivity screen, not an IEEE 519 compliance study.\n\n## Benefit 3: Voltage response / upstream AC boundary\n\n- Public-network voltage sensitivity at full load: Scenario 2(M) shows a maximum POI voltage-drop proxy of `2.839` percentage points, while Scenario 3(M) shows `0.511`.\n- With a `+10%` load step: Scenario 2(M) rises to `3.107` percentage points and Scenario 3(M) rises to `0.556`.\n- Interpretation: moving the AC/DC boundary upstream to one centralized subtransmission interface improves the public-network voltage-sensitivity screen.\n- Limitation: this is a linearized network-voltage sensitivity around the published RTS operating point, not an EMT or converter-control study.\n\n## Scaling evidence\n\n- In the current expansion sweep, Scenario 3(M) first turns more efficient than Scenario 2(M) at `1` active blocks / `25 MW`.\n- At four blocks / 100 MW, the harmonic proxy is `0.04088 pu` for Scenario 2(M) and `0.00533 pu` for Scenario 3(M).\n- At four blocks / 100 MW, the base voltage-drop proxy is `2.839` percentage points for Scenario 2(M) and `0.511` for Scenario 3(M).\n\n## Location robustness\n\n- Across the three mirrored RTS areas, the Scenario 2(M)-to-Scenario 3(M) harmonic proxy ratio remains at least `4.47x`.\n- Across the same three areas, the Scenario 2(M)-to-Scenario 3(M) base voltage-drop proxy ratio remains at least `2.85x`.\n- Interpretation: the public-network harmonic and voltage advantages are not tied to one hand-picked benchmark location.\n\n## N-1 contingency robustness\n\n- Across the local single-branch-outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case harmonic proxy ratio remains at least `6.30x`.\n- Across the same outage screens, the Scenario 2(M)-to-Scenario 3(M) worst-case voltage-drop proxy ratio remains at least `3.86x`.\n- Interpretation: the centralized-front-end advantage remains visible after local branch outages in the public benchmark network.\n\n## Dynamic diversity\n\n- Under a coherent 10% campus swing at 1 Hz, the source-peak screen is `11.33 MW` for Scenario 2(M) and `11.20 MW` for Scenario 3(M).\n- Under a two-block clustered 10% swing at 1 Hz, the source-peak screen is `5.67 MW` for Scenario 2(M) and `5.61 MW` for Scenario 3(M).\n- Under a split-campus opposing 10% swing at 1 Hz, both grid-facing source peaks collapse toward zero (`0.043 MW` for Scenario 2(M), `0.032 MW` for Scenario 3(M)), but Scenario 3(M) carries larger internal segment-current redistribution.\n- Interpretation: the public model supports the AC-boundary benefit of Scenario 3(M) under diverse block-level patterns, while also showing that some dynamic stress shifts into the internal backbone rather than disappearing."
 }

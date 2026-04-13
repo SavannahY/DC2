@@ -1,0 +1,1889 @@
+{
+  "meta": {
+    "title": "Equal-total harmonic-spectrum benchmark for Scenario 2(M) and Scenario 3(M)",
+    "status": "public_harmonic_spectrum_screen_v1",
+    "assumption_note": "This screen keeps the total harmonic current constant across Scenario 2(M) and Scenario 3(M). Scenario 2(M) distributes that total current across four AC-fed SST interfaces, while Scenario 3(M) injects the same total current through one centralized front end. The spectra are benchmark assumptions, not vendor spectra or IEEE 519 compliance cases.",
+    "harmonic_orders": [
+      5,
+      7,
+      11,
+      13
+    ],
+    "total_harmonic_current_pu": 0.04,
+    "rts_bus_path": "/Users/zhengjieyang/Documents/DC2/public_data/rts_gmlc/bus.csv",
+    "rts_branch_path": "/Users/zhengjieyang/Documents/DC2/public_data/rts_gmlc/branch.csv"
+  },
+  "spectra": [
+    {
+      "name": "low_order_dominant",
+      "display_name": "Low-order dominant benchmark",
+      "note": "Benchmark spectrum dominated by 5th and 7th current components.",
+      "weights": {
+        "5": 0.56,
+        "7": 0.3,
+        "11": 0.09,
+        "13": 0.05
+      },
+      "rows": [
+        {
+          "label": "Area 1",
+          "distributed_buses": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "central_bus": 112,
+          "scenario2m_thdv_proxy_pu": 0.007918013182534715,
+          "scenario3m_thdv_proxy_pu": 0.004127587884985321,
+          "scenario2m_worst_bus_proxy_pu": 0.007918013182534715,
+          "scenario3m_worst_bus_proxy_pu": 0.004127587884985321,
+          "scenario2m_to_scenario3m_ratio": 1.9183148616502137,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.004958326957831899
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.0060008466934847685
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.00589468437936888
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.004340456836927321
+                }
+              ],
+              "max_poi_voltage_pu": 0.0060008466934847685,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0060008466934847685
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.003718171536096276
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.004499669139124112
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.004420169884620577
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.0032549518196267504
+                }
+              ],
+              "max_poi_voltage_pu": 0.004499669139124112,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.004499669139124112
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.0017526845893122028
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.0021209902682766285
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.0020835478048804815
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.0015343630038082093
+                }
+              ],
+              "max_poi_voltage_pu": 0.0021209902682766285,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0021209902682766285
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0011507312203403242
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0013925335329450289
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0013679546333196253
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0010073955444305578
+                }
+              ],
+              "max_poi_voltage_pu": 0.0013925335329450289,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0013925335329450289
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.022400000000000003,
+                  "voltage_pu": 0.0031280705927889943
+                }
+              ],
+              "max_poi_voltage_pu": 0.0031280705927889943,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0031280705927889943
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.012,
+                  "voltage_pu": 0.0023457257616169864
+                }
+              ],
+              "max_poi_voltage_pu": 0.0023457257616169864,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0023457257616169864
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.0036,
+                  "voltage_pu": 0.0011057465218405097
+                }
+              ],
+              "max_poi_voltage_pu": 0.0011057465218405097,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0011057465218405097
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.002,
+                  "voltage_pu": 0.0007259830545751987
+                }
+              ],
+              "max_poi_voltage_pu": 0.0007259830545751987,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0007259830545751987
+            }
+          }
+        },
+        {
+          "label": "Area 2",
+          "distributed_buses": [
+            203,
+            204,
+            206,
+            210
+          ],
+          "central_bus": 212,
+          "scenario2m_thdv_proxy_pu": 0.01471836727432745,
+          "scenario3m_thdv_proxy_pu": 0.013173602157741875,
+          "scenario2m_worst_bus_proxy_pu": 0.01471836727432745,
+          "scenario3m_worst_bus_proxy_pu": 0.013173602157741875,
+          "scenario2m_to_scenario3m_ratio": 1.117262165510118,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.007683590963891554
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.01088311835483915
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.011154860611428381
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.009779516545628286
+                }
+              ],
+              "max_poi_voltage_pu": 0.011154860611428381,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.011154860611428381
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.005761507844473335
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.008160122840675577
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.008364029772619045
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.007333020339548066
+                }
+              ],
+              "max_poi_voltage_pu": 0.008364029772619045,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.008364029772619045
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.002715792792404922
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.003846267147281616
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.003942423938599967
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.0034565223867437764
+                }
+              ],
+              "max_poi_voltage_pu": 0.003942423938599967,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.003942423938599967
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0017830522741406113
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0025252446660720233
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0025883816203745953
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0022693738494576955
+                }
+              ],
+              "max_poi_voltage_pu": 0.0025883816203745953,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.0025883816203745953
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.022400000000000003,
+                  "voltage_pu": 0.009983851194325006
+                }
+              ],
+              "max_poi_voltage_pu": 0.009983851194325006,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.009983851194325006
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.012,
+                  "voltage_pu": 0.007486377799706947
+                }
+              ],
+              "max_poi_voltage_pu": 0.007486377799706947,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.007486377799706947
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.0036,
+                  "voltage_pu": 0.0035288507700603497
+                }
+              ],
+              "max_poi_voltage_pu": 0.0035288507700603497,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.0035288507700603497
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.002,
+                  "voltage_pu": 0.002316866164182978
+                }
+              ],
+              "max_poi_voltage_pu": 0.002316866164182978,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.002316866164182978
+            }
+          }
+        },
+        {
+          "label": "Area 3",
+          "distributed_buses": [
+            303,
+            304,
+            306,
+            310
+          ],
+          "central_bus": 312,
+          "scenario2m_thdv_proxy_pu": 0.024242135934403105,
+          "scenario3m_thdv_proxy_pu": 0.02081167206943617,
+          "scenario2m_worst_bus_proxy_pu": 0.024242135934403105,
+          "scenario3m_worst_bus_proxy_pu": 0.02081167206943617,
+          "scenario2m_to_scenario3m_ratio": 1.1648336497673766,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.01632830308526324
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.018362061757023505
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.018371874519039058
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.005600000000000001,
+                  "voltage_pu": 0.01689066360203187
+                }
+              ],
+              "max_poi_voltage_pu": 0.018371874519039058,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.018371874519039058
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.012244761685246922
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.01376939646859906
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.013776831671475821
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.003,
+                  "voltage_pu": 0.012666378084797503
+                }
+              ],
+              "max_poi_voltage_pu": 0.013776831671475821,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.013776831671475821
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.005772102194750372
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.006490658621899381
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.006494185837568633
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0009,
+                  "voltage_pu": 0.005970819150821076
+                }
+              ],
+              "max_poi_voltage_pu": 0.006494185837568633,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.006494185837568633
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.003789709707215325
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.004261463799179989
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.0042637824430551636
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0005,
+                  "voltage_pu": 0.003920174713535022
+                }
+              ],
+              "max_poi_voltage_pu": 0.0042637824430551636,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.0042637824430551636
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.022400000000000003,
+                  "voltage_pu": 0.01577205342394813
+                }
+              ],
+              "max_poi_voltage_pu": 0.01577205342394813,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.01577205342394813
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.012,
+                  "voltage_pu": 0.011827332431624376
+                }
+              ],
+              "max_poi_voltage_pu": 0.011827332431624376,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.011827332431624376
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.0036,
+                  "voltage_pu": 0.005575243367419582
+                }
+              ],
+              "max_poi_voltage_pu": 0.005575243367419582,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.005575243367419582
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.002,
+                  "voltage_pu": 0.0036604499810495594
+                }
+              ],
+              "max_poi_voltage_pu": 0.0036604499810495594,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.0036604499810495594
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "balanced_filtered",
+      "display_name": "Balanced filtered benchmark",
+      "note": "Benchmark spectrum with the same total current spread evenly across the tested orders.",
+      "weights": {
+        "5": 0.25,
+        "7": 0.25,
+        "11": 0.25,
+        "13": 0.25
+      },
+      "rows": [
+        {
+          "label": "Area 1",
+          "distributed_buses": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "central_bus": 112,
+          "scenario2m_thdv_proxy_pu": 0.010218970631159204,
+          "scenario3m_thdv_proxy_pu": 0.005327451613171866,
+          "scenario2m_worst_bus_proxy_pu": 0.010218970631159204,
+          "scenario3m_worst_bus_proxy_pu": 0.005327451613171866,
+          "scenario2m_to_scenario3m_ratio": 1.918172397078801,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0022135388204606687
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0026789494167342716
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0026315555265039635
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0019377039450568395
+                }
+              ],
+              "max_poi_voltage_pu": 0.0026789494167342716,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0026789494167342716
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.00309847628008023
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0037497242826034266
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0036834749038504814
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.002712459849688959
+                }
+              ],
+              "max_poi_voltage_pu": 0.0037497242826034266,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0037497242826034266
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.004868568303645007
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0058916396341017465
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0057876327913346706
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.004262119455022804
+                }
+              ],
+              "max_poi_voltage_pu": 0.0058916396341017465,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0058916396341017465
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0057536561017016204
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.006962667664725144
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.006839773166598127
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.005036977722152789
+                }
+              ],
+              "max_poi_voltage_pu": 0.006962667664725144,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.006962667664725144
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.0013964600860665152
+                }
+              ],
+              "max_poi_voltage_pu": 0.0013964600860665152,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0013964600860665152
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.0019547714680141553
+                }
+              ],
+              "max_poi_voltage_pu": 0.0019547714680141553,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0019547714680141553
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.003071518116223638
+                }
+              ],
+              "max_poi_voltage_pu": 0.003071518116223638,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.003071518116223638
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.0036299152728759936
+                }
+              ],
+              "max_poi_voltage_pu": 0.0036299152728759936,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0036299152728759936
+            }
+          }
+        },
+        {
+          "label": "Area 2",
+          "distributed_buses": [
+            203,
+            204,
+            206,
+            210
+          ],
+          "central_bus": 212,
+          "scenario2m_thdv_proxy_pu": 0.01899477331050229,
+          "scenario3m_thdv_proxy_pu": 0.01700203832099508,
+          "scenario2m_worst_bus_proxy_pu": 0.01899477331050229,
+          "scenario3m_worst_bus_proxy_pu": 0.01700203832099508,
+          "scenario2m_to_scenario3m_ratio": 1.1172056521626863,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0034301745374515857
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0048585349798389065
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.004979848487244812
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.004365855600726912
+                }
+              ],
+              "max_poi_voltage_pu": 0.004979848487244812,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.004979848487244812
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.004801256537061112
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.006800102367229648
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.006970024810515872
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0061108502829567216
+                }
+              ],
+              "max_poi_voltage_pu": 0.006970024810515872,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.006970024810515872
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.007543868867791449
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.010684075409115602
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.010951177607222133
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.009601451074288267
+                }
+              ],
+              "max_poi_voltage_pu": 0.010951177607222133,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.010951177607222133
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.008915261370703056
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.012626223330360117
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.012941908101872974
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.011346869247288477
+                }
+              ],
+              "max_poi_voltage_pu": 0.012941908101872974,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.012941908101872974
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.004457076426037949
+                }
+              ],
+              "max_poi_voltage_pu": 0.004457076426037949,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.004457076426037949
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.006238648166422456
+                }
+              ],
+              "max_poi_voltage_pu": 0.006238648166422456,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.006238648166422456
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.009802363250167638
+                }
+              ],
+              "max_poi_voltage_pu": 0.009802363250167638,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.009802363250167638
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.011584330820914888
+                }
+              ],
+              "max_poi_voltage_pu": 0.011584330820914888,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.011584330820914888
+            }
+          }
+        },
+        {
+          "label": "Area 3",
+          "distributed_buses": [
+            303,
+            304,
+            306,
+            310
+          ],
+          "central_bus": 312,
+          "scenario2m_thdv_proxy_pu": 0.03128882927972686,
+          "scenario3m_thdv_proxy_pu": 0.02686136372936616,
+          "scenario2m_worst_bus_proxy_pu": 0.03128882927972686,
+          "scenario3m_worst_bus_proxy_pu": 0.02686136372936616,
+          "scenario2m_to_scenario3m_ratio": 1.1648265365440242,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0072894210202068006
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.008197348998671207
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.008201729695999579
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.007540474822335655
+                }
+              ],
+              "max_poi_voltage_pu": 0.008201729695999579,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.008201729695999579
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.0102039680710391
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.011474497057165887
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.011480693059563184
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.010555315070664586
+                }
+              ],
+              "max_poi_voltage_pu": 0.011480693059563184,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.011480693059563184
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.016033617207639926
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.018029607283053837
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.018039405104357312
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.016585608752280764
+                }
+              ],
+              "max_poi_voltage_pu": 0.018039405104357312,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.018039405104357312
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.018948548536076623
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.02130731899589994
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.021318912215275817
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0025,
+                  "voltage_pu": 0.019600873567675106
+                }
+              ],
+              "max_poi_voltage_pu": 0.021318912215275817,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.021318912215275817
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.007041095278548272
+                }
+              ],
+              "max_poi_voltage_pu": 0.007041095278548272,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.007041095278548272
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.009856110359686981
+                }
+              ],
+              "max_poi_voltage_pu": 0.009856110359686981,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.009856110359686981
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.015486787131721063
+                }
+              ],
+              "max_poi_voltage_pu": 0.015486787131721063,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.015486787131721063
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.01,
+                  "voltage_pu": 0.018302249905247796
+                }
+              ],
+              "max_poi_voltage_pu": 0.018302249905247796,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.018302249905247796
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "higher_order_filtered",
+      "display_name": "Higher-order filtered benchmark",
+      "note": "Benchmark spectrum shifted toward higher orders to emulate stronger low-order filtering.",
+      "weights": {
+        "5": 0.1,
+        "7": 0.15,
+        "11": 0.35,
+        "13": 0.4
+      },
+      "rows": [
+        {
+          "label": "Area 1",
+          "distributed_buses": [
+            103,
+            104,
+            106,
+            110
+          ],
+          "central_bus": 112,
+          "scenario2m_thdv_proxy_pu": 0.014083678291695798,
+          "scenario3m_thdv_proxy_pu": 0.007342342331278528,
+          "scenario2m_worst_bus_proxy_pu": 0.014083678291695798,
+          "scenario3m_worst_bus_proxy_pu": 0.007342342331278528,
+          "scenario2m_to_scenario3m_ratio": 1.9181451444587434,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0008854155281842674
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0010715797666937083
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0010526222106015855
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0007750815780227357
+                }
+              ],
+              "max_poi_voltage_pu": 0.0010715797666937083,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.0010715797666937083
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.001859085768048138
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.002249834569562056
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.0022100849423102886
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.0016274759098133752
+                }
+              ],
+              "max_poi_voltage_pu": 0.002249834569562056,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.002249834569562056
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.00681599562510301
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.008248295487742445
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.008102685907868537
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.005966967237031925
+                }
+              ],
+              "max_poi_voltage_pu": 0.008248295487742445,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.008248295487742445
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 103,
+                  "bus_name": "Adler",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.009205849762722594
+                },
+                {
+                  "bus_id": 104,
+                  "bus_name": "Agricola",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.011140268263560231
+                },
+                {
+                  "bus_id": 106,
+                  "bus_name": "Alber",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.010943637066557002
+                },
+                {
+                  "bus_id": 110,
+                  "bus_name": "Allen",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.008059164355444463
+                }
+              ],
+              "max_poi_voltage_pu": 0.011140268263560231,
+              "worst_bus_id": 104,
+              "worst_bus_name": "Agricola",
+              "worst_bus_voltage_pu": 0.011140268263560231
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.0005585840344266061
+                }
+              ],
+              "max_poi_voltage_pu": 0.0005585840344266061,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0005585840344266061
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.006,
+                  "voltage_pu": 0.0011728628808084932
+                }
+              ],
+              "max_poi_voltage_pu": 0.0011728628808084932,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.0011728628808084932
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.013999999999999999,
+                  "voltage_pu": 0.004300125362713093
+                }
+              ],
+              "max_poi_voltage_pu": 0.004300125362713093,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.004300125362713093
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 112,
+                  "bus_name": "Archer",
+                  "current_pu": 0.016,
+                  "voltage_pu": 0.005807864436601589
+                }
+              ],
+              "max_poi_voltage_pu": 0.005807864436601589,
+              "worst_bus_id": 112,
+              "worst_bus_name": "Archer",
+              "worst_bus_voltage_pu": 0.005807864436601589
+            }
+          }
+        },
+        {
+          "label": "Area 2",
+          "distributed_buses": [
+            203,
+            204,
+            206,
+            210
+          ],
+          "central_bus": 212,
+          "scenario2m_thdv_proxy_pu": 0.026178207803535056,
+          "scenario3m_thdv_proxy_pu": 0.02343208804615667,
+          "scenario2m_worst_bus_proxy_pu": 0.026178207803535056,
+          "scenario3m_worst_bus_proxy_pu": 0.02343208804615667,
+          "scenario2m_to_scenario3m_ratio": 1.1171948377783945,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0013720698149806345
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0019434139919355623
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.001991939394897925
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0017463422402907648
+                }
+              ],
+              "max_poi_voltage_pu": 0.001991939394897925,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.001991939394897925
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.0028807539222366675
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.004080061420337788
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.004182014886309523
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.003666510169774033
+                }
+              ],
+              "max_poi_voltage_pu": 0.004182014886309523,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.004182014886309523
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.010561416414908027
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.014957705572761838
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.015331648650110984
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.013442031504003572
+                }
+              ],
+              "max_poi_voltage_pu": 0.015331648650110984,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.015331648650110984
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 203,
+                  "bus_name": "Baffin",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.01426441819312489
+                },
+                {
+                  "bus_id": 204,
+                  "bus_name": "Bailey",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.020201957328576187
+                },
+                {
+                  "bus_id": 206,
+                  "bus_name": "Bajer",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.020707052962996762
+                },
+                {
+                  "bus_id": 210,
+                  "bus_name": "Banks",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.018154990795661564
+                }
+              ],
+              "max_poi_voltage_pu": 0.020707052962996762,
+              "worst_bus_id": 206,
+              "worst_bus_name": "Bajer",
+              "worst_bus_voltage_pu": 0.020707052962996762
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.0017828305704151797
+                }
+              ],
+              "max_poi_voltage_pu": 0.0017828305704151797,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.0017828305704151797
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.006,
+                  "voltage_pu": 0.0037431888998534736
+                }
+              ],
+              "max_poi_voltage_pu": 0.0037431888998534736,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.0037431888998534736
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.013999999999999999,
+                  "voltage_pu": 0.013723308550234691
+                }
+              ],
+              "max_poi_voltage_pu": 0.013723308550234691,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.013723308550234691
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 212,
+                  "bus_name": "Barkla",
+                  "current_pu": 0.016,
+                  "voltage_pu": 0.018534929313463823
+                }
+              ],
+              "max_poi_voltage_pu": 0.018534929313463823,
+              "worst_bus_id": 212,
+              "worst_bus_name": "Barkla",
+              "worst_bus_voltage_pu": 0.018534929313463823
+            }
+          }
+        },
+        {
+          "label": "Area 3",
+          "distributed_buses": [
+            303,
+            304,
+            306,
+            310
+          ],
+          "central_bus": 312,
+          "scenario2m_thdv_proxy_pu": 0.04312245917956968,
+          "scenario3m_thdv_proxy_pu": 0.03702054186702907,
+          "scenario2m_worst_bus_proxy_pu": 0.04312245917956968,
+          "scenario3m_worst_bus_proxy_pu": 0.03702054186702907,
+          "scenario2m_to_scenario3m_ratio": 1.1648251755594925,
+          "scenario2m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.002915768408082721
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.003278939599468483
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.0032806918783998317
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.001,
+                  "voltage_pu": 0.003016189928934262
+                }
+              ],
+              "max_poi_voltage_pu": 0.0032806918783998317,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.0032806918783998317
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.006122380842623461
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.00688469823429953
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.0068884158357379105
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0015,
+                  "voltage_pu": 0.0063331890423987515
+                }
+              ],
+              "max_poi_voltage_pu": 0.0068884158357379105,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.0068884158357379105
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.02244706409069589
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.02524145019627537
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.025255167146100235
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.0034999999999999996,
+                  "voltage_pu": 0.023219852253193073
+                }
+              ],
+              "max_poi_voltage_pu": 0.025255167146100235,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.025255167146100235
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 303,
+                  "bus_name": "Caesar",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.0303176776577226
+                },
+                {
+                  "bus_id": 304,
+                  "bus_name": "Caine",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.03409171039343991
+                },
+                {
+                  "bus_id": 306,
+                  "bus_name": "Camus",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.03411025954444131
+                },
+                {
+                  "bus_id": 310,
+                  "bus_name": "Caruso",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.03136139770828018
+                }
+              ],
+              "max_poi_voltage_pu": 0.03411025954444131,
+              "worst_bus_id": 306,
+              "worst_bus_name": "Camus",
+              "worst_bus_voltage_pu": 0.03411025954444131
+            }
+          },
+          "scenario3m_orders": {
+            "5": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.004,
+                  "voltage_pu": 0.0028164381114193088
+                }
+              ],
+              "max_poi_voltage_pu": 0.0028164381114193088,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.0028164381114193088
+            },
+            "7": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.006,
+                  "voltage_pu": 0.005913666215812188
+                }
+              ],
+              "max_poi_voltage_pu": 0.005913666215812188,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.005913666215812188
+            },
+            "11": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.013999999999999999,
+                  "voltage_pu": 0.021681501984409487
+                }
+              ],
+              "max_poi_voltage_pu": 0.021681501984409487,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.021681501984409487
+            },
+            "13": {
+              "poi_rows": [
+                {
+                  "bus_id": 312,
+                  "bus_name": "Caxton",
+                  "current_pu": 0.016,
+                  "voltage_pu": 0.029283599848396475
+                }
+              ],
+              "max_poi_voltage_pu": 0.029283599848396475,
+              "worst_bus_id": 312,
+              "worst_bus_name": "Caxton",
+              "worst_bus_voltage_pu": 0.029283599848396475
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "minimum_scenario2m_to_scenario3m_thdv_ratio": 1.1171948377783945,
+    "maximum_scenario2m_to_scenario3m_thdv_ratio": 1.9183148616502137,
+    "interpretation": "If Scenario 3(M) remains below Scenario 2(M) under equal-total harmonic injection, then the power-quality benefit is not just an artifact of injecting less total current. It also reflects the stronger centralized interconnection point."
+  }
+}

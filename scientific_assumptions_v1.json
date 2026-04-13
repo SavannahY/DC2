@@ -279,14 +279,14 @@
     },
     {
       "name": "ac_fed_sst_800vdc",
-      "display_name": "NVIDIA-style 69 kV AC -> 800 VDC perimeter conversion",
-      "notes": "This comparison case is modeled as a direct 69 kV AC to 800 VDC perimeter-conversion path feeding the 800 VDC facility side, which more literally matches the NVIDIA-style architecture direction than the earlier AC-fed pod proxy.",
+      "display_name": "AC-fed SST + 800 VDC baseline",
+      "notes": "This comparison case is modeled as an explicit AC-fed SST-style chain feeding the 800 VDC facility side: a 69 kV AC campus feeder, a grid-side rectifier stage, an isolated high-frequency SST stage, and then the 800 VDC facility bus. This is the intended baseline advanced architecture for comparison against the MVDC backbone.",
       "native_buffer_anchor": "800 VDC facility bus",
       "innovation_metrics": {
         "ac_harmonic_injection_points": 1,
-        "major_conversion_stages": 3,
+        "major_conversion_stages": 4,
         "downstream_reactive_coordination_points": 1,
-        "dc_native_resource_path": "Direct 800 VDC facility-side path, but AC remains upstream of the facility boundary"
+        "dc_native_resource_path": "800 VDC facility-side path delivered through an AC-fed SST baseline"
       },
       "elements": [
         {
@@ -301,9 +301,15 @@
         },
         {
           "type": "stage",
-          "name": "Perimeter 69 kV AC -> 800 VDC converter",
-          "curve": "perimeter_69kvac_to_800vdc",
+          "name": "SST grid-side rectifier",
+          "curve": "grid_side_acdc",
           "rated_output_mw_factor": 1.07
+        },
+        {
+          "type": "stage",
+          "name": "SST isolated high-frequency link",
+          "curve": "hf_isolated_dc_link",
+          "rated_output_mw_factor": 1.06
         },
         {
           "type": "conductor",

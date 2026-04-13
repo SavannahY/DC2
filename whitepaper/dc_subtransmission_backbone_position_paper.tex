@@ -7,7 +7,7 @@
 \usepackage{url}
 
 \title{Direct Current Subtransmission Backbone for AI Factories:\\
-A Position Paper with Source-Anchored Architecture Modeling and OpenDSS Boundary Cross-Checks}
+A Position Paper with Source-Anchored Modeling and Public Benchmark Screens}
 
 \author{Author Name(s) Here}
 \date{April 2026}
@@ -18,9 +18,9 @@ A Position Paper with Source-Anchored Architecture Modeling and OpenDSS Boundary
 \begin{abstract}
 AI factories are becoming power-delivery-limited before they become compute-limited. The conventional response has been to improve the last portion of the power path, especially by introducing higher-voltage facility buses such as 800~VDC. That direction is necessary, but it is incomplete if alternating current still penetrates the campus deeply enough to recreate repeated conversion, distributed power-quality ownership, and reactive-power coordination across multiple pods or facility front ends. This paper takes the position that the next architectural step is to move the main AC/DC boundary upstream to the campus subtransmission interface and to treat the downstream campus as a DC-native system.
 
-To support that position, this paper combines a source-anchored comparative architecture model with OpenDSS quasi-static AC-boundary cross-checks, a standardized harmonic-sensitivity scan, and a follow-on multi-node campus comparison. Three base scenarios are compared at a 100~MW delivered IT reference campus: Scenario~1, a traditional AC-centric path; Scenario~2, an NVIDIA-style 69~kV AC to 800~VDC perimeter-conversion path; and Scenario~3, a proposed 69~kV-class medium-voltage direct-current (MVDC) backbone feeding isolated DC pods and an 800~VDC facility bus. A second model layer then compares Scenario~1(M), Scenario~2(M), and Scenario~3(M) on the same four-block campus topology. In the corrected present model, the MVDC backbone remains directionally favorable in both the single-path and multi-node comparisons, while the OpenDSS layers indicate lower modeled AC-side feeder burden and lower AC-boundary harmonic sensitivity when the AC/DC boundary is centralized. The dynamic-load analysis further shows that AI-factory power architecture should be evaluated under time-varying load envelopes, not only steady-state energy accounting.
+To support that position, this paper combines a source-anchored comparative architecture model with OpenDSS AC-boundary consequence screens, a standardized harmonic-sensitivity scan, public RTS-GMLC and SMART-DS benchmark layers, a public ANDES RMS dynamic benchmark, and a reduced-order MVDC fault-envelope screen. Three base scenarios are compared at a 100~MW delivered IT reference campus: Scenario~1, a traditional AC-centric path; Scenario~2, an AC-fed SST plus 800~VDC baseline; and Scenario~3, a proposed 69~kV-class medium-voltage direct-current (MVDC) backbone feeding isolated DC pods and an 800~VDC facility bus. A second model layer then compares Scenario~1(M), Scenario~2(M), and Scenario~3(M) on the same four-block campus topology. In the current model, the MVDC backbone remains favorable in both the single-path and multi-node comparisons relative to that SST baseline. The strongest present evidence still emerges in the multi-node campus and public benchmark screens, where Scenario~3(M) shows consistently lower AC-boundary harmonic sensitivity, lower AC-boundary voltage sensitivity, stronger benchmark voltage robustness under weak remote-corridor stress, and persistence of those advantages under mirrored benchmark locations and local single-branch-outage screens.
 
-The paper does not claim that the present model closes all deployment questions. Protection, grounding, harmonic compliance, converter-control dynamics, and proxy-parameter uncertainty still require deeper study. The position advanced here is therefore directional rather than final: once AI factories are recognized as large, converter-rich, dynamic loads, a DC subtransmission backbone becomes a credible system architecture that merits deeper validation.
+The paper does not claim that the present model closes all deployment questions. Protection, grounding, harmonic compliance, converter-control dynamics, and proxy-parameter uncertainty still require deeper study. The reduced-order fault screen bounds interruption timescales, but it does not establish a deployable protection design. The position advanced here is therefore narrower than a blanket superiority claim: once AI factories are recognized as large, converter-rich, dynamic loads, a campus-scale MVDC backbone becomes a credible architecture for centralizing AC-boundary power-quality management, reducing upstream voltage sensitivity, and containing fast disturbances at a centralized campus interface, and it merits deeper validation on that basis.
 \end{abstract}
 
 \section{Introduction}
@@ -41,7 +41,7 @@ Second, AI factories are dynamic loads. Public studies now describe periodic and
 
 Third, power-quality ownership becomes easier to define when the AC side is centralized. If the campus has one common AC/DC front end, then harmonics and power-factor behavior are concentrated at the grid interface rather than recreated at many downstream AC front ends.
 
-Fourth, a DC backbone is a more natural integration domain for batteries, photovoltaics, and local energy buffers. That does not eliminate the need for sophisticated controls, but it removes unnecessary AC/DC/AC detours from the resource path.
+Fourth, a DC backbone is a more natural integration domain for batteries, photovoltaics, and local energy buffers. That does not eliminate the need for sophisticated controls, but it removes unnecessary AC/DC/AC detours from the resource path. In the present paper, the strongest support for this position is at campus scale, where the architecture can be evaluated as a shared backbone across multiple data-center blocks rather than as a single equivalent path.
 
 \section{Scenarios Under Comparison}
 This paper compares three scenarios derived from the supporting model files in the project workspace.
@@ -56,8 +56,8 @@ This paper compares three scenarios derived from the supporting model files in t
 \subsection{Scenario 1: Traditional AC-centric baseline}
 The baseline keeps AC as the dominant campus-distribution domain. The representative path is a 69~kV AC campus feeder, medium-voltage to low-voltage transformation, facility UPS, low-voltage AC distribution, a PDU or transformer stage, server AC/DC conversion, and board-level DC/DC regulation.
 
-\subsection{Scenario 2: NVIDIA-style 69~kV AC to 800~VDC perimeter conversion}
-Scenario~2 is intended to reflect the direction of an 800~VDC facility while preserving AC upstream of the facility boundary. In the current scenario, a 69~kV AC campus feeder supplies a direct 69~kV AC to 800~VDC perimeter-conversion stage, followed by an 800~VDC facility bus, rack or node DC/DC conversion, and board-level DC/DC conversion. The 800~VDC downstream structure is source-backed; the 69~kV campus-side voltage is a local scenario assumption requested for this study \cite{NVIDIA2025HVDCBlog}. Scenario~2 is therefore an important advanced comparator, but it still stops short of an MVDC backbone.
+\subsection{Scenario 2: AC-fed SST plus 800~VDC baseline}
+Scenario~2 is intended to represent the advanced AC-fed baseline for this study. In the current scenario, a 69~kV AC campus feeder supplies an explicit SST-style chain: a grid-side rectifier stage, an isolated high-frequency stage, and then an 800~VDC facility bus followed by rack or node DC/DC conversion and board-level DC/DC conversion. The 800~VDC downstream structure is source-backed; the 69~kV campus-side voltage is a local scenario assumption requested for this study \cite{NVIDIA2025HVDCBlog}. This is the baseline against which Scenario~3 is judged. The intended architectural difference between Scenario~2 and Scenario~3 is therefore the MVDC subtransmission backbone and the upstream relocation of the main AC/DC boundary, not the mere presence of 800~VDC downstream.
 
 \subsection{Scenario 3: Proposed MVDC backbone}
 Scenario~3 centralizes the AC/DC boundary at the campus entry. A centralized 69~kV-class AC/DC front end feeds an MVDC backbone, which then supplies isolated DC pods or DC transformers, the 800~VDC facility bus, rack or node DC/DC conversion, and board-level DC/DC regulation. This is the main architectural contribution of the paper. The key system-level change is not merely the use of better converters; it is the relocation of the main AC/DC boundary and the explicit introduction of the MVDC backbone as the campus organizing layer while preserving the same end-use electrical boundary as Scenario~2.
@@ -68,10 +68,23 @@ The first model layer is an architecture comparison model implemented in Python.
 \begin{equation}
 \eta_{\text{path}} = \frac{P_{\text{IT}}}{P_{\text{source}}}.
 \end{equation}
-Partial-load converter efficiencies are represented with source-anchored or explicitly labeled proxy curves. The present assumptions are stored in a source-tagged JSON file so that each major input can be traced to a public source, a local scenario assumption, or a documented proxy.
+Annualized electrical loss is then computed over a load-bin set as
+\begin{equation}
+E_{\text{loss}} = \sum_{b \in \mathcal{B}} \left(P_{\text{source},b} - P_{\text{IT},b}\right) H_b,
+\end{equation}
+where $H_b$ is the annualized duration of bin $b$. Partial-load converter efficiencies are represented with source-anchored or explicitly labeled proxy curves. The present assumptions are stored in a source-tagged JSON file so that each major input can be traced to a public source, a local scenario assumption, or a documented proxy.
 
 \subsection{Dynamic-load layer}
 The analytical model also includes dynamic AI-load cases. Two frequency anchors are used. The first is a 1.0~Hz reference point within the 0.1--5~Hz band that PNNL identifies as relevant for positive-sequence dynamic studies \cite{PNNL2026EMT}. The second is a measured 14.8~Hz case drawn from a real data-center oscillation study in Dominion Energy territory \cite{Mishra2025Oscillation}. Amplitude values are sensitivity cases rather than universal measured constants. For each case, the model estimates the raw PCC power swing and the native buffer power and energy that would be required at the architecture's natural support point.
+
+For the multi-node campus cases, the dynamic screen also records two explicit metrics:
+\begin{equation}
+\Delta P_{\text{src,max}} = \max \left( \left|P_{\text{src}}^{\text{hi}} - P_{\text{src}}^{0}\right|,\ \left|P_{\text{src}}^{0} - P_{\text{src}}^{\text{lo}}\right| \right),
+\end{equation}
+\begin{equation}
+\Delta I_{\text{seg,max}} = \max_{\ell \in \mathcal{L}} \max \left( \left|I_{\ell}^{\text{hi}} - I_{\ell}^{0}\right|,\ \left|I_{\ell}^{0} - I_{\ell}^{\text{lo}}\right| \right),
+\end{equation}
+where the first is a grid-facing source-swing metric and the second is an internal backbone-current-redistribution metric. This distinction becomes important in the discussion because an architecture can improve the upstream AC boundary while still concentrating dynamic stress internally.
 
 \subsection{OpenDSS cross-check layer}
 The second model layer uses OpenDSS as an AC-side quasi-static cross-check tool \cite{OpenDSS2026}. This layer is intentionally narrow. It does not attempt to model the internal MVDC backbone or the 800~VDC plant in electromagnetic-transient detail. Instead, it models the upstream AC source, the AC feeder or substation-side AC stub, and the equivalent downstream demand seen at that AC boundary.
@@ -80,13 +93,53 @@ For Scenarios~1 and~2, the first modeled 69~kV AC feeder is preserved in OpenDSS
 
 The OpenDSS study is executed as a sequence of quasi-static snapshots over two cycles with 64 samples per cycle. At each time step, the downstream demand is updated from the analytical model and the resulting source power, feeder current, feeder loss, and PCC voltage are recorded.
 
+The associated harmonic-sensitivity screen is also intentionally comparative rather than compliance-grade. A standardized per-interface harmonic-current probe is applied at harmonic orders $\mathcal{H}=\{5,7,11,13\}$, and the resulting voltage-distortion proxy is reported as
+\begin{equation}
+\text{THD}_{v,\text{proxy}} = \sqrt{\sum_{h \in \mathcal{H}} \left|\Delta V_{\text{POI},h}\right|^2 }.
+\end{equation}
+This metric is used only to compare scenario sensitivity under the same perturbation basis. It is not an IEEE~519 compliance margin.
+
 \subsection{Multi-node campus extension}
 The single-path architecture comparison is useful for isolating end-to-end conversion structure, but it is not by itself a campus-topology model. To address that limitation, a separate multi-node comparison is also run on a shared four-block campus layout. In that extension, Scenario~1(M), Scenario~2(M), and Scenario~3(M) use the same block sizes, tap locations, and inter-block segment lengths. Scenario~1(M) and Scenario~2(M) retain a 69~kV AC backbone, while Scenario~3(M) replaces that campus-interior AC backbone with a 69~kV DC backbone. Each block then carries its scenario-specific local conversion path to the IT load.
 
-This extension is intentionally still simplified: it is radial, balanced, and quasi-static, and it does not yet represent protection, N--1 reconfiguration, or converter-control transients. Its role is narrower. It checks whether the ranking observed in the simpler single-path model survives when the scenarios are forced onto the same explicit multi-block campus topology.
+This extension is intentionally still simplified: it is radial, balanced, and quasi-static, and it does not yet represent protection or converter-control transients. Its role is narrower. It checks whether the ranking observed in the simpler single-path model survives when the scenarios are forced onto the same explicit multi-block campus topology. A separate public benchmark layer, described next, is then used to test whether the AC-boundary conclusions survive mirrored benchmark locations, local single-branch-outage screens, and non-coherent block-level dynamic patterns.
+
+\subsection{Public benchmark robustness layer}
+To avoid relying only on locally defined reference cases, the paper adds a public-data-only robustness layer. Annualized part-load sensitivity is derived from the public NREL ESIF facility IT-power series. Grid-facing voltage and branch-loading sensitivity are screened on the public RTS-GMLC network, and a same-feeder common-network screen is run on a public SMART-DS feeder benchmark \cite{RTSGMLC2026,SMARTDS2023}. For a given point of interconnection set $\mathcal{P}$, the maximum POI voltage-drop proxy is
+\begin{equation}
+\Delta V_{\text{POI,max}} = \max_{k \in \mathcal{P}} \left( \left|V_k^{(0)}\right| - \left|V_k\right| \right) \times 100,
+\end{equation}
+expressed in percentage points relative to the published RTS operating point. Local N--1 robustness is then summarized as
+\begin{equation}
+M_{N-1} = \max_{o \in \Omega} M(o),
+\end{equation}
+where $\Omega$ is the set of one-at-a-time local branch outages around the candidate campus buses, and $M$ is any screened metric such as incremental loading, voltage-drop proxy, or harmonic-sensitivity proxy.
+
+This public benchmark layer is still not a site-specific interconnection study. Its role is to test whether the claimed advantages remain visible when the same scenarios are placed on common public benchmark networks and subjected to mirrored area placements, local branch outages, and more realistic multi-block swing patterns.
+
+\subsection{Public RMS dynamic benchmark}
+The public benchmark stack is extended with an electromechanical RMS dynamic study on the public IEEE~14-bus full dynamic case distributed with ANDES \cite{Cui2021ANDES}. Scenario~2(M) is represented as four distributed AC-fed block interfaces, while Scenario~3(M) is represented as one centralized upstream interface. Disturbance magnitudes are taken from the public MIT Supercloud positive-event burst library and are applied as benchmark load steps rather than as converter-aware controls \cite{MITSupercloud2021}. The study reports two primary metrics:
+\begin{equation}
+V_{\text{campus,min}} = \min_{k \in \mathcal{P},\, t \in \mathcal{T}} |V_k(t)|,
+\end{equation}
+\begin{equation}
+\Delta f_{\text{campus,max}} = \max_{k \in \mathcal{P},\, t \in \mathcal{T}} \left| f_k(t) - f_0 \right|,
+\end{equation}
+where $\mathcal{P}$ is the set of campus buses, $\mathcal{T}$ is the simulation horizon, and $f_0$ is the nominal system frequency. A second benchmark mode weakens the remote AC corridor by tripping one published transmission line before the MIT-derived burst step. This remains an RMS benchmark rather than an EMT study, but it strengthens the dynamic evidence at the upstream AC boundary.
+
+\subsection{Reduced-order fault-duty screen}
+The paper also adds a reduced-order MVDC fault screen for Scenario~3(M). Starting from the full-load backbone currents of the multi-node campus model, representative backbone and branch locations are evaluated with a simple RL current-rise model,
+\begin{equation}
+i_f(t) = I_{\infty} - \left(I_{\infty} - I_0\right)e^{-t/\tau},
+\end{equation}
+with
+\begin{equation}
+I_{\infty} = \frac{V_{\text{dc}}}{R_{\text{tot}}}, \qquad \tau = \frac{L_{\text{tot}}}{R_{\text{tot}}}.
+\end{equation}
+Public benchmark values are used for line inductance and breaker-timescale categories \cite{Wang2024ShortCircuit,Taherzadeh2023DCCB}. The role of this screen is not to prove a selective protection design. Its role is to bound the interruption timescales and fault-current growth rates that any practical MVDC protection concept would need to address.
 
 \subsection{Source basis and limitations}
-The strongest public anchors in this study come from the IEA, EIA, PNNL, official NVIDIA materials, Open Compute Project data, Schneider Electric specifications, and peer-reviewed literature on DC power conversion and data-center dynamics \cite{IEA2025EnergyAI,EIA2026Monthly,NVIDIA2025SuperPOD,NVIDIA2025HVDCBlog,PNNL2026EMT,OCP2026Delta,Schneider2025GalaxyVX,Rothmund2019DCXfmr,Mishra2025Oscillation}. Some key quantities remain proxy-based, especially the exact partial-load curves for the centralized medium-voltage rectifier and the isolated DC pod stage. Those proxies are labeled accordingly in the model artifacts, and the resulting ranking should be interpreted as conditional on those assumptions rather than as a finalized deployment result.
+The strongest public anchors in this study come from the IEA, EIA, PNNL, official NVIDIA materials, Open Compute Project data, Schneider Electric specifications, public benchmark repositories, the MIT Supercloud dataset, ANDES, and peer-reviewed literature on DC power conversion, data-center dynamics, and HVDC protection \cite{IEA2025EnergyAI,EIA2026Monthly,NVIDIA2025SuperPOD,NVIDIA2025HVDCBlog,PNNL2026EMT,OCP2026Delta,Schneider2025GalaxyVX,Rothmund2019DCXfmr,Mishra2025Oscillation,MITSupercloud2021,Cui2021ANDES,RTSGMLC2026,SMARTDS2023,Taherzadeh2023DCCB,Wang2024ShortCircuit}. Some key quantities remain proxy-based, especially the exact partial-load curves for the centralized medium-voltage rectifier and the isolated DC pod stage. Those proxies are labeled accordingly in the model artifacts, and the resulting ranking should be interpreted as conditional on those assumptions rather than as a finalized deployment result.
 
 \section{Results}
 \subsection{Steady-state architecture results}
@@ -108,13 +161,13 @@ Figure~\ref{fig:efficiency} shows the cumulative-efficiency thesis graphically, 
         Scenario & Full-load eff. & Input MW & Loss GWh/yr & Loss cost (\$M/yr) \\
         \midrule
         Scenario~1: Traditional AC-centric & 87.48\% & 114.31 & 125.36 & 11.65 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 91.90\% & 108.81 & 77.21 & 7.17 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 91.82\% & 108.91 & 78.06 & 7.25 \\
         Scenario~3: Proposed MVDC backbone & 92.17\% & 108.50 & 74.45 & 6.92 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-The steady-state result is materially traceable and still architecturally relevant after correcting the scenario endpoint. Scenario~3 remains the numerically best case, but the margin over Scenario~2 is modest: about 0.27 percentage points in full-load efficiency and about 2.76~GWh in annualized losses under the reference continuous-operation profile. That smaller margin matters. It means the strongest remaining argument for Scenario~3 is no longer a dramatic single-path efficiency gain alone, but a combination of directional efficiency benefit, centralized AC interaction, and a cleaner campus-scale DC architecture.
+The steady-state result is materially traceable and still architecturally relevant after correcting the scenario endpoint. Scenario~3 remains the numerically best case in this reference profile, but the margin over Scenario~2 is still modest: about 0.35 percentage points in full-load efficiency and about 3.61~GWh in annualized losses under the reference continuous-operation profile. That smaller margin matters. It means the strongest remaining argument for Scenario~3 is not a dramatic single-path efficiency gain alone. It is a combination of modest directional efficiency benefit, centralized AC interaction, and a cleaner campus-scale DC architecture.
 
 \subsection{Dynamic-load results}
 The need for a dynamic model is motivated by the public evidence that AI-training facilities can exhibit periodic power swings and grid-relevant interactions. Figure~\ref{fig:gpu} summarizes the dynamic-load motivation, and Table~\ref{tab:dynamic} presents selected dynamic results from the analytical model.
@@ -135,17 +188,17 @@ The need for a dynamic model is motivated by the public evidence that AI-trainin
         Scenario & Case & Raw PCC peak (MW) & Native buffer (MW) & Native buffer (kWh) \\
         \midrule
         Scenario~1: Traditional AC-centric & 1.0~Hz, 15\% IT amplitude & 17.09 & 15.20 & 0.67 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 1.0~Hz, 15\% IT amplitude & 16.31 & 15.40 & 0.68 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 1.0~Hz, 15\% IT amplitude & 16.32 & 15.40 & 0.68 \\
         Scenario~3: Proposed MVDC backbone & 1.0~Hz, 15\% IT amplitude & 16.26 & 15.47 & 0.68 \\
         \midrule
         Scenario~1: Traditional AC-centric & 14.8~Hz, 10\% IT amplitude & 11.35 & 10.14 & 0.03 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 14.8~Hz, 10\% IT amplitude & 10.83 & 10.27 & 0.03 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 14.8~Hz, 10\% IT amplitude & 10.85 & 10.27 & 0.03 \\
         Scenario~3: Proposed MVDC backbone & 14.8~Hz, 10\% IT amplitude & 10.80 & 10.31 & 0.03 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Two points are important. First, the scenario ranking remains slightly favorable to Scenario~3 when the load is treated dynamically rather than only statically. Second, the margin between scenarios is smaller in the dynamic power-swing metric than in the annual energy metric, which is exactly why dynamic modeling is required. A paper that only reported annual losses would miss an essential part of the AI-factory problem. The correct interpretation is therefore not that Scenario~3 is decisively proven by this layer; it is that the MVDC backbone remains directionally favorable even after the comparison is widened beyond steady-state efficiency.
+Two points are important. First, the scenario ranking remains only slightly favorable to Scenario~3 when the load is treated dynamically rather than only statically. Second, the margin between scenarios is smaller in the dynamic power-swing metric than in the annual energy metric, which is exactly why dynamic modeling is required. A paper that only reported annual losses would miss an essential part of the AI-factory problem. The correct interpretation is therefore not that Scenario~3 is proven by this layer. It is only that the backbone architecture remains plausible when the comparison is widened beyond steady-state efficiency. The stronger dynamic evidence later in the paper comes from the multi-node dynamic-diversity screen, which distinguishes grid-facing source swing from internal backbone-current redistribution.
 
 \subsection{OpenDSS AC-boundary cross-check}
 The OpenDSS results add a feeder-side cross-check perspective. Table~\ref{tab:opendssbase} reports the 100~MW base-case AC-boundary results, and Table~\ref{tab:opendssstress} reports selected dynamic stress results.
@@ -159,7 +212,7 @@ The OpenDSS results add a feeder-side cross-check perspective. Table~\ref{tab:op
         Scenario & Source MW & PCC min pu & Feeder loss (MW) & Peak current (A) \\
         \midrule
         Scenario~1: Traditional AC-centric & 114.48 & 0.9707 & 0.194 & 1005 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 108.95 & 0.9722 & 0.175 & 955 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 109.05 & 0.9722 & 0.176 & 956 \\
         Scenario~3: Proposed MVDC backbone & 108.49 & 0.9742 & 0.004 & 951 \\
         \bottomrule
     \end{tabular}
@@ -174,11 +227,11 @@ The OpenDSS results add a feeder-side cross-check perspective. Table~\ref{tab:op
         Scenario & Case & Source peak (MW) & Max PCC swing & Peak feeder loss (MW) \\
         \midrule
         Scenario~1: Traditional AC-centric & 1.0~Hz, 15\% IT amplitude & 17.15 & 0.50\% & 0.259 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 1.0~Hz, 15\% IT amplitude & 16.38 & 0.47\% & 0.234 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 1.0~Hz, 15\% IT amplitude & 16.40 & 0.47\% & 0.234 \\
         Scenario~3: Proposed MVDC backbone & 1.0~Hz, 15\% IT amplitude & 16.27 & 0.44\% & 0.006 \\
         \midrule
         Scenario~1: Traditional AC-centric & 14.8~Hz, 10\% IT amplitude & 11.39 & 0.33\% & 0.236 \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 14.8~Hz, 10\% IT amplitude & 10.89 & 0.31\% & 0.213 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 14.8~Hz, 10\% IT amplitude & 10.90 & 0.31\% & 0.214 \\
         Scenario~3: Proposed MVDC backbone & 14.8~Hz, 10\% IT amplitude & 10.82 & 0.29\% & 0.005 \\
         \bottomrule
     \end{tabular}
@@ -198,13 +251,13 @@ The present paper also adds a standardized OpenDSS harmonic-sensitivity scan at 
         Scenario & Probe THD$_v$ (\%) & Max transfer impedance ($\Omega$, L--N) & Interpretation \\
         \midrule
         Scenario~1: Traditional AC-centric & 10.02 & 215.05 & Most sensitive AC boundary \\
-        Scenario~2: 69~kV AC to 800~VDC perimeter conversion & 9.57 & 205.54 & Reduced sensitivity versus Scenario~1 \\
+        Scenario~2: AC-fed SST plus 800~VDC baseline & 9.58 & 205.71 & Reduced sensitivity versus Scenario~1 \\
         Scenario~3: Proposed MVDC backbone & 9.30 & 199.91 & Lowest sensitivity in the present scan \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-The harmonic-sensitivity result does not establish formal compliance margins, but it does add quantitative support to the power-quality argument. The architecture with the most centralized AC interface also produces the lowest voltage-distortion response under the same harmonic-current probe. That is a stronger basis for the power-quality claim than topology alone.
+The harmonic-sensitivity result does not establish formal compliance margins, but it does add quantitative support to the power-quality argument. The architecture with the most centralized AC interface also produces the lowest voltage-distortion response under the same harmonic-current probe. That is a stronger basis for the power-quality claim than topology alone, but it remains a comparative sensitivity result rather than a blinded compliance study.
 
 \subsection{Multi-node campus comparison}
 Table~\ref{tab:multinode} reports the follow-on campus comparison in which all three scenarios are mapped onto the same four-block topology. This is the strongest topology-level check in the present paper because it removes the objection that Scenario~3 only wins in an overly collapsed equivalent path.
@@ -218,13 +271,94 @@ Table~\ref{tab:multinode} reports the follow-on campus comparison in which all t
         Scenario & Full-load eff. & Source MW & Loss GWh/yr & Worst dynamic source peak (MW) \\
         \midrule
         Scenario~1(M): Traditional AC-centric & 81.11\% & 123.29 & 204.05 & 17.86 \\
-        Scenario~2(M): 69~kV AC to 800~VDC perimeter conversion & 86.19\% & 116.03 & 140.38 & 16.92 \\
+        Scenario~2(M): AC-fed SST plus 800~VDC baseline & 85.16\% & 117.43 & 152.70 & 17.03 \\
         Scenario~3(M): Multi-node MVDC backbone & 86.69\% & 115.36 & 134.55 & 16.81 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-The shared-campus result is important for two reasons. First, the ranking remains unchanged: the MVDC-backbone case still performs best when the campus is represented as multiple data-center blocks rather than one equivalent path. Second, the gap between Scenario~3(M) and Scenario~2(M) is again modest rather than dramatic, which means the multi-node model supports the architecture direction but does not, by itself, close the case. That is exactly the right interpretation for a position paper rather than a deployment paper.
+The shared-campus result is important for two reasons. First, the ranking remains unchanged: the MVDC-backbone case still performs best when the campus is represented as multiple data-center blocks rather than one equivalent path. Second, the gap between Scenario~3(M) and Scenario~2(M) is again modest rather than dramatic, which means the multi-node model supports the architecture direction but does not, by itself, close the case. That is exactly the right interpretation for a position paper rather than a deployment paper. Even so, this shared-campus model is the strongest efficiency layer in the manuscript because it tests the scenarios on the same explicit backbone and block layout.
+
+\subsection{Public benchmark robustness and dynamic-diversity screens}
+The manuscript also includes a public-data-only robustness layer to test whether the campus-scale conclusions survive non-local assumptions. In the ESIF-based annualized part-load screen, the single-path result now remains favorable to Scenario~3 relative to the AC-fed SST baseline: Scenario~3 is better than Scenario~2 for 100.0\% of annualized hours and yields a smaller total annualized loss. The multi-node comparison is stronger still: Scenario~3(M) is better than Scenario~2(M) for 100.0\% of annualized hours and yields a materially smaller annualized loss under the same ESIF bins. The implication is that the architecture case is no longer resting on a perimeter-conversion shortcut, but on a comparison against an explicit SST baseline.
+
+The public RTS-GMLC benchmark screens also make the AC-boundary claim more specific. At the base mirrored-area benchmark location, Scenario~3(M) has a harmonic-sensitivity proxy of 0.00533~pu compared with 0.04088~pu for Scenario~2(M), and a maximum POI voltage-drop proxy of 0.511 percentage points compared with 2.839 for Scenario~2(M). Across the three mirrored RTS areas, the Scenario~2(M)-to-Scenario~3(M) ratio remains at least 4.47$\times$ for the harmonic proxy and 2.85$\times$ for the voltage-drop proxy. These are sensitivity-screen results, not compliance margins, but they are the strongest public-data support in the current paper.
+
+The same direction also survives a common-network benchmark on a public SMART-DS feeder. In that same-feeder screen, Scenario~3(M) produces lower weighted incremental feeder losses, lower burst-driven line-loading change, and more surviving local N--1 cases than Scenario~2(M). When equal total harmonic current is imposed on that same feeder, the maximum POI THD$_v$ proxy remains lower for Scenario~3(M) by 64.49$\times$ to 83.69$\times$ across the tested spectrum families. That result is useful precisely because the total harmonic current is held equal; the remaining separation is therefore an interface-and-network effect rather than a trivial injection-magnitude effect.
+
+\begin{table}[t]
+    \centering
+    \caption{Local N--1 benchmark robustness for Scenario~2(M) and Scenario~3(M)}
+    \label{tab:nminusone}
+    \begin{tabular}{p{0.8in}ccccc}
+        \toprule
+        Area & Valid outages & S2(M) worst incr. load (\%) & S3(M) worst incr. load (\%) & S2(M) worst $\Delta V_{\text{POI,max}}$ & S3(M) worst $\Delta V_{\text{POI,max}}$ \\
+        \midrule
+        Area~1 & 14 & 19.26 & 13.42 & 5.037 & 0.511 \\
+        Area~2 & 15 & 17.25 & 11.63 & 8.155 & 2.110 \\
+        Area~3 & 14 & 18.40 & 12.84 & 10.381 & 2.400 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Table~\ref{tab:nminusone} extends the same benchmark logic to local one-at-a-time branch outages around each candidate campus area. In the present screen, Scenario~3(M) retains lower incremental loading and lower POI voltage-drop proxy in all three areas. The minimum Scenario~2(M)-to-Scenario~3(M) ratio across the worst local-outage harmonic screens is 6.30$\times$, and the corresponding minimum ratio for the worst local-outage voltage-drop screen is 3.86$\times$. This is still not a post-contingency dispatch or protection study, but it materially strengthens the argument that the upstream AC-boundary advantage is not confined to the intact network.
+
+\begin{table}[t]
+    \centering
+    \caption{Dynamic-diversity screen for the multi-node campus model (1.0~Hz, 10\% block-level amplitude)}
+    \label{tab:dynamicdiversity}
+    \begin{tabular}{p{1.7in}cccc}
+        \toprule
+        Mode & S2(M) $\Delta P_{\text{src,max}}$ (MW) & S3(M) $\Delta P_{\text{src,max}}$ (MW) & S2(M) $\Delta I_{\text{seg,max}}$ (A) & S3(M) $\Delta I_{\text{seg,max}}$ (A) \\
+        \midrule
+        Coherent campus & 11.331 & 11.204 & 96.75 & 161.56 \\
+        Largest block only & 2.833 & 2.806 & 24.18 & 40.38 \\
+        One up, one down & 0.021 & 0.016 & 24.19 & 40.39 \\
+        Split-campus opposition & 0.043 & 0.032 & 48.37 & 80.78 \\
+        Two-block cluster & 5.665 & 5.613 & 48.37 & 80.77 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Table~\ref{tab:dynamicdiversity} is equally important because it prevents overclaiming. Across all five multi-block dynamic patterns, Scenario~3(M) keeps a slightly lower grid-facing source swing than Scenario~2(M). However, it also produces substantially larger internal segment-current redistribution. The architecture therefore does not reduce every dynamic stress. It shifts some of the burden from the upstream AC boundary into the internal backbone. That tradeoff is a central part of the correct interpretation.
+
+\subsection{Public RMS dynamic benchmark}
+The public RMS benchmark strengthens the dynamic case at the upstream AC boundary by moving from quasi-static screens to an electromechanical time-domain comparison on a published dynamic case. Table~\ref{tab:rmsdynamic} shows the 25\% campus-share benchmark under the MIT-derived 900~s p95 burst magnitude.
+
+\begin{table}[t]
+    \centering
+    \caption{Public RMS dynamic benchmark at 25\% campus share and MIT-derived 900~s p95 burst}
+    \label{tab:rmsdynamic}
+    \begin{tabular}{p{1.55in}ccccc}
+        \toprule
+        Grid mode & S2(M) TDS & S3(M) TDS & S2(M) $V_{\text{campus,min}}$ & S3(M) $V_{\text{campus,min}}$ & S2/S3 max $|\Delta f|$ (Hz) \\
+        \midrule
+        Normal network & OK & OK & 0.9222 & 0.9905 & 0.602 / 0.574 \\
+        Remote corridor weakened & OK & OK & 0.7118 & 0.9875 & 0.678 / 0.584 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The RMS result is materially stronger than the earlier quasi-static dynamic layer. Under the weakened-corridor benchmark, Scenario~3(M) improves the minimum campus voltage from 0.7118~pu to 0.9875~pu for the 25\% campus-share, 900~s p95 burst case. Across the converged benchmark pairs, the strongest voltage separation reaches 0.2757~pu. Several of the heaviest distributed-interface Scenario~2(M) stress cases do not converge in the published RMS benchmark and are treated here as stability-screen failures rather than as waveform results. This still does not prove converter dynamics or EMT stability, but it does materially strengthen the claim that centralized AC-boundary exposure is lower in Scenario~3(M) under weak-grid stress.
+
+\subsection{Reduced-order fault-duty screen}
+The manuscript now also includes a reduced-order fault-duty screen for the Scenario~3(M) backbone. Table~\ref{tab:faultscreen} reports the baseline 100~mH reactor and 0.01~$\Omega$ fault-resistance case at two representative locations.
+
+\begin{table}[t]
+    \centering
+    \caption{Reduced-order fault-duty screen for Scenario~3(M)}
+    \label{tab:faultscreen}
+    \begin{tabular}{p{1.6in}cccc}
+        \toprule
+        Location & Prefault current (kA) & 5~ms current (kA) & 5~ms $I^2t$ (MA$^2$s) & Time to 5~kA (ms) \\
+        \midrule
+        Remote branch end & 0.42 & 3.81 & 0.03 & 6.75 \\
+        Source-backbone midpoint & 1.66 & 5.10 & 0.06 & 4.85 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+In the full public sweep, the worst 5~ms current occurs at the source-backbone midpoint with a 50~mH reactor and 0.01~$\Omega$ fault resistance, reaching 8.53~kA, while the fastest time to 5~kA is 2.43~ms. This is not a protection design. It is a public-data-only interruption-timescale screen. The point is narrower and still important: if the MVDC backbone is taken seriously, millisecond-scale interruption requirements and current-rise behavior become first-order engineering questions rather than deferred implementation details.
 
 \subsection{Proxy-robustness stress test}
 Because several advanced-converter curves remain proxy-based, the paper also includes a simple robustness check on the three most consequential proxy curves: the 69~kV AC to 800~VDC perimeter converter, the centralized MV AC/DC front end, and the isolated DC pod stage. In that stress test, each of the three curves is shifted by $\pm$1 percentage point in additive efficiency offset over a five-point grid, yielding 125 combined cases.
@@ -232,32 +366,60 @@ Because several advanced-converter curves remain proxy-based, the paper also inc
 The stress test shows that the ranking is not fully robust to proxy uncertainty. Scenario~3 remains more efficient than Scenario~2 in 69 of the 125 single-path cases, and Scenario~3(M) remains more efficient than Scenario~2(M) in 88 of the 125 multi-node cases. This is a useful result precisely because it is not uniformly favorable: it shows that measured front-end and isolated-pod efficiency data are not a cosmetic refinement but a gating requirement for a journal-grade quantitative claim.
 
 \section{Discussion}
-The results support three main conclusions: lower end-to-end loss, cleaner power-quality ownership, and simpler integration of DC-native resources. The evidence for each conclusion has a different strength, and that distinction matters.
+The results support four main conclusions: a scale-dependent efficiency case for the multi-node backbone, a stronger AC-boundary power-quality case, a stronger AC-boundary voltage-sensitivity case, and a stronger public-benchmark dynamic case for centralized AC-boundary exposure. The evidence for these conclusions is not symmetric, and the paper is stronger when it states that explicitly.
 
-The loss-reduction conclusion is supported most directly, but it is also the conclusion most constrained by proxy uncertainty. The steady-state model shows a clear ranking across Scenario~1, Scenario~2, and Scenario~3, and that ranking remains meaningful even when Scenario~2 is included as a strong advanced comparator rather than only the traditional baseline. More importantly, the ranking survives the multi-node extension in Table~\ref{tab:multinode}. At the same time, the proxy-robustness stress test shows that the margin between Scenario~2 and Scenario~3 is not insensitive to front-end and isolated-pod assumptions. The current evidence therefore supports a directional efficiency preference, not a large or fully settled quantitative advantage.
+\begin{table}[t]
+    \centering
+    \caption{Evidence boundary for the present manuscript}
+    \label{tab:evidenceboundary}
+    \begin{tabular}{p{2.15in}p{1.7in}p{1.65in}}
+        \toprule
+        Claim & Strongest current evidence & Present status \\
+        \midrule
+        Single-path Scenario~3 $>$ Scenario~2 efficiency superiority & Source-anchored path model plus public ESIF annualization & Supported, still proxy-dependent \\
+        Multi-node Scenario~3(M) efficiency advantage & Shared-campus model plus public ESIF annualization & Supported across tested scales \\
+        Centralized AC-boundary harmonic advantage & Harmonic proxy plus mirrored-area and N--1 screens & Strong at sensitivity-screen level \\
+        Centralized AC-boundary voltage advantage & RTS voltage screen plus mirrored-area and N--1 screens & Strong at sensitivity-screen level \\
+        RMS weak-grid voltage robustness & Public ANDES benchmark with MIT-derived burst library & Strong at public benchmark level \\
+        Protection-timescale plausibility for Scenario~3(M) & Reduced-order RL fault envelope & Partially supported; design not proven \\
+        Lower internal dynamic stress & Dynamic-diversity screen & Not supported; internal redistribution increases \\
+        Deployment-ready MVDC architecture & None & Not proven \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-The power-quality conclusion is now supported more directly, although still not at full compliance-study strength. The architecture comparison reduces the number of AC-side interaction points from four in the traditional case to one in the two advanced cases. The added OpenDSS harmonic-sensitivity scan also shows the lowest probe THD$_v$ and the lowest transfer impedance in Scenario~3 under the same injected harmonic-current basis. This still does not replace a full IEEE~519 study with converter-specific spectra and utility short-circuit data. It does, however, move the paper beyond a purely topological power-quality argument.
+Table~\ref{tab:evidenceboundary} summarizes the current evidence boundary. The loss-reduction conclusion is now supported in both the single-path and multi-node comparisons relative to the AC-fed SST baseline, but it remains constrained by proxy uncertainty. The multi-node comparison is still the stronger efficiency layer because the campus topology is explicit and the public ESIF bins keep Scenario~3(M) ahead of Scenario~2(M) across the full tested expansion range.
 
-The DC-native-integration conclusion is also supported directionally. The dynamic model's native-buffer calculations show that the natural support point of the MVDC architecture sits inside the DC domain rather than behind repeated AC boundaries. That does not yet quantify the best battery placement or control law. It does show that the architecture aligns the buffering problem with the same electrical domain as the load.
+The power-quality conclusion remains stronger than the efficiency conclusion in the current manuscript. The architecture comparison reduces the number of AC-side interaction points, and the added public harmonic-sensitivity screens show that the centralized-interface Scenario~3(M) remains materially less sensitive than Scenario~2(M) across mirrored benchmark areas and local one-at-a-time branch outages. This still does not replace a full IEEE~519 study with converter-specific spectra and utility short-circuit data. It does justify a narrower claim: centralizing the AC interface appears favorable for grid-facing harmonic sensitivity under the public benchmark assumptions used here.
 
-The present model is strong enough to defend three statements:
+The upstream voltage-sensitivity conclusion is similarly strong at the benchmark-screen level. Scenario~3(M) consistently shows lower POI voltage-drop proxy than Scenario~2(M) at the base mirrored benchmark locations and in the local N--1 screens. This is again a sensitivity-screen result rather than a site-specific interconnection result, but it is exactly the kind of architecture-level evidence that a white paper should present clearly.
+
+The public RMS benchmark sharpens that same conclusion under a stronger dynamic test. On the published IEEE~14 dynamic case with MIT-derived burst magnitudes, Scenario~3(M) keeps materially higher minimum campus voltage than Scenario~2(M), especially when the remote corridor is weakened before the burst step. This is still not converter-EMT evidence, but it is much closer to a true disturbance-response screen than the earlier quasi-static dynamic layer.
+
+The dynamic-diversity screen changes the interpretation of the integration argument. The present model supports the claim that Scenario~3(M) slightly reduces grid-facing source swing across coherent and non-coherent block patterns. It does \emph{not} support a blanket claim that the architecture reduces all dynamic stress. Internal backbone current redistribution increases materially in Scenario~3(M), which means the benefit is primarily at the upstream AC boundary and not an automatic reduction of all internal transients.
+
+The new fault-duty screen sharpens the protection discussion in a different way. It does not prove a selective protection design, but it does bound the order of magnitude of fault-current rise and the interruption timescale that the backbone would force onto any practical breaker concept. That means protection is no longer a vague future-work placeholder in the manuscript; it is now a bounded unresolved problem with explicit millisecond timescale implications.
+
+The paper should therefore defend six bounded statements:
 \begin{itemize}
-    \item Moving from Scenario~2 to Scenario~3, not only from Scenario~1 to Scenario~3, improves end-to-end electrical-path efficiency in the corrected present source-anchored scenario, although the margin is modest.
-    \item That same ranking survives the added four-block campus comparison across Scenario~1(M), Scenario~2(M), and Scenario~3(M).
-    \item AI-factory architecture should be evaluated under dynamic-load conditions, not only annual energy accounting.
-    \item An AC-boundary OpenDSS cross-check shows lower feeder current, lower feeder loss, lower PCC voltage swing, and lower harmonic-sensitivity response when the campus-interior AC path is removed.
+    \item The single-path Scenario~3 result is favorable relative to the AC-fed SST baseline, but it remains quantitatively modest and proxy-dependent.
+    \item The multi-node Scenario~3(M) result is the stronger efficiency case and remains favorable across the tested campus-growth range.
+    \item Centralizing the AC boundary materially improves the present public-network harmonic and voltage sensitivity screens.
+    \item The public RMS benchmark strengthens the case that Scenario~3(M) improves upstream weak-grid voltage robustness under burst loading.
+    \item Dynamic evaluation is mandatory, and the present evidence shows both an upstream benefit and an internal-backbone tradeoff.
+    \item The fault-duty screen bounds interruption timescales, but deployable MVDC protection remains an open design problem.
 \end{itemize}
 
-The paper should not yet claim that the present model proves exact harmonic compliance, exact converter-control stability margins, or deployable MVDC protection settings. Those are the right next topics, but they are not required for a strong position paper.
+The paper should not claim that the present model proves exact harmonic compliance, exact converter-control stability margins, deployable MVDC protection settings, or universal superiority of Scenario~3 over Scenario~2 under all operating assumptions.
 
 \section{Research Priorities}
 The present results establish a defensible architecture-level case for an MVDC backbone, but several research questions remain open before the concept can be treated as deployment-ready. The most important next steps are the following.
 
 \begin{itemize}
-    \item \textbf{Protection and grounding:} Develop equipment-specific fault-clearing, grounding, insulation-coordination, and sectionalization concepts for the MVDC backbone.
+    \item \textbf{Protection and grounding:} Build from the present reduced-order fault envelope into equipment-specific fault-clearing, grounding, insulation-coordination, and sectionalization concepts for the MVDC backbone.
     \item \textbf{Converter characterization:} Replace proxy efficiency curves with vendor-qualified or experimentally measured curves for the centralized rectifier and isolated DC pod stages.
     \item \textbf{PCC studies:} Extend the present AC-boundary model into a site-specific interconnection study using utility Thevenin equivalents, harmonic limits, and short-circuit data.
-    \item \textbf{Dynamic controls:} Move from the present quasi-static and analytical dynamic layers to converter-aware EMT studies with explicit control models for the centralized front end, isolated DC pod, and supporting buffers.
+    \item \textbf{Dynamic controls:} Build from the public RMS benchmark into converter-aware EMT studies with explicit control models for the centralized front end, isolated DC pod, and supporting buffers.
     \item \textbf{Buffer placement:} Determine the preferred placement and control role of subsecond energy buffers across the GPU, rack, pod, and backbone levels.
 \end{itemize}
 
@@ -266,11 +428,13 @@ Among these topics, the highest-value next modeling step is an EMT-grade validat
 \section{Conclusion}
 This paper argues that the next logical move after the 800~VDC facility bus is to seriously evaluate a DC subtransmission backbone. The position is motivated by three facts that now occur together: AI factories are becoming very large loads, they are increasingly dynamic loads, and the dominant controllable resources around them are already DC-native.
 
-The current source-anchored model supports that position directionally rather than conclusively. At the 100~MW reference campus, Scenario~3, the proposed MVDC backbone, achieves the best full-load efficiency and the lowest annualized reference-profile losses among the three evaluated scenarios, but its margin over Scenario~2 is modest. The dynamic-load layer further shows that the architecture question does not disappear when AI loads are treated as time-varying. The OpenDSS cross-check adds a second result: pushing the AC boundary upstream reduces the modeled AC-side feeder burden at the campus boundary.
+The present source-anchored and public-benchmark results support that position more strongly once Scenario~2 is treated as an explicit AC-fed SST plus 800~VDC baseline. At the 100~MW reference campus, Scenario~3, the proposed MVDC backbone, remains the best case in the single-path reference profile, although its margin over Scenario~2 is still modest. The stronger result comes from the shared-campus comparison and the public benchmark screens. When all three scenarios are forced onto the same explicit four-block campus topology, Scenario~3(M) still yields the best efficiency. More importantly, it also yields the strongest public-data case for lower AC-boundary harmonic sensitivity and lower AC-boundary voltage sensitivity, and those advantages persist in mirrored benchmark areas and local one-at-a-time branch-outage screens.
 
-The follow-on multi-node comparison strengthens that conclusion further, but it also disciplines it. When all three scenarios are forced onto the same explicit four-block campus topology, the MVDC-backbone case still yields the best efficiency, the lowest annualized reference-profile loss, and the smallest worst-case source swing in the present dynamic stress set. The result is therefore not confined to a one-line equivalent architecture model, but it is also not yet strong enough to eliminate the need for measured converter data and EMT-grade validation.
+The dynamic evidence also becomes more precise in this framing. The architecture question does not disappear when AI loads are treated as time-varying, but the benefit is not uniform. Scenario~3(M) slightly lowers grid-facing source swing in the present dynamic-diversity screen, while also increasing internal backbone current redistribution. The public RMS benchmark strengthens the upstream side of that argument by showing materially higher minimum campus voltage for Scenario~3(M) under MIT-derived burst steps, especially when the remote AC corridor is weakened. The correct conclusion is therefore not that the backbone eliminates dynamic stress. It is that it appears to shift dynamic stress away from the upstream AC boundary and into an internal DC domain that still requires dedicated control and protection design.
 
-The result is not a claim that every deployment question is finished. It is a claim that the right reference architecture has become visible. For AI factories, the higher-value move is no longer only a better facility front end. It is a campus architecture that treats the DC nature of the load as a first-order design principle.
+The protection evidence is also sharper than before. The reduced-order fault screen does not deliver breaker settings or a protection philosophy, but it does show that representative source-side backbone faults can reach the 5~kA level within a few milliseconds under public benchmark assumptions. That makes protection and interruption timescale a first-order design topic rather than a vague future concern.
+
+The result is not a claim that every deployment question is finished. It is a claim that the right campus-scale reference architecture has become visible. For AI factories, the higher-value move is no longer only a better facility front end. It is a campus architecture that treats the DC nature of the load as a first-order design principle while being explicit about the limits of the current evidence.
 
 \section*{Reproducibility Note}
 The quantitative results in this manuscript are generated from the project files \texttt{dc\_backbone\_model.py}, \texttt{scientific\_assumptions\_v1.json}, \texttt{source\_backed\_model\_report.json}, \texttt{dc\_backbone\_multinode\_campus\_model.py}, and \texttt{multinode\_campus\_report.json}. The single-path OpenDSS validation can be reproduced with:
@@ -283,6 +447,27 @@ The multi-node campus comparison can be reproduced with:
 \begin{verbatim}
 python3 dc_backbone_multinode_campus_model.py \
   --save-json multinode_campus_report.json
+\end{verbatim}
+The public benchmark and robustness screens can be reproduced with:
+\begin{verbatim}
+python3 dc_backbone_public_benchmark_model.py \
+  --save-json public_benchmark_report.json
+
+python3 dc_backbone_public_benefit_analysis.py \
+  --save-json public_benefit_report.json \
+  --save-note PUBLIC_BENEFIT_ANALYSIS.md
+\end{verbatim}
+The public operating, common-network, RMS, and fault screens can be reproduced with:
+\begin{verbatim}
+python3 public_time_series_ai_factory.py --details
+
+python3 public_common_network_td_study.py
+
+python3 public_harmonic_frequency_sweep.py --details
+
+python3 public_rms_dynamic_study.py
+
+python3 public_fault_envelope.py --details
 \end{verbatim}
 
 \bibliographystyle{IEEEtran}
